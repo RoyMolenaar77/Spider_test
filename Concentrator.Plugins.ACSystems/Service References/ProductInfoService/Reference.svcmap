@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f017b42c-2a10-41bf-ab2e-e90096aa3fb6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?wsdl" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ProductInfoService.xsd" MetadataType="Schema" ID="f89aca66-898a-41f6-8f1e-c6c4bde1c552" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ProductInfoService1.xsd" MetadataType="Schema" ID="4f2ae9b6-98f0-4b0f-95e3-1a85fab5eaf3" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd10" />
+    <MetadataFile FileName="ProductInfoService.wsdl" MetadataType="Wsdl" ID="e2a3ccc4-68b2-4267-9518-8b0e8edf5ffb" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="ProductInfoService2.xsd" MetadataType="Schema" ID="bdc77c01-d50f-4a69-8acc-8036b4c37b7b" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd8" />
+    <MetadataFile FileName="ProductInfoService3.xsd" MetadataType="Schema" ID="8b776bd3-3dd2-47fe-a7c2-1004fcb265b1" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd9" />
+    <MetadataFile FileName="ProductInfoService1.wsdl" MetadataType="Wsdl" ID="5c10716b-2a8c-49aa-9f41-c9f604caa3e5" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?wsdl" />
+    <MetadataFile FileName="ProductInfoService4.xsd" MetadataType="Schema" ID="ea014edf-2311-44e0-a428-5e2ca38a8478" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd14" />
+    <MetadataFile FileName="ProductInfoService5.xsd" MetadataType="Schema" ID="59958a4f-d368-4f2f-8415-04d175a25d7b" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd12" />
+    <MetadataFile FileName="ProductInfoService6.xsd" MetadataType="Schema" ID="99a4898a-b40f-4a0f-acca-f2aa97af2db5" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd16" />
+    <MetadataFile FileName="ProductInfoService7.xsd" MetadataType="Schema" ID="c773577b-48ad-4590-b2fa-bf5980db4a7a" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd13" />
+    <MetadataFile FileName="ProductInfoService2.wsdl" MetadataType="Wsdl" ID="fd12bbd0-91eb-4cd9-86d6-acde97934ffa" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?wsdl=wsdl1" />
+    <MetadataFile FileName="ProductInfoService8.xsd" MetadataType="Schema" ID="856555e4-183b-4ab6-91a1-92a066b3e740" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd19" />
+    <MetadataFile FileName="ProductInfoService9.xsd" MetadataType="Schema" ID="ca5d5d22-8e99-4aef-be83-e8debfc7bdf9" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd11" />
+    <MetadataFile FileName="ProductInfoService10.xsd" MetadataType="Schema" ID="70617e66-4fbb-4bdc-94c0-55a75b38c48e" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd15" />
+    <MetadataFile FileName="ProductInfoService11.xsd" MetadataType="Schema" ID="190a3046-fd13-42bf-8cee-49cd8ec66583" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd17" />
+    <MetadataFile FileName="ProductInfoService12.xsd" MetadataType="Schema" ID="c38ad860-29c9-4540-a864-1ca8e849dabb" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd18" />
+    <MetadataFile FileName="ProductInfoService13.xsd" MetadataType="Schema" ID="cc7a40d6-b6e0-490e-909d-d708a76e1cd4" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ProductInfoService14.xsd" MetadataType="Schema" ID="e2543895-a2bd-4a00-acc7-00d6569e605a" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ProductInfoService15.xsd" MetadataType="Schema" ID="686528b0-e668-419f-9500-59da6835e862" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd6" />
+    <MetadataFile FileName="ProductInfoService16.xsd" MetadataType="Schema" ID="34adc146-4196-4a44-96e4-7fd8b5fce183" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd7" />
+    <MetadataFile FileName="ProductInfoService17.xsd" MetadataType="Schema" ID="ec440db9-0445-42e4-a87f-bbd119930ce1" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ProductInfoService18.xsd" MetadataType="Schema" ID="8ac27d8b-d8f4-4f5d-9128-1255d55de526" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ProductInfoService19.xsd" MetadataType="Schema" ID="e16c75ee-1c6e-49a8-a7ec-3825c319cb82" SourceId="1" SourceUrl="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>D:\Publishing\Concentrator\CCAT\Service</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Assortment.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="AttributeImage.ashx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="bin/AuditLog4Net.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/BitMiracle.LibTiff.NET.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/CommonServiceLocator.NinjectAdapter.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Objects.dll">
+      <publishTime>05/27/2014 05:47:06</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Objects.WebToPrint.dll">
+      <publishTime>05/13/2014 07:43:17</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Plugins.PFA.Configuration.dll">
+      <publishTime>05/13/2014 07:43:16</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Service.Contracts.dll">
+      <publishTime>05/13/2014 07:43:16</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Vendors.PFA.dll">
+      <publishTime>05/13/2014 07:43:16</publishTime>
+    </File>
+    <File Include="bin/Concentrator.Web.Services.dll">
+      <publishTime>05/27/2014 22:29:14</publishTime>
+    </File>
+    <File Include="bin/Dapper.dll">
+      <publishTime>04/18/2014 10:49:39</publishTime>
+    </File>
+    <File Include="bin/EPPlus.dll">
+      <publishTime>05/05/2014 13:01:03</publishTime>
+    </File>
+    <File Include="bin/FileHelpers.dll">
+      <publishTime>05/05/2014 13:01:03</publishTime>
+    </File>
+    <File Include="bin/Ionic.Zip.dll">
+      <publishTime>10/19/2012 11:06:07</publishTime>
+    </File>
+    <File Include="bin/log4net.dll">
+      <publishTime>05/05/2014 13:00:52</publishTime>
+    </File>
+    <File Include="bin/Lucene.Net.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Common.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ObjectBuilder2.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.ServiceLocation.dll">
+      <publishTime>05/05/2014 13:01:03</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Practices.Unity.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Ninject.dll">
+      <publishTime>05/05/2014 13:01:03</publishTime>
+    </File>
+    <File Include="bin/Ninject.Web.Mvc.dll">
+      <publishTime>05/05/2014 13:01:04</publishTime>
+    </File>
+    <File Include="bin/PdfSharp.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/Quartz.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/SecureBlackbox.dll">
+      <publishTime>05/05/2014 13:00:52</publishTime>
+    </File>
+    <File Include="bin/SecureBlackbox.SFTP.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/SecureBlackbox.SFTPCommon.dll">
+      <publishTime>05/05/2014 13:00:51</publishTime>
+    </File>
+    <File Include="bin/SecureBlackbox.SSHClient.dll">
+      <publishTime>05/05/2014 13:00:52</publishTime>
+    </File>
+    <File Include="bin/SecureBlackbox.SSHCommon.dll">
+      <publishTime>05/05/2014 13:00:52</publishTime>
+    </File>
+    <File Include="bin/ThisMember.dll">
+      <publishTime>05/05/2014 13:01:04</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>05/05/2014 13:01:04</publishTime>
+    </File>
+    <File Include="Designer/PrintService.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="GetPrices.ashx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="ImageTranslate.ashx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="MediaService.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="OrderInbound.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="SelectorService.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="Settings.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+    <File Include="ZipCodes.asmx">
+      <publishTime>05/05/2014 13:00:53</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

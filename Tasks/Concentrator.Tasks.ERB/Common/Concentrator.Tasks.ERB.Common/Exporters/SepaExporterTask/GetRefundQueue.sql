@@ -1,0 +1,1 @@
+﻿select * from [DBO].[Refundqueue] where connectorid = @0;

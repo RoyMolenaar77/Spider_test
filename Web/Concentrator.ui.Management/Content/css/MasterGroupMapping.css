@@ -1,0 +1,414 @@
+﻿button.state_reset {
+  background-image: url("../images/Buttons/state_reset.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.undo {
+  background-image: url("../images/Buttons/arrow_undo.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.submit {
+  background-image: url("../images/Buttons/transmit_blue.png") !important;
+  background-repeat: no-repeat;
+}
+
+img.delete {
+  background-image: url("../images/Buttons/delete.png") !important;
+  background-repeat: no-repeat;
+}
+
+/** Tree Context menu buttons **/
+.x-btn .add, .add {
+  background: url("../images/Buttons/add.png") no-repeat;
+}
+
+.icon-rename {
+  background: url("../images/Icons/rename.png") no-repeat;
+}
+
+.icon-assign {
+  background: url("../images/Icons/user1.png") no-repeat;
+}
+
+.icon-attribute-manager {
+  background: url("../images/Icons/document_management.png") no-repeat;
+}
+
+.icon-product-control-management {
+  background: url("../images/Icons/document_management.png") no-repeat;
+}
+
+.icon-wizard-hat {
+  background-image: url("../images/Buttons/wizard-hat.png") !important;
+}
+
+.icon-language-wizard {
+  background: url("../images/Icons/messages.png") no-repeat;
+}
+
+.icon-product-control-wizard {
+  background: url("../images/Icons/rename.png") no-repeat;
+}
+
+.icon-wizard-to-control-all-products {
+  background: url("../images/Icons/wand_magic.png") no-repeat;
+}
+
+.icon-cross-reference-management {
+  background: url("../images/Icons/document_management.png") no-repeat;
+}
+/** Toolbar buttons **/
+.x-btn .icon-expand {
+  background: url("../images/Icons/chevron-expand.png") no-repeat;
+}
+
+.x-btn .icon-collapse {
+  background: url("../images/Icons/chevron.png") no-repeat;
+}
+
+.x-btn .icon-view-vendor-assortments {
+  background: url("../images/Icons/box-label.png") no-repeat;
+}
+
+.x-btn .icon-unmatch-vendor-product-group {
+  background: url("../images/Icons/box-unchecked.png") no-repeat;
+}
+
+
+button.save, .markedValid {
+  background-image: url("../images/Buttons/accept.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.cancel, .markedInvalid {
+  background-image: url("../images/Buttons/cancel.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.clearFilters {
+  background-image: url("../images/Buttons/lightning_delete.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.import, .x-menu-item-icon.import {
+  background-image: url("../images/Buttons/arrow_in.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.export {
+  background-image: url("../images/Buttons/arrow_out.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.exportExcelTemplate, .x-menu-item-icon.exportExcelTemplate {
+  background-image: url("../images/Buttons/export_to_excel.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.merge {
+  background-image: url("../images/Buttons/arrow_merge.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.wizard-hat {
+  background-image: url("../images/Buttons/wizard-hat.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.skip-forward {
+  background-image: url("../images/Buttons/skip_forward.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.skip-backward {
+  background-image: url("../images/Buttons/skip-backward.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.stop {
+  background-image: url("../images/Buttons/stop.png") !important;
+  background-repeat: no-repeat;
+}
+
+
+button.split {
+  background-image: url("../images/Buttons/arrow_divide.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.release {
+  background-image: url("../images/Buttons/brick_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+
+button.movetotop {
+  background-image: url("../images/Buttons/arrow_up.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.lorry, .x-menu-item-icon.lorry {
+  background-image: url("../images/Buttons/lorry.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.lorry_delete {
+  background-image: url("../images/Buttons/lorry_delete.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.box {
+  background-image: url("../images/Buttons/box.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.email {
+  background-image: url("../images/Buttons/email_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.magnify {
+  background-image: url("../images/Icons/view.png") !important;
+  background-repeat: no-repeat no-repeat;
+}
+
+button.korganizer {
+  background-image: url("../images/Icons/korganizer.png") !important;
+  background-repeat: no-repeat no-repeat;
+}
+
+button.scroll {
+  background-image: url("../images/Icons/scroll.png") !important;
+  background-repeat: no-repeat no-repeat;
+}
+
+
+button.unchecked {
+  background-image: url("../images/Buttons/checkbox_unchecked_ico.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.checked {
+  background-image: url("../images/Buttons/checkbox_checked_ico.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.copy, .copy {
+  background-image: url("../images/Buttons/copy.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.exit {
+  background-image: url("../images/Buttons/exit.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.printer, .x-menu-item-icon.printer {
+  background-image: url("../images/Buttons/printer.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.default {
+  background-image: url("../images/Buttons/gear.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.move {
+  background-image: url("../images/Buttons/arrow_right.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.adjust {
+  background-image: url("../images/Buttons/arrow_switch.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.view {
+  background-image: url("../images/Buttons/view.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.refresh {
+  background-image: url("../images/default/grid/refresh.gif") !important;
+  background-repeat: no-repeat;
+}
+
+button.changestatus, .x-menu-item-icon.changestatus {
+  background-image: url("../images/Buttons/application_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.pause {
+  background: transparent url("../images/Buttons/control_pause_blue.png") no-repeat !important;
+}
+
+button.play {
+  background: transparent url("../images/Buttons/control_pause_blue.png") no-repeat !important;
+}
+
+button.edit_mappings {
+  background-image: url("../images/Buttons/link_edit.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.unlink {
+  background-image: url("../images/Buttons/link_break.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.edit {
+  background-image: url("../images/Buttons/note_go.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.modify {
+  background-image: url("../images/Buttons/edit.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.calendar {
+  background-image: url("../images/Buttons/calendar.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.warning {
+  background-image: url("../images/Icons/exclamation_red.png") !important;
+  background-repeat: no-repeat;
+}
+
+.blue-color {
+  background-image: url("../images/Buttons/blue-color.png") !important;
+  background-repeat: no-repeat;
+}
+
+.red-color {
+  background-image: url("../images/Buttons/red-color.png") !important;
+  background-repeat: no-repeat;
+}
+
+.green-color {
+  background-image: url("../images/Buttons/green-color.png") !important;
+  background-repeat: no-repeat;
+}
+
+.yellow-color {
+  background-image: url("../images/Buttons/yellow-color.png") !important;
+  background-repeat: no-repeat;
+}
+
+.orange-color {
+  background-image: url("../images/Buttons/orange-color.png") !important;
+  background-repeat: no-repeat;
+}
+
+
+#loginbox {
+  float: left;
+  font-size: 0.8em;
+  color: #fff;
+  margin-right: 8px;
+}
+
+  #loginbox a, #loginbox a:visited {
+    color: White;
+  }
+
+#languages {
+  float: left;
+  color: #fff;
+}
+
+  #languages a, #loginbox a:visited {
+    color: White;
+  }
+
+  #languages div {
+    display: inline;
+    margin-left: 5px;
+    float: right !important;
+  }
+
+
+
+.display-label, .editor-label, .display-field, .editor-field {
+  margin: 0.5em 0;
+  padding: 0px;
+}
+
+ul.form-items {
+  list-style-type: none;
+}
+
+  ul.form-items li .editor-label, ul.form-items li .display-label {
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+
+  ul.form-items li label {
+    width: 200px;
+    display: inline-block;
+  }
+
+  ul.form-items li select, ul.form-items li input {
+    width: 200px;
+  }
+
+    ul.form-items li select, ul.form-items li input[type=radio] {
+      width: auto;
+    }
+
+    ul.form-items li select, ul.form-items li input[type=checkbox] {
+      width: auto;
+    }
+
+  ul.form-items li {
+    clear: both;
+    margin-top: 4px;
+  }
+
+    ul.form-items li div {
+      float: left;
+    }
+
+    ul.form-items li .editor-field, ul.form-items li .display-field {
+      display: inline-block;
+      float: left;
+    }
+
+p.success {
+  color: #0AC92B;
+}
+
+.grid-row-red {
+  background-color: #CC3333;
+  color: White;
+}
+
+.exclamation {
+  background-image: url("../images/icons/exclamation_red.png");
+}
+
+
+button.campaign-hold {
+  background-image: url("../images/Buttons/nav_plain_red.png") !important;
+  background-repeat: no-repeat;
+}
+
+
+button.campaign-launch {
+  background-image: url("../images/Buttons/launch.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.log-book {
+  background-image: url("../images/Buttons/log_book.png") !important;
+  background-repeat: no-repeat;
+}
+
+button.department {
+  background-image: url("../images/Buttons/department.png") !important;
+  background-repeat: no-repeat;
+}

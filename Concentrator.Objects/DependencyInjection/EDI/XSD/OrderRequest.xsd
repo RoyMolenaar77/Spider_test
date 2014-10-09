@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by O.Woudenberg (BAS GROUP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:include schemaLocation="BaseTypes.xsd"/>
+  <xs:element name="OrderRequest">
+    <xs:annotation>
+      <xs:documentation>Purchase order request</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="OrderHeader" type="OrderRequestHeader"/>
+        <xs:element name="OrderDetails" type="OrderRequestDetails"/>
+      </xs:sequence>
+      <xs:attribute name="Version" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            This field can be usefull when a new version of the xsd with additional information is created.
+            The processor desides how to interpret the information based on this value.
+            Default value is "1.0"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="OrderRequestHeader">
+    <xs:annotation>
+      <xs:documentation>Header for the OrderRequest</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ShipToCustomer" type="Customer"/>
+      <xs:element name="CustomerOverride" type="CustomerOverride" />
+      <xs:element name="CustomerOrderReference" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference to the order number of the requesting customer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EndCustomerOrderReference" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>A reference to the order number of the requesting customer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RequestedDate" type="xs:date" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Date for delivering this order</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="EdiVersion" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>This is the version you use for EDI communication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BSKIdentifier" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>This is the secure unique customer identifier for BAS communication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="PartialShipmentsAllowed" type="xs:boolean" nillable="true" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>PartialShipmentsAllowed for this order</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="OrderExpireDate" type="xs:date" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>If the order had an expire date</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HoldCode" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Holdcode Order</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BackOrdersAllowed" type="xs:boolean" nillable="true" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>BackOrdersAllowed Website</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

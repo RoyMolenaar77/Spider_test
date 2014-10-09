@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes" xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+<AttributeType name="path" dt:type="string" /> 
+<AttributeType name="Prod_ID" dt:type="string" /> 
+<AttributeType name="Product_ID" dt:type="string" /> 
+<AttributeType name="Model_Name" dt:type="string" />
+<AttributeType name="Updated" dt:type="string" />
+<AttributeType name="Catid" dt:type="string" /> 
+<AttributeType name="Quality" dt:type="string" /> 
+<AttributeType name="Supplier_id" dt:type="string" /> 
+<ElementType name="ICECAT-interface" sql:is-constant="1">
+<element type="file" /> 
+</ElementType>
+<ElementType name="file" sql:relation="IceCat_ProductsMap">
+<attribute type="path" sql:field="Path" /> 
+<attribute type="Prod_ID" sql:field="Prod_ID" /> 
+<attribute type="Product_ID" sql:field="Product_ID" /> 
+<attribute type="Model_Name" sql:field="Model_Name" />
+<attribute type="Updated" sql:field="Updated" />
+<attribute type="Catid" sql:field="Cat_ID" /> 
+<attribute type="Quality" sql:field="Quality" /> 
+<attribute type="Supplier_id" sql:field="Supplier_id" /> 
+</ElementType>
+</Schema>

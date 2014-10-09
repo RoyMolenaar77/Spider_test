@@ -1,0 +1,28 @@
+@{   
+  Layout = "~/Views/UserMailer/_Layout.cshtml";
+}
+<p>
+  A Customer has placed an order
+</p>
+<p>
+  @ViewBag.CustomerName
+  <br />
+  @ViewBag.Address
+  <br />
+  @ViewBag.Email
+  <br />
+  @ViewBag.PhoneNumber
+  <br />
+  @{foreach (var product in ViewBag.ProductList)
+    { 
+    <li>@product.CustomItemNumber, @product.ProductDescription, @product.Price, @product.NumberOfProducts </li> 
+    }
+  }
+  <br />
+  <br />
+  @ViewBag.ProductDescription
+  <br />
+  @ViewBag.NumberOfProducts
+  <br />
+  @ViewBag.Price
+</p>

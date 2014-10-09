@@ -1,0 +1,4 @@
+﻿-- Remove generic services and models. Use only DTOs
+-- put models in a separate assembly
+-- Paged results in the services
+-- cleanup ninject modules

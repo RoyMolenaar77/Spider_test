@@ -1,0 +1,1 @@
+ALTER TABLE [dbo].[VendorSetting] ALTER COLUMN [Value] VARCHAR(MAX) NULL

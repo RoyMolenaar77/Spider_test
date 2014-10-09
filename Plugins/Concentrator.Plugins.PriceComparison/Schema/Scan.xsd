@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes" xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+  <AttributeType name="name" />
+  <ElementType name="model" />
+  <ElementType name="productcode" />
+  <ElementType name="manufacturer" />
+  <ElementType name="Prices" />
+  <ElementType name="Price" />
+  <AttributeType name="competitor" />
+  <AttributeType name="currency" />
+  <AttributeType name="country" />
+
+  <ElementType name="product" sql:relation="tmp_Products">
+    <attribute type="name" sql:field="Description" />
+    <element type ="productcode" sql:relation="tmp_Products" sql:field ="ProductId"/>
+    <element sql:field="ModelNr"  type="model" />
+    <element type="manufacturer" sql:field="Manufacturer" />
+    <element type="prices" minOccurs="0">
+      <sql:relationship key-relation="tmp_Products" key="ModelNr Manufacturer ProductId" foreign-key="ModelNr Manufacturer ProductId" foreign-relation="tmp_PriceList" />
+    </element>
+  </ElementType>
+
+  <ElementType name="prices" sql:relation="tmp_PriceList" >
+    <element type="price">
+      <sql:relationship key-relation="tmp_PriceList" key="ModelNr Manufacturer ProductId" foreign-key="ModelNr Manufacturer ProductId" foreign-relation="tmp_Prices" />
+    </element>
+  </ElementType>
+
+  <ElementType name="price" sql:relation="tmp_Prices" sql:field="Price">
+    <attribute type="country" sql:field="Country" />
+    <attribute type="competitor" sql:field="Competitor" />
+    <attribute type="currency" sql:field="Currency" />
+  </ElementType>
+
+</Schema>

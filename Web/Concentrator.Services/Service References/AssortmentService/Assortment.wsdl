@@ -1,0 +1,1451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Concentrator.diract-it.nl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://Concentrator.diract-it.nl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Concentrator.diract-it.nl/">
+      <s:element name="GetAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showProductGroups" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importFullContent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showProductGroups" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentContentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentWithRelatedProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importFullContent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showProductGroups" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentWithRelatedProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentContentWithRelatedProductsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdvancedPricingAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importFullContent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showProductGroups" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="showRelatedProducts" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdvancedPricingAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAdvancedPricingAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentDescriptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentDescriptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentContentDescriptionsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentDescriptionsByLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentDescriptionsByLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentContentDescriptionsByLanguageResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectorProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="selectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSelectorProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectorProductsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentAttributesSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentAttributesSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentAttributesSummaryResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment_TESTFull">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment_TESTFullResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortment_TESTFullResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment_TEST">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="pid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment_TESTResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortment_TESTResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" nillable="true" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAttributesAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortmentByLanguage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="ProductIDs" type="tns:ArrayOfInt" />
+            <s:element minOccurs="1" maxOccurs="1" name="LastUpdate" nillable="true" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyKeyFeatures" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortmentByLanguageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortmentByLanguageResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorItemNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="concentratorProductID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="brand" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorItemNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorItemNumberResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentImages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentImagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFTPAssortmentImages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFTPAssortmentImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFTPAssortmentImagesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFTPAssortmentImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="concentratorProductID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFTPAssortmentImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFTPAssortmentImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="costPrice" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="customItemNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOAssortmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customItemNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductsInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="products" type="tns:ArrayOfProductInformation" />
+            <s:element minOccurs="1" maxOccurs="1" name="vendorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageid" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProductInformation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProductInformation" nillable="true" type="tns:ProductInformation" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProductInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="CustomProductID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrandCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentProductGroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductGroupCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brandname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ParentProductGroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductGroupName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductsInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importFullContent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="showProductGroups" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFullInformationResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetExpertProductReviews">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetExpertProductReviewsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetExpertProductReviewsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetStockAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetStockAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPriceAssortmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorPriceAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vendorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetVendorPriceAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetVendorPriceAssortmentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullConcentratorProducts">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetFullConcentratorProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFullConcentratorProductsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUnmappedProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="vendorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorItemNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertUnmappedProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InsertUnmappedProductResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFreeGoods">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFreeGoodsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFreeGoodsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccruels">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAccruelsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAccruelsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductGroupHierarchy">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="languageID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="concentratorProductID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductGroupHierarchyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductGroupHierarchyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceSets">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceSetsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPriceSetsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContent" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentWithRelatedProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentWithRelatedProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentWithRelatedProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentWithRelatedProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAdvancedPricingAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdvancedPricingAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetAdvancedPricingAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdvancedPricingAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentDescriptionsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentDescriptions" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentDescriptionsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentDescriptionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentDescriptionsByLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentDescriptionsByLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentDescriptionsByLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentDescriptionsByLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectorProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectorProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectorProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectorProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentAttributesSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentAttributesSummary" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentAttributesSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentAttributesSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortment_TESTFullSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment_TESTFull" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortment_TESTFullSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment_TESTFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortment_TESTSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment_TEST" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortment_TESTSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment_TESTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentByLanguageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentByLanguage" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentByLanguageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentByLanguageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorItemNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorItemNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorItemNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorItemNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentImages" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFTPAssortmentImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFTPAssortmentImages" />
+  </wsdl:message>
+  <wsdl:message name="GetFTPAssortmentImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFTPAssortmentImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFTPAssortmentImageSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFTPAssortmentImage" />
+  </wsdl:message>
+  <wsdl:message name="GetFTPAssortmentImageSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFTPAssortmentImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetOAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductsInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFullInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFullInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetFullInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFullInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetExpertProductReviewsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetExpertProductReviews" />
+  </wsdl:message>
+  <wsdl:message name="GetExpertProductReviewsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetExpertProductReviewsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetStockAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetStockAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetStockAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetStockAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPriceAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorPriceAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetVendorPriceAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetVendorPriceAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetVendorPriceAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFullConcentratorProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFullConcentratorProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetFullConcentratorProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFullConcentratorProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertUnmappedProductSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertUnmappedProduct" />
+  </wsdl:message>
+  <wsdl:message name="InsertUnmappedProductSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertUnmappedProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFreeGoodsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFreeGoods" />
+  </wsdl:message>
+  <wsdl:message name="GetFreeGoodsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFreeGoodsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccruelsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAccruels" />
+  </wsdl:message>
+  <wsdl:message name="GetAccruelsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAccruelsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductGroupHierarchySoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductGroupHierarchy" />
+  </wsdl:message>
+  <wsdl:message name="GetProductGroupHierarchySoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductGroupHierarchyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceSetsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPriceSets" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceSetsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceSetsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AssortmentServiceSoap">
+    <wsdl:operation name="GetAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentSoapIn" />
+      <wsdl:output message="tns:GetAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment with full content for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentContentSoapIn" />
+      <wsdl:output message="tns:GetAssortmentContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentWithRelatedProducts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment with full content and related products for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentContentWithRelatedProductsSoapIn" />
+      <wsdl:output message="tns:GetAssortmentContentWithRelatedProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdvancedPricingAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Advanced pricing assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetAdvancedPricingAssortmentSoapIn" />
+      <wsdl:output message="tns:GetAdvancedPricingAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptions">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment content descriptions for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentContentDescriptionsSoapIn" />
+      <wsdl:output message="tns:GetAssortmentContentDescriptionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptionsByLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment content descriptions for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentContentDescriptionsByLanguageSoapIn" />
+      <wsdl:output message="tns:GetAssortmentContentDescriptionsByLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectorProducts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Products not published in assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetSelectorProductsSoapIn" />
+      <wsdl:output message="tns:GetSelectorProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentAttributesSummary">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get short summary attribute list for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentAttributesSummarySoapIn" />
+      <wsdl:output message="tns:GetAssortmentAttributesSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TESTFull">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortment_TESTFullSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortment_TESTFullSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TEST">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortment_TESTSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortment_TESTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortmentSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByLanguage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key for specified language</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortmentByLanguageSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortmentByLanguageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorItemNumber">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get VendorItemNumber</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorItemNumberSoapIn" />
+      <wsdl:output message="tns:GetVendorItemNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Images for connector by unique key directly from vendor</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentImagesSoapIn" />
+      <wsdl:output message="tns:GetAssortmentImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Images for connector by unique key by FTP</wsdl:documentation>
+      <wsdl:input message="tns:GetFTPAssortmentImagesSoapIn" />
+      <wsdl:output message="tns:GetFTPAssortmentImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Single Image for connector by unique key by FTP</wsdl:documentation>
+      <wsdl:input message="tns:GetFTPAssortmentImageSoapIn" />
+      <wsdl:output message="tns:GetFTPAssortmentImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get O Assortment for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetOAssortmentSoapIn" />
+      <wsdl:output message="tns:GetOAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ProductInformation for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInformationSoapIn" />
+      <wsdl:output message="tns:GetProductInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ProductInformation</wsdl:documentation>
+      <wsdl:input message="tns:GetProductsInformationSoapIn" />
+      <wsdl:output message="tns:GetProductsInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Advanced pricing assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetFullInformationSoapIn" />
+      <wsdl:output message="tns:GetFullInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetExpertProductReviews">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Expert Product Reviews</wsdl:documentation>
+      <wsdl:input message="tns:GetExpertProductReviewsSoapIn" />
+      <wsdl:output message="tns:GetExpertProductReviewsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Stock assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetStockAssortmentSoapIn" />
+      <wsdl:output message="tns:GetStockAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Price assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetPriceAssortmentSoapIn" />
+      <wsdl:output message="tns:GetPriceAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorPriceAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Vendor Price assortment</wsdl:documentation>
+      <wsdl:input message="tns:GetVendorPriceAssortmentSoapIn" />
+      <wsdl:output message="tns:GetVendorPriceAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullConcentratorProducts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ProductInformation for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetFullConcentratorProductsSoapIn" />
+      <wsdl:output message="tns:GetFullConcentratorProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertUnmappedProduct">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Insert Unmapped Product</wsdl:documentation>
+      <wsdl:input message="tns:InsertUnmappedProductSoapIn" />
+      <wsdl:output message="tns:InsertUnmappedProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeGoods">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get FreeGoods for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetFreeGoodsSoapIn" />
+      <wsdl:output message="tns:GetFreeGoodsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccruels">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Accruels for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetAccruelsSoapIn" />
+      <wsdl:output message="tns:GetAccruelsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductGroupHierarchy">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get assortment hierarchy</wsdl:documentation>
+      <wsdl:input message="tns:GetProductGroupHierarchySoapIn" />
+      <wsdl:output message="tns:GetProductGroupHierarchySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceSets">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Price Sets</wsdl:documentation>
+      <wsdl:input message="tns:GetPriceSetsSoapIn" />
+      <wsdl:output message="tns:GetPriceSetsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AssortmentServiceSoap" type="tns:AssortmentServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentWithRelatedProducts">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentWithRelatedProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdvancedPricingAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAdvancedPricingAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptions">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentDescriptions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptionsByLanguage">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentDescriptionsByLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectorProducts">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetSelectorProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentAttributesSummary">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentAttributesSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TESTFull">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment_TESTFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TEST">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment_TEST" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByLanguage">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortmentByLanguage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorItemNumber">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetVendorItemNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImages">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetFTPAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImage">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetFTPAssortmentImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetOAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetProductInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsInformation">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetProductsInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullInformation">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetFullInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpertProductReviews">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetExpertProductReviews" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetStockAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetPriceAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorPriceAssortment">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetVendorPriceAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullConcentratorProducts">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetFullConcentratorProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUnmappedProduct">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/InsertUnmappedProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeGoods">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetFreeGoods" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccruels">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetAccruels" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductGroupHierarchy">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetProductGroupHierarchy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceSets">
+      <soap:operation soapAction="http://Concentrator.diract-it.nl/GetPriceSets" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="AssortmentServiceSoap12" type="tns:AssortmentServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentWithRelatedProducts">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentWithRelatedProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdvancedPricingAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAdvancedPricingAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptions">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentDescriptions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContentDescriptionsByLanguage">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentContentDescriptionsByLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSelectorProducts">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetSelectorProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentAttributesSummary">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentAttributesSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TESTFull">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment_TESTFull" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment_TEST">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment_TEST" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByLanguage">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAttributesAssortmentByLanguage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorItemNumber">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetVendorItemNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImages">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetFTPAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFTPAssortmentImage">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetFTPAssortmentImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetOAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetProductInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductsInformation">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetProductsInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullInformation">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetFullInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetExpertProductReviews">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetExpertProductReviews" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetStockAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetPriceAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVendorPriceAssortment">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetVendorPriceAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullConcentratorProducts">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetFullConcentratorProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertUnmappedProduct">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/InsertUnmappedProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFreeGoods">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetFreeGoods" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccruels">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetAccruels" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductGroupHierarchy">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetProductGroupHierarchy" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceSets">
+      <soap12:operation soapAction="http://Concentrator.diract-it.nl/GetPriceSets" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AssortmentService">
+    <wsdl:port name="AssortmentServiceSoap" binding="tns:AssortmentServiceSoap">
+      <soap:address location="http://localhost/Concentrator/Assortment.asmx" />
+    </wsdl:port>
+    <wsdl:port name="AssortmentServiceSoap12" binding="tns:AssortmentServiceSoap12">
+      <soap12:address location="http://localhost/Concentrator/Assortment.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

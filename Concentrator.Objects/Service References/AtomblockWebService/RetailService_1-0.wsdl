@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://services.atomblock.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://services.atomblock.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GO _ TO HELP</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://services.atomblock.com">
+      <s:element name="Ping">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RetailAccount">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Client" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SecureHash" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="PingResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PingResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrderDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderDetailsResult" type="tns:ShopOrderReceipt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopOrderReceipt">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Number" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Reference" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderIdentifier" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="OrderLines" type="tns:ArrayOfShopOrderItemResponse" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="CommunicationBase">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CommunicationStatus" type="tns:MessageStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="MessageStatus">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Type" type="tns:MessageType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="MessageType">
+        <s:restriction base="s:string">
+          <s:enumeration value="OK" />
+          <s:enumeration value="ERROR" />
+          <s:enumeration value="WRONG_REQUEST" />
+          <s:enumeration value="NO_ACCESS" />
+        </s:restriction>
+      </s:simpleType>
+      <s:complexType name="ArrayOfShopOrderItemResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopOrderItemResponse" nillable="true" type="tns:ShopOrderItemResponse" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopOrderItemResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DownloadFiles" type="tns:ArrayOfDownloadFile" />
+          <s:element minOccurs="0" maxOccurs="1" name="SetupFileName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Serials" type="tns:ArrayOfSerial" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DownloadManagerUrl" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPreOrder" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="PreOrderReleaseDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPrice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="DownloadManagerReference" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfDownloadFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="DownloadFile" nillable="true" type="tns:DownloadFile" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="DownloadFile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="File" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Serial" nillable="true" type="tns:Serial" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Serial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrderDetailsBatched">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="orderIdentifiers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetOrderDetailsBatchedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrderDetailsBatchedResult" type="tns:ArrayOfShopOrderReceipt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShopOrderReceipt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopOrderReceipt" nillable="true" type="tns:ShopOrderReceipt" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" type="tns:ShopProfile" />
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="tns:ShopOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopProfile">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDiscount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalTransactionCost" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopOrderItemRequest" />
+          <s:element minOccurs="0" maxOccurs="1" name="PaymentMethod" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTestOrder" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopOrderItemRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopOrderItemRequest" nillable="true" type="tns:ShopOrderItemRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopOrderItemRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductIdentifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ItemPrice" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Discount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOrderResult" type="tns:ShopOrderReceipt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderBatched">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="profile" type="tns:ShopProfile" />
+            <s:element minOccurs="0" maxOccurs="1" name="orders" type="tns:ArrayOfShopOrder" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShopOrder">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopOrder" nillable="true" type="tns:ShopOrder" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AddOrderBatchedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOrderBatchedResult" type="tns:ArrayOfShopOrderReceipt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="productIdentifier" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="tns:ShopLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductResult" type="tns:ShopProduct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopProduct">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="EAN" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsSpecialOffer" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="AllowedForSale" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="IsActive" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Punchline" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Publisher" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="Developer" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="DownloadSize" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="Genre" type="tns:ShopGenre" />
+              <s:element minOccurs="0" maxOccurs="1" name="DrmType" type="tns:ShopDrmType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="ArticleNumber" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ReleaseDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pricing" type="tns:ShopPricing" />
+              <s:element minOccurs="0" maxOccurs="1" name="Documents" type="tns:ArrayOfShopDocument" />
+              <s:element minOccurs="0" maxOccurs="1" name="Pegi" type="tns:ShopPegi" />
+              <s:element minOccurs="0" maxOccurs="1" name="SystemRequirements" type="tns:ArrayOfShopSystemRequirement" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ShopGenre">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="tns:ShopLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopDrmType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopPricing">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Advise" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Purchase" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopDocument" nillable="true" type="tns:ShopDocument" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopDocument">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageWidth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ImageHeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsImage" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Location" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopPegi">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsViolence" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsGambling" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsDrugs" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsDiscrimination" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsProFoundLanguage" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsSex" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ContainsFear" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Age" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopSystemRequirement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopSystemRequirement" nillable="true" type="tns:ShopSystemRequirement" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopSystemRequirement">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="tns:ShopSystemRequirementType" />
+          <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopSystemRequirementItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopSystemRequirementType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopSystemRequirementItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopSystemRequirementItem" nillable="true" type="tns:ShopSystemRequirementItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopSystemRequirementItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Label" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductBatched">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="productIdentifiers" type="tns:ArrayOfString" />
+            <s:element minOccurs="0" maxOccurs="1" name="language" type="tns:ShopLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductBatchedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductBatchedResult" type="tns:ArrayOfShopProduct" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShopProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopProduct" nillable="true" type="tns:ShopProduct" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="request" type="tns:RangeRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RangeRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="From" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="To" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Languages" type="tns:ArrayOfShopLanguage" />
+          <s:element minOccurs="0" maxOccurs="1" name="Genres" type="tns:ArrayOfShopGenre" />
+          <s:element minOccurs="0" maxOccurs="1" name="Publishers" type="tns:ArrayOfShopPublisher" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopLanguage" nillable="true" type="tns:ShopLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopGenre">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopGenre" nillable="true" type="tns:ShopGenre" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopPublisher">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopPublisher" nillable="true" type="tns:ShopPublisher" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopPublisher">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="tns:ShopLanguage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductsResult" type="tns:ShopProductUpdates" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopProductUpdates">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopProductUpdate" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="ArrayOfShopProductUpdate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopProductUpdate" nillable="true" type="tns:ShopProductUpdate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShopProductUpdate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Updated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Language" type="tns:ShopLanguage" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCallBack" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="HasStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="productIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HasStockResult" type="tns:ShopStockInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopStockInfo">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="IsPresent" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="HasStockBatched">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+            <s:element minOccurs="0" maxOccurs="1" name="productIdentifiers" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HasStockBatchedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HasStockBatchedResult" type="tns:ArrayOfShopStockInfo" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShopStockInfo">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShopStockInfo" nillable="true" type="tns:ShopStockInfo" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetGenres">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGenresResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGenresResult" type="tns:ShopGenres" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopGenres">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopGenre" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetPublishers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPublishersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPublishersResult" type="tns:ShopPublishers" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopPublishers">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopPublisher" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="GetLanguages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="account" type="tns:RetailAccount" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetLanguagesResult" type="tns:ShopLanguages" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ShopLanguages">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:CommunicationBase">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Items" type="tns:ArrayOfShopLanguage" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="PingSoapIn">
+    <wsdl:part name="parameters" element="tns:Ping" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="parameters" element="tns:PingResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderDetails" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsBatchedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsBatched" />
+  </wsdl:message>
+  <wsdl:message name="GetOrderDetailsBatchedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrderDetailsBatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrder" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderBatchedSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderBatched" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderBatchedSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderBatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProduct" />
+  </wsdl:message>
+  <wsdl:message name="GetProductSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductBatchedSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductBatched" />
+  </wsdl:message>
+  <wsdl:message name="GetProductBatchedSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductBatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="HasStockSoapIn">
+    <wsdl:part name="parameters" element="tns:HasStock" />
+  </wsdl:message>
+  <wsdl:message name="HasStockSoapOut">
+    <wsdl:part name="parameters" element="tns:HasStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="HasStockBatchedSoapIn">
+    <wsdl:part name="parameters" element="tns:HasStockBatched" />
+  </wsdl:message>
+  <wsdl:message name="HasStockBatchedSoapOut">
+    <wsdl:part name="parameters" element="tns:HasStockBatchedResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGenresSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGenres" />
+  </wsdl:message>
+  <wsdl:message name="GetGenresSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGenresResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPublishersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPublishers" />
+  </wsdl:message>
+  <wsdl:message name="GetPublishersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPublishersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetLanguages" />
+  </wsdl:message>
+  <wsdl:message name="GetLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Retail_x0020_Services_x0020_1.0Soap">
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Validate the retail account.</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the details of an order.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderDetailsSoapIn" />
+      <wsdl:output message="tns:GetOrderDetailsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetailsBatched">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the details of a range of orders.</wsdl:documentation>
+      <wsdl:input message="tns:GetOrderDetailsBatchedSoapIn" />
+      <wsdl:output message="tns:GetOrderDetailsBatchedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set an order for a specific retail account.</wsdl:documentation>
+      <wsdl:input message="tns:AddOrderSoapIn" />
+      <wsdl:output message="tns:AddOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderBatched">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Set a batch of orders for a specific retail account.</wsdl:documentation>
+      <wsdl:input message="tns:AddOrderBatchedSoapIn" />
+      <wsdl:output message="tns:AddOrderBatchedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return the product details.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductSoapIn" />
+      <wsdl:output message="tns:GetProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductBatched">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return the product details for a batch of products.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductBatchedSoapIn" />
+      <wsdl:output message="tns:GetProductBatchedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a product reference list to be use to call the GetProduct method.</wsdl:documentation>
+      <wsdl:input message="tns:GetProductsSoapIn" />
+      <wsdl:output message="tns:GetProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HasStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Does a real time stock validation check.</wsdl:documentation>
+      <wsdl:input message="tns:HasStockSoapIn" />
+      <wsdl:output message="tns:HasStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HasStockBatched">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Does a real time stock validation check for a range of products.</wsdl:documentation>
+      <wsdl:input message="tns:HasStockBatchedSoapIn" />
+      <wsdl:output message="tns:HasStockBatchedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the available genres.</wsdl:documentation>
+      <wsdl:input message="tns:GetGenresSoapIn" />
+      <wsdl:output message="tns:GetGenresSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishers">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the available publishers.</wsdl:documentation>
+      <wsdl:input message="tns:GetPublishersSoapIn" />
+      <wsdl:output message="tns:GetPublishersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns the available languages.</wsdl:documentation>
+      <wsdl:input message="tns:GetLanguagesSoapIn" />
+      <wsdl:output message="tns:GetLanguagesSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Retail_x0020_Services_x0020_1.0Soap" type="tns:Retail_x0020_Services_x0020_1.0Soap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://services.atomblock.com/Ping" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap:operation soapAction="http://services.atomblock.com/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetailsBatched">
+      <soap:operation soapAction="http://services.atomblock.com/GetOrderDetailsBatched" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap:operation soapAction="http://services.atomblock.com/AddOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderBatched">
+      <soap:operation soapAction="http://services.atomblock.com/AddOrderBatched" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap:operation soapAction="http://services.atomblock.com/GetProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductBatched">
+      <soap:operation soapAction="http://services.atomblock.com/GetProductBatched" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap:operation soapAction="http://services.atomblock.com/GetProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasStock">
+      <soap:operation soapAction="http://services.atomblock.com/HasStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasStockBatched">
+      <soap:operation soapAction="http://services.atomblock.com/HasStockBatched" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <soap:operation soapAction="http://services.atomblock.com/GetGenres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishers">
+      <soap:operation soapAction="http://services.atomblock.com/GetPublishers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap:operation soapAction="http://services.atomblock.com/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Retail_x0020_Services_x0020_1.0Soap12" type="tns:Retail_x0020_Services_x0020_1.0Soap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://services.atomblock.com/Ping" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetails">
+      <soap12:operation soapAction="http://services.atomblock.com/GetOrderDetails" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrderDetailsBatched">
+      <soap12:operation soapAction="http://services.atomblock.com/GetOrderDetailsBatched" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrder">
+      <soap12:operation soapAction="http://services.atomblock.com/AddOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderBatched">
+      <soap12:operation soapAction="http://services.atomblock.com/AddOrderBatched" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProduct">
+      <soap12:operation soapAction="http://services.atomblock.com/GetProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductBatched">
+      <soap12:operation soapAction="http://services.atomblock.com/GetProductBatched" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://services.atomblock.com/GetProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasStock">
+      <soap12:operation soapAction="http://services.atomblock.com/HasStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HasStockBatched">
+      <soap12:operation soapAction="http://services.atomblock.com/HasStockBatched" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <soap12:operation soapAction="http://services.atomblock.com/GetGenres" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPublishers">
+      <soap12:operation soapAction="http://services.atomblock.com/GetPublishers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLanguages">
+      <soap12:operation soapAction="http://services.atomblock.com/GetLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Retail_x0020_Services_x0020_1.0">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">GO _ TO HELP</wsdl:documentation>
+    <wsdl:port name="Retail_x0020_Services_x0020_1.0Soap" binding="tns:Retail_x0020_Services_x0020_1.0Soap">
+      <soap:address location="http://services.atomblock.com/Retail/RetailService_1-0.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Retail_x0020_Services_x0020_1.0Soap12" binding="tns:Retail_x0020_Services_x0020_1.0Soap12">
+      <soap12:address location="http://services.atomblock.com/Retail/RetailService_1-0.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

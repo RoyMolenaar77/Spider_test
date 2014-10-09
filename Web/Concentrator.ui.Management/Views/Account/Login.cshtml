@@ -1,0 +1,28 @@
+@{
+  
+  Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Login to Concentrator Administration</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  @* All CSS/JS script go in the HeaderIncludes partial *@
+  @Html.Partial("HeaderIncludes")
+
+  <script language="javascript" type="text/javascript">
+    Concentrator.adapter.createAliases();
+    Concentrator.adapter.createOverrides();
+
+    Ext.onReady(function () {
+      Concentrator.ui.login.getInstance().show(false);
+    });
+  </script>
+</head>
+<body>
+  <div class="page">
+    <div id="main" />
+  </div>
+</body>
+</html>

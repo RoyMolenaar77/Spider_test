@@ -1,0 +1,1 @@
+﻿update connectorsetting set value = '75,40,41' where  connectorid = 5 and settingkey = 'ListingAttributes'

@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database Name="ICECAT" Class="ICEcatDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=172.16.0.63;Initial Catalog=ICECAT;Persist Security Info=True;User ID=spider" SettingsObjectName="Concentrator.Vendors.IceCat.Properties.Settings" SettingsPropertyName="ICECATConnectionString2" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.dt_Feature" Member="dt_Features">
+    <Type Name="dt_Feature">
+      <Column Name="ProductFeature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="langid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="dt_Feature_dt_Measure" Member="dt_Measures" ThisKey="Feature_ID" OtherKey="Feature_ID" Type="dt_Measure" />
+      <Association Name="dt_Feature_dt_Name" Member="dt_Names" ThisKey="Feature_ID" OtherKey="Feature_ID" Type="dt_Name" />
+      <Association Name="dt_Productfeature_dt_Feature" Member="dt_Productfeature" ThisKey="ProductFeature_ID" OtherKey="ProductFeature_ID" Type="dt_Productfeature" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_Measure" Member="dt_Measures">
+    <Type Name="dt_Measure">
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Measure_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sign" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="dt_Feature_dt_Measure" Member="dt_Feature" ThisKey="Feature_ID" OtherKey="Feature_ID" Type="dt_Feature" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_Supplier" Member="Brands">
+    <Type Name="Brands">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NULL" CanBeNull="true" />
+      <Column Name="Supplier_ID" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Supplier_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_Name" Member="dt_Names">
+    <Type Name="dt_Name">
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Name_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="langid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="dt_Feature_dt_Name" Member="dt_Feature" ThisKey="Feature_ID" OtherKey="Feature_ID" Type="dt_Feature" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_Productfeature" Member="dt_Productfeatures">
+    <Type Name="dt_Productfeature">
+      <Column Name="Product_ID" Type="System.Int32" DbType="INT NULL" CanBeNull="true" />
+      <Column Name="ProductFeature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Localized" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(6000)" CanBeNull="true" />
+      <Column Name="CategoryFeature_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CategoryFeatureGroup_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Presentation_Value" Type="System.String" DbType="VarChar(7000)" CanBeNull="true" />
+      <Association Name="dt_Productfeature_dt_Feature" Member="dt_Features" ThisKey="ProductFeature_ID" OtherKey="ProductFeature_ID" Type="dt_Feature" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryList" Member="CategoryLists">
+    <Type Name="CategoryList">
+      <Column Name="ID" Type="System.Int32" DbType="INT NULL" CanBeNull="true" />
+      <Column Name="UNCATID" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+      <Column Name="Searchable" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ThumbPic" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Score" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+      <Column Name="LowPic" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="CategoryNames_CategoryList" Member="CategoryNames" ThisKey="ID" OtherKey="Cat_ID" Type="CategoryNames" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CategoryNames" Member="CategoryNames">
+    <Type Name="CategoryNames">
+      <Column Name="Cat_ID" Type="System.Int32" DbType="INT NULL" CanBeNull="true" />
+      <Column Name="Name_ID" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+      <Column Name="langid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(1500)" CanBeNull="true" />
+      <Association Name="CategoryNames_CategoryList" Member="CategoryLists" ThisKey="Cat_ID" OtherKey="ID" Type="CategoryList" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ParentCategory" Member="ParentCategories">
+    <Type Name="ParentCategory">
+      <Column Name="Cat_ID" Type="System.Int32" DbType="Int NULL" CanBeNull="true" />
+      <Column Name="Parent_ID" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_SummaryDescription" Member="dt_SummaryDescriptions">
+    <Type Name="dt_SummaryDescription">
+      <Column Name="Product_ID" Type="System.Double" DbType="Float NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortSummaryDescription" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="LongSummaryDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Langid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_Product" Member="dt_Products">
+    <Type Name="dt_Product">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ThumbPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HighPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Prod_ID" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="HighPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ThumbPic" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(175)" CanBeNull="true" />
+      <Column Name="Langid" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Updated" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModelName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Supplier_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_ProductDescription" Member="dt_ProductDescriptions">
+    <Type Name="dt_ProductDescription">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductDescription_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="langid" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PDFURL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ShortDesc" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="LongDesc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WarrantyInfo" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="PDFSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.dt_ProductRelated" Member="dt_ProductRelateds">
+    <Type Name="dt_ProductRelated">
+      <Column Name="Product_ID" Type="System.Double" DbType="Float NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductRelated_ID" Type="System.Double" DbType="Float NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Category_ID" Type="System.Double" DbType="Float NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Reversed" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Preferred" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.Concentrator_GetIceProductAttributebyManufactID" Method="Concentrator_GetIceProductAttributebyManufactID">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductAttributebyManufactIDResult">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(6000)" CanBeNull="true" />
+      <Column Name="Sign" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FeatureIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSearchable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeyFeature" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupName" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="AttributeGroupIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LanguageSign" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductAttributes" Method="Concentrator_GetIceProductAttributes">
+    <Parameter Name="Products" Parameter="products" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Updates" Parameter="updates" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="Concentrator_GetIceProductAttributesResult">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(6000)" CanBeNull="true" />
+      <Column Name="Sign" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FeatureIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSearchable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="KeyFeature" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupName" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="AttributeGroupIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LanguageSign" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ManufacturerID" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceCatAttribute" Method="Concentrator_GetIceCatAttribute">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceCatAttributeResult">
+      <Column Name="AttributeGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupName" Type="System.String" DbType="NVarChar(300)" CanBeNull="true" />
+      <Column Name="AttributeGroupIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Feature_ID" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeName" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="Value" Type="System.String" DbType="VarChar(6000)" CanBeNull="true" />
+      <Column Name="Sign" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FeatureIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSearchable" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Presentation_Value" Type="System.String" DbType="VarChar(7000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductbyManufactID" Method="Concentrator_GetIceProductbyManufactID">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductbyManufactIDResult">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ThumbPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HighPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Prod_ID" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="HighPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ThumbPic" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(175)" CanBeNull="true" />
+      <Column Name="Langid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModelName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Supplier_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_ID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductDescription_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="langid1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PDFURL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ShortDesc" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="LongDesc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WarrantyInfo" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="PDFSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Product_ID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supplier_ID1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Supplier_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductFullbyManufactID" Method="Concentrator_GetIceProductFullbyManufactID">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductFullbyManufactIDResult">
+      <Column Name="Product_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ThumbPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Quality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="HighPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPic" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LowPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Prod_ID" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="HighPicSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="ThumbPic" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="Code" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(175)" CanBeNull="true" />
+      <Column Name="Langid" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Updated" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ModelName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Supplier_id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Product_ID1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductDescription_ID" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="URL" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="langid1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PDFURL" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ShortDesc" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="LongDesc" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WarrantyInfo" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="PDFSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Product_ID2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supplier_ID1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Supplier_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductCategories" Method="Concentrator_GetIceProductCategories">
+    <Parameter Name="Products" Parameter="products" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductCategoriesResult">
+      <Column Name="Prod_ID" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Cat_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Supplier_id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceCategory" Method="Concentrator_GetIceCategory">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="LanguageID" Parameter="languageID" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceCategoryResult">
+      <Column Name="Cat_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name_ID" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+      <Column Name="langid" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CategoryName" Type="System.String" DbType="NVarChar(1500)" CanBeNull="true" />
+      <Column Name="Parent_Cat_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Parent_CategoryName" Type="System.String" DbType="NVarChar(1500)" CanBeNull="true" />
+      <Column Name="Parent_NameID" Type="System.String" DbType="NVarChar(53)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductDescriptions" Method="Concentrator_GetIceProductDescriptions">
+    <Parameter Name="vendorItemNumber" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="supplier_id" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductDescriptionsResult">
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="VendorItemNumber" Type="System.String" DbType="NVarChar(75)" CanBeNull="true" />
+      <Column Name="ShortDescription" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="LongDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LanguageID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PDFUrl" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PDFSize" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Url" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="WarrentyInfo" Type="System.String" DbType="NVarChar(2500)" CanBeNull="true" />
+      <Column Name="LongSummaryDescription" Type="System.String" DbType="NText" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ShortSummaryDescription" Type="System.String" DbType="NVarChar(750)" CanBeNull="true" />
+      <Column Name="ModelName" Type="System.String" DbType="NVarChar(450)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(175)" CanBeNull="true" />
+      <Column Name="Quality" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.Concentrator_GetIceProductImageUrlbyICEcatID" Method="Concentrator_GetIceProductImageUrlbyICEcatID">
+    <Parameter Name="ManufactID" Parameter="manufactID" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="SupplierID" Parameter="supplierID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ProductGroupID" Parameter="productGroupID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="langid" Type="System.Int32" DbType="Int" />
+    <ElementType Name="Concentrator_GetIceProductImageUrlbyICEcatIDResult">
+      <Column Name="Picture" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="BaseImage" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

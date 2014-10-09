@@ -1,0 +1,87 @@
+﻿@{
+  Layout = null;
+}
+@using Concentrator.Objects.Models.Forms
+@model Concentrator.ui.Management.Models.CommentsModel
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Commentaar aanmaken</title>
+  <script type="text/javascript" language="javascript" src="@Url.Content("~/Scripts/jQuery/jquery-1.5.1.min.js")"></script>
+  <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/css/Site.css")" />
+  <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/css/CommentsForm.css")" />
+</head>
+<body style="background-color: White">
+  <div id="comments-container">
+    <div id="logo-container">
+    </div>
+    <div>
+      @if (ViewBag.Success != null && ((bool?)ViewBag.Success).Value)
+      {
+        <p class="success">
+          Notification successfully created</p>
+      }
+      @using (Html.BeginForm("Create", "Comments"))
+      {
+        @Html.ValidationSummary()
+
+        <ul class="form-items">
+          <li>
+            @Html.LabelFor(c => c.EmployeeName)
+            @Html.TextBoxFor(c => c.EmployeeName)
+          </li>
+          <li>
+            @Html.LabelFor(c => c.Priority)
+            <input type="radio" name="Priority" id="low" value="Low" style="width: auto" /><label
+              for="low" style="width: auto; margin-right: 10px;">Laag</label>
+            <input type="radio" name="Priority" id="normal" value="Normal" style="width: auto" /><label
+              for="normal" style="width: auto; margin-right: 10px;">Normaal</label>
+            <input type="radio" name="Priority" id="urgent" value="Urgent" style="width: auto" /><label
+              for="urgent" style="width: auto">Hoog</label>
+          </li>
+          <li>
+            @Html.LabelFor(c => c.ArticleNumber)
+            @Html.TextBoxFor(c => c.ArticleNumber)
+          </li>
+          <li>
+            @Html.LabelFor(c => c.ProductName)
+            @Html.TextBoxFor(c => c.ProductName)
+          </li>
+          <li>
+            @Html.LabelFor(c => c.Notification)
+            
+              <input type="checkbox" name="Notification" id="price" value="@((int)FormNotificationType.Price)"/>
+              <label for="price" style="width: auto">
+                Prijs</label>
+              <input type="checkbox" name="Notification" id="product" value="@((int)FormNotificationType.Product)"/>
+              <label for="product" style="width: auto">
+                Product</label>
+              <input type="checkbox" name="Notification" id="publication" value="@((int)FormNotificationType.Publication)" />
+              <label for="publication" style="width: auto">
+                Publicatie</label>
+              <input type="checkbox" name="Notification" id="other" value="@((int)FormNotificationType.Other)"  />
+              <label for="other" style="width: auto">
+                Anders</label>            
+          </li>
+          <li>
+            <label for="Description" style="vertical-align: top">
+              Omschrijving fout/wijziging</label>
+            @Html.TextAreaFor(c => c.Description, new { rows = 3, cols = 23 })
+          </li>
+          <input type="submit" value="Aanmaken" />
+        </ul>
+      }
+    </div>
+  </div>
+  <script type="text/javascript" language="javascript">
+    $(function () {
+      var successP = $('p.success');
+      if (successP) {
+        setTimeout(function () {
+          successP.fadeOut(1000);
+        }, 1000);
+      }
+    });
+  </script>
+</body>
+</html>

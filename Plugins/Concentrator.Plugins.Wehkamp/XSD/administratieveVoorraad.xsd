@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+09-07-08   1.2 RKL  Gebruik van namespace, types nu included.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="administratieveVoorraad">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="voorraad" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="voorraadDatum" type="xs:date"/>
+              <xs:element name="artikelNummer" type="artikelNummerType"/>
+              <xs:element name="kleurNummer" type="kleurNummerType"/>
+              <xs:element name="maat" type="maatType"/>
+              <xs:element name="locusStatus" type="locusStatusType"/>
+              <xs:element name="voorraadAantal" type="aantalType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Concentrator.orders.nl/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://Concentrator.orders.nl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Concentrator.orders.nl/">
+      <s:element name="ImportOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="order" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ImportOrderResponse">
+        <s:complexType />
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ImportOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ImportOrder" />
+  </wsdl:message>
+  <wsdl:message name="ImportOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ImportOrderResponse" />
+  </wsdl:message>
+  <wsdl:portType name="OrderInboundSoap">
+    <wsdl:operation name="ImportOrder">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Import orders into the concentrator</wsdl:documentation>
+      <wsdl:input message="tns:ImportOrderSoapIn" />
+      <wsdl:output message="tns:ImportOrderSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderInboundSoap" type="tns:OrderInboundSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportOrder">
+      <soap:operation soapAction="http://Concentrator.orders.nl/ImportOrder" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderInboundSoap12" type="tns:OrderInboundSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ImportOrder">
+      <soap12:operation soapAction="http://Concentrator.orders.nl/ImportOrder" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="OrderInbound">
+    <wsdl:port name="OrderInboundSoap" binding="tns:OrderInboundSoap">
+      <soap:address location="http://localhost/ConcentratorOrders/OrderInbound.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderInboundSoap12" binding="tns:OrderInboundSoap12">
+      <soap12:address location="http://localhost/ConcentratorOrders/OrderInbound.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,5 @@
+D:\Projects\sennheiser\Sennheiser\Ninject.Web.Mvc\obj\Release\ResolveAssemblyReference.cache
+D:\Projects\sennheiser\build\release\Ninject.Web.Mvc.dll
+D:\Projects\sennheiser\build\release\Ninject.Web.Mvc.pdb
+D:\Projects\sennheiser\Sennheiser\Ninject.Web.Mvc\obj\Release\Ninject.Web.Mvc.dll
+D:\Projects\sennheiser\Sennheiser\Ninject.Web.Mvc\obj\Release\Ninject.Web.Mvc.pdb

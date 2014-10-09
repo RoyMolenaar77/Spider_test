@@ -1,0 +1,96 @@
+﻿@{
+  Layout = null;
+}
+@using Concentrator.ui.Management.Models.Anychart
+@model Concentrator.ui.Management.Models.Anychart.AnychartComponentModel
+<anychart>   
+  <settings> 
+    <animation enabled="True" /> 
+  </settings>  
+  <charts> 
+    <chart plot_type="Pie"> 
+      <data_plot_settings enable_3d_mode="true"> 
+          <pie_series> 
+          <tooltip_settings enabled="true"> 
+            
+            @*<format><![CDATA[ {%Name} : {%YPercentOfSeries}{numDecimals: 2}% ]]></format>*@
+
+            <format> <![CDATA[ {%Name} : {%Value} ]]> </format>    
+
+          </tooltip_settings>
+          <label_settings enabled="true"> 
+            <background enabled="false" /> 
+            <position anchor="Center" valign="Center" halign="Center"/> 
+            <font color="White"> 
+              <effects> 
+                <drop_shadow enabled="true" distance="2" opacity="0.5" blur_x="2" blur_y="2" /> 
+              </effects> 
+            </font> 
+            <format><![CDATA[{%YPercentOfSeries}{numDecimals:1}%]]></format>        
+          </label_settings> 
+        </pie_series> 
+      </data_plot_settings> 
+      <data>       
+        
+        @foreach (var p in Model.Series)
+        {
+          <series name="@p.Name" @if (!string.IsNullOrEmpty(p.Palette))
+                                 {
+                                  @MvcHtmlString.Create("palette='" + @p.Palette + "'")
+                                 }> 
+            @foreach (PieChartPoint c in p)
+            {
+                <point y="@c.Value" @* @if (!string.IsNullOrEmpty(c.Color))
+                                     {
+                                  @MvcHtmlString.Create("color='" + @c.Color + "'")
+                                      
+                                     }*@>
+                  <name>@c.Name</name>
+                  @if (c.Action != null)
+                  {
+                      <actions>
+                        <action type="@c.Action.Type" function="@c.Action.Name">
+                          @foreach (var a in c.Action.ArgumentValues)
+                          {
+                              <arg>@a</arg>
+                          } 
+                        </action>
+                      </actions>
+                  }
+                </point>    
+            }
+            
+            </series>         
+        } 
+
+      </data> 
+      <chart_settings> 
+        <title enabled="false" padding="15">            
+        </title> 
+       <legend enabled="true" position="Bottom" align="Spread" ignore_auto_item="true" padding="15">           
+          <format>
+              <![CDATA[{%Icon} {%Name}: {%YPercentOfSeries}%]]>
+          </format> 
+
+          <template /> 
+          
+          <title enabled="false">             
+          </title> 
+          
+          <columns_separator enabled="false" />           
+          <background> 
+            <inside_margin left="10" right="10" /> 
+          </background> 
+
+          <items> 
+            <item source="Points" /> 
+          </items>
+
+        </legend> 
+
+      </chart_settings> 
+
+    </chart> 
+  </charts> 
+
+</anychart>

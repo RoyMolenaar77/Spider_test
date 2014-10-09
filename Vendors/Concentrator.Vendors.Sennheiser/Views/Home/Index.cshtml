@@ -1,0 +1,154 @@
+﻿@{
+  string chapter = string.Empty;
+  string cat = string.Empty;
+  string subcat = string.Empty;
+  int pageNr = 1;
+}
+@foreach (var page in ViewBag.Products)
+{
+  if (page.Items.Count > 0)
+  {
+  <div class="pricelistpage">
+    <div class="headerbox">
+      <span style="color: #00A0D4; margin-left: 125px; font-family: Sennheiser-Book">@page.Items[0].BrandName</span><br />
+      <span style="color: #FFFFFF; margin-left: 125px; font-family: Sennheiser-Book">@page.Items[0].Chapter</span><br />
+      @*<div style="float: right; margin-top: -4px;">
+        <img src="@Url.Content("~/Content/images/header.png")" />
+      </div>*@
+    </div>
+    <div class="clear">
+    </div>
+    <div style="width: 300px; height: 50px; font-weight: bold; float: left; margin-left: 125px;
+      margin-top: 50px;">
+      <table width="100%">
+        <tr>
+          <td colspan="2" style="color: #00A0D4; font-family: Sennheiser-Book">
+            Product Code
+          </td>
+        </tr>
+        <tr style="font-size: 10pt; font-family: Sennheiser-Book">
+          <td>
+            Art. No.
+          </td>
+          <td>
+            Description
+          </td>
+        </tr>
+        <tr style="font-size: 8pt; font-family: Sennheiser-BookItalic">
+          <td>
+            Group No.
+          </td>
+          <td>
+            Technical Data
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div style="border: 2px solid #00A0D4; width: 150px; height: 90px; font-weight: bold;
+      float: right; margin-right: 70px; margin-bottom: 10px; margin-top: 6px; font-family: Sennheiser-Book;">
+      <table width="140px" style="margin: 5px;">
+        <tr>
+          <td colspan="2" style="text-align: center;">
+            <span style="font-weight: bold;">Price &euro;</span>
+          </td>
+        </tr>
+        <tr>
+          <td style="">
+            VAT incl.
+          </td>
+          <td style="color: #00A0D4;">
+            VAT Excl.
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" style="border-bottom: 1px solid #33444C">
+        </tr>
+        <tr>
+          <td style="text-align: right;">
+            BELUX
+          </td>
+          <td style="color: #00A0D4;">
+            BELUX
+          </td>
+        </tr>
+        <tr>
+          <td style="text-align: right;">
+            NL
+          </td>
+          <td style="color: #00A0D4;">
+            NL
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="clear">
+      <hr />
+    </div>
+    <div style="padding: 0mm 11mm 0mm 20mm;">
+      <table cellpadding="0" cellspacing="0" style="" class="price-list-table" width="100%">
+        @if (ViewBag.Products != null)
+        {
+          foreach (var product in (List<Concentrator.Vendors.Sennheiser.Models.PriceListModel>)page.Items)
+          {
+            if (ViewBag.Title != product.Chapter && !string.IsNullOrEmpty(product.Chapter))
+            {
+              ViewBag.Title = product.Chapter.ToUpper();
+            }
+
+            if (cat != product.Category && !string.IsNullOrEmpty(product.Category))
+            {
+          <tr class="headerrow">
+            <td colspan="5" style="background-color: #00A0D4; font-family: Sennheiser-Demi;">@product.Category.Try(c => c.ToUpper(), string.Empty)
+            </td>
+          </tr>
+                                                                                        cat = product.Category;
+            }
+
+            if (subcat != product.Subcategory && !string.IsNullOrEmpty(product.Subcategory))
+            {
+          <tr class="headerrow">
+            <td colspan="5" style="background-color: #BFC5C8; font-family: Sennheiser-Demi;">@product.Subcategory.Try(c => c.ToUpper(), string.Empty)
+            </td>
+          </tr>
+                                                                                        subcat = @product.Subcategory;
+            }
+          
+          <tr style="height: 60px;" class="price-list-table-row">
+            <td style="width: 60px; text-align:center; vertical-align:center;">
+              <img width="60px" alt="@product.Artnr" src="@product.Image"/>
+            </td>
+            <td style="width: 100px;">
+              <span class="productname" style="font-family: Sennheiser-Demi;">@product.ProductID</span><br />
+              <span style="font-family: Sennheiser-Demi;">@product.Artnr</span><br />
+              <span style="font-family: Sennheiser-BookItalic;">@product.PriceGroup</span>
+            </td>
+            <td>
+              <span style="display: block; margin-top: 2px; font-family: Sennheiser-Book;">@product.Description1</span>
+              @if (!string.IsNullOrEmpty(product.Description2))
+              {
+              
+                <span style="display: block; font-family: Sennheiser-Book;">@product.Description2</span>
+                
+              }
+              <span style="font-family: Sennheiser-BookItalic">@Html.Raw(product.Features)</span>
+            </td>
+            <td>
+              <span style="font-family: Sennheiser-Demi">@product.PriceBE</span><br />
+              <br />
+              <span style="font-family: Sennheiser-Demi">@product.PriceNL</span>
+            </td>
+            <td style="width: 65px; padding-right: 5px; font-family: Sennheiser-Demi">
+              <h3 style="color: #00A0D4; text-align: right; margin-top: 0; margin-bottom: 0;">@product.BEVatExcl</h3>
+              <br />
+              <h3 style="color: #00A0D4; text-align: right; margin-top: 0; margin-bottom: 0;">@product.VatExcl</h3>
+            </td>
+          </tr>    
+          }
+        }
+      </table>
+    </div>
+    <span class="pageNr">@pageNr</span>
+  </div>
+                    pageNr++;
+  }
+}

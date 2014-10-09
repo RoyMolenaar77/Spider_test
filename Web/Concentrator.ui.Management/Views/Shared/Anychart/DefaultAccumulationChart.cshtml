@@ -1,0 +1,106 @@
+﻿@{
+  Layout = null;
+}
+@using Concentrator.ui.Management.Models.Anychart
+@model Concentrator.ui.Management.Models.Anychart.AnychartComponentModel
+<anychart>
+  <settings>
+    <animation enabled="True" />
+  </settings>
+  <charts>
+    <chart plot_type="Funnel">
+      <chart_settings>
+        <title enabled="true" padding="20" align_by="Chart">
+          <text></text>
+        </title>
+        <data_plot_background enabled="false" />
+        <legend enabled="true" ignore_auto_item="true" position="Right">
+          <title enabled="false" />
+          <items>
+            <item source="points" />
+          </items>
+        </legend>
+      </chart_settings>
+      <data_plot_settings enable_3d_mode="true">
+        <funnel_series inverted="true" neck_height="0" fit_aspect="1" min_width="0" padding="0" mode="Square">
+          <animation enabled="true" start_time="0.3" duration="2" type="SideFromTop" animate_opacity="true" interpolation_type="Bounce" show_mode="Smoothed" />
+          <tooltip_settings enabled="true">
+            
+            <position anchor="CenterRight" padding="10" valign="Center" halign="right" />
+            
+            <format> <![CDATA[ {%Name} : {%Value} ]]> </format>            
+
+            <background>
+              <corners type="Rounded" all="3" />
+            </background>
+
+          </tooltip_settings>
+          <label_settings enabled="true">
+            <animation enabled="true" start_time="0.3" duration="2" type="SideFromLeft" animate_opacity="true" interpolation_type="Bounce" show_mode="Smoothed" />
+            <position anchor="Center" valign="Center" halign="Center" padding="10" />
+            <background enabled="false" />
+            <format>{%YPercentOfSeries}{numDecimals:1}%</format>
+          </label_settings>
+          <marker_settings enabled="true">
+            <marker type="None" />
+            <states>
+              <hover>
+                <marker type="Circle" anchor="CenterRight" size="8" />
+                <effects enabled="true">
+                  <bevel enabled="true" highlight_opacity="0.3" shadow_opacity="0.3" />
+                </effects>
+              </hover>
+            </states>
+          </marker_settings>
+          <funnel_style>
+            <border color="Black" opacity="0.05" />
+            <states>
+              <hover>
+                <fill color="%Color" />
+                <hatch_fill enabled="true" type="Percent50" color="White" opacity="0.3" />
+              </hover>
+              <selected_hover>
+                <fill color="%Color" />
+                <hatch_fill type="Checkerboard" color="#404040" opacity="0.1" />
+              </selected_hover>
+              <selected_normal>
+                <fill color="%Color" />
+                <hatch_fill type="Checkerboard" color="Black" opacity="0.1" />
+              </selected_normal>
+            </states>
+          </funnel_style>
+        </funnel_series>
+      </data_plot_settings>
+      <data>
+
+         @foreach (var p in Model.Series)
+         {
+          <series name="@p.Name" @if (!string.IsNullOrEmpty(p.Palette))
+                                 {
+                                  @MvcHtmlString.Create("palette='" + @p.Palette + "'")
+                                 }> 
+
+            @foreach (PieChartPoint c in p)
+            {
+                <point y="@c.Value">
+                  <name>@c.Name</name>
+                  @if (c.Action != null)
+                  {
+                      <actions>
+                        <action type="@c.Action.Type" function="@c.Action.Name">
+                          @foreach (var a in c.Action.ArgumentValues)
+                          {
+                              <arg>@a</arg>
+                          } 
+                        </action>
+                      </actions>
+                  }
+                </point>    
+            }
+            
+            </series>         
+         } 
+      </data>
+    </chart>
+  </charts>
+</anychart>

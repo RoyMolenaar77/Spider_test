@@ -1,0 +1,25 @@
+﻿SELECT DISTINCT  
+  UPPER(p.vendoritemnumber) as VendorItemNumber
+, p.productid as ProductID
+, pavMaat.value as Maat
+, pbMaat.Barcode as Maatcode
+, (SELECT TOP 1 Barcode FROM ProductBarcode pb WHERE pb.BarcodeType = 0 AND pb.ProductID = p.ProductID) AS EANCode
+, vt1.DestinationVendorValue as WehkampPresentatiemaat
+, vt2.DestinationVendorValue as WehkampMagazijnmaat
+, vp.Price as Prijs 
+, vp.SpecialPrice as SpecialPrijs
+, vp.LastUpdated
+, 'not used in this query' as 'SentToWehkamp'
+, 'not used in this query' as 'SentToWehkampAsDummy'
+
+FROM relatedproduct rp
+INNER JOIN product p ON p.productid = rp.relatedproductid
+INNER JOIN ProductAttributeValue pavMaat ON p.ProductID = pavMaat.ProductID and pavMaat.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Size')
+INNER JOIN VendorTranslation vt1 ON pavMaat.Value = vt1.SourceVendorValue and vt1.SourceVendorID = {0} AND vt1.TranslationType = 2
+INNER JOIN ProductBarcode pbMaat ON p.ProductID = pbMaat.ProductID  AND pbMaat.BarcodeType = 4
+INNER JOIN VendorTranslation vt2 ON pbMaat.Barcode = vt2.SourceVendorValue AND vt2.SourceVendorID = {0} AND vt2.TranslationType = 1
+INNER JOIN VendorAssortment va ON p.ProductID = va.ProductID AND va.VendorID = vt2.SourceVendorID
+INNER JOIN VendorPrice vp ON vp.VendorAssortmentID = va.VendorAssortmentID 
+
+WHERE rp.productid = {1} 
+AND rp.IsConfigured = 1  

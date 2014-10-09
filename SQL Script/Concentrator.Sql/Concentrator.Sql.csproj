@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25FD8196-D63B-460A-9729-5651CBD94085}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Sql</RootNamespace>
+    <AssemblyName>Concentrator.Sql</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ninject">
+      <HintPath>..\..\Shared\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Concentrator.Objects\Concentrator.Objects.csproj">
+      <Project>{D80A561D-8D9B-464F-BA1C-430E00CA658A}</Project>
+      <Name>Concentrator.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Concentrator.Environments\Concentrator.Configuration.csproj">
+      <Project>{F1B7D4A3-2572-4443-A6C4-96F06E8CD211}</Project>
+      <Name>Concentrator.Configuration</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Script\Arno\201106081638-WebToPrint.sql" />
+    <Content Include="Script\localTimDev\201103241008_LocalTimDev_ProductMatchTableChange.sql" />
+    <Content Include="Script\localTimDev\201103301000_LocalTimDev_FetchProductMatches.sql" />
+    <Content Include="Script\localTimDev\Version.xml" />
+    <Content Include="Script\localTim\201103221616_staging_blala.sql" />
+    <Content Include="Script\localTim\201104211132_local_Productgroupvendor.sql" />
+    <Content Include="Script\localTim\20110517_jumbo_brands.sql" />
+    <Content Include="Script\localTim\Version.xml" />
+    <Content Include="Script\Staging\201103221125_staging_blala.sql" />
+    <Content Include="Script\Staging\201103231543_staging_AlterImageView.sql" />
+    <Content Include="Script\Staging\201103231132_ProductAttributeMatchStores.sql" />
+    <Content Include="Script\Staging\201103281324_staging_productbarcode.sql" />
+    <Content Include="Script\Staging\201103311519_staging_productattributematch.sql" />
+    <Content Include="Script\Staging\201104041137_staging_selectorproductview.sql" />
+    <Content Include="Script\Staging\201104051043_staging_productcompare.sql" />
+    <Content Include="Script\Staging\20110405_OrderItemFullfilment.sql" />
+    <Content Include="Script\Staging\201105021215_staging_connectorschedule.sql" />
+    <Content Include="Script\Staging\201104060958_staging_ConnectorSystemType.sql" />
+    <Content Include="Script\Staging\201104070816_staging_AddStoreNameColumn.sql" />
+    <Content Include="Script\Staging\201104071016_staging_MissingConcentview.sql" />
+    <Content Include="Script\Staging\201104190121_staging_edi.sql" />
+    <Content Include="Script\Staging\201104200938_AlterMissingContentView.sql" />
+    <Content Include="Script\Staging\201104201310_staging_serveralchanges.sql" />
+    <Content Include="Script\Staging\201104261015_alterMissingContentView.sql" />
+    <Content Include="Script\Staging\201104271640_contentledger.sql" />
+    <Content Include="Script\Staging\201104281419_advancedpricing.sql" />
+    <Content Include="Script\Staging\201105030817_staging_CalculatedPriceView.sql" />
+    <Content Include="Script\Staging\201105030903_staging_GenerateContentAttribute.sql" />
+    <Content Include="Script\Staging\201105030904_staging_SelectorProductView.sql" />
+    <Content Include="Script\Staging\201105051609_staging_Copyproductgroupmapping.sql" />
+    <Content Include="Script\Staging\201105181106_UserCredentials.sql" />
+    <Content Include="Script\Staging\201105181058_ConnectorRelationTable.sql" />
+    <Content Include="Script\Staging\201106300904_staging_ImageView.sql" />
+    <Content Include="Script\Staging\Version.xml" />
+    <Content Include="Script\Stan\201106030751_ProductGroupMapping.sql" />
+    <Content Include="Script\Stan\201107130814_PortalNotification.js" />
+    <Content Include="Script\Stan\201116061006_missingContent.sql" />
+    <Content Include="Script\wizard\201103221035_ProductMatch.sql" />
+    <Content Include="Script\wizard\201104191150_PortalCleanup.sql" />
+    <Content Include="Script\wizard\Version.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

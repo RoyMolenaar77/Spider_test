@@ -1,0 +1,120 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Xml.Linq;
+using System.IO;
+
+namespace ConsoleApplication3
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      var doc = XDocument.Load(@"\\SOL\Homedir\s.todorov\My Documents\Visual Studio 2010\Projects\ConsoleApplication3\ConsoleApplication3\ConcEMD.edmx");
+
+
+
+     string namespac = "http://schemas.microsoft.com/ado/2008/10/edmx";
+
+      string namesp = "http://schemas.microsoft.com/ado/2008/09/edm";
+
+      var types = (from r in doc.Root.Descendants(XName.Get("Runtime", namespac))
+              .Descendants(XName.Get("ConceptualModels", namespac))
+              .Descendants(XName.Get("Schema", namesp))
+              .Descendants(XName.Get("EntityType", namesp))
+                   select//.Where(c => c.Name=="Property") //.Elements("Property")
+                   new
+                   {
+                     Name = r.Attribute("Name").Value,
+                     props = (from p in r.Descendants(XName.Get("Property", "http://schemas.microsoft.com/ado/2008/09/edm"))
+                              select new
+                              {
+                                name = p.Attribute("Name").Value,
+                                type = p.Attribute("Type").Value,
+                                nullable = p.Attribute("Nullable") == null ? false : bool.Parse(p.Attribute("Nullable").Value)
+                              }
+                        ),
+                     navigation = (from p in r.Descendants(XName.Get("NavigationProperty", "http://schemas.microsoft.com/ado/2008/09/edm"))
+                                   let relationObj = (from a in doc.Root.Descendants(XName.Get("Runtime", namespac))
+                                            .Descendants(XName.Get("ConceptualModels", namespac))
+                                            .Descendants(XName.Get("Schema", namesp)).Descendants(XName.Get("Association", namesp))
+                                                      let relAttribute = p.Attribute("Relationship").Value
+                                                      where a.Attribute("Name").Value == relAttribute.Substring(relAttribute.LastIndexOf('.') + 1)
+                                                      select a).FirstOrDefault()
+                                   let n = p.Attribute("Name").Value
+                                   let role = (from e in relationObj.Descendants(XName.Get("End", namesp))
+                                               where e.Attribute("Role").Value == p.Attribute("ToRole").Value
+                                               select e).FirstOrDefault()
+                                   let mul = (role.Attribute("Multiplicity").Value == "*" ? "Many" : "Single")
+                                   let type = role.Attribute("Type").Value
+                                   select new
+                                   {
+                                     Name = n,
+                                     Type = type.Contains('.') ? type.Substring(type.LastIndexOf('.') + 1) : type,
+                                     Multiplicity = mul
+                                   })
+                   }
+         ).ToList();
+
+
+      var subDir = @"E:\Test\";
+
+      Console.WriteLine("Starting generation...");
+
+
+      try
+      {
+        int counter = 0;
+        foreach (var obj in types)
+        {
+          counter++;
+
+          var tpl = @"using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Concentrator.Objects.Models.Base;
+                  
+namespace Concentrator.Objects.Models 
+{";
+
+          //class level
+          var audit = obj.props.Any(p => p.name == "CreatedBy");
+
+          tpl += string.Format(@"
+  public class {0}{1}
+  {{", obj.Name, (audit ? " : AuditObjectBase" : string.Empty));
+
+          foreach (var prop in obj.props.Where(c => c.name != "CreationTime" && c.name != "CreatedBy" && c.name != "LastModifiedBy" && c.name != "LastModificationTime"))
+          {
+            tpl += string.Format(@"
+    public {0}{1} {2} {{ get; set; }}
+          ", prop.type, prop.nullable ? "?" : string.Empty, prop.name);
+          }
+
+          foreach (var nav in obj.navigation.Where(c => c.Name != "CreatedByUser" && c.Name != "LastModifiedByUser"))
+          {
+            tpl += string.Format(@"
+    public virtual {0} {1} {{ get;set;}}
+            ", (nav.Multiplicity == "Many" ? "ICollection<" + nav.Type + ">" : nav.Type), nav.Name);
+
+          }
+          tpl += @"
+  }
+}";
+
+          File.WriteAllText(subDir + obj.Name + ".cs", tpl);
+        }
+
+        Console.WriteLine("Generation finished. Generated " + counter + " files");
+
+      }
+      catch (Exception e)
+      {
+        Console.WriteLine("Generation failed. " + e.Message);
+      }
+      Console.ReadLine();
+    }
+  }
+}

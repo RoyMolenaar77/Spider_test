@@ -1,0 +1,1161 @@
+﻿body
+{
+    font-size: .85em;
+    font-family: "Trebuchet MS" , Verdana, Helvetica, Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: black;
+    background: #FFFFFF;
+}
+
+/* FORM LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+fieldset
+{
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend
+{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea
+{
+    min-height: 75px;
+}
+
+input[type="text"], input[type="password"]
+{
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+    width: 200px;
+}
+
+select
+{
+    border: 1px solid #ccc;
+    padding: 2px;
+    font-size: 1.2em;
+    color: #444;
+}
+
+input[type="submit"]
+{
+    font-size: 1.2em;
+    padding: 5px;
+}
+
+ul.form-items
+{
+    margin: 0;
+    padding: 3px 0px 3px 5px;
+    color: black;
+    list-style-type: none;
+}
+
+ul.form-items li label
+{
+    width: 150px;
+    display: inline-block;
+}
+
+ul.form-items li
+{
+    clear: both;
+    margin-top: 4px;
+    list-style-type: none;
+}
+
+ul.form-items li .editor-label, ul.form-items li .display-label
+{
+    width: 200px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.form
+{
+    border-left: 1px solid #D9D9D9;
+    padding-left: 20px;
+}
+
+.form ul
+{
+    padding: 0px;
+}
+
+.form input
+{
+    padding: 6px 5px;
+    width: 180px;
+    background: url(~/Content/images/form-elements.png) no-repeat scroll left top transparent;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px 6px 6px 6px;
+    display: block;
+}
+
+form input:focus
+{
+    border: 1px solid red;
+}
+
+.form button
+{
+    margin-top: 10px;
+    margin-left: 15px;
+}
+
+button, a.button
+{
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+    background: url(~/Content/images/button.png) left no-repeat;
+    text-decoration:none;
+    display:inline-block;
+    padding-left:13px;
+    margin:0px;
+}
+
+
+
+button span, a.button span
+{
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    padding: 0 16px 0 0;
+    height: 22px;
+    line-height: 22px;
+    background: url(~/Content/images/button-right.png) right no-repeat;
+    color: #ffffff;
+    border:0px;
+    margin:0px;
+}
+
+button:hover, a.button:hover
+{
+    border: 0;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: left;
+    visibility: visible;
+    background: url(~/Content/images/button-hover.png) left no-repeat;
+}
+
+button:hover span, a.button:hover span
+{
+    position: relative;
+    display: block;
+    white-space: nowrap;
+    padding: 0 16px 0 0;
+    height: 22px;
+    line-height: 22px;
+    background: url(~/Content/images/button-hover-right.png) right no-repeat;
+    color: #ffffff;
+}
+
+.form ul > li
+{
+    border-bottom: 1px solid #D9D9D9;
+    clear: both;
+    display: block;
+    padding: 0px 0 12px 12px;
+}
+
+.form ul li
+{
+    background: none repeat scroll 0 0 transparent;
+}
+
+/** INPUT**/
+input
+{
+    padding: 6px;
+    background: url(~/Content/images/form-elements.png) no-repeat scroll left top transparent;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px 6px 6px 6px;
+}
+
+input:focus
+{
+    border: 1px solid blue;
+}
+
+/* Login */
+.login
+{
+    background: #5C87B2;
+    color:#15428B;
+    padding-top: 29px;
+}
+
+.login .container
+{
+    width: 500px;
+    margin: 100px auto 0 auto;
+    padding: 2px;
+}
+
+.login .title
+{
+    background-color: #DFE8F6;
+    margin-bottom: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid #15428B;
+}
+
+.login .logo
+{
+    height: 150px;
+    width: 80%;
+    border: none;
+    display: inline-block;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("images/logo_big.png");
+    background-color: #DFE8F6;
+    border-radius: 80px;
+    margin-left:10%;
+    margin-bottom:10%;
+}
+
+.login .panel
+{
+    padding: 5px;
+    background: #DFE8F6;
+    border-radius: 5px;
+    border: 1px solid #15428B;
+}
+
+.login .htmlLink
+{
+    display: inline;
+    font-size: 0.9em;
+    float: right;
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.login .htmlLink a
+{
+    text-decoration: none;
+    color:#15428B;
+    padding: 4px;
+}
+
+.login .htmlLink a:hover
+{
+    text-decoration: underline;
+}
+
+.login .htmlLink a:active
+{
+    color: #36BBCE;
+}
+
+.login .validation-summary-errors 
+{
+    color: red;
+    font-size: 80%;
+    margin-left: 10%;
+}
+
+/* portal */
+
+.portal 
+{
+    background-color: #5C87B2;
+    padding-top: 29px;
+}
+
+.portal .container
+{
+    width:966px;
+    height:auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portal .page
+{
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    width: 100%;
+    height: 90%;
+    background-color: white;
+    padding-top: 10px;
+    position: relative;
+    z-index: 0;
+    behavior: url(~/Content/pie.htc);
+}
+
+.portal .logo
+{
+    position:absolute;
+    height: 90px;
+    width: 90px;
+    border: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("images/logo_small.png");
+    display: inline;
+    padding-left: 18px;
+    margin-top: 17px;
+}
+
+.portal .header
+{
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    -khtml-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+    background-color:#DFE8F6;
+    height: 140px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom:30px;
+    padding: 0px;
+    width: 946px;
+    position: relative;
+    z-index: 0;
+    behavior: url(~/Content/pie.htc);
+}
+
+.portal .header .menu 
+{
+    font-family: sans-serif;
+    font-size: 11px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    height: 43px;
+    line-height: 13px;
+    color: white;
+    text-align: right;
+    text-transform: uppercase;
+    vertical-align: baseline;
+    float:right;
+    margin-top: 20px;
+}
+
+.portal .header .menu a
+{
+    text-decoration: none;
+    color: #15428B;
+    outline: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    margin:5px;
+    padding: 10px;
+    display:block;
+}
+
+.portal .header .menu li.basket 
+{
+    
+}
+
+.portal .header .menu a#basket
+{
+    background: url("/Concentrator.ui.Portal/Content/images/shopping-cart.png") no-repeat left center;
+    padding-left:48px;
+
+}
+
+.portal .header .menu a.arrow-down
+{
+    background: url(~/Content/images/arrow-down.png) no-repeat;
+    background-position: left center;
+    padding-left:28px;
+    margin-bottom:0px;
+}
+
+.portal .header .menu span.shopping-cart
+{
+    background: url(~/Content/images/shopping-cart.png) no-repeat center;
+    padding: 5px;
+    width:42px;
+    height:31px;
+    display:block;
+    float:left;
+}
+
+.portal .header .menu ul
+{
+    list-style: none;
+    margin: 0;
+}
+
+.portal .header .menu ul li
+{
+    float: left;
+    padding: 0px;
+    white-space: nowrap;
+    /*background: url("/Concentrator.ui.Portal/Content/images/misc.png") 0 4px no-repeat;*/
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-color: transparent;
+    background-origin: padding-box;
+    height:32px;
+}
+
+.portal .header .menu ul li:first-child
+{
+    background-image: none;
+    border-left: 0px;
+}
+
+.portal .header .menu ul li a:hover
+{
+    background-color: #F3F6FC;
+    text-decoration: none; 
+}
+
+.portal .header .menu ul li ul
+{
+    display: none;
+    background-color: white;
+    position: absolute;
+    padding: 5px 0px 5px 0px;
+    width: 150px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    z-index:1000;
+}
+
+.portal .header .menu ul li ul li
+{
+    padding: 0 0 0 0px;
+    float: none;
+    margin: 0 0 0 0px;
+    width: 100%;
+}
+
+.portal .header .menu ul li ul.active 
+{
+    display:block;
+}
+
+.portal .header .menu ul li ul.active a
+{
+    background-color: white;
+    display: block;
+    padding: 4px 4px 4px 4px;
+    position: relative;
+    color: black;
+    text-align: left;
+    text-transform: none;
+    
+}
+
+.portal .header .menu ul li ul.active a:hover
+{
+    background-color: #cccccc;
+}
+
+.portal .header .nav-menu-container
+{
+position:absolute;
+    margin-left: 96px;
+    margin-top: 80px;
+    width:80%;
+}
+
+.portal .header .nav-menu-container .nav-menu
+{
+    display: inline;
+    float: left;
+}
+
+.portal .header .nav-menu ul
+{
+    list-style-type: none;
+}
+
+.portal .header .nav-menu ul li
+{
+    display: inline;
+}
+
+.portal .header .nav-menu ul li a.portal-currentpage
+{
+    color:#FFFFFF;   
+}
+
+.portal .header .nav-menu ul li a
+{
+    color: #15428B;
+    font: 12px/1.272 sans-serif;
+    text-transform: uppercase;
+    text-decoration:none;
+    font-weight: bold;
+    margin: 2px;
+    padding: 9px 9px 28px 9px;
+    margin-bottom: 20px;   
+    border-radius: 12px 12px 0 0;
+    behavior: url(~/Content/pie.htc);
+}
+
+.portal .header .nav-menu ul li a.notcurrent:hover
+{
+    background-color: #15428B;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 12px 12px 0px 0px;
+    -moz-border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -khtml-border-radius: 12px;
+    behavior: url(~/Content/pie.htc);
+}
+
+.portal .header .header-bottom
+{
+position:absolute;
+margin-top:133px;
+    background-color: #15428B;
+    height: 8px;
+    width: 100%;
+    display: block;
+}
+
+.portal #main
+{
+    padding: 35px 30px 15px 0px;
+    background-color: white;
+    border-radius: 4px 0 0 0;
+    -webkit-border-radius: 4px 0 0 0;
+    -moz-border-radius: 4px 0 0 0;
+    -khtml-border-radius: 4px 0 0 0;
+    behavior: url(~/Content/pie.htc);
+    width:900px !important;
+    margin-bottom:16px;
+}
+
+.portal .portal-currentpage
+{
+    background-color: #15428B;
+}
+
+.portal .content
+{
+    width: 100%;
+    display: inline;   
+}
+
+.portal .content .left
+{
+    float: left;
+    width: 40%;
+    padding-top: 20px;
+}
+
+.portal .content .toaster
+{
+    margin-left : 20px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #CCC;
+    width: 289px;   
+}
+
+.portal .content .toaster-header
+{
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0px 0px;
+    -khtml-border-radius: 5px 5px 0px 0px;
+    behavior: url(~/Content/PIE.htc);
+    background-color:#DFE8F6;
+    color: #15428B;
+    font-weight: bold;
+    height: 30px;
+    padding-left: 15px;
+    padding-top: 10px;
+    text-align: left;
+    width: 275px;
+}
+
+.portal .content .toaster-content
+{
+    width: 281px;
+    margin: 13px;
+    color: black;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.portal .content .toaster-link
+{
+    background: url(~/Content/images/arrow-right.png) no-repeat right;
+    padding: 2px 12px 3px 18px;
+}
+
+.portal .content .toaster-link a
+{
+    color: black;   
+    text-decoration: none;
+}
+
+.portal .content .toaster-link a:hover
+{
+    text-decoration:underline;   
+}
+
+.portal .content .right 
+{
+    float: left;
+    width: 60%;
+    height: 500px;
+    color: black;
+    margin-top: 31px;
+}
+
+.portal .product-menu
+{
+    width: 30%;
+    float:left;
+    margin-left:16px;
+}
+
+.portal .product-menu #active-filters 
+{
+    color: black;
+    display: none;
+}
+
+.portal .product-menu #active-filters .active-filter 
+{
+    background: url(~/Content/images/delete.png) no-repeat scroll 0 0 transparent;
+    padding: 0 25px 10px 28px;
+    margin: 5px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    width: 200px;
+}
+
+
+
+.portal .product-menu .product-menu-item 
+{
+    padding: 2px 12px 3px 18px;
+    color: black;
+    text-decoration:none;
+}
+
+.portal .product-menu .filter-item 
+{
+    display: inline;
+    float: left;
+    font-weight: bold;
+    margin-right: 8px;
+    color: black;
+    cursor: pointer;
+    padding-left: 15px;
+}
+
+.portal .product-menu .active-filter-arrow-right
+{
+    background: url(~/Content/images/arrow_right_grey_dark.png) no-repeat;
+}
+
+.portal .product-menu .active-filter-arrow-right:hover
+{
+    background: url(~/Content/images/arrow_right_grey_light.png) no-repeat;
+}
+
+.portal .product-menu .active-filter-arrow-down 
+{
+    background: url(~/Content/images/arrow_down_grey_dark.png) no-repeat;
+}
+
+.portal .product-menu .search-container
+{
+    padding-bottom: 10px;
+    height:24px;
+}
+
+
+.portal .product-menu #search-button
+{
+    background-image: url(~/Content/images/Icons/view.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: white;
+    width: 30px;  
+    height:24px;
+    padding:2px;
+    display:inline;
+    font-size:1.2em;
+}
+
+.portal .product-menu .search-field
+{
+ float:left;   
+}
+
+.portal .product-menu #product-menu-container 
+{
+    width: 100%;
+    display: inline-block;
+    background-color: #DFE8F6;
+    height: 100%;
+    border-radius: 5px;
+    behavior: url(~/Content/PIE.htc);
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius:5px;
+}
+
+.portal .product-menu #product-menu-container ul 
+{
+    list-style-type: none;
+    padding: 15px 0px 3px 5px;
+    margin-bottom: 1px;
+    margin-left: 0px;
+}
+
+.portal .product-menu #product-menu-container .filter-item-menu-container ul.filter-menu 
+{
+    display:none;
+    padding-top:0px;
+}
+
+
+
+
+.portal .product-menu .filter-item-menu-container 
+{
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    clear: both;
+    height: 52px;
+}
+
+.portal .product-detail-container 
+{
+    display: inline-block;
+    width: 61%;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-top: 40px;
+    height: auto;
+    vertical-align: top;
+}
+
+.portal .product-detail-container ul.product-catalog-list
+{
+    padding: 3px 0px 3px 5px;
+    margin-bottom: 1px;
+}
+
+.portal .product-detail-container ul.product-catalog-list li.product-catalog-list-item
+{
+    border: 1px solid #EEE;
+    background-color: white;
+    cursor: pointer;
+    margin: 10px;
+    overflow: auto;
+    padding: 15px;
+    margin: 10px;   
+    list-style:none;
+    clear:right;
+}
+
+.portal .product-detail-container ul.product-catalog-list li.product-catalog-list-item:hover
+{
+    background-color: #DFE8F6;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -khtml-border-radius: 15px;
+}
+
+
+.portal .product-detail-container ul li div
+{
+    display:inline;
+    float:left;   
+}
+
+.portal .product-detail-container .product-information-container 
+{
+    margin-bottom:16px;
+}
+
+.portal .product-detail-container .product-catalog-item-image 
+{
+    width: 30%;
+    height: 100% !important;
+}
+
+.portal .product-detail-container .product-catalog-item-description 
+{
+    padding-left: 30px;
+    width: 50%;
+    height: 150px !important;
+    font-family: sans-serif;
+    font-style: normal;
+    font-variant: normal;
+    position:relative;
+}
+
+.portal .product-detail-container span.product-catalog-item-description-name 
+{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.portal .product-detail-container span.product-catalog-item-description-description 
+{
+    font-size: 11px;
+    font-weight: normal;
+}
+
+.portal .product-detail-container div#inline-navigation ul
+{
+    border-left: 1px solid white;
+    padding: 0 5px 0px;
+    position: relative;
+    text-align: center;
+    float: left;
+    display: inline;
+}
+
+.portal .product-detail-container div#inline-navigation ul li
+{
+    color: black;
+    padding: 5px 5px;
+    cursor: pointer;
+    display: inline;
+    list-style: none;
+}
+
+.portal .product-detail-container .product-image-container 
+{
+    text-align: center;
+}
+
+.portal .product-detail-container .product-image-container .product-image 
+{
+    width: 300px;
+    height: 300px;
+    margin-left:auto;
+    margin-right:auto;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.portal .product-detail-container .product-image-container .product-image span
+{
+    display: none;
+    font-size: 111px;
+    width: 300px;
+    height: 300px;
+    line-height: 2.2em;
+    text-align: center;
+    float: left;
+}
+
+.portal .product-detail-container .product-catalog-list-item .product-catalog-item-attributes
+{
+    float: right;
+    width:44px;
+    height:auto;
+}
+
+.portal .product-detail-container ul#page-navigation li.currentpage 
+{
+    background-color: #DFE8F6;
+}
+
+.portal .product-image-container .product-image-thumbnails
+{
+    float:left;
+    width:100%;
+    background-color: #DFE8F6;
+    border-radius: 5px;
+    behavior: url("/Concentrator.ui.Portal/Content/PIE.htc");
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom:16px;
+}
+
+.portal .product-image-container .product-image-thumbnails .image-thumb 
+{
+    display:inline;
+    float:left;   
+    margin:10px;
+}
+
+.portal .product-image-container .product-image-thumbnails .images-inline 
+{
+    width:90px;
+}
+
+.portal .product-image-container .product-image-thumbnails #small-image
+{
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.portal .product-image-container .product-image-thumbnails .images-inline span
+{
+    font-size:0.8em;
+    padding-left:10px;
+    padding-right:10px;
+    margin-top:5px;
+}
+
+.portal ul#gallery 
+{
+    list-style: none;   
+}
+
+.portal ul#gallery li
+{
+    display: inline-block;
+    width:100px;
+    margin-right:16px;
+    float:left;
+}
+
+.portal ul#gallery li span.product-media-name
+{
+    font-size:0.9em;
+    text-align:center;
+    width:100%;
+}
+
+.portal ul#gallery li span.product-media-name strong
+{
+    font-weight:bold;
+    font-size:0.8em;
+}
+
+.portal ul#gallery li div.product-image
+{
+    height:80px;
+    width:80px;
+}
+
+.portal ul#gallery li div.product-image span
+{
+    display:none;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    font-size:40px;
+    text-align: center;
+    float: left;
+}
+
+.portal .single-content-container #items-true table
+{
+    margin-left:128px;
+}
+
+.portal .single-content-container div.mail-box-zip
+{
+    margin-left:128px;
+}
+
+.portal .single-content-container #download-button
+{
+    margin-left:128px;
+}
+
+.portal .single-content-container #items-true table th 
+{
+    text-align: left;
+}
+
+
+
+.portal .single-content-container #items-true table td input[type='submit'] 
+{
+    width:25px;
+    background-image:url('~/content/images/delete.png');
+    background-position: center center;
+}
+
+.portal .single-content-container #items-true table th.item-image
+{
+    width:60px;
+}
+
+.portal .single-content-container #items-true table th.item-mediaid
+{
+    width:100px;
+}
+
+.portal .single-content-container #items-true table th.item-medianame
+{
+    width:200px;
+}
+
+.portal .single-content-container #items-true table th.item-resolution
+{
+    width:60px;
+}
+
+.portal .single-content-container #items-true table th.item-delete
+{
+    width:48px;
+}
+
+.portal .product-description-container
+{
+    float:left;
+    width:70%;
+}
+
+.portal .product-specifications-container 
+{
+ float:right;   
+ width:50px;
+ margin-top:30px;
+}
+
+.portal .product-specifications-container img
+{
+ float:right;   
+ margin-bottom:4px;
+}
+
+.portal .single-content-container #items-true ul 
+{
+    list-style:none;
+    padding-left:0px;
+}
+
+.portal .single-content-container #items-true ul li
+{
+    display:inline-block;
+}
+
+.portal .services-table 
+{
+    width:80%;
+    margin-left:10%;   
+}
+
+.portal .services-table tr 
+{
+    height:240px;
+    font-size:1.1em;
+    font: sans-serif;
+}
+
+.portal .services-table tr td 
+{
+    margin-bottom:auto;
+    vertical-align:top;
+}
+
+.portal .services-table tr td strong 
+{
+    font-size:1.4em;
+    margin-bottom:10px;
+    width:80%;
+    display:inline-block;
+    border-bottom: 2px solid #ED1E24;
+}
+
+.portal .services-table tr td a 
+{
+    font-size:1.2em;
+    text-decoration: none;
+    color:#ED1E24;
+    margin-top:8px;
+    float:left;
+}
+
+.portal .clear
+{
+    clear:both; 
+    display:block;
+    visibility:hidden;
+}
+
+.portal footer 
+{
+    color: #999;
+    text-align: center;
+    line-height: normal;
+    margin:  0 0 30px 370px;
+    width:200px;
+    height:36px;
+    font-size: .9em;
+    position: relative;
+    z-index: 0;
+    display:block;
+    clear:both;
+}
+
+.green {
+    color: #E8F0DE;
+    border: solid 1px #538312;
+    background: #64991E;
+    background: -webkit-gradient(linear, left top, left bottom, from(#7DB72F), to(#4E7D0E));
+    background: -moz-linear-gradient(top, #7DB72F, #4E7D0E);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#7db72f', endColorstr='#4e7d0e');
+}
+
+.red {
+    color: #000000;
+    border: solid 1px #CC0000;
+    background: #FF0000;
+    background: -webkit-gradient(linear, left top, left bottom, from(#FF0000), to(#660000));
+    background: -moz-linear-gradient(top, #FF0000, #660000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0000', endColorstr='#660000');
+}
+
+/* modal dialogs */
+div.ui-dialog 
+{
+    border: 1px solid #DDD;
+    background: #EEE;
+    color: #333;
+}
+
+div.ui-widget-header {
+    border: 1px solid #E78F08;
+    background: #ED1E24;
+    color: white;
+    font-weight: bold;
+}
+
+div.ui-widget-header a 
+{
+    text-decoration: none;
+    color: #fff;
+}
+
+div.ui-dialog-content 
+{
+    padding:10px;
+}

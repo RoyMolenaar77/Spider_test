@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="07cf3e9c-5d9d-4304-a184-f971c67aa79a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/AlatestService/AlatestService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="AlatestService.wsdl" MetadataType="Wsdl" ID="8743d6f1-0847-4fd7-b210-9c28e1d4f3b3" SourceId="1" SourceUrl="http://devnld0008.basgroup.local/AlatestService/AlatestService.svc?wsdl" />
+    <MetadataFile FileName="AlatestService.xsd" MetadataType="Schema" ID="3a539467-3e6e-468c-8b0c-f023f0fb2832" SourceId="1" SourceUrl="http://devnld0008.basgroup.local/AlatestService/AlatestService.svc?xsd=xsd0" />
+    <MetadataFile FileName="AlatestService1.xsd" MetadataType="Schema" ID="98a6eb08-50ed-4a7a-b2d9-7cd4e819666d" SourceId="1" SourceUrl="http://devnld0008.basgroup.local/AlatestService/AlatestService.svc?xsd=xsd1" />
+    <MetadataFile FileName="AlatestService.disco" MetadataType="Disco" ID="ca3dabb9-e559-45f3-a524-9c577a352997" SourceId="1" SourceUrl="http://devnld0008.basgroup.local/AlatestService/AlatestService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

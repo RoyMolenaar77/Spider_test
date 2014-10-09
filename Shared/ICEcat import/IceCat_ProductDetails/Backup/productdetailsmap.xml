@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<AttributeType name="ID" />
+	<AttributeType name="ThumbPicSize" />
+	<AttributeType name="Quality" dt:type="string" />
+	<AttributeType name="HighPic" />
+	<AttributeType name="LowPic" />
+	<AttributeType name="LowPicSize" />
+	<AttributeType name="Prod_id" />
+	<AttributeType name="HighPicSize" />
+	<AttributeType name="ThumbPic" />
+	<AttributeType name="Code" />
+	<AttributeType name="Name" />
+	<AttributeType name="URL" />
+	<AttributeType name="Langid" />
+	<AttributeType name="PDFURL" />
+	<AttributeType name="ShortDesc" />
+	<AttributeType name="LongDesc" />
+	<AttributeType name="WarrantyInfo" />
+	<AttributeType name="PDFSize" />
+	<AttributeType name="Localized" />
+	<AttributeType name="Value" />
+	<AttributeType name="CategoryFeature_ID" />
+	<AttributeType name="CategoryFeatureGroup_ID" />
+	<AttributeType name="No" />
+	<AttributeType name="Presentation_Value" />
+	<AttributeType name="Sign" />
+	<AttributeType name="langid" />
+	<AttributeType name="Preferred" />
+	<AttributeType name="Reversed" />
+	<AttributeType name="Category_ID" />
+	<ElementType name="ICECAT-interface" sql:is-constant="1">
+		<element type="Product" />
+	</ElementType>
+	<ElementType name="Product" sql:relation="Product">
+		<attribute type="ID" sql:field="Product_ID" />
+		<attribute type="ThumbPicSize" sql:field="ThumbPicSize" />
+		<attribute type="Quality" sql:field="Quality" />
+		<attribute type="HighPic" sql:field="HighPic" />
+		<attribute type="LowPic" sql:field="LowPic" />
+		<attribute type="LowPicSize" sql:field="LowPicSize" />
+		<attribute type="Prod_id" sql:field="Prod_ID" />
+		<attribute type="HighPicSize" sql:field="HighPicSize" />
+		<attribute type="ThumbPic" sql:field="ThumbPic" />
+		<attribute type="Code" sql:field="Code" />
+		<attribute type="Name" sql:field="Name" />
+		<element type="ProductDescription" minOccurs="0">
+			<sql:relationship key-relation="Product" key="Product_ID" foreign-key="Product_ID" foreign-relation="ProductDescription" />
+		</element>
+		<element type="ProductFeature">
+			<sql:relationship key-relation="Product" key="Product_ID" foreign-relation="ProductFeature" foreign-key="Product_ID"  />
+		</element>
+		<element type="ProductRelated">
+			<sql:relationship key-relation="Product" key="Product_ID" foreign-key="Product_ID" foreign-relation="ProductRelated" />
+		</element>
+		<element type="Supplier">
+			<sql:relationship key-relation="Product" key="Product_ID" foreign-key="Product_ID" foreign-relation="Supplier" />
+		</element>
+	</ElementType>
+	<ElementType name="ProductDescription" sql:relation="ProductDescription" order="many" content="mixed"
+		model="open">
+		<attribute type="ID" sql:field="ProductDescription_ID" />
+		<attribute type="URL" sql:field="URL" />
+		<attribute type="langid" sql:field="langid" />
+		<attribute type="PDFURL" sql:field="PDFURL" />
+		<attribute type="ShortDesc" sql:field="ShortDesc" />
+		<attribute type="LongDesc" sql:field="LongDesc" />
+		<attribute type="WarrantyInfo" sql:field="WarrantyInfo" />
+		<attribute type="PDFSize" sql:field="PDFSize" />
+	</ElementType>
+	<ElementType name="ProductFeature" sql:relation="ProductFeature">
+		<attribute type="ID" sql:field="ProductFeature_ID" />
+		<attribute type="Localized" sql:field="Localized" />
+		<attribute type="Value" sql:field="Value" />
+		<attribute type="CategoryFeature_ID" sql:field="CategoryFeature_ID" />
+		<attribute type="CategoryFeatureGroup_ID" sql:field="CategoryFeatureGroup_ID" />
+		<attribute type="No" sql:field="No" />
+		<attribute type="Presentation_Value" sql:field="Presentation_Value" />
+    <element type="Feature">
+			<sql:relationship key-relation="ProductFeature" key="ProductFeature_ID" foreign-key="ProductFeature_ID"
+				foreign-relation="Feature" />
+		</element>
+	</ElementType>
+	<ElementType name="Feature" sql:relation="Feature">
+		<attribute type="ID" sql:field="Feature_ID" />
+		<element type="Measure">
+			<sql:relationship key-relation="Feature" key="Feature_ID" foreign-key="Feature_ID" foreign-relation="Measure" />
+		</element>
+		<element type="Name">
+			<sql:relationship key-relation="Feature" key="Feature_ID langid" foreign-key="Feature_ID langid" foreign-relation="[Name]" />
+		</element>
+	</ElementType>
+	<ElementType name="Measure" sql:relation="Measure">
+		<attribute type="ID" sql:field="Measure_ID" />
+		<attribute type="Sign" sql:field="Sign" />
+	</ElementType>
+	<ElementType name="Name" sql:relation="[Name]">
+		<attribute type="ID" sql:field="Name_ID" />
+		<attribute type="Value" sql:field="Value" />
+		<attribute type="langid" sql:field="langid" />
+	</ElementType>
+	<ElementType name="ProductRelated" sql:relation="ProductRelated">
+		<attribute type="ID" sql:field="ProductRelated_ID" />
+		<attribute type="Category_ID" sql:field="Category_ID" />
+		<attribute type="Reversed" sql:field="Reversed" />
+		<attribute type="Preferred" sql:field="Preferred" />
+		<element type="RelatedProduct" sql:relation="RelatedProduct">
+			<sql:relationship key-relation="ProductRelated" key="ProductRelated_ID" foreign-key="ProductRelated_ID"
+				foreign-relation="RelatedProduct" />
+		</element>
+	</ElementType>
+	<ElementType name="RelatedProduct" sql:relation="RelatedProduct">
+		<attribute type="ID" sql:field="RelatedProduct_ID" />
+	</ElementType>
+	<ElementType name="Supplier" sql:relation="Supplier">
+		<attribute type="ID" sql:field="Supplier_ID" />
+		<attribute type="Name" sql:field="Supplier_Name" />
+	</ElementType>
+</Schema>

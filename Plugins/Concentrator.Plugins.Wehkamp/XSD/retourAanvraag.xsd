@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+15-07-08   1.3 RKL  vervalDatum toegevoegd.
+09-07-08   1.2 RKL  Gebruik van namespace, types nu included.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="retourAanvraag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="aanvraag" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="artikelNummer" type="artikelNummerType"/>
+              <xs:element name="kleurNummer" type="kleurNummerType"/>
+              <xs:element name="locusStatus" type="locusStatusTypeNull" nillable="true" minOccurs="0"/>
+              <xs:element name="statusIndicatie" type="indicatieType"/>
+              <xs:element name="vervalDatum" type="xs:date" minOccurs="0" nillable="true"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:simpleType name="locusStatusTypeNull">
+	<xs:restriction base="xs:string">
+		<xs:minLength value="0"/>
+		<xs:maxLength value="3"/>
+	</xs:restriction>
+  </xs:simpleType>
+</xs:schema>

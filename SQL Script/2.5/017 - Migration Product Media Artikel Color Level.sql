@@ -1,0 +1,14 @@
+﻿--merge productmedia pd
+--using
+--(
+--	select pColor.productid as ColorProductID, pm.* from 
+--	productmedia pm 
+--	inner join product p on p.productid = pm.productid
+--	inner join product pColor on pColor.parentproductid = p.productid
+--	where pm.vendorid in (1,48) and (p.isconfigurable = 1 and p.parentproductid is null)
+--) src
+--on src.ColorProductID = pd.ProductID and src.VendorID = pd.VendorID
+--when not matched by target 
+--then 
+--	insert (productid, sequence, vendorid, typeid, mediapath, resolution, size, description, filename, isthumbnailimage)
+--	values (src.colorProductID,src.sequence, src.vendorid, src.typeid, src.mediapath, src.resolution, src.size, src.description, src.filename, src.isthumbnailimage);

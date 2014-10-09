@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Order Ontvangen</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+<p>Beste ##Name##,</P>
+<p>De door u verzonden order(s) is of zijn in goede staat ontvangen. Binnen 20 minuten zal de order worden verwerkt door ons ordersysteem.</p>
+	
+##OrderContent##
+
+  
+		]]>
+    </body>
+</message>

@@ -1,0 +1,15 @@
+﻿SELECT DISTINCT
+	  rp.[Index] as [Index]
+	, rp.ProductID as ProductID
+	, rp.RelatedProductID as RelatedProductID
+	, rp.RelatedProductTypeID as RelatedProductTypeID
+	, {0} as ConnectorID 
+	, rptmd.RelatedProductTypeMappingID as RelationType
+
+ FROM RelatedProduct rp
+ INNER JOIN RelatedProductTypeMappingData rptmd on rp.RelatedProductTypeID = rptmd.RelatedProductTypeID
+
+WHERE rp.VendorID IN (SELECT VendorID FROM ContentProduct WHERE ConnectorID = {0})
+
+
+

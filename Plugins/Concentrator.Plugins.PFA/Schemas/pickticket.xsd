@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:complexType name="Customer">
+    <xs:sequence>
+      <xs:element name="CustomerID" type="xs:string" />
+      <xs:element name="Name" type="xs:string" />
+      <xs:element name="Address" type="xs:string" />
+      <xs:element name="ZipCode" type="xs:string" />
+      <xs:element name="City" type="xs:string" />
+      <xs:element name="Country" type="xs:string" />
+      <xs:element name="Telephone" type="xs:string" />
+      <xs:element name="E-Mail" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pickticket">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PickticketHeader">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PickticketNumber" type="xs:string" />
+              <xs:element name="WebsiteOrderNumber" type="xs:string" />
+              <xs:element name="OrderDate" type="xs:dateTime" />
+							<xs:element name="Currency" type="xs:string" />
+              <xs:element name="Language" type="xs:string" />
+							<xs:element name="PaymentMethod" type="xs:string" />
+							<xs:element name="ShippingCosts" type="xs:decimal" />
+							<xs:element name="VATAmout" type="xs:decimal" />
+							<xs:element name="ShipToShop" type="xs:boolean" />
+              <xs:element name="ShipTo" type="Customer" />
+              <xs:element name="SoldTo" type="Customer" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="PickticketDetail" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PickticketDetailNumber" type="xs:string" />
+              <xs:element name="ArtikelCode" type="xs:string" />
+              <xs:element name="ColorCode" type="xs:string" minOccurs="0" />
+              <xs:element name="SizeCode" type="xs:string" minOccurs="0" />
+              <xs:element name="Barcode" type="xs:string" />
+              <xs:element name="Quantity" type="xs:unsignedInt" />
+              <xs:element name="VAT" type="xs:decimal" />
+							<xs:element name="VATAmout" type="xs:decimal" />
+              <xs:element name="UnitPrice" type="xs:decimal" />
+              <xs:element name="SpecialPrice" type="xs:decimal" minOccurs="0" />
+              <xs:element name="OrderLinePrice" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

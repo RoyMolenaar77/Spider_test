@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStockCollection/2010/05" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStockCollection/2010/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd15" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStock/2011/05" />
+  <xs:complexType name="ItemInfoStockCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q1="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStock/2011/05" minOccurs="0" name="ItemStockInfos" nillable="true" type="q1:ArrayOfItemInfoStock" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemInfoStockCollection" nillable="true" type="tns:ItemInfoStockCollection" />
+</xs:schema>

@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 12.25, 9.875" name="ICEcat">
+  <DataContextMoniker Name="/ICEcatDataContext" />
+  <nestedChildShapes>
+    <classShape Id="71564765-4c16-464b-976b-2523ea7fae94" absoluteBounds="6.25, 7.375, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_Feature" />
+      <nestedChildShapes>
+        <elementListCompartment Id="aaeff4fd-9155-4c5b-a63b-e668da3584a1" absoluteBounds="6.2650000000000006, 7.835, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="19aa3dc4-e29c-42bc-a307-f3065134c810" absoluteBounds="9, 8.375, 2, 1.2605004882812505">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_Measure" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e5227547-532d-4b32-96d4-91dd5f8dd2d5" absoluteBounds="9.015, 8.835, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9a6f133c-6884-47b2-999b-38e423ea3309" absoluteBounds="3.5, 1.25, 2, 1.26050048828125">
+      <DataClassMoniker Name="/ICEcatDataContext/Brands" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a3d1282b-9030-4ff9-81a2-39186a0e476f" absoluteBounds="3.515, 1.71, 1.9700000000000002, 0.70050048828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="af318368-62a4-4319-8089-d5ecf4dca5a6" absoluteBounds="9, 6.25, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_Name" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5e94bda2-4157-4521-9718-f2c0a1948cb0" absoluteBounds="9.015, 6.71, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3856d209-6c1b-406e-acbb-c30beb8b0bea" absoluteBounds="3.5, 6.875, 2, 2.0822371419270826">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_Productfeature" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b363b3a9-b9e6-4535-9630-9efefa4b597a" absoluteBounds="3.515, 7.3350000000000009, 1.9700000000000002, 1.5222371419270833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cb1f859c-065a-4f22-b29f-ee594a8bff1a" absoluteBounds="9.5, 0.875, 2, 1.75354248046875">
+      <DataClassMoniker Name="/ICEcatDataContext/CategoryList" />
+      <nestedChildShapes>
+        <elementListCompartment Id="62b4ab38-a445-4da0-9ec2-8deeefb69fa0" absoluteBounds="9.515, 1.3350000000000009, 1.9700000000000002, 1.19354248046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="099d3924-7a2e-4547-b92f-8e62227afa7a" absoluteBounds="6.75, 1.125, 2, 1.424847819010417">
+      <DataClassMoniker Name="/ICEcatDataContext/CategoryNames" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7f386fb8-1f14-48fa-9d4b-9e85c4781cda" absoluteBounds="6.7650000000000006, 1.585, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="57c679a1-4bc7-4ca2-86e3-7a2fed7c4dae" absoluteBounds="6.75, 3.75, 2, 1.0961531575520827">
+      <DataClassMoniker Name="/ICEcatDataContext/ParentCategory" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95f5e791-004c-4fe5-9a34-a58e3fe5382a" absoluteBounds="6.7650000000000006, 4.2100000000000009, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.75 : 1.83742390950521); (9.5 : 1.83742390950521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ICEcatDataContext/CategoryNames/CategoryNames_CategoryList" />
+      <nodes>
+        <classShapeMoniker Id="099d3924-7a2e-4547-b92f-8e62227afa7a" />
+        <classShapeMoniker Id="cb1f859c-065a-4f22-b29f-ee594a8bff1a" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.5 : 8.32619466145833); (6.25 : 8.32619466145833)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ICEcatDataContext/dt_Productfeature/dt_Productfeature_dt_Feature" />
+      <nodes>
+        <classShapeMoniker Id="3856d209-6c1b-406e-acbb-c30beb8b0bea" />
+        <classShapeMoniker Id="71564765-4c16-464b-976b-2523ea7fae94" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 8.56814697265625); (9 : 8.56814697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ICEcatDataContext/dt_Feature/dt_Feature_dt_Measure" />
+      <nodes>
+        <classShapeMoniker Id="71564765-4c16-464b-976b-2523ea7fae94" />
+        <classShapeMoniker Id="19aa3dc4-e29c-42bc-a307-f3065134c810" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(8.25 : 7.60179768880208); (9 : 7.60179768880208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ICEcatDataContext/dt_Feature/dt_Feature_dt_Name" />
+      <nodes>
+        <classShapeMoniker Id="71564765-4c16-464b-976b-2523ea7fae94" />
+        <classShapeMoniker Id="af318368-62a4-4319-8089-d5ecf4dca5a6" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="857011e0-1d7c-4407-abac-83874a81597e" absoluteBounds="10, 3.625, 2, 1.4248478190104166">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_SummaryDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="9b34bc7d-a2d7-4999-9150-5395e24d3e5a" absoluteBounds="10.015, 4.085, 1.9700000000000002, 0.86484781901041663" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4a2dea73-2fd1-4ea7-bf34-a7b66e24f003" absoluteBounds="0.5, 2.875, 2, 3.2326684570312496">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd7257a4-c195-4757-8b5f-357cfe19964e" absoluteBounds="0.51500000000000012, 3.335, 1.9700000000000002, 2.67266845703125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e4426f71-e0c8-4e44-beae-31c5b24096ed" absoluteBounds="3.375, 3.5, 2, 2.2465844726562496">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_ProductDescription" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dd2c16ef-6df2-485c-9875-10b44a397d1f" absoluteBounds="3.3899999999999997, 3.96, 1.9700000000000002, 1.68658447265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="71929d0d-a5be-48f0-af6b-5f08709ee1b8" absoluteBounds="13, 2.875, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ICEcatDataContext/dt_ProductRelated" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0fbad105-5ebe-43b9-ae97-cad5821b1ee4" absoluteBounds="13.015, 3.335, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

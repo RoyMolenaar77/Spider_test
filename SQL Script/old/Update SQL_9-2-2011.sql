@@ -1,0 +1,1 @@
+alter table connectorlanguage add Country nvarchar(5) NOT NULL default 'NL'

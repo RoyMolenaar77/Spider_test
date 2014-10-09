@@ -1,0 +1,26 @@
+.cdata { 
+	color: #ff1493; 
+}
+
+.tag, .tag-name { 
+	color: #069; 
+	font-weight: bold; 
+}
+
+.attribute { 
+	color: red; 
+}
+
+.attribute-value { 
+	color: blue; 
+}
+
+div.xmlSample {
+	width: 80%;
+	background-color: #FAFAFA;
+	border-width: 1px;
+	border-color: black;
+	border-style: solid;
+	font-family: "Consolas","Courier New",Courier,mono,serif;
+	line-height: 14px;
+}

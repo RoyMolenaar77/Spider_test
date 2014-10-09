@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="shipment_notifications">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="shipment_notification" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="website_order_number" type="xs:string" />
+              <xs:element name="timestamp" type="xs:dateTime" />
+              <xs:element name="tracking_number" type="xs:string" />
+              <xs:element name="article_code" type="xs:string" />
+              <xs:element name="color_code" type="xs:string" />
+              <xs:element name="size_code" type="xs:string" />
+              <xs:element name="ordered" type="xs:unsignedInt" />
+              <xs:element name="shipped" type="xs:unsignedInt" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

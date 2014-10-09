@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfoCollection/2009/02" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfoCollection/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd12" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfo/2009/02" />
+  <xs:complexType name="ExtendedCachedItemInfoCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CachedAt" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q1="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfo/2009/02" minOccurs="0" name="ItemInfos" nillable="true" type="q1:ArrayOfExtendedCachedItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedCachedItemInfoCollection" nillable="true" type="tns:ExtendedCachedItemInfoCollection" />
+</xs:schema>

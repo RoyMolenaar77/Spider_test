@@ -1,0 +1,21 @@
+﻿@model List<Concentrator.ui.Management.Models.TopTenProductViewModel>
+<div style="margin: 10px">
+  <div>
+    <p style="margin-bottom: 10px">
+      The top ten edi products:
+    </p>
+  </div>
+  <ul>
+    @{
+      for (int i = 0; i < Model.Count; i++)
+      {
+        var productID = Model[i].ProductID;
+        var indexCount = i + 1;
+        
+      <li style="margin-bottom: 5px"><a href="#" onclick="new Concentrator.ProductBrowserFactory({ productID: @productID });">
+        (@indexCount) Products Name : @Model[i].CustomItemNumber - @Model[i].ProductName
+        (@Model[i].Count) </a></li>        
+      }
+    }
+  </ul>
+</div>

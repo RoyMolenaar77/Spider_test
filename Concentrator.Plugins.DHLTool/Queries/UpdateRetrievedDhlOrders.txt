@@ -1,0 +1,1 @@
+﻿UPDATE `dhlshipment` SET `concentrator_retrieved` = 1 WHERE `shipment_id` in ({0});

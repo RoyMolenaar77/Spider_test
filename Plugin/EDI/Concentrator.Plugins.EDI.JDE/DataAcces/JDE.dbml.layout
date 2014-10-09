@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 23, 47.125" name="JDE">
+  <DataContextMoniker Name="/JDEDataContext" />
+  <nestedChildShapes>
+    <classShape Id="489dfc3b-2826-4f41-94ed-754a988520a3" isExpanded="false" absoluteBounds="0.75, 4, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/OrderHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="26d9f9d8-847c-4f92-82b8-343503266447" absoluteBounds="0.76500000000000012, 4.46, 1.9700000000000002, 17.135233561197914" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a49487c0-3296-4d0b-8864-57aa6fba50c8" isExpanded="false" absoluteBounds="3.5, 4, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/OrderDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="990a2e87-124b-43a1-a100-2cd86fe1e5a7" absoluteBounds="3.5150000000000006, 4.46, 1.9700000000000002, 38.336039225260414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 4.225); (3.5 : 4.225)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDEDataContext/OrderHeader/OrderHeader_OrderDetail" />
+      <nodes>
+        <classShapeMoniker Id="489dfc3b-2826-4f41-94ed-754a988520a3" />
+        <classShapeMoniker Id="a49487c0-3296-4d0b-8864-57aa6fba50c8" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="112604c6-906e-4f35-8e68-93aa9d8d46bf" isExpanded="false" absoluteBounds="0.75, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/AcknowledgmentHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74431b73-cfc3-4b9e-9f4e-c094948edd9c" absoluteBounds="0.76500000000000057, 3.71, 1.9700000000000002, 16.642191569010414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="d3966727-a7b8-4b40-b210-5411ca643eea" isExpanded="false" absoluteBounds="3.5, 3.25, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/AcknowledgmentDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c60e6796-f5a7-44cd-a5a9-f034fde33f66" absoluteBounds="3.5150000000000006, 3.7100000000000009, 1.9700000000000002, 38.336039225260414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 3.475); (3.5 : 3.475)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDEDataContext/AcknowledgmentHeader/AcknowledgmentHeader_AcknowledgmentDetail" />
+      <nodes>
+        <classShapeMoniker Id="112604c6-906e-4f35-8e68-93aa9d8d46bf" />
+        <classShapeMoniker Id="d3966727-a7b8-4b40-b210-5411ca643eea" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="3ca36fe1-3454-4d91-a802-4f9c122e9e3c" isExpanded="false" absoluteBounds="0.75, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/InvoiceHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="926d19cd-9692-4851-ae1a-529276f552e0" absoluteBounds="0.76499999999999968, 2.9600000000000009, 1.9700000000000002, 16.642191569010414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="cf0e7a9e-976e-4139-a440-35b8fdfd582a" isExpanded="false" absoluteBounds="3.5, 2.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/InvoiceDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="453eaadb-58de-4929-893d-f26e0e6e4ac4" absoluteBounds="3.5150000000000006, 2.96, 1.9700000000000002, 38.336039225260414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.725); (3.16666666666667 : 2.725 : JumpStart); (3.33333333333333 : 2.725 : JumpEnd); (3.5 : 2.725)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDEDataContext/InvoiceHeader/InvoiceHeader_InvoiceDetail" />
+      <nodes>
+        <classShapeMoniker Id="3ca36fe1-3454-4d91-a802-4f9c122e9e3c" />
+        <classShapeMoniker Id="cf0e7a9e-976e-4139-a440-35b8fdfd582a" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="75fa5ff2-91e0-483e-8cd7-b4e3ec959542" isExpanded="false" absoluteBounds="0.75, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/ShipmentHeader" />
+      <nestedChildShapes>
+        <elementListCompartment Id="264f2b2e-732c-4834-886e-1971eab3e460" absoluteBounds="0.76499999999999968, 2.2100000000000009, 1.9700000000000002, 16.642191569010414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0bc6918-2439-4798-8f1f-bbe188fa9830" isExpanded="false" absoluteBounds="3.5, 1.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/ShipmentDetail" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d55e0bc6-a99f-4a50-9332-b0435359ac05" absoluteBounds="3.5150000000000006, 2.21, 1.9700000000000002, 38.336039225260414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.975); (3.5 : 1.975)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDEDataContext/ShipmentHeader/ShipmentHeader_ShipmentDetail" />
+      <nodes>
+        <classShapeMoniker Id="75fa5ff2-91e0-483e-8cd7-b4e3ec959542" />
+        <classShapeMoniker Id="f0bc6918-2439-4798-8f1f-bbe188fa9830" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="b0f51e56-443e-454f-9288-8650a55e852e" isExpanded="false" absoluteBounds="8.875, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/Addresses" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c7800b09-44b0-4b40-acc1-bad16b79f58e" absoluteBounds="8.89, 0.96, 1.9700000000000002, 5.466573079427083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3c78ac99-3112-43ec-8d03-8b01e3f92076" isExpanded="false" absoluteBounds="8.375, 1.625, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/TNTnumbers" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8dc24731-3fa3-46fa-9862-5983cb4c5984" absoluteBounds="8.39, 2.085, 1.9700000000000002, 8.09613037109375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.5 : 1.9125); (8.375 : 1.9125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JDEDataContext/ShipmentDetail/ShipmentDetail_TNTnumbers" />
+      <nodes>
+        <classShapeMoniker Id="f0bc6918-2439-4798-8f1f-bbe188fa9830" />
+        <classShapeMoniker Id="3c78ac99-3112-43ec-8d03-8b01e3f92076" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="58d6391e-b0fa-46bd-a9df-9536f7fba359" isExpanded="false" absoluteBounds="6.375, 2.125, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/InvoiceHeaderAdditional" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3fe9d065-cacb-416f-af29-b59f0058f862" absoluteBounds="6.39, 2.585, 1.9700000000000002, 11.05438232421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 2.581248); (3.25 : 2.581248); (3.25 : 3); (7.375 : 3); (7.375 : 2.575)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/JDEDataContext/InvoiceHeader/InvoiceHeader_InvoiceHeaderAdditional" />
+      <nodes>
+        <classShapeMoniker Id="3ca36fe1-3454-4d91-a802-4f9c122e9e3c" />
+        <classShapeMoniker Id="58d6391e-b0fa-46bd-a9df-9536f7fba359" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="95807a8f-9a0e-4a0a-bb78-b5edcc6dfb07" isExpanded="false" absoluteBounds="4.25, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/JDEOrderDetails" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b1413ba0-c046-498c-8f02-bd43254e82fe" absoluteBounds="4.265, 0.96, 1.9700000000000002, 36.035176595052079" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="92e2ebc8-de78-4fd4-80ce-48afd4c71798" absoluteBounds="14.25, 4, 2, 22.625653483072917">
+      <DataClassMoniker Name="/JDEDataContext/InvoiceLedger" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae3aea93-11e0-47a5-ad29-ec17eea106fb" absoluteBounds="14.265, 4.46, 1.9700000000000002, 22.065653483072914" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bf6d776e-294a-4131-be55-9c8d311b4ff8" isExpanded="false" absoluteBounds="0.75, 1, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F5541001" />
+      <nestedChildShapes>
+        <elementListCompartment Id="7ab72ac4-59e8-4f92-b4f4-dfc45fd929a4" absoluteBounds="0.76500000000000012, 1.46, 1.9700000000000002, 4.15179443359375" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4dd683af-20be-4f78-9670-b4ce4ca367f8" isExpanded="false" absoluteBounds="3.5, 1, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/ProductBatch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="8ce807df-2928-4cb6-939f-384280f5bd42" absoluteBounds="3.515, 1.46, 1.9700000000000002, 8.4248250325520821" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="bd7c20fd-f50b-46d8-bf5e-b31c8c93123f" isExpanded="false" absoluteBounds="9, 2.25, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F55CC003" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af54d7ec-b09b-499e-acc5-df40132b045e" absoluteBounds="9.015, 2.71, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="e939e2b5-8ef3-4f83-94bf-22fe3b18308b" absoluteBounds="5.375, 8.125, 2, 1.0961531575520844">
+      <DataClassMoniker Name="/JDEDataContext/F5541003" />
+      <nestedChildShapes>
+        <elementListCompartment Id="be68ad3b-fe36-4fb1-b6e0-a07bf4bd1d38" absoluteBounds="5.39, 8.585, 1.9700000000000002, 0.53615315755208326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="013229b0-8a94-4092-95c9-48ae79e286d0" isExpanded="false" absoluteBounds="11.5, 0.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F5742001" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e8aae445-6086-477e-80dc-740bd1d15e6c" absoluteBounds="11.515, 0.96, 1.9700000000000002, 6.452657063802083" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ef8c6a36-831b-4bfe-b5c6-e776a341a256" absoluteBounds="16, 0.5, 2, 5.8622257486979157">
+      <DataClassMoniker Name="/JDEDataContext/F4072" />
+      <nestedChildShapes>
+        <elementListCompartment Id="badff206-85bb-4d9c-8bcb-0989bb06e8a5" absoluteBounds="16.015, 0.96, 1.9700000000000002, 5.3022257486979161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="46746098-278b-43c0-82e7-55fa964bf360" absoluteBounds="13.75, 0.5, 2, 9.4778670247395826">
+      <DataClassMoniker Name="/JDEDataContext/F5742011" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e21dec2d-3c28-4524-b20c-44ed783df8d9" absoluteBounds="13.765, 0.96, 1.9700000000000002, 8.9178670247395821" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="94054587-0f52-4ea0-b884-e976f3023d93" absoluteBounds="18.25, 0.5, 2, 22.296958821614584">
+      <DataClassMoniker Name="/JDEDataContext/F4101" />
+      <nestedChildShapes>
+        <elementListCompartment Id="72b9693f-4007-44c2-bf40-8cfda4968547" absoluteBounds="18.265, 0.96, 1.9700000000000002, 21.736958821614582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8d20ea2c-c4c6-4973-b68e-d0b688c5dec5" isExpanded="false" absoluteBounds="6.625, 0.625, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/ProductBranch" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2cc68a3e-cf72-452d-8ef4-71ae3d7f2b73" absoluteBounds="6.6400000000000006, 1.085, 1.9700000000000002, 21.736958821614582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="240f54a8-3a04-42c4-9ace-e4735e4de16e" absoluteBounds="20.75, 0.5, 2, 2.5752791341145831">
+      <DataClassMoniker Name="/JDEDataContext/F4094" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cd6f990-da61-4d8e-81b2-20d8a9c46567" absoluteBounds="20.765, 0.96, 1.9700000000000002, 2.015279134114583" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a0a46329-d459-4a3d-9642-766dac098296" isExpanded="false" absoluteBounds="6.5, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4301Z1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e4e31ea9-5883-44f9-a4e5-aa6e598c8f17" absoluteBounds="6.5150000000000006, 4.085, 1.9700000000000002, 16.149149576822914" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f80016da-4cb7-4530-945c-7e7b182a261a" isExpanded="false" absoluteBounds="9, 3.625, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4311Z1" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ae157027-32a5-4256-b585-f30aa967b197" absoluteBounds="9.015, 4.085, 1.9700000000000002, 32.74822998046875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="635fc2d6-bb31-4941-9cf5-78447730deca" isExpanded="false" absoluteBounds="5.375, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F47016" />
+      <nestedChildShapes>
+        <elementListCompartment Id="2db90235-d6c4-4721-9dc2-27697a14d7f8" absoluteBounds="5.39, 5.96, 1.9700000000000002, 16.47784423828125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="65b3245e-c458-4596-9284-ae2e4e93c08e" isExpanded="false" absoluteBounds="7.875, 5.5, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F47017" />
+      <nestedChildShapes>
+        <elementListCompartment Id="68e617c0-6c9d-488b-8685-b9809e52e70b" absoluteBounds="7.8900000000000006, 5.96, 1.9700000000000002, 31.104756673177082" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f2ca0795-cdbd-46bd-8911-3d174f601330" isExpanded="false" absoluteBounds="10.875, 4.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4201" />
+      <nestedChildShapes>
+        <elementListCompartment Id="408c434a-3d83-4ddc-89bf-36b3ff14c573" absoluteBounds="10.89, 5.21, 1.9700000000000002, 15.327412923177082" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="70e1eff1-fd3d-403b-a8c4-d59a7a444296" isExpanded="false" absoluteBounds="2.25, 5.25, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4211" />
+      <nestedChildShapes>
+        <elementListCompartment Id="df1bf3fe-740e-43db-a3bf-e91c46c28c38" absoluteBounds="2.265, 5.71, 1.9700000000000002, 36.035176595052079" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="8a5bcd40-7d11-40d9-b641-c0c60566da09" isExpanded="false" absoluteBounds="1.25, 5.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F47041" />
+      <nestedChildShapes>
+        <elementListCompartment Id="79d1bac7-1a46-414a-a7af-05df7bd7035b" absoluteBounds="1.2650000000000001, 6.21, 1.9700000000000002, 10.890034993489582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="7e3b5ff0-cf3f-4e94-ae5a-95c167f37b4e" isExpanded="false" absoluteBounds="0.5, 5.25, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F47042" />
+      <nestedChildShapes>
+        <elementListCompartment Id="95f65399-8cad-4259-83af-c86c6bb30d3f" absoluteBounds="0.51500000000000012, 5.71, 1.9700000000000002, 17.135233561197914" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="3cb8d79b-e4cf-4bc8-92fa-b9c49c7745fc" isExpanded="false" absoluteBounds="0.5, 4.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F47044" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3640e2b8-f443-4884-9eba-4e3a36155f94" absoluteBounds="0.515, 5.21, 1.9700000000000002, 9.2465616861979161" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.375 : 5.725); (7.875 : 5.725)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JDEDataContext/F47016/F47016_F47017" />
+      <nodes>
+        <classShapeMoniker Id="635fc2d6-bb31-4941-9cf5-78447730deca" />
+        <classShapeMoniker Id="65b3245e-c458-4596-9284-ae2e4e93c08e" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="0cc3eea6-430f-4a65-97e0-9780b95de251" isExpanded="false" absoluteBounds="5.625, 6.625, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4301" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c36b4676-6da4-4090-8663-d3bb7cdd8c78" absoluteBounds="5.64, 7.085, 1.9700000000000002, 13.848286946614582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca29bc1b-60f1-4087-9d6b-533a4938264b" isExpanded="false" absoluteBounds="8.5, 6.75, 2, 0.45">
+      <DataClassMoniker Name="/JDEDataContext/F4311" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d72f22ad-f613-44ce-8eb5-a9810689e6e3" absoluteBounds="8.515, 7.21, 1.9700000000000002, 30.611714680989582" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.625 : 6.9125); (8.5 : 6.9125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/JDEDataContext/F4301/F4301_F4311" />
+      <nodes>
+        <classShapeMoniker Id="0cc3eea6-430f-4a65-97e0-9780b95de251" />
+        <classShapeMoniker Id="ca29bc1b-60f1-4087-9d6b-533a4938264b" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="a27ca848-01d1-4664-a75d-f6015bae9101" absoluteBounds="0.75, 7.75, 2, 17.202191569010417">
+      <DataClassMoniker Name="/JDEDataContext/F47131" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d0c4e045-c9f7-4924-885f-65000c26a7bf" absoluteBounds="0.765, 8.21, 1.9700000000000002, 16.642191569010414" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f76a7c0e-6e82-49c5-ae47-4691c46535c6" absoluteBounds="8.125, 7.875, 2, 39.060386555989581">
+      <DataClassMoniker Name="/JDEDataContext/F47132" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ac4a79a2-25b6-4bcc-b98c-d0cfe66fca09" absoluteBounds="8.14, 8.335, 1.9700000000000002, 38.500386555989579" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f0338877-186f-4e52-9392-0886f7cc295c" absoluteBounds="11.75, 15.5, 2, 2.9039737955729166">
+      <DataClassMoniker Name="/JDEDataContext/F0005" />
+      <nestedChildShapes>
+        <elementListCompartment Id="301c759e-c414-460e-a85e-c75a0c9a9f50" absoluteBounds="11.765, 15.96, 1.9700000000000002, 2.3439737955729165" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

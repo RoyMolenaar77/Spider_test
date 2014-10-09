@@ -1,0 +1,36 @@
+﻿SELECT DISTINCT  
+  UPPER(SUBSTRING(p.VendorItemNumber, 0, CHARINDEX(' ', p.VendorItemNumber))) as Artikelnummer
+, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, CHARINDEX(' ', p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1) - CHARINDEX(' ', p.VendorItemNumber) - 1) as Kleurnummer
+, RIGHT('000'+ CONVERT(VARCHAR, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, CHARINDEX(' ', p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1) - CHARINDEX(' ', p.VendorItemNumber) - 1)), 3) as FormattedKleurnummer
+, p.vendoritemnumber as VendorItemNumber
+, p.productid as ProductID
+, pav.value as Maat
+, pbMaat.Barcode as Maatcode
+, pbBarcode.Barcode as EANCode
+, vt1.DestinationVendorValue as WehkampPresentatiemaat
+, vt2.DestinationVendorValue as WehkampMagazijnmaat
+, vp.Price as Prijs 
+, vp.SpecialPrice as SpecialPrijs
+, vp.LastUpdated
+, pavSentToWehkamp.Value as 'SentToWehkamp'
+, pavSentAsDummy.Value as 'SentToWehkampAsDummy'
+, pavResendProductInformationToWehkamp.Value as 'ResendProductInformationToWehkamp'
+
+FROM RelatedProduct rp
+INNER JOIN product p ON p.productid = rp.relatedproductid
+INNER JOIN ProductAttributeValue pav ON p.ProductID = pav.ProductID
+INNER JOIN ProductAttributeMetaData pamd1 ON pamd1.AttributeID = pav.AttributeID AND pamd1.attributecode = 'Size'
+INNER JOIN VendorTranslation vt1 ON pav.Value = vt1.SourceVendorValue and vt1.SourceVendorID = {0} AND vt1.TranslationType = 2
+INNER JOIN ProductBarcode pbMaat ON p.ProductID = pbMaat.ProductID  AND pbMaat.BarcodeType = 4
+INNER JOIN ProductBarcode pbBarcode ON p.ProductID = pbBarcode.ProductID AND pbBarcode.BarcodeType = 0
+INNER JOIN VendorTranslation vt2 ON pbMaat.Barcode = vt2.SourceVendorValue AND vt2.SourceVendorID = {0} AND vt2.TranslationType = 1
+INNER JOIN VendorAssortment va ON p.ProductID = va.ProductID AND va.VendorID = vt2.SourceVendorID
+INNER JOIN VendorPrice vp ON vp.VendorAssortmentID = va.VendorAssortmentID 
+LEFT OUTER JOIN ProductAttributeValue pavSentToWehkamp ON rp.ProductID = pavSentToWehkamp.ProductID AND pavSentToWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkamp') 
+LEFT OUTER JOIN ProductAttributeValue pavSentAsDummy ON rp.ProductID = pavSentAsDummy.ProductID AND pavSentAsDummy.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkampAsDummy') 
+LEFT OUTER JOIN ProductAttributeValue pavResendProductInformationToWehkamp ON p.ParentProductID = pavResendProductInformationToWehkamp.ProductID AND pavResendProductInformationToWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'ResendProductInformationToWehkamp') 
+
+
+WHERE rp.IsConfigured = 1  
+AND vp.LastUpdated >= '{1}'
+AND (LOWER(pavSentToWehkamp.Value) = 'true' OR LOWER(pavSentAsDummy.Value) = 'true')

@@ -1,0 +1,93 @@
+﻿@model Concentrator.ui.Management.Models.MediaAndSpecificationsModel
+@{
+  Layout = null;
+}
+<div class="portlet-content-container">
+  <table class="portlet-content-table">
+    <tr>
+      <td>
+        <span class="portlet-content-column"><a href="#" onclick="Concentrator.ViewInstance.open('content-item',{Media : false})">
+          Products without any media :</a></span>
+      </td>
+      <td>
+        <span class="strong">
+          @Model.ProductsWithoutMedia
+          of
+          @Model.TotalProducts</span>
+      </td>
+      <td>
+        <span class="portlet-content-column" style="margin-left: 15px; font-weight: bold">
+          @Decimal.Round((Model.ProductsWithoutMedia / ((decimal)Model.TotalProducts / 100)), 1)
+          %</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="portlet-content-column"><a href="#" onclick="Concentrator.ViewInstance.open('content-item',{Images : false})">
+          Products without any images :</a></span>
+      </td>
+      <td>
+        <span class="strong">
+          @Model.ProductsWithoutImage
+          of
+          @Model.TotalProducts</span>
+      </td>
+      <td>
+        <span class="portlet-content-column" style="margin-left: 15px; font-weight: bold">
+          @Decimal.Round((Model.ProductsWithoutImage / ((decimal)Model.TotalProducts / 100)), 1)
+          %</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="portlet-content-column"><a href="#" onclick="Concentrator.ViewInstance.open('content-item',{MediaAndSpecs : false})">
+          Products without any media or specifications :</a></span>
+      </td>
+      <td>
+        <span class="strong">
+          @Model.ProductsWithoutMediaAndSpecs
+          of
+          @Model.TotalProducts</span>
+      </td>
+      <td>
+        <span class="portlet-content-column" style="margin-left: 15px; font-weight: bold">
+          @Decimal.Round((Model.ProductsWithoutMediaAndSpecs / ((decimal)Model.TotalProducts / 100)), 1)
+          %</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="portlet-content-column"><a href="#" onclick="Concentrator.ViewInstance.open('content-item',{Specs : false})">
+          Products without any specifications :</a></span>
+      </td>
+      <td>
+        <span class="strong">
+          @Model.ProductsWithoutSpecs
+          of
+          @Model.TotalProducts</span>
+      </td>
+      <td>
+        <span class="portlet-content-column" style="margin-left: 15px; font-weight: bold">
+          @Decimal.Round((Model.ProductsWithoutSpecs / ((decimal)Model.TotalProducts / 100)), 1)
+          %</span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <span class="portlet-content-column"><a href="#" onclick="Concentrator.ViewInstance.open('content-item',{Video : false})">
+          Products without any media url or video :</a></span>
+      </td>
+      <td>
+        <span class="strong">
+          @Model.ProductWithoutMediaUrlAndVideo
+          of
+          @Model.TotalProducts</span>
+      </td>
+      <td>
+        <span class="portlet-content-column" style="margin-left: 15px; font-weight: bold">
+          @Decimal.Round((Model.ProductWithoutMediaUrlAndVideo / ((decimal)Model.TotalProducts / 100)), 1)
+          %</span>
+      </td>
+    </tr>
+  </table>
+</div>

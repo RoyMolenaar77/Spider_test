@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://services.atomblock.com/Retail/RetailService_1-0.asmx?wsdl" docRef="http://services.atomblock.com/Retail/RetailService_1-0.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://services.atomblock.com/Retail/RetailService_1-0.asmx" xmlns:q1="http://services.atomblock.com" binding="q1:Retail_x005F_x0020_Services_x005F_x0020_1.0Soap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://services.atomblock.com/Retail/RetailService_1-0.asmx" xmlns:q2="http://services.atomblock.com" binding="q2:Retail_x005F_x0020_Services_x005F_x0020_1.0Soap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

@@ -1,0 +1,131 @@
+body {
+	background-color: White;
+}
+
+/* CSS Document */
+
+
+/* data table for samples */
+table.dtTABLE
+{
+	border: 1px solid #cccccc;
+	border-collapse:collapse;
+}
+table.dtTABLE tbody tr th
+{
+	font:normal 60% Verdana;
+	background-color:#EEEEEE;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	padding-left:10px;
+	text-align:left;
+}
+table.dtTABLE tbody tr td
+{
+	font:normal 70% Verdana;
+	border:1px solid #cccccc;
+	padding-bottom:3px;
+	padding-top:3px;
+	padding-left:13px;
+	text-align:left;	
+}
+/* end data table for samples  */
+
+/* data table for image samples */
+table.imgTABLE
+{
+	border: 1px solid #cccccc;
+	border-collapse:collapse;
+}
+table.imgTABLE tbody tr th
+{
+	font:normal 60% Verdana;
+	background-color:#EEEEEE;
+	font-weight:bold;
+	padding-bottom:3px;
+	padding-top:3px;
+	text-align:right;
+}
+table.imgTABLE tbody tr td
+{
+	font:normal 70% Verdana;
+	border:1px solid #cccccc;
+	padding-bottom:3px;
+	padding-top:3px;
+	text-align:center;	
+}
+/* end data table for image samples  */
+
+p {
+	font:normal 70% Verdana;
+	color: #000000;
+	text-align:justify;
+}
+
+p.topIcon {
+	font-style: normal;;
+	text-align:right;
+}
+
+li {
+	font:normal 10px Verdana;
+	color: #000000;
+	margin-bottom:5px;
+}
+
+/* documentation page container div*/
+div.main {
+	margin-left:30px;
+	width: 800px;
+}
+
+h1 {	
+	font:normal 150% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+}
+
+
+h2 {
+	font:normal 130% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+}
+
+h3 {
+	font:normal 110% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+
+}
+
+div.xmlSample {
+	padding:10px;
+	width:700px;
+	border-style:dashed;
+	border-width:thin;
+	background-color:#EEEEEE;
+	font-size: 10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.xmlverb-default          { 
+							color: #333333;
+							background-color:#EEEEEE;
+                            font-family: monospace;
+							padding:10px;
+							width:700px;
+							border-style:dashed;
+							border-width:thin;
+							}
+.xmlverb-element-name     { color: #990000 }
+.xmlverb-element-nsprefix { color: #666600 }
+.xmlverb-attr-name        { color: #660000 }
+.xmlverb-attr-content     { color: #000099; font-weight: bold }
+.xmlverb-ns-name          { color: #666600 }
+.xmlverb-ns-uri           { color: #330099 }
+.xmlverb-text             { color: #000000; font-weight: bold }
+.xmlverb-comment          { color: #006600; font-style: italic }
+.xmlverb-pi-name          { color: #006600; font-style: italic }
+.xmlverb-pi-content       { color: #006666; font-style: italic }

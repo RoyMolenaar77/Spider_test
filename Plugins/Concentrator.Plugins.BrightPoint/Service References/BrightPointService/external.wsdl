@@ -1,0 +1,1125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://secure.brightpoint.eu/ws/external/partCatalog" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s1="http://microsoft.com/wsdl/types/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://secure.brightpoint.eu/ws/external/partCatalog" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Download the documentation, &lt;a href='https://secure.brightpoint.eu/ws/external/partcatalog/partCatalog_documentation.doc'&gt;click here&lt;/a&gt;.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://secure.brightpoint.eu/ws/external/partCatalog">
+      <s:import namespace="http://microsoft.com/wsdl/types/" />
+      <s:element name="getDocument">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDocumentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDocumentResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthHeaderUser" type="tns:AuthHeaderUser" />
+      <s:complexType name="AuthHeaderUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sCustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sInstance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="getImage">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ImageName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Width" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="Offset" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getImageResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getImageResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategory_Brand">
+        <s:complexType />
+      </s:element>
+      <s:element name="getCategory_BrandResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategory_BrandResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCategory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Category" nillable="true" type="tns:Category" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Category">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getCategory_LineOfBusiness">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategory_LineOfBusinessResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategory_LineOfBusinessResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategory_Types">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getCategory_TypesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getCategory_TypesResult" type="tns:ArrayOfCategory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getLanguages">
+        <s:complexType />
+      </s:element>
+      <s:element name="getLanguagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getLanguagesResult" type="tns:ArrayOfLanguage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLanguage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Language" nillable="true" type="tns:Language" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Language">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LCID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ISOLanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CultureCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencySeparator" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalogResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalogResult" type="tns:ArrayOfSalesPart" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart" nillable="true" type="tns:SalesPart" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPartID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPartGUID" type="s1:guid" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Instance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchasePartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EANCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CatalogType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CatalogGroup" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Tax" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightGross" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="WeightNet" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesOrderFlag" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Flag" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Taxable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentlyOffer" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryStandardPackage" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="InventoryVendorPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InventoryManufacturerPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InventoryTypeDesignationNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryLevel" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpectedArrivalDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitCostPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitListPrice" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pricelist" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Image" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ModelCodeID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowVersion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_Compatible">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="modifyDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSalesPartCatalog_CompatibleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_CompatibleResult" type="tns:ArrayOfSalesPart_Compatible" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_Compatible">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_Compatible" nillable="true" type="tns:SalesPart_Compatible" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_Compatible">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="MatchSalesPartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="MatchSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TakenFrom" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Created" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPackagePartComponents">
+        <s:complexType />
+      </s:element>
+      <s:element name="getPackagePartComponentsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPackagePartComponentsResult" type="tns:ArrayOfPackagePartComponents" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPackagePartComponents">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="PackagePartComponents" nillable="true" type="tns:PackagePartComponents" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="PackagePartComponents">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ComponentSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyPerAssembly" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getInventory_InStock">
+        <s:complexType />
+      </s:element>
+      <s:element name="getInventory_InStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInventory_InStockResult" type="tns:ArrayOfInventoryInStock" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInventoryInStock">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="InventoryInStock" nillable="true" type="tns:InventoryInStock" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="InventoryInStock">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CatalogType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Warehouse" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConditionCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SequenzeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="OwningCustomerNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyAvailable" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyOnHand" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyReserved" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyShort" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_ArrivalDate">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_ArrivalDateResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_ArrivalDateResult" type="tns:ArrayOfSalesPart_ExpectedArrivalDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_ExpectedArrivalDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_ExpectedArrivalDate" nillable="true" type="tns:SalesPart_ExpectedArrivalDate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_ExpectedArrivalDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateRequired" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityPlannable" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QuantityToDate" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DaysToDelivery" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_Attributes">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SalesPartID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getSalesPartCatalog_AttributesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_AttributesResult" type="tns:ArrayOfSalesPart_Attributes" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_Attributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_Attributes" nillable="true" type="tns:SalesPart_Attributes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_Attributes">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Instance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AttributeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitOfMeasure" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_UnitPrice">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_UnitPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_UnitPriceResult" type="tns:ArrayOfSalesPart_UnitPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_UnitPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_UnitPrice" nillable="true" type="tns:SalesPart_UnitPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_UnitPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="PriceList" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_CustomerStock">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_CustomerStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_CustomerStockResult" type="tns:ArrayOfSalesPart_CustomerStock" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_CustomerStock">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_CustomerStock" nillable="true" type="tns:SalesPart_CustomerStock" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_CustomerStock">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StockLevel" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Serials" type="tns:ArrayOfSerialNumbers" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerialNumbers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialNumbers" nillable="true" type="tns:SerialNumbers" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialNumbers">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SerialNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BarCodeType" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_ProjectStock">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_ProjectStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_ProjectStockResult" type="tns:ArrayOfSalesPart_ProjectStockItems" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_ProjectStockItems">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_ProjectStockItems" nillable="true" type="tns:SalesPart_ProjectStockItems" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_ProjectStockItems">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ActivitySequenzeID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProjectName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Stock" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowVersion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getPartCatalog_text">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="FromDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getPartCatalog_textResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getPartCatalog_textResult" type="tns:ArrayOfPart_Text" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfPart_Text">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Part_Text" nillable="true" type="tns:Part_Text" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Part_Text">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="PartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Instance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Text" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomePage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductPage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_Inventory">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_InventoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_InventoryResult" type="tns:ArrayOfSalesPart_Inventory" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_Inventory">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_Inventory" nillable="true" type="tns:SalesPart_Inventory" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_Inventory">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="SalesPartID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InventoryLevel" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getSalesPartCatalog_CustomerSalesPartNo">
+        <s:complexType />
+      </s:element>
+      <s:element name="getSalesPartCatalog_CustomerSalesPartNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getSalesPartCatalog_CustomerSalesPartNoResult" type="tns:ArrayOfSalesPart_Customer" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSalesPart_Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SalesPart_Customer" nillable="true" type="tns:SalesPart_Customer" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SalesPart_Customer">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Site" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowVersion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
+      <s:simpleType name="guid">
+        <s:restriction base="s:string">
+          <s:pattern value="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}" />
+        </s:restriction>
+      </s:simpleType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getDocumentSoapIn">
+    <wsdl:part name="parameters" element="tns:getDocument" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentSoapOut">
+    <wsdl:part name="parameters" element="tns:getDocumentResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDocumentAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getImageSoapIn">
+    <wsdl:part name="parameters" element="tns:getImage" />
+  </wsdl:message>
+  <wsdl:message name="getImageSoapOut">
+    <wsdl:part name="parameters" element="tns:getImageResponse" />
+  </wsdl:message>
+  <wsdl:message name="getImageAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_BrandSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategory_Brand" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_BrandSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategory_BrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_BrandAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_LineOfBusinessSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategory_LineOfBusiness" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_LineOfBusinessSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategory_LineOfBusinessResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_LineOfBusinessAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_TypesSoapIn">
+    <wsdl:part name="parameters" element="tns:getCategory_Types" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_TypesSoapOut">
+    <wsdl:part name="parameters" element="tns:getCategory_TypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getCategory_TypesAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getLanguagesSoapIn">
+    <wsdl:part name="parameters" element="tns:getLanguages" />
+  </wsdl:message>
+  <wsdl:message name="getLanguagesSoapOut">
+    <wsdl:part name="parameters" element="tns:getLanguagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getLanguagesAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalogSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalogSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalogResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalogAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CompatibleSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_Compatible" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CompatibleSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_CompatibleResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CompatibleAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getPackagePartComponentsSoapIn">
+    <wsdl:part name="parameters" element="tns:getPackagePartComponents" />
+  </wsdl:message>
+  <wsdl:message name="getPackagePartComponentsSoapOut">
+    <wsdl:part name="parameters" element="tns:getPackagePartComponentsResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPackagePartComponentsAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getInventory_InStockSoapIn">
+    <wsdl:part name="parameters" element="tns:getInventory_InStock" />
+  </wsdl:message>
+  <wsdl:message name="getInventory_InStockSoapOut">
+    <wsdl:part name="parameters" element="tns:getInventory_InStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInventory_InStockAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ArrivalDateSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_ArrivalDate" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ArrivalDateSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_ArrivalDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ArrivalDateAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_AttributesSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_Attributes" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_AttributesSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_AttributesResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_AttributesAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_UnitPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_UnitPrice" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_UnitPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_UnitPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_UnitPriceAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerStockSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_CustomerStock" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerStockSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_CustomerStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerStockAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ProjectStockSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_ProjectStock" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ProjectStockSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_ProjectStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_ProjectStockAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getPartCatalog_textSoapIn">
+    <wsdl:part name="parameters" element="tns:getPartCatalog_text" />
+  </wsdl:message>
+  <wsdl:message name="getPartCatalog_textSoapOut">
+    <wsdl:part name="parameters" element="tns:getPartCatalog_textResponse" />
+  </wsdl:message>
+  <wsdl:message name="getPartCatalog_textAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_InventorySoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_Inventory" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_InventorySoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_InventoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_InventoryAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerSalesPartNoSoapIn">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_CustomerSalesPartNo" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerSalesPartNoSoapOut">
+    <wsdl:part name="parameters" element="tns:getSalesPartCatalog_CustomerSalesPartNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getSalesPartCatalog_CustomerSalesPartNoAuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:portType name="Part_x0020_catalogSoap">
+    <wsdl:operation name="getDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method to download a document, returns a base64 string</wsdl:documentation>
+      <wsdl:input message="tns:getDocumentSoapIn" />
+      <wsdl:output message="tns:getDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getImage">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method to download a product image, returns a base64 string</wsdl:documentation>
+      <wsdl:input message="tns:getImageSoapIn" />
+      <wsdl:output message="tns:getImageSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Brand">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method to get all available brands, cached for 12 hours.</wsdl:documentation>
+      <wsdl:input message="tns:getCategory_BrandSoapIn" />
+      <wsdl:output message="tns:getCategory_BrandSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_LineOfBusiness">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method to get all available Line Of Business for a specific language. The description will be returned in english if no translation is made. Query getLanguages in order to get the language codes supported. Cached for 12 hours</wsdl:documentation>
+      <wsdl:input message="tns:getCategory_LineOfBusinessSoapIn" />
+      <wsdl:output message="tns:getCategory_LineOfBusinessSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Types">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Method to get all available types for a specific language. The description will be returned in english if no translation is made. Query getLanguages in order to get the language codes supported. Cached for 12 hours</wsdl:documentation>
+      <wsdl:input message="tns:getCategory_TypesSoapIn" />
+      <wsdl:output message="tns:getCategory_TypesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getLanguages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available languages available. Cached for 12 hours.</wsdl:documentation>
+      <wsdl:input message="tns:getLanguagesSoapIn" />
+      <wsdl:output message="tns:getLanguagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all available sales parts including the price and inventory, cached for 10 minutes!</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalogSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalogSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Compatible">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all compatible products added from the date you send in</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_CompatibleSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_CompatibleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPackagePartComponents">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get all components in a package part</wsdl:documentation>
+      <wsdl:input message="tns:getPackagePartComponentsSoapIn" />
+      <wsdl:output message="tns:getPackagePartComponentsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInventory_InStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get a summary of all products in stock</wsdl:documentation>
+      <wsdl:input message="tns:getInventory_InStockSoapIn" />
+      <wsdl:output message="tns:getInventory_InStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ArrivalDate">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get the expected arrival dates for sales parts. Cached for 12 hours</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_ArrivalDateSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_ArrivalDateSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Attributes">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">To get all attributes attached to a unique sales part id and language. The response will be returned in english if no translation is made. Query getLanguages in order to get the language codes supported. The query is cached for 120 minutes!</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_AttributesSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_AttributesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_UnitPrice">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all unit prices for the sales parts, also available when using getSalesPartCatalog, use this to update the price!</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_UnitPriceSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_UnitPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns your own stock at Brightpoint, if you have your own products at our warehouse</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_CustomerStockSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_CustomerStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ProjectStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all projects stock available</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_ProjectStockSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_ProjectStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getPartCatalog_text">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">get the selling part description for all parts that have been changed/added since last query</wsdl:documentation>
+      <wsdl:input message="tns:getPartCatalog_textSoapIn" />
+      <wsdl:output message="tns:getPartCatalog_textSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Inventory">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get sales part inventory level</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_InventorySoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_InventorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerSalesPartNo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">If you have your own sales part number at Brightpoint, query this service to get a match between Brightpoint Sales part number and your own</wsdl:documentation>
+      <wsdl:input message="tns:getSalesPartCatalog_CustomerSalesPartNoSoapIn" />
+      <wsdl:output message="tns:getSalesPartCatalog_CustomerSalesPartNoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Part_x0020_catalogSoap" type="tns:Part_x0020_catalogSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDocument">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getDocument" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getDocumentAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getImageAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Brand">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_Brand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCategory_BrandAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_LineOfBusiness">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_LineOfBusiness" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCategory_LineOfBusinessAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Types">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_Types" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getCategory_TypesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLanguages">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getLanguages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getLanguagesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalogAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Compatible">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Compatible" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_CompatibleAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPackagePartComponents">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getPackagePartComponents" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPackagePartComponentsAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInventory_InStock">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getInventory_InStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getInventory_InStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ArrivalDate">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_ArrivalDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_ArrivalDateAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Attributes">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Attributes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_AttributesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_UnitPrice">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_UnitPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_UnitPriceAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerStock">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_CustomerStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_CustomerStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ProjectStock">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_ProjectStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_ProjectStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartCatalog_text">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getPartCatalog_text" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getPartCatalog_textAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Inventory">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Inventory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_InventoryAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerSalesPartNo">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_CustomerSalesPartNo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getSalesPartCatalog_CustomerSalesPartNoAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Part_x0020_catalogSoap12" type="tns:Part_x0020_catalogSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getDocument">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getDocument" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getDocumentAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getImage">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getImage" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getImageAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Brand">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_Brand" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCategory_BrandAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_LineOfBusiness">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_LineOfBusiness" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCategory_LineOfBusinessAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCategory_Types">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getCategory_Types" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getCategory_TypesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getLanguages">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getLanguages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getLanguagesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalogAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Compatible">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Compatible" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_CompatibleAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPackagePartComponents">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getPackagePartComponents" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPackagePartComponentsAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInventory_InStock">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getInventory_InStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getInventory_InStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ArrivalDate">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_ArrivalDate" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_ArrivalDateAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Attributes">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Attributes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_AttributesAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_UnitPrice">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_UnitPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_UnitPriceAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerStock">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_CustomerStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_CustomerStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_ProjectStock">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_ProjectStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_ProjectStockAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getPartCatalog_text">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getPartCatalog_text" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getPartCatalog_textAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_Inventory">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_Inventory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_InventoryAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getSalesPartCatalog_CustomerSalesPartNo">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/partCatalog/getSalesPartCatalog_CustomerSalesPartNo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getSalesPartCatalog_CustomerSalesPartNoAuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Part_x0020_catalog">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Download the documentation, &lt;a href='https://secure.brightpoint.eu/ws/external/partcatalog/partCatalog_documentation.doc'&gt;click here&lt;/a&gt;.</wsdl:documentation>
+    <wsdl:port name="Part_x0020_catalogSoap" binding="tns:Part_x0020_catalogSoap">
+      <soap:address location="https://secure.brightpoint.eu/ws/external/partCatalog/external.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Part_x0020_catalogSoap12" binding="tns:Part_x0020_catalogSoap12">
+      <soap12:address location="https://secure.brightpoint.eu/ws/external/partCatalog/external.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

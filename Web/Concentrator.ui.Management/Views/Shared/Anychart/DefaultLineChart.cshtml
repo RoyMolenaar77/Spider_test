@@ -1,0 +1,88 @@
+﻿@{
+  Layout = null;
+}
+@using Concentrator.ui.Management.Models.Anychart
+@model Concentrator.ui.Management.Models.Anychart.AnychartComponentModel
+<anychart>   
+  <settings> 
+    <animation enabled="True" /> 
+    @if (!string.IsNullOrEmpty(Model.XAxesType)){
+     <locale>
+ 	      <date_time_format>
+ 	         <format><![CDATA[%dd/%MM]]></format>
+	      </date_time_format>
+ 	    </locale>
+      }
+  </settings>  
+  <charts> 
+    <chart plot_type="CategorizedVertical"> 
+      <chart_settings>
+        <title>
+          <text><![CDATA[]]></text>
+          <background enabled="false" />
+        </title>
+        <axes>
+          <x_axis tickmarks_placement="Center">
+          </x_axis>
+        </axes>
+      </chart_settings>
+      <data_plot_settings default_series_type="Line"> 
+          <line_series> 
+            <tooltip_settings enabled="true"> 
+           
+              <format>
+                <![CDATA[
+                Line: {%SeriesName}
+                Point Name: {%Name}
+                Value: {%YValue}
+                ]]>
+              </format>
+          </tooltip_settings>
+        </line_series>
+      </data_plot_settings>
+      <data>
+
+         @foreach (var p in Model.Series)
+         {
+           <series name="@p.Name">
+         @foreach (PieChartPoint c in p)
+         {
+           //var value = c.Value.ToString();
+
+           decimal dev = 0;
+           double dov = 0;
+           string value = "";
+
+           if (decimal.TryParse(c.Value.ToString(), out dev))
+           {
+             value = dev.ToString().Replace(',', '.');
+           }
+           else if (double.TryParse(c.Value.ToString(), out dov))
+           {
+             value = dov.ToString().Replace(',', '.');
+           }
+           else
+           {
+             value = c.Value.ToString();
+           }
+
+                <point y="@value" name="@c.Name" />
+           
+                 @* @if (c.Action != null)
+                  {
+                      <actions>
+                        <action type="@c.Action.Type" function="@c.Action.Name">
+                          @foreach (var a in c.Action.ArgumentValues)
+                          {
+                              <arg>@a</arg>
+                          } 
+                        </action>
+                      </actions>
+                  }*@
+         }
+            </series>         
+         }      
+      </data>
+    </chart>
+  </charts>
+</anychart>

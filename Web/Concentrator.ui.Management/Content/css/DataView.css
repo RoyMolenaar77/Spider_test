@@ -1,0 +1,123 @@
+﻿body
+{
+}
+/*!
+ * Ext JS Library 3.3.0
+ * Copyright(c) 2006-2010 Ext JS, Inc.
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+.media-view-container .x-panel-body
+{
+    background: white;
+    font: 11px Arial, Helvetica, sans-serif;
+}
+.media-view-container .thumb
+{
+    padding: 3px;
+}
+
+.media-view-container .thumb-wrap
+{
+    float: left;
+    margin: 4px;
+    margin-right: 0;
+    padding: 5px;
+}
+.media-view-container .thumb-wrap span
+{
+    display: block;
+    overflow: hidden;
+    text-align: center;
+}
+
+.media-view-container .x-view-over
+{
+    border: 1px solid #dddddd;
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+    padding: 4px;
+}
+
+.media-view-container .x-view-selected
+{
+    background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+    border: 1px solid #99bbe8;
+    padding: 4px;
+}
+.media-view-container .x-view-selected .thumb
+{
+    background: transparent;
+}
+
+.media-view-container .loading-indicator
+{
+    font-size: 11px;
+    background-image: url('../../resources/images/default/grid/loading.gif');
+    background-repeat: no-repeat;
+    background-position: left;
+    padding-left: 20px;
+    margin: 10px;
+}
+
+.vendor-collection
+{
+    display: block;
+    clear: both;
+}
+
+.upload-icon
+{
+    background: url("../images/Icons/image_add.png") no-repeat scroll 0 0 transparent !important;
+}
+
+.x-form-file-wrap
+{
+    position: relative;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file
+{
+    position: absolute;
+    right: 0;
+    -moz-opacity: 0;
+    filter: alpha(opacity: 0);
+    opacity: 0;
+    z-index: 2;
+    height: 22px;
+}
+.x-form-file-wrap .x-form-file-btn
+{
+    position: absolute;
+    right: 0;
+    z-index: 1;
+}
+.x-form-file-wrap .x-form-file-text
+{
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    color: #777;
+}
+
+.media-thumb-toolbox
+{
+    width: 18px;
+    height: 18px;
+    background-position: 0 center;
+    padding: 1px;
+    border: none;
+    vertical-align: top;
+}
+
+.magnify
+{
+    background-image: url("../images/Icons/view.png") !important;
+    background-repeat: no-repeat;
+}
+
+.media-toolbox
+{
+    vertical-align: top;
+    display: none;
+    z-index : 3220000;
+}

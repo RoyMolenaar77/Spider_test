@@ -1,0 +1,1 @@
+﻿update vendor set vendortype = vendortype | 512 where vendorid in (15,25)

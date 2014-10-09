@@ -1,0 +1,14 @@
+﻿IF NOT EXISTS (select * from sys.triggers where name = 'SetLastUpdateDateTime') 
+BEGIN
+		CREATE TRIGGER dbo.SetLastUpdateDateTime
+		ON ProductMedia 
+		AFTER UPDATE
+		AS
+				IF NOT UPDATE(LastChanged)			
+						UPDATE ProductMedia
+								SET LastChanged = GETDATE()
+								FROM ProductMedia
+								INNER JOIN inserted AS i 
+								ON ProductMedia.MediaID = i.MediaID;
+	
+END

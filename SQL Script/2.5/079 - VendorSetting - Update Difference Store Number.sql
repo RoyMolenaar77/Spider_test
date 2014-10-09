@@ -1,0 +1,1 @@
+﻿update vendorsetting set value = '982' where settingkey = 'Stock/DifferenceShop' and vendorid = 15

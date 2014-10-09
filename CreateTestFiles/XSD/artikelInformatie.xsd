@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+22-05-12   1.8 CKR  Nieuw optioneel veld EAN nummer toegevoegd
+02-04-09   1.7 CKR  Nieuwe optionele veld artikelStatus toegevoegd
+21-07-08   1.6 RKL  scratchPrijs toegevoegd.
+15-07-08   1.5 RKL  Hernoemd van artikelStam naar artikelInformatie.
+                    xdb namespace verwijderd.
+09-07-08   1.4 RKL  Gebruik van namespace, types nu included.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="wdpTypes.xsd"/>
+	<xs:element name="artikelInformatie">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="header" type="headerType"/>
+				<xs:element name="artikel" minOccurs="0" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="artikelNummer" type="artikelNummerType"/>
+							<xs:element name="kleurNummer" type="kleurNummerType"/>
+							<xs:element name="startDatum" type="xs:date" nillable="true" minOccurs="0"/>
+							<xs:element name="eindDatum" type="xs:date" nillable="true" minOccurs="0"/>
+							<xs:element name="korteOmschrijving" type="korteOmschrijvingType"/>
+							<xs:element name="langeOmschrijving" type="langeOmschrijvingType"/>
+							<xs:element name="kleurOmschrijving" type="omschrijvingType"/>
+							<xs:element name="USP1" type="USPType" minOccurs="0"/>
+							<xs:element name="USP2" type="USPType" minOccurs="0"/>
+							<xs:element name="USP3" type="USPType" minOccurs="0"/>
+							<xs:element name="kwaliteitOmschrijving" type="omschrijvingType"/>
+							<xs:element name="materiaalOmschrijving" type="omschrijvingType"/>
+							<xs:element name="vervalDatum" type="xs:date" nillable="true" minOccurs="0"/>
+							<xs:element name="sorteerVolgordeNieuwsteColl" type="xs:dateTime" nillable="true" minOccurs="0"/>
+							<xs:element name="beeldSoortNummer" type="beeldSoortNrType"/>
+							<xs:element name="artikelGroep" type="artikelGroepType" nillable="true" minOccurs="0"/>
+							<xs:element name="artikelStatus" type="artikelStatusType" nillable="true" minOccurs="0"/>
+							<xs:element name="maatlijst">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="maatGegevens" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="maat" type="maatType"/>
+													<xs:element name="presentatieMaat" type="presentatieMaatType"/>
+													<xs:element name="wehkampMaat" type="maatType"/>
+													<xs:element name="wehkampPresentatieMaat" type="presentatieMaatType"/>
+													<xs:element name="verkoopPrijs" type="bedragType"/>
+													<xs:element name="scratchPrijs" type="bedragType" minOccurs="0"/>
+													<xs:element name="vervalDatum" type="xs:date" nillable="true" minOccurs="0"/>
+													<xs:element name="EANNummer" type="EANType" nillable="true" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="beeldSoortNrType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="USPType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="presentatieMaatType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="eanType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="artikelGroepType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="artikelStatusType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EANType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>	
+</xs:schema>

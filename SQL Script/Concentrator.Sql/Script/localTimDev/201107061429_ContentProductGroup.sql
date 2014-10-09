@@ -1,0 +1,1 @@
+alter table contentproductgroup add IsCustom bit not null default 0

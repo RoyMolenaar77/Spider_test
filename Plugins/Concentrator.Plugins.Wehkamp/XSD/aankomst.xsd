@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+15-07-08   1.4 RKL  Hernoemd van aankomsten naar aankomst.
+                    xdb namespace verwijderd.
+09-07-08   1.3 RKL  Gebruik van namespace, types nu included.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="aankomst">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="aankomsten" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="artikelNummer" type="artikelNummerType"/>
+              <xs:element name="kleurNummer" type="kleurNummerType"/>
+              <xs:element name="maat" type="maatType"/>
+              <xs:element name="aantalOpgegeven" type="aantalType"/>
+              <xs:element name="verwachteAankomstDatum" type="xs:date"/>
+              <xs:element name="ggb" type="ggbType"/>
+              <xs:element name="goederenSoort" type="goederenSoortType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

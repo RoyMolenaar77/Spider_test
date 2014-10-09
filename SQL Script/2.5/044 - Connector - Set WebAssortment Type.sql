@@ -1,0 +1,1 @@
+﻿update connector set connectortype = connectortype | 2 where connectorid in ( 13, 14)

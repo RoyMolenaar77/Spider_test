@@ -1,0 +1,1 @@
+alter table dbo.ProductAttributeMetaData add DefaultValue nvarchar(50) null

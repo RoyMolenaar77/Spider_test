@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Factuurbevestiging</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+<p>Beste ##Name##,</P>
+
+<p>Wij hebben uw order aan u verzonden.</p>
+<p>Hierbij ontvangt u van ons een overzicht van de goederen die aan u gefactureerd worden.</p>
+<p>Mocht u nog vragen hebben over deze order kunt u contact opnemen met uw account manager.</p>
+  
+		]]>
+    </body>
+</message>

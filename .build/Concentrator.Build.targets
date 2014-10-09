@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CopySourceFiles Include="$(TargetDir)*.*" Exclude="$(TargetDir)*.vshost.*" />
+  </ItemGroup>
+  <PropertyGroup>
+    <CopyDestinationFolder>Build\$(Configuration)</CopyDestinationFolder>
+  </PropertyGroup>
+  <Target Name="AfterBuild">
+    <Copy ContinueOnError="True" DestinationFolder="$(SolutionDir)$(CopyDestinationFolder)" SourceFiles="@(CopySourceFiles)" SkipUnchangedFiles="True" />
+  </Target>
+</Project>

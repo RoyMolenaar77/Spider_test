@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<AttributeType name="ID" />
+	<AttributeType name="UNCATID" />
+	<AttributeType name="Searchable" />
+	<AttributeType name="ThumbPic" />
+	<AttributeType name="Score" />
+	<AttributeType name="LowPic" />
+	<AttributeType name="langid" />	
+	<AttributeType name="Value" />	
+	<ElementType name="CategoriesList" sql:is-constant="1">
+		<element type="Category" />
+	</ElementType>
+	<ElementType name="Category" sql:relation="CategoryList">
+		<attribute type="ID" sql:field="ID" />
+		<attribute type="UNCATID" sql:field="UNCATID" />
+		<attribute type="Searchable" sql:field="Searchable" />
+		<attribute type="ThumbPic" sql:field="ThumbPic" />
+		<attribute type="Score" sql:field="Score" />
+		<attribute type="LowPic" sql:field="LowPic" />
+		<element type="ParentCategory" minOccurs="0">
+			<sql:relationship key-relation="CategoryList" key="ID" foreign-key="Cat_ID" foreign-relation="ParentCategory" />
+		</element>
+		<element type="Name" minOccurs="0">
+			<sql:relationship key-relation="CategoryList" key="ID" foreign-key="Cat_ID" foreign-relation="CategoryNames" />
+		</element>
+
+	</ElementType>
+	<ElementType name="ParentCategory" sql:relation="ParentCategory">
+		<attribute type="ID" sql:field="Parent_ID" />
+	</ElementType>
+	<ElementType name="Name" sql:relation="CategoryNames">
+		<attribute type="ID" sql:field="Name_ID" />
+		<attribute type="langid" sql:field="langid" />
+		<attribute type="Value" sql:field="CategoryName" />		
+	</ElementType>
+
+</Schema>

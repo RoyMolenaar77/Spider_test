@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="WindowsApplication1">
+</Property><Property Name="Solution File" Value="C:\Users\jaap\Documents\Visual Studio 2008\Projects\ICECAT\IceCatDownloader\WindowsApplication1.sln">
+</Property><Property Name="Date" Value="Wednesday, June 10, 2009">
+</Property><Property Name="Time" Value="15:21 PM">
+</Property></Properties><Event ErrorLevel="0" Project="IceCatDownloadXML" Source="WindowsApplication1\IceCatDownloadXML.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="IceCatDownloadXML" Source="WindowsApplication1\IceCatDownloadXML.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="WindowsApplication1.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="WindowsApplication1.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="IceCatDownloadXML" Source="WindowsApplication1\IceCatDownloadXML.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

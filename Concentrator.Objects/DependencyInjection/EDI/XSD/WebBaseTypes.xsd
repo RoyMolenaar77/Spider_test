@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by O.Woudenberg (BAS GROUP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+  <xs:complexType name="WebOrderRequestDetails">
+    <xs:annotation>
+      <xs:documentation>Contains one or multiple OrderDetail objects</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="WebOrderDetail" type="WebOrderRequestDetail" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WebOrderRequestDetail">
+    <xs:annotation>
+      <xs:documentation>An orderline</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustomerReference" type="CustomerReference" minOccurs="0"/>
+      <xs:element name="ProductIdentifier" type="ProductIdentifier"/>
+      <xs:element name="Quantity">
+        <xs:annotation>
+          <xs:documentation>Requested ordered quantity</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="-1"/>
+            <xs:maxInclusive value="9999"></xs:maxInclusive>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="VendorItemNumber" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Vendor item Number printed on the pickslip</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"></xs:maxLength>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="WareHouseCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Code for warehouse</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="UnitPrice" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>UnitPrice for override price</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CreateCustomer">
+    <xs:annotation>
+      <xs:documentation>Xml to create an customer</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustomerAddress" type="WebAddress"/>
+      <xs:element name="CustomerContact" type="WebContact"/>
+      <xs:element name="CustomerType" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer Type for Example, Business customer</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="10"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="WebAddress">
+    <xs:annotation>
+      <xs:documentation>Contains addres information</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer name</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AddressLine1" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>First addresline contains the addres of the customer</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AddressLine2" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Second addressline with additional information</xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="AddressLine3" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Third addressline. Can be used to add a "For the attention off" field to the addres</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Number" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>HouseNumber</xs:documentation>
+        </xs:annotation>
+
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="NumberExtension" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>HouseNumberExtension</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="40"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="ZipCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Zipcode of the customer address</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="12"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="City" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>The city assosiated with the customer</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="Country" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Code that identifies a country</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="3"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="WebContact">
+    <xs:annotation>
+      <xs:documentation>Contains a customer contact</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Name" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Name of the contact</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Email" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Email address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="Website" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Email address</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="HomePhoneNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer home phonenumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BusinessPhoneNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer business phonenumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="MobilePhoneNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer Mobile phonenumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="FaxNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Customer faxnumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

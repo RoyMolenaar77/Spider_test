@@ -1,0 +1,94 @@
+﻿SELECT DISTINCT
+  UPPER(SUBSTRING(p.VendorItemNumber, 0, CHARINDEX(' ', p.VendorItemNumber))) as Artikelnummer
+, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, CHARINDEX(' ', p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1) - CHARINDEX(' ', p.VendorItemNumber) - 1) as Kleurnummer
+, RIGHT('000'+ CONVERT(VARCHAR, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, CHARINDEX(' ', p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1) - CHARINDEX(' ', p.VendorItemNumber) - 1)), 3) as FormattedKleurnummer
+, p.CreationTime as Startdatum
+--, ol.ShortDescription as Korteomschrijving
+--, ol.LongDescription as Langeomschrijving
+, (SELECT Label FROM ProductAttributeValueLabel WHERE LanguageID = 2 AND ConnectorID = (SELECT CAST(Value as int) FROM VendorSetting WHERE VendorID = 15 AND SettingKey = 'KleurConnectorID') AND (RIGHT('000' + Value, 3) = RIGHT('000'+ CONVERT(VARCHAR, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, LEN(p.VendorItemNumber) - CHARINDEX(' ', p.VendorItemNumber) + 0)), 3))) as Kleuromschrijving
+, vtWehkampKleurOmschrijving.DestinationVendorValue as WehkampKleuromschrijving
+, '-' as Kwaliteitomschrijving
+, pavMaterialCC.Value as MateriaalOmschrijvingCoolcat
+, paoMaterial.AttributeOption as MateriaalOmschrijvingWehkamp
+--, SUBSTRING(p.VendorItemNumber, 0, 2) as Artikelgroep
+, UPPER(SUBSTRING(p.VendorItemNumber, 1, (SELECT CAST(Value as int) FROM VendorSetting WHERE VendorID = {0} AND SettingKey = 'ArtikelGroepCharacters'))) as Artikelgroep
+, p.SourceVendorID as SourceVendorID
+, p.ProductID as ProductID
+, p.ParentProductID as ParentProductID
+, p.VendorItemNumber as VendorItemNumber
+, o.ConnectorID as ConnectorID
+, pavReadyForWehkamp.Value as 'ReadyForWehkamp'
+, pavSentToWehkamp.Value as 'SentToWehkamp'
+, pavSentAsDummy.Value as 'SentToWehkampAsDummy'
+
+, p.ParentProductID as ParentProductID
+, pavParentReadyForWehkamp.Value as 'ParentReadyForWehkamp'
+, pavParentSentToWehkamp.Value as 'ParentSentToWehkamp'
+, pavParentSentAsDummy.Value as 'ParentSentToWehkampAsDummy'
+
+, cp.VendorID as VendorID
+
+, paoDessin.AttributeOption as 'Dessin'
+, paoKraagvorm.AttributeOption as 'Kraagvorm'
+, paoPijpwijdte.AttributeOption as 'Pijpwijdte'
+
+, ol.Quantity as NumberToReceive
+, o.ReceivedDate as ReceivedDate
+, o.WebSiteOrderNumber as PackingSlipNumber
+
+, pavMaat.value as Maat
+, pbMaat.Barcode as Maatcode
+--, pbBarcode.Barcode as EANCode
+, (SELECT TOP 1 Barcode FROM ProductBarcode pb WHERE pb.BarcodeType = 0 AND pb.ProductID = p.ProductID) AS EANCode
+, vt1.DestinationVendorValue as WehkampPresentatiemaat
+, vt2.DestinationVendorValue as WehkampMagazijnmaat
+, vp.Price as Prijs 
+, vp.SpecialPrice as SpecialPrijs
+, vp.LastUpdated
+
+, o.OrderID as OrderID
+, ol.OrderLineID as OrderLineID
+
+ --,o.*, ol.*
+ --, ol.isDispatched as OrderLineDispatched 
+ 
+FROM [Order] o
+INNER JOIN OrderLine ol on o.OrderID = ol.OrderID
+INNER JOIN Product p ON p.ProductID = ol.ProductID
+INNER JOIN Connectorpublicationrule cp ON o.ConnectorID = cp.ConnectorID
+LEFT OUTER JOIN ProductAttributeValue pavReadyForWehkamp ON p.ProductID = pavReadyForWehkamp.ProductID AND pavReadyForWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'ReadyForWehkamp') AND LOWER(pavReadyForWehkamp.Value) = 'true'
+LEFT OUTER JOIN ProductAttributeValue pavSentToWehkamp ON p.ProductID = pavSentToWehkamp.ProductID AND pavSentToWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkamp') 
+
+LEFT OUTER JOIN ProductAttributeValue pavMaterialCC ON p.ProductID = pavMaterialCC.ProductID AND pavMaterialCC.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'MaterialDescription') 
+LEFT OUTER JOIN ProductAttributeValue pavMaterial ON p.ProductID = pavMaterial.ProductID AND pavMaterial.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Material') 
+LEFT OUTER JOIN ProductAttributeOption paoMaterial ON paoMaterial.AttributeID = pavMaterial.AttributeID AND paoMaterial.OptionID = pavMaterial.Value
+
+
+LEFT OUTER JOIN ProductAttributeValue pavSentAsDummy ON p.ProductID = pavSentAsDummy.ProductID AND pavSentAsDummy.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkampAsDummy') 
+LEFT OUTER JOIN VendorTranslation vtWehkampKleurOmschrijving ON RIGHT('000' + CONVERT(VARCHAR, SUBSTRING(p.VendorItemNumber, CHARINDEX(' ', p.VendorItemNumber) + 1, LEN(p.VendorItemNumber) - CHARINDEX(' ', p.VendorItemNumber) + 0)), 3) = RIGHT('000' + vtWehkampKleurOmschrijving.SourceVendorValue, 3) and vtWehkampKleurOmschrijving.TranslationType = 3 and vtWehkampKleurOmschrijving.SourceVendorID = cp.VendorID
+
+LEFT OUTER JOIN ProductAttributeValue pavDessin ON p.ProductID = pavDessin.ProductID AND pavDessin.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Dessin') 
+LEFT OUTER JOIN ProductAttributeOption paoDessin ON paoDessin.AttributeID = pavDessin.AttributeID AND paoDessin.OptionID = pavDessin.Value
+
+LEFT OUTER JOIN ProductAttributeValue pavKraagvorm ON p.ProductID = pavKraagvorm.ProductID AND pavKraagvorm.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Kraagvorm') 
+LEFT OUTER JOIN ProductAttributeOption paoKraagvorm ON paoKraagvorm.AttributeID = pavKraagvorm.AttributeID AND paoKraagvorm.OptionID = pavKraagvorm.Value
+
+LEFT OUTER JOIN ProductAttributeValue pavPijpwijdte ON p.ProductID = pavPijpwijdte.ProductID AND pavPijpwijdte.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Pijpwijdte') 
+LEFT OUTER JOIN ProductAttributeOption paoPijpwijdte ON paoPijpwijdte.AttributeID = pavPijpwijdte.AttributeID AND paoPijpwijdte.OptionID = pavPijpwijdte.Value
+
+LEFT OUTER JOIN ProductAttributeValue pavParentReadyForWehkamp ON p.ParentProductID = pavParentReadyForWehkamp.ProductID AND pavParentReadyForWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'ReadyForWehkamp') AND LOWER(pavParentReadyForWehkamp.Value) = 'true'
+LEFT OUTER JOIN ProductAttributeValue pavParentSentToWehkamp ON p.ParentProductID = pavParentSentToWehkamp.ProductID AND pavParentSentToWehkamp.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkamp') 
+LEFT OUTER JOIN ProductAttributeValue pavParentSentAsDummy ON p.ParentProductID = pavParentSentAsDummy.ProductID AND pavParentSentAsDummy.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'SentToWehkampAsDummy') 
+
+LEFT OUTER JOIN ProductAttributeValue pavMaat ON p.ProductID = pavMaat.ProductID and pavMaat.AttributeID = (SELECT AttributeID FROM ProductAttributeMetaData pamd WHERE pamd.AttributeCode = 'Size')
+LEFT OUTER JOIN VendorTranslation vt1 ON pavMaat.Value = vt1.SourceVendorValue and vt1.SourceVendorID = {0} AND vt1.TranslationType = 2
+LEFT OUTER JOIN ProductBarcode pbMaat ON p.ProductID = pbMaat.ProductID  AND pbMaat.BarcodeType = 4
+--LEFT OUTER JOIN ProductBarcode pbBarcode ON p.ProductID = pbBarcode.ProductID AND pbBarcode.BarcodeType = 0
+LEFT OUTER JOIN VendorTranslation vt2 ON pbMaat.Barcode = vt2.SourceVendorValue AND vt2.SourceVendorID = {0} AND vt2.TranslationType = 1
+LEFT OUTER JOIN VendorAssortment va ON p.ProductID = va.ProductID AND va.VendorID = vt2.SourceVendorID
+LEFT OUTER JOIN VendorPrice vp ON vp.VendorAssortmentID = va.VendorAssortmentID 
+
+WHERE o.OrderType = 4 
+AND o.IsDispatched = 0
+AND o.ConnectorID IN (SELECT ConnectorID FROM Connectorpublicationrule WHERE VendorID = {0})
+ORDER BY Artikelnummer, Kleurnummer 

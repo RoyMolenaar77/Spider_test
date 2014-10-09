@@ -1,0 +1,11 @@
+﻿SELECT DISTINCT
+       p.VendorItemNumber as VendorItemNumber
+      , va.CustomItemNumber as CustomItemNumber
+      , p.ProductID as ProductID
+      , p.ParentProductID as ParentProductID
+      , p.IsConfigurable as IsConfigurable
+      , p.LastModificationTime as LastModificationTime
+      , p.IsNonAssortmentItem as IsNonAssortmentItem
+
+FROM Product p
+INNER JOIN VendorAssortment va on p.ProductID = va.ProductID

@@ -1,0 +1,17 @@
+﻿SELECT DISTINCT 
+			 [Price] as UnitPrice
+			,[CostPrice] as CostPrice
+			,[TaxRate] as Taxrate
+			,[MinimumQuantity] as MinimumQuantity
+			,[CommercialStatus] as CommercialStatus
+			,[SpecialPrice] as SpecialPrice
+		  ,c.ConnectorID as ConnectorID
+		  ,va.ProductID as ProductID
+
+	FROM VendorPrice vp
+	
+	INNER JOIN VendorAssortment va ON vp.VendorAssortmentID = va.VendorAssortmentID
+	INNER JOIN Content c on va.ProductID = c.ProductID
+	
+	WHERE c.ConnectorID = {0} 
+		AND va.VendorID IN (SELECT VendorID FROM ContentProduct WHERE ConnectorID = {0})

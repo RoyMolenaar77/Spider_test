@@ -1,0 +1,186 @@
+/* CSS Document */
+
+
+<!--
+.htmlCode {color: #CC6600}
+.jsAttribute {color: #0000FF}
+.jsComment {color: Green}
+-->
+
+/* data table for samples */
+table.dtTABLE_C
+{
+	border: 1px solid #cccccc;
+	border-collapse:collapse;
+}
+table.dtTABLE_C tbody tr th
+{
+	font:normal 7pt Verdana;
+	background-color:#EEEEEE;
+	text-align:left;
+	padding-bottom:0px;
+	padding-top:0px;
+	padding-left:1px;
+	
+}
+table.dtTABLE_C tbody tr td
+{
+	font:normal 7pt Verdana;
+	border:1px solid #cccccc;
+	text-align:left;	
+}
+/* data table for samples */
+table.dtTABLE
+{
+	border: 1px solid #cccccc;
+	border-collapse:collapse;
+}
+table.dtTABLE tbody tr th
+{
+	font:normal 60% Verdana;
+	background-color:#EEEEEE;
+	font-weight:bold;
+	padding-bottom:5px;
+	padding-top:5px;
+	padding-left:10px;
+	text-align:left;
+}
+table.dtTABLE tbody tr td
+{
+	font:normal 70% Verdana;
+	border:1px solid #cccccc;
+	padding-bottom:3px;
+	padding-top:3px;
+	padding-left:13px;
+	text-align:left;	
+}
+/* end data table for samples  */
+/* data table for image samples */
+table.imgTABLE
+{
+	border: 1px solid #cccccc;
+	border-collapse:collapse;
+}
+table.imgTABLE tbody tr th
+{
+	font:normal 60% Verdana;
+	background-color:#EEEEEE;
+	font-weight:bold;
+	padding-bottom:3px;
+	padding-top:3px;
+	text-align:right;
+}
+table.imgTABLE tbody tr td
+{
+	font:normal 70% Verdana;
+	border:1px solid #cccccc;
+	padding-bottom:3px;
+	padding-top:3px;
+	text-align:center;	
+}
+/* end data table for image samples  */P.main
+{
+	font:normal 70% Verdana;
+	color: #000000;
+	text-align:justify;
+}
+
+LI.main
+{
+	font:normal 10px Verdana;
+	color: #000000;
+	margin-bottom:5px;
+}
+
+/* documentation page container div*/
+DIV.htmlSample
+{
+	font:normal 70% Verdana;
+	margin-left:30px;
+	width: 600px;
+	border-style:solid;
+	border-width: thin;
+	border-color:#D0D0D0;
+	padding:10px;
+	background:#F5F5F5;
+}
+
+
+DIV.main
+{
+	margin-left:30px;
+	width: 700px;
+}
+
+H1.main
+{	
+	font:normal 150% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+}
+
+
+H2.main
+{
+	font:normal 130% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+}
+H3.main
+{
+	font:normal 110% Arial, Helvetica, sans-serif;
+	margin-bottom: 10px;
+	color: #000000;
+
+}
+
+BODY
+{
+	background-color:#FFFFFF
+}
+
+DIV.xmlSampleNoWidth
+{
+	padding:5px;
+}
+
+
+DIV.xmlSample
+{
+	padding:10px;
+	width:700px;
+	border-style:dashed;
+	border-width:thin;
+	background-color:#EEEEEE;
+}
+
+.xmlverb-NoWidth          { 
+							color: #333333;
+                            font-family: monospace;
+							padding:5px;
+							}
+
+
+.xmlverb-default          { 
+							color: #333333;
+							background-color:#EEEEEE;
+                            font-family: monospace;
+							padding:10px;
+							width:700px;
+							border-style:dashed;
+							border-width:thin;
+							}
+.xmlverb-element-name     { color: #990000 }
+.xmlverb-element-nsprefix { color: #666600 }
+.xmlverb-attr-name        { color: #660000 }
+.xmlverb-attr-content     { color: #000099; font-weight: bold }
+.xmlverb-ns-name          { color: #666600 }
+.xmlverb-ns-uri           { color: #330099 }
+.xmlverb-text             { color: #000000; font-weight: bold }
+.xmlverb-comment          { color: #006600; font-style: italic }
+.xmlverb-pi-name          { color: #006600; font-style: italic }
+.xmlverb-pi-content       { color: #006666; font-style: italic }
+
+DIV.sample
+{
+}

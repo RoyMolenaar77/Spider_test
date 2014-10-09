@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Rma">
+  <DataContextMoniker Name="/RmaDataContext" />
+  <nestedChildShapes>
+    <classShape Id="9d1d8d3a-e75a-416b-a20f-9ea85453bb06" absoluteBounds="4.375, 1.875, 2, 2.5401025390624996">
+      <DataClassMoniker Name="/RmaDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="621fcd20-b274-4a90-bba5-5c8a9c38d4d9" absoluteBounds="4.39, 2.335, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

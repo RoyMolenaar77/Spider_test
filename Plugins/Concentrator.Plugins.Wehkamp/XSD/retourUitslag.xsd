@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+03-02-09   1.3 CKR  tag uitslag is optioneel gemaakt
+09-07-08   1.2 RKL  Gebruik van namespace, types nu included.
+ -->
+ 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="retourUitslag">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="uitslag" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="artikelNummer" type="artikelNummerType"/>
+              <xs:element name="kleurNummer" type="kleurNummerType"/>
+              <xs:element name="maat" type="maatType"/>
+              <xs:element name="locusStatus" type="locusStatusType"/>
+              <xs:element name="verzondenAantal" type="aantalType"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+</xs:schema>

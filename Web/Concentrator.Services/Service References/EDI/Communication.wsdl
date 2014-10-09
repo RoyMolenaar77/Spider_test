@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://edi.concentrator.nl/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://edi.concentrator.nl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://edi.concentrator.nl/">
+      <s:element name="UpdateRelationSettings">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="property" type="tns:RelationCommunicationProperty" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RelationCommunicationProperty">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="BSkIdentifier" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierNumber" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RelationNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RelationName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderedBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderTakenBy" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplyFreight" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FreightProductID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplyFinCharges" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FinChargesProductID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EDIProcessor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="OrderConfirmation" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderConfirmationEmail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShipmentConfirmation" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentConfirmationEmail" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InvoiceConfirmation" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="InvoiceConfirmationEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConnectorType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundTo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundUsername" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundPassword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OutboundMessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errormail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BusinessUnit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Remark" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Branch" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateRelationSettingsResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRelationSettings">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetRelationSettingsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRelationSettingsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="UpdateRelationSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRelationSettings" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRelationSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRelationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationSettingsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRelationSettings" />
+  </wsdl:message>
+  <wsdl:message name="GetRelationSettingsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRelationSettingsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CommunicationServiceSoap">
+    <wsdl:operation name="UpdateRelationSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sync EDI customer settings</wsdl:documentation>
+      <wsdl:input message="tns:UpdateRelationSettingsSoapIn" />
+      <wsdl:output message="tns:UpdateRelationSettingsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationSettings">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Sync EDI customer settings</wsdl:documentation>
+      <wsdl:input message="tns:GetRelationSettingsSoapIn" />
+      <wsdl:output message="tns:GetRelationSettingsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CommunicationServiceSoap" type="tns:CommunicationServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateRelationSettings">
+      <soap:operation soapAction="http://edi.concentrator.nl/UpdateRelationSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationSettings">
+      <soap:operation soapAction="http://edi.concentrator.nl/GetRelationSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CommunicationServiceSoap12" type="tns:CommunicationServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="UpdateRelationSettings">
+      <soap12:operation soapAction="http://edi.concentrator.nl/UpdateRelationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRelationSettings">
+      <soap12:operation soapAction="http://edi.concentrator.nl/GetRelationSettings" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CommunicationService">
+    <wsdl:port name="CommunicationServiceSoap" binding="tns:CommunicationServiceSoap">
+      <soap:address location="http://localhost/EDIWebservice/Communication.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CommunicationServiceSoap12" binding="tns:CommunicationServiceSoap12">
+      <soap12:address location="http://localhost/EDIWebservice/Communication.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

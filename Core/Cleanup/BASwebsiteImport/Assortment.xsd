@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Assortment">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Product">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Brand">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="Name" type="xs:string" />
+                    <xs:element minOccurs="0" name="Code" type="xs:string" />
+                  </xs:sequence>
+                  <xs:attribute name="BrandID" type="xs:unsignedShort" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="ProductGroups">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="ProductGroup">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Name" type="xs:string" />
+                          <xs:element minOccurs="0" name="Code" />
+                        </xs:sequence>
+                        <xs:attribute name="ProductGroupID" type="xs:unsignedByte" use="optional" />
+                        <xs:attribute name="Index" type="xs:unsignedInt" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                    <xs:element minOccurs="0" name="SubProductGroup">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Name" type="xs:string" />
+                          <xs:element minOccurs="0" name="Code" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="SubProductGroupID" type="xs:unsignedShort" use="optional" />
+                        <xs:attribute name="Index" type="xs:unsignedInt" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Price">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="UnitPrice" type="xs:decimal" />
+                  </xs:sequence>
+                  <xs:attribute name="TaxRate" type="xs:decimal" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Stock">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element minOccurs="0" name="RetailStock">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Name" type="xs:string" />
+                          <xs:element minOccurs="0" name="Stock" type="xs:unsignedByte" />
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                  <xs:attribute name="InStock" type="xs:unsignedShort" use="optional" />
+                  <xs:attribute name="PromisedDeliveryDate" type="xs:string" use="optional" />
+                  <xs:attribute name="QuantityToReceive" type="xs:unsignedShort" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Content">
+                <xs:complexType>
+                  <xs:attribute name="ShortDescription" type="xs:string" use="optional" />
+                  <xs:attribute name="LongDescription" type="xs:string" use="optional" />
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="ManufactureID" type="xs:string" use="optional" />
+            <xs:attribute name="CustomProductID" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="CommercialStatus" type="xs:string" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://ac-systems.com" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:i0="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://ac-systems.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" location="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?wsdl=wsdl0" />
+  <wsdl:types />
+  <wsdl:binding name="ProductInfoServiceSOAPPort" type="i0:IProductInfoService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="FindItemReferencesByDescription">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ArgumentInvalidExceptionFault">
+        <soap:fault use="literal" name="ArgumentInvalidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesByBrandCode">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentInvalidExceptionFault">
+        <soap:fault use="literal" name="ArgumentInvalidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetBrands">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetBrands" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindDeviceInfosCompatibleWithItemReference">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ItemNotFoundExceptionFault">
+        <soap:fault use="literal" name="ItemNotFoundExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceList">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceListForBrand">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrand" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceListForBrandAndType">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandAndType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceBrandList">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceBrandListByType">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListByType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesCompatibleWithDeviceID">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithDeviceID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesCompatibleWithItemReference">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ItemNotFoundExceptionFault">
+        <soap:fault use="literal" name="ItemNotFoundExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullProductList">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullProductListExtended">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListExtended" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullItemReferencesList">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullItemReferencesList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullStockList">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="UnauthorizedAccessExceptionFault">
+        <soap:fault use="literal" name="UnauthorizedAccessExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ApplicationExceptionFault">
+        <soap:fault use="literal" name="ApplicationExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemInfoByReference">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemNotFoundExceptionFault">
+        <soap:fault use="literal" name="ItemNotFoundExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentInvalidExceptionFault">
+        <soap:fault use="literal" name="ArgumentInvalidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceByItemReferenceAndAmount">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemNotFoundExceptionFault">
+        <soap:fault use="literal" name="ItemNotFoundExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="ArgumentInvalidExceptionFault">
+        <soap:fault use="literal" name="ArgumentInvalidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockByItemReference">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReference" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ItemNotFoundExceptionFault">
+        <soap:fault use="literal" name="ItemNotFoundExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceForPriceRequests">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceForPriceRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetStockForItemReferences">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockForItemReferences" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAndStockForPriceRequests">
+      <soap:operation soapAction="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceAndStockForPriceRequests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="SessionKeyNotValidExceptionFault">
+        <soap:fault use="literal" name="SessionKeyNotValidExceptionFault" namespace="" />
+      </wsdl:fault>
+      <wsdl:fault name="NotAuthorizedExceptionFault">
+        <soap:fault use="literal" name="NotAuthorizedExceptionFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+</wsdl:definitions>

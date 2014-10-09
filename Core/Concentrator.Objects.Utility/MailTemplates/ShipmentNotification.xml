@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Verzendbevestiging</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+<p>Beste ##Name##,</P>
+<p>Wij hebben de door u geplaatste order klaar staan voor transport.</p>
+<p>Hierbij ontvangt u van ons een “shipment notification” van de door u geplaatste order.</p>
+
+##OrderContent##
+
+<br>
+##TNT##
+
+<p>Mocht u nog vragen hebben over deze order kunt u contact opnemen met uw account manager.</p>
+
+  
+		]]>
+    </body>
+</message>

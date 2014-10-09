@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="MyComWEB_Staging" Class="WebsiteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="dbo.ProductGroupMapping" Member="ProductGroupMappings">
+    <Type Name="ProductGroupMapping">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="ProductGroup_ProductGroupMapping" Member="ProductGroup" ThisKey="ProductGroupID" OtherKey="ProductGroupID" Type="ProductGroup" IsForeignKey="true" />
+      <Association Name="Product_ProductGroupMapping" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroups" Member="ProductGroups">
+    <Type Name="ProductGroup">
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductGroupCode" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BackendProductGroupCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ParentProductGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProductGroupName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="OrderIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="image" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="ProductGroup_ProductGroupMapping" Member="ProductGroupMappings" ThisKey="ProductGroupID" OtherKey="ProductGroupID" Type="ProductGroupMapping" />
+      <Association Name="ProductGroup_ProductGroupsAttributeMetaData" Member="ProductGroupsAttributeMetaDatas" ThisKey="ProductGroupID" OtherKey="ProductGroupID" Type="ProductGroupsAttributeMetaData" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductImages" Member="ProductImages">
+    <Type Name="ProductImage">
+      <Column Name="ProductImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductImage" Member="ProductImage1" Type="System.Data.Linq.Binary" DbType="Image NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductBarcodes" Member="ProductBarcodes">
+    <Type Name="ProductBarcode">
+      <Column Name="Barcode" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BarcodeType" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlatestReviews" Member="AlatestReviews">
+    <Type Name="AlatestReview">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Review" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ReviewSnippet" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Product_AlatestReview" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Selectors" Member="Selectors">
+    <Type Name="Selector">
+      <Column Name="SelectorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Association Name="Selector_RelatedProduct" Member="RelatedProducts" ThisKey="SelectorID" OtherKey="SelectorID" Type="RelatedProduct" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RelatedProducts" Member="RelatedProducts">
+    <Type Name="RelatedProduct">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RelatedProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SelectorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Selector_RelatedProduct" Member="Selector" ThisKey="SelectorID" OtherKey="SelectorID" Type="Selector" IsForeignKey="true" />
+      <Association Name="Product_RelatedProduct" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="Product_RelatedProduct1" Member="Product1" ThisKey="RelatedProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Brands" Member="Brands">
+    <Type Name="Brand">
+      <Column Name="BrandID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BrandCode" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BrandName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BrandWebsite" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IsActive" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Brand_Product" Member="Products" ThisKey="BrandID" OtherKey="BrandID" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TaxRates" Member="TaxRates">
+    <Type Name="TaxRate">
+      <Column Name="TaxRateID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TaxRate" Member="TaxRate1" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LedgerClass" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="TaxRate_Product" Member="Products" ThisKey="TaxRateID" OtherKey="TaxRateID" Type="Product" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock" Member="Stocks">
+    <Type Name="Stock">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StockLocationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="QuantityOnHand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityCommitted" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductAttributes" Member="ProductAttributes">
+    <Type Name="ProductAttribute">
+      <Column Name="ProductAttributeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeMetaDataID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AttributeValue" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="attributegroupmetadataid" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_ProductAttribute" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttributeGroupMetaData" Member="AttributeGroupMetaDatas">
+    <Type Name="AttributeGroupMetaData">
+      <Column Name="AttributeGroupMetaDataID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AttributeGroupName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="AttributeGroupIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AttributeMetaData" Member="AttributeMetaDatas">
+    <Type Name="AttributeMetaData">
+      <Column Name="AttributeMetaDataID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AttributeName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="DataTypeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FormatString" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CultureLanguageID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AttributeGroupMetaDataID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductGroupsAttributeMetaData" Member="ProductGroupsAttributeMetaDatas">
+    <Type Name="ProductGroupsAttributeMetaData">
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AttributeMetaDataID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IsRequired" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="IsQuickSearch" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OrderIndex" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Association Name="ProductGroup_ProductGroupsAttributeMetaData" Member="ProductGroup" ThisKey="ProductGroupID" OtherKey="ProductGroupID" Type="ProductGroup" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Postcode" Member="Postcodes">
+    <Type Name="Postcode">
+      <Column Name="PCWIJK" Type="System.String" DbType="Char(4) NOT NULL" CanBeNull="false" />
+      <Column Name="PCLETTER" Type="System.String" DbType="Char(2) NOT NULL" CanBeNull="false" />
+      <Column Name="PCREEKSID" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PCREEKSVAN" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PCREEKSTOT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PCCITYTPG" Type="System.String" DbType="VarChar(18)" CanBeNull="true" />
+      <Column Name="PCCITYNEN" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="PCSTRTPG" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="PCSTRNEN" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="PCSTROFF" Type="System.String" DbType="VarChar(43)" CanBeNull="true" />
+      <Column Name="PCCITYEXT" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="PCSTREXT" Type="System.String" DbType="Char(5)" CanBeNull="true" />
+      <Column Name="PCGEMEENTEID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PCGEMEENTENAAM" Type="System.String" DbType="VarChar(24)" CanBeNull="true" />
+      <Column Name="PCPROVINCIE" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="PCCEBUCO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ZipCodeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Products" Member="Products">
+    <Type Name="Product">
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ShortDescription" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="LongDescription" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="BrandID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TaxRateID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitPrice" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="UnitCost" Type="System.Decimal" DbType="Decimal(18,4)" CanBeNull="true" />
+      <Column Name="LedgerClass" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="IsCustom" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="LineType" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ProductStatus" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ExtendedCatalog" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="PromisedDeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CanModifyPrice" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ProductDesk" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PromisedDeliveryDateOverride" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BackEndDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConcentratorProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomProductID" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Association Name="Product_ProductGroupMapping" Member="ProductGroupMappings" ThisKey="ProductID" OtherKey="ProductID" Type="ProductGroupMapping" />
+      <Association Name="Product_AlatestReview" Member="AlatestReview" ThisKey="ProductID" OtherKey="ProductID" Type="AlatestReview" Cardinality="One" />
+      <Association Name="Product_RelatedProduct" Member="RelatedProducts" ThisKey="ProductID" OtherKey="ProductID" Type="RelatedProduct" />
+      <Association Name="Product_RelatedProduct1" Member="RelatedProducts1" ThisKey="ProductID" OtherKey="RelatedProductID" Type="RelatedProduct" />
+      <Association Name="Product_ProductAttribute" Member="ProductAttributes" ThisKey="ProductID" OtherKey="ProductID" Type="ProductAttribute" />
+      <Association Name="Product_AlatestExpertReview" Member="AlatestExpertReviews" ThisKey="ProductID" OtherKey="ProductID" Type="AlatestExpertReview" />
+      <Association Name="Product_VendorStock" Member="VendorStocks" ThisKey="ProductID" OtherKey="ProductID" Type="VendorStock" />
+      <Association Name="Product_AuctionProduct" Member="AuctionProduct" ThisKey="ProductID" OtherKey="AuctionProductID" Type="AuctionProduct" Cardinality="One" />
+      <Association Name="Brand_Product" Member="Brand" ThisKey="BrandID" OtherKey="BrandID" Type="Brand" IsForeignKey="true" />
+      <Association Name="TaxRate_Product" Member="TaxRate" ThisKey="TaxRateID" OtherKey="TaxRateID" Type="TaxRate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ImageStore" Member="ImageStores">
+    <Type Name="ImageStore">
+      <Column Name="ImageID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ManufacturerID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BrandID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageUrl" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SizeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerProductID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProductGroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ImageType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sequence" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BrandCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConcentratorProductID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ReviewSources" Member="ReviewSources">
+    <Type Name="ReviewSource">
+      <Column Name="SourceID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="CountryCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LanguageCode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SourceUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SourceLogoUrl" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="SourceRank" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomSourceID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ReviewSource_AlatestExpertReview" Member="AlatestExpertReviews" ThisKey="SourceID" OtherKey="SourceID" Type="AlatestExpertReview" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AlatestExpertReviews" Member="AlatestExpertReviews">
+    <Type Name="AlatestExpertReview">
+      <Column Name="ReviewID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SourceID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="isSummary" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Rating" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Verdict" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Summary" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReviewURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="CustomID" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="RatingImageURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Product_AlatestExpertReview" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+      <Association Name="ReviewSource_AlatestExpertReview" Member="ReviewSource" ThisKey="SourceID" OtherKey="SourceID" Type="ReviewSource" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VendorStock" Member="VendorStocks">
+    <Type Name="VendorStock">
+      <Column Name="RelationID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StockLocationID" Type="System.String" DbType="VarChar(40) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="VendorProductID" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VendorProductStatus" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="QuantityOnHand" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PromisedDeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Product_VendorStock" Member="Product" ThisKey="ProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Relations" Member="Relations">
+    <Type Name="Relation">
+      <Column Name="RelationID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BackendRelationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RelationType" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="FirstName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MiddleName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ParentRelationID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsBusinessCustomer" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ContactType" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="BankAccountNumber" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="VatNumber" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="rowguid" Type="System.Guid" DbType="UniqueIdentifier NOT NULL" CanBeNull="false" />
+      <Column Name="CoCNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NumberOfEmployees" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Department" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FunctionDescription" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PercentageB2B" Type="System.Decimal" DbType="Decimal(4,1)" CanBeNull="true" />
+      <Column Name="CustomerType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContactID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.AuctionProducts" Member="AuctionProducts">
+    <Type Name="AuctionProduct">
+      <Column Name="AuctionProductID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuctionBSCStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionOEMStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionDC10Stock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockStatus" Type="System.String" DbType="NVarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="QuantityToReceive" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DC10CostPrice" Type="System.Decimal" DbType="Decimal(18,4) NOT NULL" CanBeNull="false" />
+      <Column Name="BSCCostPrice" Type="System.Decimal" DbType="Decimal(18,4) NOT NULL" CanBeNull="false" />
+      <Column Name="CreationTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="CreatedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LastModificationTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LastModifiedBy" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuctionMYVEILStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionDEMOStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionDMGBOXStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionRETURNStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionUSEDStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionINCOMPLStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AuctionDMGITEMStock" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Product_AuctionProduct" Member="Product" ThisKey="AuctionProductID" OtherKey="ProductID" Type="Product" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

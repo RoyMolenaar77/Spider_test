@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd7" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" namespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" />
+  <xs:complexType name="ArrayOfDeviceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="DeviceInfo" nillable="true" type="tns:DeviceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDeviceInfo" nillable="true" type="tns:ArrayOfDeviceInfo" />
+  <xs:complexType name="DeviceInfo">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Brand" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" name="Type" type="q1:DeviceTypeEnum" />
+      <xs:element xmlns:q2="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="0" name="ItemReference" nillable="true" type="q2:ItemReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInfo" nillable="true" type="tns:DeviceInfo" />
+  <xs:complexType name="ArrayOfExtendedCachedItemInfo.DeviceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedCachedItemInfo.DeviceInfo" nillable="true" type="tns:ExtendedCachedItemInfo.DeviceInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtendedCachedItemInfo.DeviceInfo" nillable="true" type="tns:ArrayOfExtendedCachedItemInfo.DeviceInfo" />
+  <xs:complexType name="ExtendedCachedItemInfo.DeviceInfo">
+    <xs:sequence>
+      <xs:element name="ID" type="xs:int" />
+      <xs:element name="Name" nillable="true" type="xs:string" />
+      <xs:element name="Brand" nillable="true" type="xs:string" />
+      <xs:element xmlns:q3="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" name="Type" type="q3:ExtendedCachedItemInfo.DeviceInfo.DeviceTypeEnum" />
+      <xs:element xmlns:q4="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="0" name="ItemReference" nillable="true" type="q4:ItemReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedCachedItemInfo.DeviceInfo" nillable="true" type="tns:ExtendedCachedItemInfo.DeviceInfo" />
+  <xs:complexType name="ArrayOfItemInfoBasic">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemInfoBasic" nillable="true" type="tns:ItemInfoBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemInfoBasic" nillable="true" type="tns:ArrayOfItemInfoBasic" />
+  <xs:complexType name="ItemInfoBasic">
+    <xs:sequence>
+      <xs:element xmlns:q5="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" name="ItemReference" nillable="true" type="q5:ItemReference" />
+      <xs:element minOccurs="0" name="InStock" type="xs:int" />
+      <xs:element minOccurs="0" name="Price" type="xs:decimal" />
+      <xs:element minOccurs="0" name="Amount" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="EndUserPrice" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemInfoBasic" nillable="true" type="tns:ItemInfoBasic" />
+</xs:schema>

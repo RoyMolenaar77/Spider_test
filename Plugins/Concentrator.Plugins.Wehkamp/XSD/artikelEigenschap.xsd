@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+15-07-08   1.5 RKL  xdb namespace verwijderd.
+09-07-08   1.4 RKL  Gebruik van namespace, types nu included.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="artikelEigenschap">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="artikel" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="artikelNummer" type="artikelNummerType"/>
+              <xs:element name="kleurNummer" type="kleurNummerType"/>
+              <xs:element name="eigenschaplijst">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="eigenschapGegevens" maxOccurs="unbounded">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element name="eigenschap" type="eigenschapType"/>
+                          <xs:element name="eigenschapWaarde" type="eigenschapWaardeType"/>
+                          <xs:element name="vervalDatum" type="xs:date" minOccurs="0" nillable="true"/>
+                        </xs:sequence>
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="eigenschapType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="eigenschapWaardeType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="30"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

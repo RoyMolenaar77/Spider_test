@@ -1,0 +1,1 @@
+﻿UPDATE `dhlshipment` SET `status`= 6 WHERE `shipment_number` = {0};

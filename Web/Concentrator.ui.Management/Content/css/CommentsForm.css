@@ -1,0 +1,25 @@
+﻿div#comments-container
+{
+  margin: 200px auto 0;
+  width: 600px;
+  background-color: #DFDFDF;
+}
+
+body
+{
+  font: 11px/14px Verdana,Geneva,Arial,Helvetica,sans-serif;
+}
+
+div#logo-container
+{
+  background-color: White;
+  height: 85px;
+  background-image: url("../images/Custom/logo.png");
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+ul.form-items li
+{
+  margin-bottom: 9px;
+}

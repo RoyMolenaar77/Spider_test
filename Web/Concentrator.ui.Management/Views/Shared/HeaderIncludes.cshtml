@@ -1,0 +1,21 @@
+﻿@using Combres.Mvc
+@Url.CombresLink("CompleteJS") @Url.CombresLink("Css")
+
+@if (ViewData["AdditionalIncludes"] != null)
+{
+  foreach (string s in ViewData["AdditionalIncludes"] as IEnumerable<String>)
+  { 
+    <script language="javascript" type="text/javascript" src='@Url.Content("~/Scripts/Custom/" + @s)'> </script>
+  }
+}
+
+<script type="text/javascript" language="javascript">
+
+  Diract.APPLICATION_ROOT = '@VirtualPathUtility.ToAbsolute("~/")';
+  Diract.GRID_PAGE_SIZE = 50;
+  Diract.MESSAGES_ELEMENT = 'messages';
+  Diract.GRID_EXCEL_EXPORT_DISABLED = true;
+  Diract.LANGUAGE = "English";
+  Ext.chart.Chart.CHART_URL = '@Url.Content("~/Content/flash/charts.swf")';
+ 
+</script>

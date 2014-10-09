@@ -1,0 +1,36 @@
+﻿.portlet-content-container
+{
+  margin: 10px;
+}
+
+.portlet-content-column
+{
+  width: 100px;
+  margin: 0 2px 0 2px;
+}
+
+.portlet-content-table tr
+{
+  margin: 0 0 2px 0;
+}
+
+.portlet-content-table tr td
+{
+  min-width: 120px;
+}
+
+span.strong
+{
+  font-weight: bold;
+}
+
+
+.custom-filter
+{
+  border: 1px solid orange !important;
+}
+
+.custom-filter span.x-btn-group-header-text
+{
+  color: Red !important;
+}

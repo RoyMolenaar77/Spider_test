@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://protexis.com/webservices" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://protexis.com/webservices" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://protexis.com/webservices">
+      <s:element name="BeginOrderReservationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="BeginOrderReservationRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BeginOrderReservationRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AuthenticationHeader" type="tns:AuthenticationHeader" />
+      <s:complexType name="AuthenticationHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Signature" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="AddOrderItemRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Offer_ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Sale_Price" type="s:decimal" />
+            <s:element minOccurs="0" maxOccurs="1" name="Curreny_Code" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Quantity" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="Brand_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Promotion_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddOrderItemRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddOrderItemRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteOrderReservationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Reservation_Hold_Hours" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CompleteOrderReservationRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompleteOrderReservationRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderShipmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Request_Xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderShipmentRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderShipmentRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelOrderReservationRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CancelOrderReservationRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelOrderReservationRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitToPurchaseOrderRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CommitToPurchaseOrderRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CommitToPurchaseOrderRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemFulfillmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Language_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemFulfillmentRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderItemFulfillmentRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemFulfillmentDetailRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Language_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemFulfillmentDetailRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderItemFulfillmentDetailRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecurePackageToleranceAdjustmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Support_ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Unlock_Limit_Total" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SecurePackageToleranceAdjustmentRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SecurePackageToleranceAdjustmentRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SerialNumberToleranceAdjustmentRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Serial_Number" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Support_ID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="Activation_Limit_Total" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SerialNumberToleranceAdjustmentRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SerialNumberToleranceAdjustmentRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemRefundRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Line_Item_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderItemRefundRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderItemRefundRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderChargebackRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Purchase_Order_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="PurchaseOrderChargebackRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderChargebackRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogUrlRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Catalog_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Catalog_Code" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCatalogUrlRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCatalogUrlRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CatalogResponseRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Response_XML" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CatalogResponseRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CatalogResponseRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoiceBatchUrlRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Batch_Control_Number" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetInvoiceBatchUrlRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetInvoiceBatchUrlRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InvoiceResponseRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Invoice_Response_Xml" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InvoiceResponseRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InvoiceResponseRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DigitalReceiptRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Support_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Platform_ID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Version_ID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DigitalReceiptRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DigitalReceiptRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="BeginOrderReservationRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:BeginOrderReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="BeginOrderReservationRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:BeginOrderReservationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="BeginOrderReservationRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderItemRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:AddOrderItemRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderItemRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:AddOrderItemRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddOrderItemRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CompleteOrderReservationRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CompleteOrderReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="CompleteOrderReservationRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CompleteOrderReservationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompleteOrderReservationRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="OrderShipmentRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:OrderShipmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="OrderShipmentRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:OrderShipmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="OrderShipmentRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CancelOrderReservationRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelOrderReservationRequest" />
+  </wsdl:message>
+  <wsdl:message name="CancelOrderReservationRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelOrderReservationRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelOrderReservationRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CommitToPurchaseOrderRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CommitToPurchaseOrderRequest" />
+  </wsdl:message>
+  <wsdl:message name="CommitToPurchaseOrderRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CommitToPurchaseOrderRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CommitToPurchaseOrderRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemFulfillmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemFulfillmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentDetailRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemFulfillmentDetailRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentDetailRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemFulfillmentDetailRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemFulfillmentDetailRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SecurePackageToleranceAdjustmentRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:SecurePackageToleranceAdjustmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="SecurePackageToleranceAdjustmentRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:SecurePackageToleranceAdjustmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SecurePackageToleranceAdjustmentRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="SerialNumberToleranceAdjustmentRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:SerialNumberToleranceAdjustmentRequest" />
+  </wsdl:message>
+  <wsdl:message name="SerialNumberToleranceAdjustmentRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:SerialNumberToleranceAdjustmentRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SerialNumberToleranceAdjustmentRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemRefundRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemRefundRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemRefundRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderItemRefundRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderItemRefundRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderChargebackRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderChargebackRequest" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderChargebackRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:PurchaseOrderChargebackRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="PurchaseOrderChargebackRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogUrlRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCatalogUrlRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogUrlRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCatalogUrlRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCatalogUrlRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="CatalogResponseRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CatalogResponseRequest" />
+  </wsdl:message>
+  <wsdl:message name="CatalogResponseRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CatalogResponseRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CatalogResponseRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceBatchUrlRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:GetInvoiceBatchUrlRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceBatchUrlRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:GetInvoiceBatchUrlRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetInvoiceBatchUrlRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="InvoiceResponseRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:InvoiceResponseRequest" />
+  </wsdl:message>
+  <wsdl:message name="InvoiceResponseRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:InvoiceResponseRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="InvoiceResponseRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:message name="DigitalReceiptRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:DigitalReceiptRequest" />
+  </wsdl:message>
+  <wsdl:message name="DigitalReceiptRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:DigitalReceiptRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="DigitalReceiptRequestAuthenticationHeader">
+    <wsdl:part name="AuthenticationHeader" element="tns:AuthenticationHeader" />
+  </wsdl:message>
+  <wsdl:portType name="RetailerSoap">
+    <wsdl:operation name="BeginOrderReservationRequest">
+      <wsdl:input message="tns:BeginOrderReservationRequestSoapIn" />
+      <wsdl:output message="tns:BeginOrderReservationRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderItemRequest">
+      <wsdl:input message="tns:AddOrderItemRequestSoapIn" />
+      <wsdl:output message="tns:AddOrderItemRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompleteOrderReservationRequest">
+      <wsdl:input message="tns:CompleteOrderReservationRequestSoapIn" />
+      <wsdl:output message="tns:CompleteOrderReservationRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="OrderShipmentRequest">
+      <wsdl:input message="tns:OrderShipmentRequestSoapIn" />
+      <wsdl:output message="tns:OrderShipmentRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelOrderReservationRequest">
+      <wsdl:input message="tns:CancelOrderReservationRequestSoapIn" />
+      <wsdl:output message="tns:CancelOrderReservationRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CommitToPurchaseOrderRequest">
+      <wsdl:input message="tns:CommitToPurchaseOrderRequestSoapIn" />
+      <wsdl:output message="tns:CommitToPurchaseOrderRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemFulfillmentRequest">
+      <wsdl:input message="tns:PurchaseOrderItemFulfillmentRequestSoapIn" />
+      <wsdl:output message="tns:PurchaseOrderItemFulfillmentRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemFulfillmentDetailRequest">
+      <wsdl:input message="tns:PurchaseOrderItemFulfillmentDetailRequestSoapIn" />
+      <wsdl:output message="tns:PurchaseOrderItemFulfillmentDetailRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SecurePackageToleranceAdjustmentRequest">
+      <wsdl:input message="tns:SecurePackageToleranceAdjustmentRequestSoapIn" />
+      <wsdl:output message="tns:SecurePackageToleranceAdjustmentRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SerialNumberToleranceAdjustmentRequest">
+      <wsdl:input message="tns:SerialNumberToleranceAdjustmentRequestSoapIn" />
+      <wsdl:output message="tns:SerialNumberToleranceAdjustmentRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemRefundRequest">
+      <wsdl:input message="tns:PurchaseOrderItemRefundRequestSoapIn" />
+      <wsdl:output message="tns:PurchaseOrderItemRefundRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderChargebackRequest">
+      <wsdl:input message="tns:PurchaseOrderChargebackRequestSoapIn" />
+      <wsdl:output message="tns:PurchaseOrderChargebackRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogUrlRequest">
+      <wsdl:input message="tns:GetCatalogUrlRequestSoapIn" />
+      <wsdl:output message="tns:GetCatalogUrlRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CatalogResponseRequest">
+      <wsdl:input message="tns:CatalogResponseRequestSoapIn" />
+      <wsdl:output message="tns:CatalogResponseRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceBatchUrlRequest">
+      <wsdl:input message="tns:GetInvoiceBatchUrlRequestSoapIn" />
+      <wsdl:output message="tns:GetInvoiceBatchUrlRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceResponseRequest">
+      <wsdl:input message="tns:InvoiceResponseRequestSoapIn" />
+      <wsdl:output message="tns:InvoiceResponseRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DigitalReceiptRequest">
+      <wsdl:input message="tns:DigitalReceiptRequestSoapIn" />
+      <wsdl:output message="tns:DigitalReceiptRequestSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="RetailerSoap" type="tns:RetailerSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="BeginOrderReservationRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/BeginOrderReservationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:BeginOrderReservationRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrderItemRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/AddOrderItemRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:AddOrderItemRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompleteOrderReservationRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/CompleteOrderReservationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CompleteOrderReservationRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="OrderShipmentRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/OrderShipmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:OrderShipmentRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelOrderReservationRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/CancelOrderReservationRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CancelOrderReservationRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CommitToPurchaseOrderRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/CommitToPurchaseOrderRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CommitToPurchaseOrderRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemFulfillmentRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/PurchaseOrderItemFulfillmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PurchaseOrderItemFulfillmentRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemFulfillmentDetailRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/PurchaseOrderItemFulfillmentDetailRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PurchaseOrderItemFulfillmentDetailRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SecurePackageToleranceAdjustmentRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/SecurePackageToleranceAdjustmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SecurePackageToleranceAdjustmentRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SerialNumberToleranceAdjustmentRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/SerialNumberToleranceAdjustmentRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:SerialNumberToleranceAdjustmentRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderItemRefundRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/PurchaseOrderItemRefundRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PurchaseOrderItemRefundRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PurchaseOrderChargebackRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/PurchaseOrderChargebackRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:PurchaseOrderChargebackRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCatalogUrlRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/GetCatalogUrlRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetCatalogUrlRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CatalogResponseRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/CatalogResponseRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CatalogResponseRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInvoiceBatchUrlRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/GetInvoiceBatchUrlRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:GetInvoiceBatchUrlRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InvoiceResponseRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/InvoiceResponseRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:InvoiceResponseRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DigitalReceiptRequest">
+      <soap:operation soapAction="http://protexis.com/webservices/DigitalReceiptRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:DigitalReceiptRequestAuthenticationHeader" part="AuthenticationHeader" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Retailer">
+    <wsdl:port name="RetailerSoap" binding="tns:RetailerSoap">
+      <soap:address location="http://mycomdev.protexis.net/retailer.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

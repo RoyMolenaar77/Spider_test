@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfItemReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ItemReference" nillable="true" type="tns:ItemReference" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfItemReference" nillable="true" type="tns:ArrayOfItemReference" />
+  <xs:complexType name="ItemReference">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="OurItemNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VendorItemNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EANCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemReference" nillable="true" type="tns:ItemReference" />
+</xs:schema>

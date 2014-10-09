@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Image/2009/02" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Image/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfExtendedCachedItemInfo.Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedCachedItemInfo.Image" nillable="true" type="tns:ExtendedCachedItemInfo.Image" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtendedCachedItemInfo.Image" nillable="true" type="tns:ArrayOfExtendedCachedItemInfo.Image" />
+  <xs:complexType name="ExtendedCachedItemInfo.Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="URL" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedCachedItemInfo.Image" nillable="true" type="tns:ExtendedCachedItemInfo.Image" />
+</xs:schema>

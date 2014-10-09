@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<AttributeType name="ID" />
+	<AttributeType name="Type" />
+	<AttributeType name="Class" />
+	<ElementType name="FeatureList" sql:is-constant="1">
+		<element type="Feature" />
+	</ElementType>
+	<ElementType name="Feature" sql:relation="FeatureList">
+		<attribute type="ID" sql:field="ID" />
+		<attribute type="Type" sql:field="Type" />
+		<attribute type="Class" sql:field="Class" />
+	</ElementType>
+</Schema>

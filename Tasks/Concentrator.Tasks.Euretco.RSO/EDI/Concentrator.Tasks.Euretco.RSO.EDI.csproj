@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E35AE954-7B75-44D5-A93F-19B04BADA1CF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Tasks.Euretco.Rso.EDI</RootNamespace>
+    <AssemblyName>Concentrator.Tasks.Euretco.Rso.EDI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper">
+      <HintPath>..\..\..\packages\Dapper.1.27\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus, Version=3.1.3.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Concentrator\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Factory\PricatLineProcessorFactory.cs" />
+    <Compile Include="Importers\BrandImporter.cs" />
+    <Compile Include="Importers\PricatImporter.cs" />
+    <Compile Include="Importers\ProductContentImporter.cs" />
+    <Compile Include="Importers\ProductContentImporter.ProductType.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Sport.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Description.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Gender.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.WashingInstructions.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Season.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.MPN.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Material.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Fit.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Collection.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Lining.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.DeliveryTime.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Importers\ProductContentImporter.Area.cs">
+      <DependentUpon>ProductContentImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Processor\IPricatLineProcessor.cs" />
+    <Compile Include="Processor\PricatLineProcessor.cs" />
+    <Compile Include="Models\PricatProductAttributeStore.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\Config\appsettings.generic.config">
+      <Link>appsettings.generic.config</Link>
+    </None>
+    <None Include="..\..\..\Config\diagnostics.generic.config">
+      <Link>diagnostics.generic.config</Link>
+    </None>
+    <None Include="..\..\..\Config\environment.generic.config">
+      <Link>environment.generic.config</Link>
+    </None>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BrandImporter\CreateBrandTable.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BrandImporter\MergeBrands.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BrandImporter\MergeBrandVendor.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Concentrator.Objects.Vendor\Concentrator.Objects.Vendors.csproj">
+      <Project>{00366071-3d28-4b9d-b768-535cacb939bf}</Project>
+      <Name>Concentrator.Objects.Vendors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\Concentrator.Objects\Concentrator.Objects.csproj">
+      <Project>{d80a561d-8d9b-464f-ba1c-430e00ca658a}</Project>
+      <Name>Concentrator.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Concentrator.Tasks\Concentrator.Tasks.csproj">
+      <Project>{a521e03d-ca5b-4640-b005-a5af0cfdb648}</Project>
+      <Name>Concentrator.Tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Tasks.Euretco.RSO\Concentrator.Tasks.Euretco.RSO.csproj">
+      <Project>{27402c33-c0e4-4ebb-828a-48f80d72ea32}</Project>
+      <Name>Concentrator.Tasks.Euretco.RSO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

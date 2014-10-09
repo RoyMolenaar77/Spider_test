@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="OrderRequest.xsd"/>
+	<xs:include schemaLocation="Acknowledgement.xsd"/>
+	<xs:include schemaLocation="Shipment.xsd"/>
+	<xs:include schemaLocation="Invoice.xsd"/>
+  <xs:include schemaLocation="WebOrderRequest.xsd"/>
+</xs:schema>

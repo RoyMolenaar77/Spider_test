@@ -1,0 +1,32 @@
+<?xml version="1.0" ?> 
+<!-- 
+Revisie historie
+Datum   Versie Wie  Wat
+22-12-09   1.0 RKL  Initiele versie.
+29-03-2010 1.1 CKR  Update a.d.h.v. laatste versie xml
+12-04-2010 1.2 CKR  Toevoegen mutatieIndicatie
+ 
+--> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"> 
+	<xs:include schemaLocation="wdpTypes.xsd" /> 
+	<xs:element name="voorraadMutaties"> 
+		<xs:complexType> 
+			<xs:sequence> 
+				<xs:element name="header" type="headerType" /> 
+				<xs:element name="voorraadMutatie" minOccurs="0" maxOccurs="unbounded"> 
+					<xs:complexType> 
+						<xs:sequence> 
+							<xs:element name="artikelNummer" type="artikelNummerType" /> 
+							<xs:element name="kleurNummer" type="kleurNummerType" /> 
+							<xs:element name="maat" type="maatType" /> 
+							<xs:element name="mutatieAantal" type="aantalType" /> 
+							<xs:element name="mutatieIndicatie" type="omschrijvingType" />
+							<xs:element name="mutatieDatum" type="xs:date" /> 
+							<xs:element name="mutatieRedenCode" type="omschrijvingType" /> 
+						</xs:sequence> 
+					</xs:complexType> 
+				</xs:element> 
+			</xs:sequence> 
+		</xs:complexType> 
+	</xs:element> 
+</xs:schema>

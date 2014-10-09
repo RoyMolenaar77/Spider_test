@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" namespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" />
+  <xs:complexType name="ArrayOfPriceRequest">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PriceRequest" nillable="true" type="tns:PriceRequest" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPriceRequest" nillable="true" type="tns:ArrayOfPriceRequest" />
+  <xs:complexType name="PriceRequest">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" name="ItemReference" nillable="true" type="q1:ItemReference" />
+      <xs:element name="Amount" type="xs:int" />
+      <xs:element minOccurs="0" name="IncludeEndUserPrice" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PriceRequest" nillable="true" type="tns:PriceRequest" />
+</xs:schema>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/EDIWebservice/Communication.asmx?wsdl" docRef="http://localhost/EDIWebservice/Communication.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/EDIWebservice/Communication.asmx" xmlns:q1="http://edi.concentrator.nl/" binding="q1:CommunicationServiceSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/EDIWebservice/Communication.asmx" xmlns:q2="http://edi.concentrator.nl/" binding="q2:CommunicationServiceSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

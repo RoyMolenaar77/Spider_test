@@ -1,0 +1,142 @@
+﻿body
+{
+  font-family: Arial,Helvetica,sans-Serif;
+  margin: 0;
+  padding: 0;
+}
+
+div.page
+{
+  width: 210mm; /* = 210mm - (2 * 5mm) */
+  height: 296mm; /* = 296mm - (2 * 5mm) - 10mm */
+  margin: 0;
+  padding: 0;
+  page-break-after: always;
+}
+
+#clientlogo
+{
+  height: 65px;
+}
+
+#productbox
+{
+  width: 200px;
+  height: 200px;
+  padding: 0;
+  padding-left: 8mm;
+  padding-top: 0px;
+}
+
+productpic
+{
+  width: 200px;
+  height: 200px;
+}
+
+h1
+{
+  font-size: 13px;
+  width: 500px;
+  position: absolute;
+  top:105px;
+  left: 260px;
+  margin: 0;
+}
+
+h2
+{
+  font-size: 12px;
+  font-weight: normal;
+  width: 500px;
+  position: absolute;
+  top:122px;
+  left: 261px;
+  margin: 0;
+}
+
+remaining-pics
+{
+  height: 50px;
+  width: 250px; 
+}
+
+small-pic
+{
+  height: 50px;
+  width: 50px;
+}
+
+#data
+{
+  width: 210mm;
+  position: absolute;
+  top: 270px;
+  margin-left: 8mm;
+  font-size: 7pt;  
+}
+
+#productinfo
+{
+  height: 148mm;
+  width: 208mm;
+  margin-top: 5mm;
+  margin-left: 8mm;
+  float: left;
+}
+
+
+table
+{
+  width: 360px;
+}
+
+table2
+{
+  width: 300px;
+}
+
+span.attribute_name
+{
+  font-size: 11px;
+}
+
+span.attribute_value
+{
+  font-size: 11px;
+}
+
+#footer
+{
+  height: 60px;
+  width: 210mm;
+  position: relative;
+  top: 155px; 
+}
+
+
+#barcode
+{
+  font-family: "Free 3 of 9 Extended";
+  font-size: 15pt;
+  float: left;
+  margin-left: 8mm;
+  margin-top: 5mm;
+  text-align: center;
+}
+
+#barcode-plain
+{
+  font-family: Arial,Helvetica,sans-Serif;
+  font-size: 10pt;
+  text-align: center;
+}
+
+#price
+{
+  font-size: 38pt;
+  font-weight: bold;
+  float: right;
+  margin-right: 75px;
+}
+

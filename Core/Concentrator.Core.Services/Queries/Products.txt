@@ -1,0 +1,22 @@
+﻿
+SELECT * FROM
+(
+  SELECT ROW_NUMBER() OVER ( ORDER BY VendorItemNumber ) AS RowNum, * FROM
+  (
+    SELECT DISTINCT
+       p.VendorItemNumber as VendorItemNumber
+      , va.CustomItemNumber as CustomItemNumber
+      , p.ProductID as ProductID
+      , p.IsConfigurable as IsConfigurable
+      , p.LastModificationTime as LastModificationTime
+      , p.IsNonAssortmentItem as IsNonAssortmentItem
+
+    FROM Product p
+    INNER JOIN VendorAssortment va on p.ProductID = va.ProductID
+    INNER JOIN Content c on p.ProductID = c.ProductID
+
+    WHERE (c.ConnectorID = {0})
+      AND (p.LastModificationTime >= {1}  OR {1} IS NULL)
+  ) AS SourceData
+) AS ResultData
+WHERE (RowNum > {2} Or {2} = -1) AND (RowNum <= {3} + {2} OR {3} = -1)

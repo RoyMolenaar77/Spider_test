@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by O.Woudenberg (BAS GROUP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <xs:complexType name="Customer">
+        <xs:annotation>
+            <xs:documentation>Contains the customer information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="EanIdentifier">
+                <xs:annotation>
+                    <xs:documentation>Shipto customerIdentifier</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+"/>
+                        <xs:minLength value="1"/>
+                        <xs:maxLength value="13"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CustomerAddress" type="Address" minOccurs="0"/>
+            <xs:element name="Contact" type="Contact" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Address">
+        <xs:annotation>
+            <xs:documentation>Contains addres information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Name" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Customer name</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AddressLine1" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>First addresline contains the addres of the customer</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AddressLine2" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Second addressline with additional information</xs:documentation>
+                </xs:annotation>
+                
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="AddressLine3" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Third addressline. Can be used to add a "For the attention off" field to the addres</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="40"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="ZipCode" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Zipcode of the customer address</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="12"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="City" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The city assosiated with the customer</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="25"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Country" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Code that identifies a country</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Contact">
+        <xs:annotation>
+            <xs:documentation>Contains a customer contact</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Name of the contact</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Email" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Email address</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PhoneNumber" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Customer phonenumber</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CustomerOverride">
+        <xs:annotation>
+            <xs:documentation>Use this type to override the customer information for shipment</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1">
+            <xs:element name="Dropshipment" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>Indicates if the Dropshipment is to be used for sending</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="OrderAddress" type="Address"/>
+            <xs:element name="CustomerContact" type="Contact" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ProductIdentifier">
+        <xs:annotation>
+            <xs:documentation>Contains the information that uniquely identifies one product</xs:documentation>
+        </xs:annotation>
+        <xs:sequence minOccurs="1">
+            <xs:element name="ProductNumber" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>BAS productnumber</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d+"/>
+                        <xs:maxLength value="8"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="EANIdentifier" minOccurs="0" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>EAN13 for productnumber</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ManufacturerItemID" minOccurs="0" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Vendor item number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CustomerReference">
+        <xs:annotation>
+            <xs:documentation>Contains customer reference information</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="CustomerOrder" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A reference to the order number of the requesting customer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="CustomerOrderLine" type="xs:string" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>A reference to the order-line number of the requsting customer</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="Payment">
+        <xs:annotation>
+            <xs:documentation>Contains payment information to be included with the order request</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="PaymentType" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The type of the payment</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="PaymentTerm" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>The term on which to pay the invoice</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+  <xs:complexType name="OrderRequestDetails">
+    <xs:annotation>
+      <xs:documentation>Contains one or multiple OrderDetail objects</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="OrderDetail" type="OrderRequestDetail" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="OrderRequestDetail">
+    <xs:annotation>
+      <xs:documentation>An orderline</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CustomerReference" type="CustomerReference" minOccurs="0"/>
+      <xs:element name="ProductIdentifier" type="ProductIdentifier"/>
+      <xs:element name="Quantity">
+        <xs:annotation>
+          <xs:documentation>Requested ordered quantity</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:int">
+            <xs:minInclusive value="1"/>
+            <xs:maxInclusive value="9999"></xs:maxInclusive>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="VendorItemNumber" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Vendor item Number printed on the pickslip</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"></xs:maxLength>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="WareHouseCode" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Code for warehouse</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:maxLength value="25"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

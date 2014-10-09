@@ -1,0 +1,1 @@
+alter table productattributegroupmetadata add SourceGroupID int null

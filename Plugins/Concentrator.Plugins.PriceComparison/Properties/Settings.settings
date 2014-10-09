@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Concentrator.Connectors.PriceCompare.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="SchemaFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\_Dennis\SVN\ScanImporter\ScanImporter\Schema\Scan.xsd</Value>
+    </Setting>
+    <Setting Name="XmlFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Users\dennis\Downloads\competitorpricereport.xml</Value>
+    </Setting>
+    <Setting Name="XmlLogFile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\error.xml</Value>
+    </Setting>
+    <Setting Name="DownloadURL" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://secure.scan.co.uk/supplier/competitorpricexml.asp</Value>
+    </Setting>
+    <Setting Name="WebUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)">basxml</Value>
+    </Setting>
+    <Setting Name="WebPass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">UDpQxd7VLb</Value>
+    </Setting>
+    <Setting Name="WebCurrency" Type="System.String" Scope="User">
+      <Value Profile="(Default)">EUR</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

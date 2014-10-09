@@ -1,0 +1,3 @@
+﻿UPDATE ProductDescription
+SET {1}
+WHERE ProductID = {0} AND VendorID = {2} AND LanguageID = {3}

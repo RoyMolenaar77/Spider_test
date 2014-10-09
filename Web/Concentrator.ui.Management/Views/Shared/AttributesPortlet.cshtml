@@ -1,0 +1,17 @@
+﻿@{
+  Layout = null;
+}
+@model Concentrator.ui.Management.Models.AttributesPortletModel
+<div style="margin: 10px">
+  <div>
+    <p style="margin-bottom: 10px">
+      The following need(s) to be mapped:
+    </p>
+  </div>
+  <ul>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('value-grouping', [{key : 'isMatched', value: false, isGridFilter : true}])">
+      Attribute values to be grouped :
+      @Model.UngroupedValues
+    </a></li>
+  </ul>
+</div>

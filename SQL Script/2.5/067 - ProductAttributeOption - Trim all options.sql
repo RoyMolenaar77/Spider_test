@@ -1,0 +1,1 @@
+﻿update productattributeoption set attributeoption = RTRIM(attributeoption)

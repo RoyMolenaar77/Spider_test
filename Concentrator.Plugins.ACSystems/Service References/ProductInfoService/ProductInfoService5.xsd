@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfo/2009/02" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfo/2009/02" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" namespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd13" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Image/2009/02" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd6" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" />
+  <xs:complexType name="ArrayOfExtendedCachedItemInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ExtendedCachedItemInfo" nillable="true" type="tns:ExtendedCachedItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfExtendedCachedItemInfo" nillable="true" type="tns:ArrayOfExtendedCachedItemInfo" />
+  <xs:complexType name="ExtendedCachedItemInfo">
+    <xs:sequence>
+      <xs:element xmlns:q1="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" name="ItemReference" nillable="true" type="q1:ItemReference" />
+      <xs:element minOccurs="0" name="Price1Piece" type="xs:double" />
+      <xs:element minOccurs="0" name="PriceEndUser" type="xs:double" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element name="Category1" nillable="true" type="xs:string" />
+      <xs:element name="Category2" nillable="true" type="xs:string" />
+      <xs:element name="Category3" nillable="true" type="xs:string" />
+      <xs:element name="Category4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InStock" type="xs:int" />
+      <xs:element minOccurs="0" name="CategoryCode" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Image/2009/02" minOccurs="0" name="Images" nillable="true" type="q2:ArrayOfExtendedCachedItemInfo.Image" />
+      <xs:element xmlns:q3="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="Devices" nillable="true" type="q3:ArrayOfExtendedCachedItemInfo.DeviceInfo" />
+      <xs:element minOccurs="0" name="WebsiteDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DescriptionFR" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="WebsiteDescriptionFR" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ExtendedCachedItemInfo" nillable="true" type="tns:ExtendedCachedItemInfo" />
+</xs:schema>

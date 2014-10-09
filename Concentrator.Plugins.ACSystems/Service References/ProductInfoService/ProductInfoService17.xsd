@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" elementFormDefault="qualified" targetNamespace="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd2" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd5" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Brand/2008/12" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" namespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd6" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd7" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd9" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfoCollection/2008/06" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd11" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfoCollection/2009/02" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd14" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStockCollection/2010/05" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd17" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfo/2008/06" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd18" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" />
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd19" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" />
+  <xs:element name="FindItemReferencesByDescription">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="text" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesByDescriptionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" minOccurs="0" name="FindItemReferencesByDescriptionResult" nillable="true" type="q1:ItemReferenceCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesByBrandCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="brand_code" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesByBrandCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" minOccurs="0" name="FindItemReferencesByBrandCodeResult" nillable="true" type="q2:ItemReferenceCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBrands">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBrandsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Brand/2008/12" minOccurs="0" name="GetBrandsResult" nillable="true" type="q3:ArrayOfBrand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindDeviceInfosCompatibleWithItemReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q4="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="item_reference" nillable="true" type="q4:ItemReference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindDeviceInfosCompatibleWithItemReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="FindDeviceInfosCompatibleWithItemReferenceResult" nillable="true" type="q5:ArrayOfDeviceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="GetFullDeviceListResult" nillable="true" type="q6:ArrayOfDeviceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceListForBrand">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="brand" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceListForBrandResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="GetFullDeviceListForBrandResult" nillable="true" type="q7:ArrayOfDeviceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceListForBrandAndType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="brand" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" minOccurs="1" name="brand_type" type="q8:DeviceTypeEnum" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceListForBrandAndTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="GetFullDeviceListForBrandAndTypeResult" nillable="true" type="q9:ArrayOfDeviceInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceBrandList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceBrandListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFullDeviceBrandListResult" nillable="true" type="q10:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceBrandListByType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q11="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" minOccurs="1" name="brand_type" type="q11:DeviceTypeEnum" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullDeviceBrandListByTypeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetFullDeviceBrandListByTypeResult" nillable="true" type="q12:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesCompatibleWithDeviceID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element minOccurs="1" name="device_id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesCompatibleWithDeviceIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" minOccurs="0" name="FindItemReferencesCompatibleWithDeviceIDResult" nillable="true" type="q13:ItemReferenceCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesCompatibleWithItemReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q14="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="item_reference" nillable="true" type="q14:ItemReference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindItemReferencesCompatibleWithItemReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" minOccurs="0" name="FindItemReferencesCompatibleWithItemReferenceResult" nillable="true" type="q15:ItemReferenceCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullProductList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullProductListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfoCollection/2008/06" minOccurs="0" name="GetFullProductListResult" nillable="true" type="q16:CachedItemInfoCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullProductListExtended">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullProductListExtendedResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfoCollection/2009/02" minOccurs="0" name="GetFullProductListExtendedResult" nillable="true" type="q17:ExtendedCachedItemInfoCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullItemReferencesList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullItemReferencesListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" minOccurs="0" name="GetFullItemReferencesListResult" nillable="true" type="q18:ItemReferenceCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullStockList">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetFullStockListResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStockCollection/2010/05" minOccurs="0" name="GetFullStockListResult" nillable="true" type="q19:ItemInfoStockCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemInfoByReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q20="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="reference" nillable="true" type="q20:ItemReference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetItemInfoByReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfo/2008/06" minOccurs="0" name="GetItemInfoByReferenceResult" nillable="true" type="q21:ItemInfo" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceByItemReferenceAndAmount">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="item_reference" nillable="true" type="q22:ItemReference" />
+        <xs:element minOccurs="0" name="amount" type="xs:int" />
+        <xs:element minOccurs="0" name="give_enduser_price" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceByItemReferenceAndAmountResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetPriceByItemReferenceAndAmountResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockByItemReference">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q23="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="item_reference" nillable="true" type="q23:ItemReference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockByItemReferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetStockByItemReferenceResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceForPriceRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q24="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" minOccurs="1" name="requests" nillable="true" type="q24:ArrayOfPriceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceForPriceRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q25="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" minOccurs="0" name="GetPriceForPriceRequestsResult" nillable="true" type="q25:ItemInfoBasicCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockForItemReferences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q26="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" minOccurs="1" name="references" nillable="true" type="q26:ArrayOfItemReference" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetStockForItemReferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" minOccurs="0" name="GetStockForItemReferencesResult" nillable="true" type="q27:ItemInfoBasicCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAndStockForPriceRequests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" name="session_key" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" minOccurs="1" name="requests" nillable="true" type="q28:ArrayOfPriceRequest" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPriceAndStockForPriceRequestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" minOccurs="0" name="GetPriceAndStockForPriceRequestsResult" nillable="true" type="q29:ItemInfoBasicCollection" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

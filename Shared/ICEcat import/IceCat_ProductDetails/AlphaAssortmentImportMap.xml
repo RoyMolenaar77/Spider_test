@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<ElementType name="CustomerProductNumber" />
+  <ElementType name="Description" />
+  <ElementType name="ProductNumber" />
+	<ElementType name="Price" />
+	<ElementType name="Stock" />
+  <ElementType name="OEMCode" />
+  <ElementType name="Brand" />
+
+  <ElementType name="Products" sql:is-constant="1">
+		<element type="Product" />
+	</ElementType>
+	<ElementType name="Product" sql:relation="AlphaProducts">
+    <element type="CustomerProductNumber" sql:field="CustomerProductNumber" />
+    <element type="Description" sql:field="Description" />
+    <element type="ProductNumber" sql:field="ProductNumber" />
+		<element type="Price" sql:field="Price" />
+    <element type="Stock" sql:field="Stock" />
+    <element type="OEMCode" sql:field="OEMCode" />
+    <element type="Brand" sql:field="Brand" />
+  </ElementType>
+</Schema>

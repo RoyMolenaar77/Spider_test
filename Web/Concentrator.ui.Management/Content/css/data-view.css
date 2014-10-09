@@ -1,0 +1,137 @@
+/*!
+ * Ext JS Library 3.3.0
+ * Copyright(c) 2006-2010 Ext JS, Inc.
+ * licensing@extjs.com
+ * http://www.extjs.com/license
+ */
+#images-view .x-panel-body {
+  background: white;
+  font: 11px Arial, Helvetica, sans-serif;
+}
+
+#images-view .thumb {
+  background: #dddddd;
+  padding: 3px;
+}
+
+  #images-view .thumb img {
+    height: 60px;
+    width: 80px;
+  }
+
+#images-view .thumb-wrap {
+  float: left;
+  margin: 4px;
+  margin-right: 0;
+  padding: 5px;
+}
+
+  #images-view .thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+  }
+
+#images-view .x-view-over {
+  border: 1px solid #dddddd;
+  background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+  padding: 4px;
+}
+
+#images-view .x-view-selected {
+  background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+  border: 1px solid #99bbe8;
+  padding: 4px;
+}
+
+  #images-view .x-view-selected .thumb {
+    background: transparent;
+  }
+
+#images-view .loading-indicator {
+  font-size: 11px;
+  background-image: url('../../resources/images/default/grid/loading.gif');
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 20px;
+  margin: 10px;
+}
+
+
+.mgm_imageView .x-panel-body,
+.mgm_imageView_thumb .x-panel-body {
+  background: white;
+  font: 15px Verdana, Helvetica, Sans-Serif;
+}
+
+.mgm_imageView .thumb,
+.mgm_imageView_thumb .thumb {
+  background: #dddddd;
+  padding: 3px;
+}
+
+.mgm_imageView .thumbMM,
+.mgm_imageView_thumb .thumbMM {
+  width: 170px;
+  margin-left: 5px;
+}
+
+.mgm_imageView .thumbMM img,
+.mgm_imageView_thumb .thumbMM img {
+    height: 150px;
+    width: 150px;
+  }
+
+.mgm_imageView .thumb img,
+.mgm_imageView_thumb .thumb img {
+  height: 90px;
+  width: 90px;
+}
+
+.mgm_imageView .thumb-wrap,
+.mgm_imageView_thumb .thumb-wrap {
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 170px;
+  margin-top: 8px;
+}
+
+.mgm_imageView .thumb-wrap span,
+.mgm_imageView_thumb .thumb-wrap span {
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 96px;
+    height: 15px;
+  }
+
+.mgm_imageView .x-view-over,
+.mgm_imageView_thumb .x-view-over {
+  border: 1px solid #dddddd;
+  background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top;
+  padding: 4px;
+}
+
+.mgm_imageView .x-view-selected,
+.mgm_imageView_thumb .x-view-selected {
+  background: #eff5fb url(images/selected.gif) no-repeat right bottom;
+  border: 1px solid #99bbe8;
+  padding: 4px;
+}
+
+.mgm_imageView .x-view-selected .thumb,
+.mgm_imageView_thumb .x-view-selected {
+    background: transparent;
+  }
+
+.mgm_imageView .loading-indicator,
+.mgm_imageView_thumb .loading-indicator {
+  font-size: 11px;
+  background-image: url('../../resources/images/default/grid/loading.gif');
+  background-repeat: no-repeat;
+  background-position: left;
+  padding-left: 20px;
+  margin: 10px;
+}

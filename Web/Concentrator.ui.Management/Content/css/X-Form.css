@@ -1,0 +1,83 @@
+﻿.x-form-new-trigger 
+{
+  background-image: url(../images/default/form/x-form-new-item.gif) !important
+}
+
+.x-panel-header-text
+{
+  font-weight:bold;
+}
+
+.event-detail
+{
+  margin-top: 5px;  
+}
+
+.caption
+{
+  font-weight: bold;
+  margin: 0 3px 5px 0;
+}
+
+.exception-details
+{
+  margin-top: 5px;
+}
+
+
+.event-type-icon
+{
+  height:16px;
+  width:16px;
+}
+
+.info-event
+{
+  background-image: url(../images/Icons/information.png);
+}
+.warning-event
+{
+  background-image: url(../images/Icons/warning.png);
+}
+
+.error-event,
+.fatal-event,
+.critical-event
+{
+  background-image: url(../images/Icons/error.png);
+}
+
+.success-event,
+.complete-event
+{
+  background-image: url(../images/Icons/check.png);
+}
+
+
+.event-large
+{
+  height: 32px;
+  width: 32px;
+}
+
+.info-event-large
+{
+  background-image: url(../images/Icons/32x32/information.png);
+}
+.warning-event-large
+{
+  background-image: url(../images/Icons/32x32/warning.png);
+}
+
+.error-event-large,
+.fatal-event-large,
+.critical-event
+{
+  background-image: url(../images/Icons/32x32/error.png);
+}
+
+.success-event-large,
+.complete-event-large
+{
+  background-image: url(../images/Icons/32x32/check.png);
+}

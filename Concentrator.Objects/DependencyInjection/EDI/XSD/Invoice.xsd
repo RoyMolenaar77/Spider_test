@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2005 rel. 3 U (http://www.altova.com) by O.Woudenberg (BAS GROUP) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="2" elementFormDefault="qualified" attributeFormDefault="unqualified">
+  <xs:element name="InvoiceNotification">
+    <xs:annotation>
+      <xs:documentation>Invoice notification</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="InvoiceOrderHeader" type="InvoiceOrderHeader"/>
+        <xs:element name="InvoiceOrderDetails" type="InvoiceOrderDetails"/>
+      </xs:sequence>
+      <xs:attribute name="Version" type="xs:string" use="required">
+        <xs:annotation>
+          <xs:documentation>
+            This field can be usefull when a new version of the xsd with additional information is created.
+            The processor desides how to interpret the information based on this value.
+            Default value is "1.0"
+          </xs:documentation>
+        </xs:annotation>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="InvoiceOrderHeader">
+    <xs:annotation>
+      <xs:documentation>Header for the OrderRequest</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="SoldToCustomer" type="Customer"/>
+      <xs:element name="ShipToCustomer" type="Customer"/>
+      <xs:element name="CustomerOverride" type="CustomerOverride" minOccurs="0"/>
+      <xs:element name="FullfillmentCode">
+        <xs:annotation>
+          <xs:documentation>Indicates what action to take if a product can't be ordered.</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="Complete"/>
+            <xs:enumeration value="Partial"/>
+            <xs:enumeration value="Consolidate"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CustomerOrder" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>A reference to the order number of the requesting customer</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RequestedDate" type="xs:date" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>Date for delivering this order</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="StatusCode" type="StatusCode"/>
+      <xs:element name="OrderNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The ordernumber assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="WebSiteOrderNumber" type="xs:string" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>This is the website ordernumber</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="BSKIdentifier" type="xs:int">
+        <xs:annotation>
+          <xs:documentation>This is the secure unique customer identifier for BAS communication</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The invoicenumber assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceTax" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The invoice tax assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceTaxableAmount" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The invoice amount assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceTotalInc" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The invoice total assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="InvoiceDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>The invoice date assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ShipmentInformation" type="ShipmentInformation"/>
+      <xs:element name="PackingInformation" type="PackingInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvoiceOrderDetails">
+    <xs:annotation>
+      <xs:documentation>Contains one or multiple OrderDetail objects</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="InvoiceOrderDetail" type="InvoiceOrderDetail" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InvoiceOrderDetail">
+    <xs:annotation>
+      <xs:documentation>An orderline</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Note" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>An additional note</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ShipToCustomer" type="Customer" minOccurs="0"/>
+      <xs:element name="UnitOfMeasure">
+        <xs:annotation>
+          <xs:documentation>Unit of measure tht corresponds to the quantity, default is EA (Each)</xs:documentation>
+        </xs:annotation>
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:enumeration value="EA"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:element>
+      <xs:element name="CustomerReference" type="CustomerReference" minOccurs="0"/>
+      <xs:element name="Quantity" type="Quantity">
+        <xs:annotation>
+          <xs:documentation>Requested ordered quantity</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="RequestedDate" type="xs:date">
+        <xs:annotation>
+          <xs:documentation>Date for delivering this order</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="ProductIdentifier" type="ProductIdentifier"/>
+      <xs:element name="PromissedDeliveryDate" type="xs:date"/>
+      <xs:element name="StatusCode" type="StatusCode"/>
+      <xs:element name="UnitPrice" type="xs:decimal"/>
+      <xs:element name="ExtendedPrice" type="xs:decimal" minOccurs="0"/>
+      <xs:element name="TaxAmount" type="xs:decimal"/>
+      <xs:element name="LineNumber" type="xs:integer"/>
+      <xs:element name="InvoiceNumber" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>The invoicenumber assigned by the backend system</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="SerialNumbers">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SerialNumber" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ShipmentInformation" type="ShipmentInformation"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+  <xs:element name="stock_mutations">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="stock_mutation" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="article_code" type="xs:string" />
+              <xs:element name="color_code" type="xs:string" />
+              <xs:element name="size_code" type="xs:string" />
+              <xs:element name="quantity" type="xs:integer" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!--
+Revisie historie
+Datum   Versie Wie  Wat
+12-09-08   1.5 CKR  tags kortingBedrag en kortingSoort zijn optioneel gemaakt
+28-07-08   1.4 RKL  Structuur gewijzigd, nu kassabon met kassabonregels.
+15-07-08   1.3 RKL  Hernoemd van verkoopBestand naar kassaInformatie.
+09-07-08   1.2 RKL  Gebruik van namespace, types nu included.
+ -->
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:include schemaLocation="wdpTypes.xsd"/>
+
+  <xs:element name="kassaInformatie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="header" type="headerType"/>
+        <xs:element name="kassabon" minOccurs="0" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="klantMutatie" type="klantMutatieType"/>
+              <xs:element name="zendingDatum" type="xs:date"/>
+              <xs:element name="bestelKanaal" type="bestelKanaalType"/>
+              <xs:element name="kassabonNummer" type="kassabonNummerType"/>
+              <xs:element name="kassabonregel" maxOccurs="unbounded">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="artikelNummer" type="artikelNummerType"/>
+                    <xs:element name="kleurNummer" type="kleurNummerType"/>
+                    <xs:element name="maat" type="maatType"/>
+                    <xs:element name="factuurBedrag" type="bedragType"/>
+                    <xs:element name="kortingBedrag" minOccurs="0" type="bedragType"/>
+                    <xs:element name="kortingSoort" minOccurs="0" type="kortingSoortType"/>
+                    <xs:element name="verkoopAantal" type="aantalType"/>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="num" type="xs:byte" use="optional"/>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+
+  <xs:simpleType name="klantMutatieType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="7"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="bestelKanaalType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="5"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="kassabonNummerType">
+    <xs:restriction base="xs:string">
+      <xs:minLength value="1"/>
+      <xs:maxLength value="18"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="kortingSoortType">
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+</xs:schema>

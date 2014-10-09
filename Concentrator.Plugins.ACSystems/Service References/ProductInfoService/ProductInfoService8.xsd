@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd6" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" />
+  <xs:complexType name="ItemInfoBasicCollection">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Count" type="xs:int" />
+      <xs:element xmlns:q1="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" minOccurs="0" name="ItemInfos" nillable="true" type="q1:ArrayOfItemInfoBasic" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ItemInfoBasicCollection" nillable="true" type="tns:ItemInfoBasicCollection" />
+</xs:schema>

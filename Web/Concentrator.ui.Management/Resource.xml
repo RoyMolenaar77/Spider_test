@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<combres xmlns="urn:combres">
+  <filters>
+    <filter type="Combres.Filters.FixUrlsInCssFilter, Combres" acceptedResourceSets="Css" />
+  </filters>
+
+  <resourceSets url="~/combres.axd" defaultDuration="30" defaultVersion="auto" defaultDebugEnabled="auto">
+
+    <resourceSet name="ExtJS" type="js">
+      <resource path="~/Scripts/ext/ext-base-debug.js"/>
+      <resource path="~/Scripts/ext/ext-all-debug.js"/>
+      <resource path="~/Scripts/ext/ExtExtensions.js"/>
+      <resource path="~/Scripts/ext/ux/Portal.js"/>
+      <resource path="~/Scripts/ext/ux/PortalColumn.js"/>
+      <resource path="~/Scripts/ext/ux/Portlet.js"/>
+      <resource path="~/Scripts/ext/ux/TreeGridSorter.js"/>
+      <resource path="~/Scripts/ext/ux/TreeGridColumnResizer.js"/>
+      <resource path="~/Scripts/ext/ux/TreeGridNodeUI.js"/>
+      <resource path="~/Scripts/ext/ux/TreeGridLoader.js"/>
+      <resource path="~/Scripts/ext/ux/TreeGridColumns.js"/>
+      <resource path="~/Scripts/ext/ux/DataViewTransition.js"/>
+      <resource path="~/Scripts/ext/ux/FileUploadField.js"/>
+      <resource path="~/Scripts/ext/ux/RowExpander.js"/>
+
+    </resourceSet>
+
+    <resourceSet name="ActionsJS" type="js">
+      <resource path="~/Scripts/actions/Base/Concentrator.BaseAction.js" />
+      <resource path="~/Scripts/actions/Base/Concentrator.GridAction.js" />
+      <resource path="~/Scripts/actions/Concentrator.AdditionalOrderProduct.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.AssortmentStatus.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Brand.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.BrandVendors.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Comments.js" />
+      <resource path="~/Scripts/actions/Concentrator.ConnectorLanguage.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ConnectorProductStatus.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ConnectorPublications.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ConnectorRelations.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Connectors.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Content.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentPrice.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentProduct.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentProductGroups.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentStocks.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentProductGroupMappings.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ContentVendorSetting.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.CrossLedgerClasses.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Customer.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIFieldMapping.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIOrderListener.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIOrderPost.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIOrderResponse.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIOrders.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIValidate.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EDIVendor.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.EventLogs.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ExtendedSearch.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Faq.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Files.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Languages.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.MasterGroupMappings.js" />
+      <resource path="~/Scripts/actions/Concentrator.MasterGroupMappings.v2.js" />
+      <resource path="~/Scripts/actions/Concentrator.MasterGroupMappings.GroupMappings.js" />
+      <resource path="~/Scripts/actions/Concentrator.MasterGroupMappings.ProductGroup.js" />
+      <resource path="~/Scripts/actions/Concentrator.OrderOutbound.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.OrderResponse.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.OrderRules.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Orders.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Plugins.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.PreferredConnectorVendor.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Pricesets.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductAttributes.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompare.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompareSource.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompetitor.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompetitorLedger.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompetitorMapping.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductCompetitorPrice.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupConnectorVendor.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupLanguages.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupMappings.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupPublications.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupRelatedProductGroup.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroups.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductGroupVendors.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductMatching.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ProductMedia.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Product.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.PushProducts.js" />
+      <resource path="~/Scripts/actions/Concentrator.Roles.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.RolePortlets.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.SlurpQueue.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.SlurpSchedule.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Users.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.VendorAccruels.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.VendorAssortments.debug.js" />
+
+      <resource path="~/Scripts/actions/Concentrator.VendorFreeGoods.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.VendorPriceRules.js" />
+      <resource path="~/Scripts/actions/Concentrator.VendorProductStatus.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.Vendors.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.VendorStocks.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.WebToPrintBinding.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.WebToPrintProjectManagement.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.AttributeValueGroups.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ValueGrouping.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ValueGroups.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.AdvancedPricesGrid.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.ThumbnailGenerator.debug.js" />
+      <resource path="~/Scripts/actions/Concentrator.PaymentMethod.js" />
+      <resource path="~/Scripts/actions/Concentrator.RefundQueue.js" />
+      <resource path="~/Scripts/Custom/Sapph/Concentrator.ModelDescriptions.js" />
+      <resource path="~/Scripts/Custom/Sapph/Concentrator.ProductTypes.js" />
+      
+    </resourceSet>
+
+    <resourceSet name="ConcentratorJS" type="js">
+      <resource path="~/Scripts/Concentrator.debug.js"/>
+      <resource path="~/Scripts/TabCloseMenu.js"/>
+      <resource path="~/Scripts/concentrator/Adapter.debug.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.login.debug.js" />
+
+      <resource path="~/Scripts/dashboards/Concentrator.Portal.debug.js" />
+      <resource path="~/Scripts/dashboards/Concentrator.ContentPortal.debug.js" />
+      <resource path="~/Scripts/dashboards/Concentrator.ManagementPortal.debug.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Base/Concentrator.Portlet.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Base/Concentrator.Portlets.AnychartPortlet.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Base/Concentrator.Portlets.HtmlPortlet.js" />
+
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.PublishedProduct.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ActiveProducts.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.PreferredContentVendor.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.MatchedBrandVendor.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ActiveProductGroup.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ActiveProductsPerGroup.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.MatchedProducts.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ProductsPerVendor.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.MappingNotifications.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ContentPortlet.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ContentImageSizes.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.ContentLongDescription.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.MissingPrice.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.EdiOrder.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.EdiError.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.OrdersSendBack.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.TopTenProducts.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.UrgentProducts.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.PluginEvents.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.RefundQueue.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.TG.debug.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.MTG.js" />
+      <resource path="~/Scripts/dashboards/Concentrator.WidgetCallbackHandler.js" />
+      <resource path="~/Scripts/dashboards/Filters/Concentrator.Filter.ImageSizeFilter.js" />
+      <resource path="~/Scripts/dashboards/Filters/Concentrator.Filter.EdiFilter.js" />
+      <resource path="~/Scripts/dashboards/Portlets/Concentrator.Portlets.AttributesInformation.js " />
+
+      <resource path="~/Scripts/concentrator/Concentrator.Viewport.debug.js" />
+      <resource path="~/Scripts/concentrator/Editors.debug.js" />
+      <resource path="~/Scripts/concentrator/Renderers.debug.js" />
+      <resource path="~/Scripts/concentrator/Stores.debug.js" />
+      <resource path="~/Scripts/concentrator/Vtypes.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.Plugins.debug.js" />
+      <resource path="~/Scripts/diract/misc/Diract.DragDropUpload.js"></resource>
+      <resource path="~/Scripts/diract/misc/Concentrator.CreateItemDelegates.debug.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ToggleMappingsButton.debug.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.BrandMediaViewer.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductMediaViewer.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductInfoViewer.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductBrowser.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ControlPanel.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ProductBrowserFactory.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.LanguageManager.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductMatchWizard.js" />
+      <resource path="~/Scripts/concentrator/domain/Sennheiser.ProductMandatoryFields.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.TG.debug.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.PriceRuleWizard.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.FormulaBox.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.FormConfigurations.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ConnectorWizard.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ConnectorRelationWizard.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductGroupMediaSelector.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.LazyTabPanel.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.PricingManager.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductGroupAttributeMapping.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.PreferredProductGroupVendor.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.PriceRule.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductGroupMapping.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.ui.ProductWizard.js" />
+      <resource path="~/Scripts/concentrator/Concentrator.MasterGroupMappingFunctionalities.js" />
+      <resource path="~/Scripts/concentrator/MasterGroupMapping.ui.TabPanel.js" />
+    </resourceSet>
+
+    <resourceSet name="DiractJS" type="js">
+      <resource path="~/Scripts/diract/dependencies/Filter/Ext.ux.grid.GridHeaderFilters.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/Filter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/GridFilters.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/BooleanFilter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/DateFilter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/EditableItem.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/ListFilter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/ListMenu.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/NumericFilter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/RangeMenu.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Filter/StringFilter.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Ext.grid.CheckColumn.js" />
+      <resource path="~/Scripts/diract/dependencies/Ext.grid.CheckIconColumn.js" />
+      <resource path="~/Scripts/diract/dependencies/Ext.ux.GroupTab.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Ext.ux.GroupTabPanel.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/MultiSelectField.debug.js" />
+      <resource path="~/Scripts/diract/dependencies/Queue.debug.js" />
+      <resource path="~/Scripts/diract/Diract.debug.js" />
+      <resource path="~/Scripts/diract/Diract.request.debug.js" />
+      <resource path="~/Scripts/diract/misc/Diract.editors.debug.js" />
+      <resource path="~/Scripts/diract/misc/Diract.renderers.debug.js" />
+      <resource path="~/Scripts/diract/misc/Diract.vtypes.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.DateField.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.Form.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.Grid.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.StripedGrid.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.TreeGrid.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.Navigation.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.SearchBox.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.AssortmentSearch.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.SearchField.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.Select.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.PropertyGrid.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.TranslationGrid.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.ExcelGrid.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.SearchBox.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.Wizard.debug.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.GridWizard.debug.js" />
+      <resource path="~/Scripts/diract/Diract.Ext.menu.Menu.js" />
+      <resource path="~/Scripts/diract/controls/Diract.ui.FilterGridPanel.js" />
+
+      <resource path ="~/Scripts/ext/ux/Ext.form.CKEditor.js"/>
+      <resource path="~/Scripts/diract/misc/CKEditor/ckeditor.js"/>
+      <resource path="~/Scripts/diract/misc/CKEditor/styles.js"/>
+    </resourceSet>
+
+    <resourceSet name="AnychartJS" type="js">
+      <resource path="~/Content/anychart_files/js/anychart.js"/>
+    </resourceSet>
+
+    <resourceSet name="Css" type="css">
+      <resource path="~/Content/css/Site.css" />
+      <resource path="~/Content/css/MasterGroupMapping.css" />
+      <resource path="~/Content/css/Navigation.css" />
+      <resource path="~/Content/css/ext-all.css" />
+      <resource path="~/Content/css/gridfilters.css" />
+      <resource path="~/Content/css/X-Form.css" />
+      <resource path="~/Content/css/Portal.css" />
+      <resource path="~/Content/css/treegrid.css" />
+      <resource path="~/Content/css/DiractTreeGrid.css" />
+      <resource path="~/Content/css/ProductBrowser.css" />
+      <resource path="~/Content/css/data-view.css" />
+      <resource path="~/Content/css/DataView.css" />
+      <resource path="~/Content/css/Dashboarding.css" />
+    </resourceSet>
+
+    <resourceSet name="LinqJs" type="js">
+      <resource path="~/Scripts/linq.min.js"/>
+    </resourceSet>
+      
+    <resourceSet name="CompleteJS" type="js">
+      <resource reference="ExtJS"/>
+      <resource reference="LinqJs"/>
+      <resource reference="AnychartJS"/>
+      <resource reference="DiractJS"/>
+      <resource reference="ConcentratorJS"/>
+      <resource reference="ActionsJS"/>
+    </resourceSet>
+
+  </resourceSets>
+</combres>

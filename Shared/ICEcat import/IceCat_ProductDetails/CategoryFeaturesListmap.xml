@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<AttributeType name="ID" />
+	<AttributeType name="UNCATID" />
+	<AttributeType name="CategoryFeature_ID" />
+	<AttributeType name="CategoryFeatureGroup_ID" />
+	<AttributeType name="Searchable" />
+	<AttributeType name="LimitDirection" />
+	<AttributeType name="No" />
+	<AttributeType name="Class" />
+  <AttributeType name="LowPic" />
+  <AttributeType name="Value" />
+	<AttributeType name="langid" />
+	<ElementType name="ICECAT-interface" sql:is-constant="1">
+		<element type="Category" />
+	</ElementType>
+	<ElementType name="Category" sql:relation="CategoryFeaturesList">
+		<attribute type="ID" sql:field="Category_ID" />
+		<attribute type="UNCATID" sql:field="UNCATID" />
+		<attribute type="LowPic" sql:field="LowPic" />
+		<element type="Feature"  minOccurs="0">
+			<sql:relationship key-relation="CategoryFeaturesList" key="Category_ID" foreign-key="Category_ID" foreign-relation="CategoryFeaturesListFeatures" />
+		</element>
+    <element type="CategoryFeatureGroup"  minOccurs="0">
+      <sql:relationship key-relation="CategoryFeaturesList" key="Category_ID" foreign-key="Category_ID" foreign-relation="CategoryFeatureGroup" />
+    </element>
+	</ElementType>
+	<ElementType name="Feature" sql:relation="CategoryFeaturesListFeatures" order="many" content="mixed" model="open">
+    <attribute type="ID" sql:field="Feature_ID" />
+		<attribute type="CategoryFeature_ID" sql:field="CategoryFeature_ID" />
+		<attribute type="CategoryFeatureGroup_ID" sql:field="CategoryFeatureGroup_ID" />
+    <attribute type="Searchable" sql:field="Searchable" />
+    <attribute type="LimitDirection" sql:field="LimitDirection" />
+    <attribute type="No" sql:field="No" />
+    <attribute type="Class" sql:field="Class" />
+  </ElementType>
+  <ElementType name="CategoryFeatureGroup" sql:relation="CategoryFeatureGroup">
+    <attribute type="ID" sql:field="CategoryFeatureGroup_ID"/>
+    <attribute type="No" sql:field="No"/>
+    <element type="FeatureGroup"  minOccurs="0">
+      <sql:relationship key-relation="CategoryFeatureGroup" key="Category_ID CategoryFeatureGroup_ID" foreign-key="Category_ID CategoryFeatureGroup_ID" foreign-relation="FeatureGroup" />
+    </element>
+   </ElementType>
+  <ElementType name="FeatureGroup" sql:relation="FeatureGroup">
+    <attribute type="ID" sql:field="FeatureGroup_ID"/>
+    <element type="Name"  minOccurs="0">
+      <sql:relationship key-relation="FeatureGroup" key="FeatureGroup_ID Category_ID CategoryFeatureGroup_ID" foreign-key="FeatureGroup_ID Category_ID CategoryFeatureGroup_ID" foreign-relation="FeatureGroupNames" />
+    </element>
+  </ElementType>
+   <ElementType name="Name" sql:relation="FeatureGroupNames">
+    <attribute type="ID" sql:field="Name_id"/>
+    <attribute type="Value" sql:field="Value"/>
+    <attribute type="langid" sql:field="langid"/>
+   </ElementType>
+  </Schema>

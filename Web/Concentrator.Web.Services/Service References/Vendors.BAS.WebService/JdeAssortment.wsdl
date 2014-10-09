@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://localhost/BASConnector/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://localhost/BASConnector/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Internal Service for pricing and assortment info</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://localhost/BASConnector/">
+      <s:element name="GenerateStockProductList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="internetAss" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10O" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateStockProductListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateStockProductListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="internetAss" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10O" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10ObyStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bscstock" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInfo" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateFullProductListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListWithNonStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="internetAss" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10O" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10ObyStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="bscstock" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInfo" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListWithNonStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateFullProductListWithNonStockResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListWithRetailStock">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="internetAss" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10O" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10ObyStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListWithRetailStockResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateFullProductListWithRetailStockResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListSpecialAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="internetAss" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10O" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowDC10ObyStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="allowNonStock" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="bscStock" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="costPriceDC10" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="costPriceBSC" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="onlyItemsWithStock" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullProductListSpecialAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateFullProductListSpecialAssortmentResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingeProductInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingeProductInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingeProductInformationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleShopProductInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="customerID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="productid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetSingleShopProductInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSingleShopProductInformationResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateFullItemList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenerateFullItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GenerateFullItemListResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerateStockProductListSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateStockProductList" />
+  </wsdl:message>
+  <wsdl:message name="GenerateStockProductListSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateStockProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductList" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListWithNonStockSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListWithNonStock" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListWithNonStockSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListWithNonStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListWithRetailStockSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListWithRetailStock" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListWithRetailStockSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListWithRetailStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListSpecialAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListSpecialAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullProductListSpecialAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateFullProductListSpecialAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingeProductInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingeProductInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSingeProductInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingeProductInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleShopProductInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSingleShopProductInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetSingleShopProductInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSingleShopProductInformationResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateFullItemList" />
+  </wsdl:message>
+  <wsdl:message name="GenerateFullItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateFullItemListResponse" />
+  </wsdl:message>
+  <wsdl:portType name="JdeAssortmentSoap">
+    <wsdl:operation name="GenerateStockProductList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a complete list of products with prices and stock information</wsdl:documentation>
+      <wsdl:input message="tns:GenerateStockProductListSoapIn" />
+      <wsdl:output message="tns:GenerateStockProductListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a complete list of stock and non stock products with prices and stock information</wsdl:documentation>
+      <wsdl:input message="tns:GenerateFullProductListSoapIn" />
+      <wsdl:output message="tns:GenerateFullProductListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithNonStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a complete list of stock and non stock products with prices and stock information</wsdl:documentation>
+      <wsdl:input message="tns:GenerateFullProductListWithNonStockSoapIn" />
+      <wsdl:output message="tns:GenerateFullProductListWithNonStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithRetailStock">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a complete list of stock and non stock products with prices and stock information, retail stock included</wsdl:documentation>
+      <wsdl:input message="tns:GenerateFullProductListWithRetailStockSoapIn" />
+      <wsdl:output message="tns:GenerateFullProductListWithRetailStockSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListSpecialAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get customer assortment special parameters</wsdl:documentation>
+      <wsdl:input message="tns:GenerateFullProductListSpecialAssortmentSoapIn" />
+      <wsdl:output message="tns:GenerateFullProductListSpecialAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingeProductInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return single product information</wsdl:documentation>
+      <wsdl:input message="tns:GetSingeProductInformationSoapIn" />
+      <wsdl:output message="tns:GetSingeProductInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleShopProductInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return single product information with shopInformation</wsdl:documentation>
+      <wsdl:input message="tns:GetSingleShopProductInformationSoapIn" />
+      <wsdl:output message="tns:GetSingleShopProductInformationSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullItemList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all items JDE</wsdl:documentation>
+      <wsdl:input message="tns:GenerateFullItemListSoapIn" />
+      <wsdl:output message="tns:GenerateFullItemListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="JdeAssortmentSoap" type="tns:JdeAssortmentSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GenerateStockProductList">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateStockProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductList">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateFullProductList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithNonStock">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateFullProductListWithNonStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithRetailStock">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateFullProductListWithRetailStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListSpecialAssortment">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateFullProductListSpecialAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingeProductInformation">
+      <soap:operation soapAction="http://localhost/BASConnector/GetSingeProductInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleShopProductInformation">
+      <soap:operation soapAction="http://localhost/BASConnector/GetSingleShopProductInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullItemList">
+      <soap:operation soapAction="http://localhost/BASConnector/GenerateFullItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="JdeAssortmentSoap12" type="tns:JdeAssortmentSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GenerateStockProductList">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateStockProductList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductList">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateFullProductList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithNonStock">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateFullProductListWithNonStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListWithRetailStock">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateFullProductListWithRetailStock" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullProductListSpecialAssortment">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateFullProductListSpecialAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingeProductInformation">
+      <soap12:operation soapAction="http://localhost/BASConnector/GetSingeProductInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSingleShopProductInformation">
+      <soap12:operation soapAction="http://localhost/BASConnector/GetSingleShopProductInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateFullItemList">
+      <soap12:operation soapAction="http://localhost/BASConnector/GenerateFullItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="JdeAssortment">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Internal Service for pricing and assortment info</wsdl:documentation>
+    <wsdl:port name="JdeAssortmentSoap" binding="tns:JdeAssortmentSoap">
+      <soap:address location="http://localhost/BASConnector/JdeAssortment.asmx" />
+    </wsdl:port>
+    <wsdl:port name="JdeAssortmentSoap12" binding="tns:JdeAssortmentSoap12">
+      <soap12:address location="http://localhost/BASConnector/JdeAssortment.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

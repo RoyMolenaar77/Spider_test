@@ -1,0 +1,110 @@
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head id="Head1">
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Concentrator @ViewData["ApplicationName"]</title>
+
+  @*All CSS/JS script go in the HeaderIncludes partial  *@
+  @Html.Partial("HeaderIncludes")
+
+  <script src="@Url.Content("~/Scripts/jQuery/jquery-1.9.1.min.js")" type="text/javascript"></script>
+  <script type="text/javascript" language="javascript">
+    Ext.onReady(function () {
+      @using System.Configuration;
+      @using Concentrator.Configuration;
+      @using Concentrator.Objects.Web;
+
+      Ext.BLANK_IMAGE_URL = '@Url.Content("~/Content/images/s.gif")';
+      Ext.DocumentImageUrl = '@Url.Content("~/Content/images/Icons/document.png")';
+
+      Concentrator.user.loggedIn = '@(Client.User != null)';
+      Concentrator.user.languageID = '@(Client.User != null ? Client.User.LanguageID : 1)';
+      Concentrator.user.connectorID = '@(Client.User != null ? Client.User.ConnectorID : 1)';
+      Concentrator.user.functionalities = [];
+
+      @if (Client.User != null)
+      {
+        foreach (var f in Client.User.FunctionalityRoles.ToArray())
+        {
+          <text>Concentrator.user.functionalities.push('</text>@f<text>');</text>      
+        }
+      }
+
+      Concentrator.pages = new Object();
+      Concentrator.pages = @Html.Raw(ViewData["ManagementPages"].ToString())
+      Concentrator.anychartSource = '@Url.Content("~/Content/anychart_files/swf/AnyChart.swf")';
+
+      Concentrator.mandatoryFieldsPointer = '';
+
+      Concentrator.CustomItemNumberField = '@(ConfigurationManager.AppSettings["CustomItemNumberField"] ?? "Custom Item Number")';
+      Concentrator.VendorItemNumberField = '@(ConfigurationManager.AppSettings["VendorItemNumberField"] ?? "Vendor Item Number")';
+
+      Concentrator.CostPriceField = '@(ConfigurationManager.AppSettings["CostPriceField"] ?? "Cost Price")';
+      Concentrator.SpecialPriceField = '@(ConfigurationManager.AppSettings["SpecialPriceField"] ?? "Special Price")';
+      Concentrator.UnitPriceField = '@(ConfigurationManager.AppSettings["UnitPriceField"] ?? "Unit Price")';
+      Concentrator.TaxRateField = '@(ConfigurationManager.AppSettings["TaxRateField"] ?? "Tax Rate")';
+
+      Concentrator.ConcentratorVendorID = '@ConfigurationManager.AppSettings["ConcentratorVendorID"]';
+      Concentrator.RelatedProductTypeIDForRelatedProducts = '@ConfigurationManager.AppSettings["RelatedProductTypeIDForRelatedProducts"]';
+      Concentrator.VendorIDForRelatedProducts = '@ConfigurationManager.AppSettings["vendorIDForRelatedProducts"]';
+
+      Concentrator.Commercial = new Object();
+      Concentrator.Commercial.DisplayAveragePrices = @Json.Encode(@ConcentratorSection.Default.Management.Commercial.DisplayAveragePrice)
+      Concentrator.Commercial.DisplayCurrencySymbol = @Json.Encode(ConcentratorSection.Default.Management.Commercial.DisplayCurrencySymbol)
+      Concentrator.Commercial.FixedPriceRequiresProduct = @Json.Encode(ConcentratorSection.Default.Management.Commercial.FixedPriceRequiresProduct)
+      Concentrator.Commercial.DisplayPriceColors = @Json.Encode(ConcentratorSection.Default.Management.Commercial.DisplayPriceColors)
+      Concentrator.Commercial.CurrencySymbol = '@HttpUtility.HtmlEncode(ConcentratorSection.Default.Management.Commercial.CurrencySymbol)';
+
+      @if (Client.User != null)
+      {
+      <text>
+        Concentrator.user.userID = '@(Client.User.UserID.ToString())';
+      Concentrator.user.name = '@(Client.User.Name)';
+      Concentrator.user.timeout = '@(Client.User.Timeout)';
+      </text>
+      }
+      else
+      { 
+        <text>
+      Concentrator.user.userID = null;
+      Concentrator.user.name = '-not logged in-';
+        </text>
+      }
+
+      Concentrator.init();
+    });
+  </script>
+</head>
+<body>
+  <div id="messages" style="position: fixed; z-index: 10000; bottom: 10px; right: 10px; width: 25%;"></div>
+  <div id="header">
+    <h1 style="float: left;">Concentrator Management @ViewData["ApplicationName"]</h1>
+    <div style="float: right; padding: 3px 5px 3px 0px;">
+      <div id="loginbox" style="color: White; float: right">
+        @if (Client.User != null)
+        {
+          <text>
+          <b>@Client.User.Name</b>
+          @if (!Client.User.Connector.IsNullOrWhiteSpace())
+          {
+<u>@Client.User.Connector</u>
+          }
+          | <a href="@Url.Action("Logout", "Account")">Sign off</a>
+          | <a href="#" id="control-panel-link">Control panel</a>
+          </text>
+        }
+      </div>
+      <div style="clear: both">
+      </div>
+    </div>
+    <div style="display: none;">
+      <!-- Start page content -->
+      <div id="start-div">
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://spider.bascomputers.nl/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://spider.bascomputers.nl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://spider.bascomputers.nl/">
+      <s:element name="GetAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="importFullContent" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="singleProductGroup" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="shopInformation" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentContentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="productID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentImages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAssortmentImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAssortmentImagesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomImages">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="manufacturerID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="brandCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="productID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomImagesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCustomImagesResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortmentByConnectorID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAttributesAssortmentByConnectorIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAttributesAssortmentByConnectorIDResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullSpiderContent">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFullSpiderContentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFullSpiderContentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOAssortment">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="costPrice" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOAssortmentResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOAssortmentResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInformation">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="customItemNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProductInformationResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProductInformationResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContent" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAssortmentImages" />
+  </wsdl:message>
+  <wsdl:message name="GetAssortmentImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAssortmentImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomImagesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomImages" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomImagesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomImagesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentByConnectorIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentByConnectorID" />
+  </wsdl:message>
+  <wsdl:message name="GetAttributesAssortmentByConnectorIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAttributesAssortmentByConnectorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSpiderContentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFullSpiderContent" />
+  </wsdl:message>
+  <wsdl:message name="GetFullSpiderContentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFullSpiderContentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOAssortmentSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOAssortment" />
+  </wsdl:message>
+  <wsdl:message name="GetOAssortmentSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOAssortmentResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInformationSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProductInformation" />
+  </wsdl:message>
+  <wsdl:message name="GetProductInformationSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProductInformationResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SpiderServiceSoap">
+    <wsdl:operation name="GetAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentSoapIn" />
+      <wsdl:output message="tns:GetAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment with full content for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentContentSoapIn" />
+      <wsdl:output message="tns:GetAssortmentContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortmentSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Images for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetAssortmentImagesSoapIn" />
+      <wsdl:output message="tns:GetAssortmentImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomImages">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Custom Image for connector by unique key</wsdl:documentation>
+      <wsdl:input message="tns:GetCustomImagesSoapIn" />
+      <wsdl:output message="tns:GetCustomImagesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByConnectorID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Assortment for connector by unique key updated</wsdl:documentation>
+      <wsdl:input message="tns:GetAttributesAssortmentByConnectorIDSoapIn" />
+      <wsdl:output message="tns:GetAttributesAssortmentByConnectorIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSpiderContent">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Content Assortment by connector</wsdl:documentation>
+      <wsdl:input message="tns:GetFullSpiderContentSoapIn" />
+      <wsdl:output message="tns:GetFullSpiderContentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get O Assortment for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetOAssortmentSoapIn" />
+      <wsdl:output message="tns:GetOAssortmentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get ProductInformation for connector</wsdl:documentation>
+      <wsdl:input message="tns:GetProductInformationSoapIn" />
+      <wsdl:output message="tns:GetProductInformationSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SpiderServiceSoap" type="tns:SpiderServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAssortment">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetAssortmentContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetAttributesAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomImages">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetCustomImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByConnectorID">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetAttributesAssortmentByConnectorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSpiderContent">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetFullSpiderContent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetOAssortment" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <soap:operation soapAction="http://spider.bascomputers.nl/GetProductInformation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SpiderServiceSoap12" type="tns:SpiderServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAssortment">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentContent">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetAssortmentContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortment">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetAttributesAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAssortmentImages">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetAssortmentImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomImages">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetCustomImages" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAttributesAssortmentByConnectorID">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetAttributesAssortmentByConnectorID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFullSpiderContent">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetFullSpiderContent" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOAssortment">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetOAssortment" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductInformation">
+      <soap12:operation soapAction="http://spider.bascomputers.nl/GetProductInformation" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SpiderService">
+    <wsdl:port name="SpiderServiceSoap" binding="tns:SpiderServiceSoap">
+      <soap:address location="http://localhost/Concentrator/assortment.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SpiderServiceSoap12" binding="tns:SpiderServiceSoap12">
+      <soap12:address location="http://localhost/Concentrator/assortment.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

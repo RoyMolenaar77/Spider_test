@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Ordergegvens</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+
+<p>Beste ##Name##</p>
+<br /><br />
+<p>
+  ##OrderContent##
+</p> 
+  
+		]]>
+    </body>
+</message>

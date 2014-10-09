@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="http://localhost/BASConnector/JdeAssortment.asmx?wsdl" docRef="http://localhost/BASConnector/JdeAssortment.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="http://localhost/BASConnector/JdeAssortment.asmx" xmlns:q1="http://localhost/BASConnector/" binding="q1:JdeAssortmentSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="http://localhost/BASConnector/JdeAssortment.asmx" xmlns:q2="http://localhost/BASConnector/" binding="q2:JdeAssortmentSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

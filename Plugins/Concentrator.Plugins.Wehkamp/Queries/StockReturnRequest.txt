@@ -1,0 +1,17 @@
+﻿SELECT DISTINCT
+  UPPER(SUBSTRING(pParent.VendorItemNumber, 0, CHARINDEX(' ', pParent.VendorItemNumber))) as Artikelnummer
+, SUBSTRING(pParent.VendorItemNumber, CHARINDEX(' ', pParent.VendorItemNumber) + 1, LEN(pParent.VendorItemNumber) - CHARINDEX(' ', pParent.VendorItemNumber) + 0) as Kleurnummer
+, RIGHT('000'+ CONVERT(VARCHAR, SUBSTRING(pParent.VendorItemNumber, CHARINDEX(' ', pParent.VendorItemNumber) + 1, LEN(pParent.VendorItemNumber) - CHARINDEX(' ', pParent.VendorItemNumber) + 0)), 3) as FormattedKleurnummer
+, pParent.ProductID as ProductID
+, p.SourceVendorID as VendorID
+, o.OrderID as OrderID
+, -1 as OrderLineID
+
+FROM [Order] o
+INNER JOIN OrderLine ol on o.OrderID = ol.OrderID
+INNER JOIN product p on p.ProductID = ol.ProductID
+INNER JOIN product pParent on p.ParentProductID = pParent.ProductID
+
+
+
+WHERE o.OrderType = 5 AND o.IsDispatched = 0 AND ol.isDispatched = 0 AND o.ConnectorID = (SELECT ConnectorID FROM ContentProduct WHERE VendorID = {0})

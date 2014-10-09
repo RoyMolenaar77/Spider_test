@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Schema name="Schema6" xmlns="urn:schemas-microsoft-com:xml-data" xmlns:dt="urn:schemas-microsoft-com:datatypes"
+	xmlns:sql="urn:schemas-microsoft-com:xml-sql">
+	<AttributeType name="ID" />
+	<AttributeType name="LogoPic" />
+	<AttributeType name="Name" />
+	<ElementType name="ICECAT-interface" sql:is-constant="1">
+		<element type="Supplier" />
+	</ElementType>
+	<ElementType name="Supplier" sql:relation="SuppliersList">
+		<attribute type="ID" sql:field="Supplier_ID" />
+		<attribute type="LogoPic" sql:field="LogoPic" />
+		<attribute type="Name" sql:field="Supplier_Name" />
+	</ElementType>
+</Schema>

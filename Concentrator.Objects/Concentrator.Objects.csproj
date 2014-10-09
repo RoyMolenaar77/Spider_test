@@ -1,0 +1,1051 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D80A561D-8D9B-464F-BA1C-430E00CA658A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Objects</RootNamespace>
+    <AssemblyName>Concentrator.Objects</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuditLog4Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Shared\AuditLog4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="BitMiracle.LibTiff.NET">
+      <HintPath>..\Shared\BitMiracle.LibTiff.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper">
+      <HintPath>..\packages\Dapper.1.13\lib\net40\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EPPlus">
+      <HintPath>..\packages\EPPlus.3.1.3.3\lib\net35\EPPlus.dll</HintPath>
+    </Reference>
+    <Reference Include="Feebl.Client">
+      <HintPath>..\Shared\Feebl.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=3e0c08d59cc3d657, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileHelpers.2.0.0.0\lib\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelStorage">
+      <HintPath>..\packages\FileHelpers.2.0.0.0\lib\FileHelpers.ExcelStorage.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>..\packages\FileHelpers.2.0.0.0\lib\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Office">
+      <HintPath>..\packages\FileHelpers.2.0.0.0\lib\Interop.Office.dll</HintPath>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Shared\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Shared\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\Shared\Lucene.Net.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\packages\MvcMailer.1.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\Shared\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Quartz.1.0.3\lib\3.5\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox">
+      <HintPath>..\Shared\SecureBlackbox.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTP">
+      <HintPath>..\Shared\SecureBlackbox.SFTP.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTPCommon">
+      <HintPath>..\Shared\SecureBlackbox.SFTPCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHClient">
+      <HintPath>..\Shared\SecureBlackbox.SSHClient.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHCommon">
+      <HintPath>..\Shared\SecureBlackbox.SSHCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="ThisMember, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThisMember.0.8.5\lib\ThisMember.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Archiving\ISimpleArchiveService.cs" />
+    <Compile Include="Archiving\SimpleArchiveService.cs" />
+    <Compile Include="AssortmentService\DBModels\MasterGroupMappingProductGroupVendor.cs" />
+    <Compile Include="AssortmentService\MasterGroupMappingSettingResult.cs" />
+    <Compile Include="AssortmentService\ProductGroupSetting.cs" />
+    <Compile Include="AssortmentService\Service.cs" />
+    <Compile Include="Assortment\AssortmentTree.cs" />
+    <Compile Include="Assortment\ContentProductGroupModel.cs" />
+    <Compile Include="Assortment\Node.cs" />
+    <Compile Include="Bootstrapper\Installation\IInstaller.cs" />
+    <Compile Include="Bootstrapper\Installation\MasterGroupMappingRolesInstaller.cs" />
+    <Compile Include="Bootstrapper\Installation\Roles\RoleInstaller.cs" />
+    <Compile Include="Bootstrapper\Installation\Roles\RoleToInstall.cs" />
+    <Compile Include="Constant\Constants.cs" />
+    <Compile Include="Data\CsvDataTableReader.cs" />
+    <Compile Include="Data\CsvDataTableWriter.cs" />
+    <Compile Include="Data\IDataTableReader.cs" />
+    <Compile Include="Data\IDataTableWriter.cs" />
+    <Compile Include="Enumerations\CheckBoxBoolean.cs" />
+    <Compile Include="Enumerations\MasterGroupMappingMediaType.cs" />
+    <Compile Include="Enumerations\RepositoryOperationStatus.cs" />
+    <Compile Include="Extensions\BooleanExtensions.cs" />
+    <Compile Include="Extensions\DataTableExtensions.cs" />
+    <Compile Include="Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Extensions\DictionaryExtensions.cs" />
+    <Compile Include="Extensions\DirectoryInfoExtensions.cs" />
+    <Compile Include="Extensions\DisposableExtensions.cs" />
+    <Compile Include="Extensions\ExcelWorksheetExtensions.cs" />
+    <Compile Include="Extensions\StringBuilderExtensions.cs" />
+    <Compile Include="Extensions\XElementExtensions.cs" />
+    <Compile Include="Ftp\FtpClient.cs" />
+    <Compile Include="Ftp\FtpClientFactory.cs" />
+    <Compile Include="Ftp\IFtpClient.cs" />
+    <Compile Include="Logic\ContentLogic.cs" />
+    <Compile Include="Models\Base\ILedgerObject.cs" />
+    <Compile Include="Models\Connectors\ConnectorPublicationRule.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMapping.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingCustomLabel.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingLabel.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingLanguage.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingMedia.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingProduct.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingRelatedAttribute.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingSetting.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingSettingOption.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingSettingTemplate.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingDescription.cs" />
+    <Compile Include="Models\MastergroupMapping\MasterGroupMappingSettingValue.cs" />
+    <Compile Include="Models\Orders\RefundQueue.cs" />
+    <Compile Include="Models\Orders\RefundQueueHistory.cs" />
+    <Compile Include="Models\Plugin\UserPlugin.cs" />
+    <Compile Include="Models\Products\ProductControl.cs" />
+    <Compile Include="Models\Products\VendorProducts.cs" />
+    <Compile Include="Models\Users\Organization.cs" />
+    <Compile Include="Monitoring\FeeblMonitoring.cs" />
+    <Compile Include="Services\Contracts\IConnectorAssortmentProvider.cs" />
+    <Compile Include="Services\MasterGroupMappingService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IMasterGroupMappingService.cs" />
+    <Compile Include="Models\Users\UserLanguage.cs" />
+    <Compile Include="Utility\ActionDisposable.cs" />
+    <Compile Include="AssortmentService\AssortmentBarcode.cs" />
+    <Compile Include="AssortmentService\AssortmentBrand.cs" />
+    <Compile Include="AssortmentService\AssortmentConfigurableAttribute.cs" />
+    <Compile Include="AssortmentService\AssortmentContent.cs" />
+    <Compile Include="AssortmentService\AssortmentMagentoSetting.cs" />
+    <Compile Include="AssortmentService\AssortmentPrice.cs" />
+    <Compile Include="AssortmentService\AssortmentProduct.cs" />
+    <Compile Include="AssortmentService\AssortmentProductInfo.cs" />
+    <Compile Include="AssortmentService\AssortmentProductGroup.cs" />
+    <Compile Include="AssortmentService\AssortmentProductImage.cs" />
+    <Compile Include="AssortmentService\AssortmentProductMedia.cs" />
+    <Compile Include="AssortmentService\AssortmentProductWithRelatedProducts.cs" />
+    <Compile Include="AssortmentService\AssortmentRelatedProduct.cs" />
+    <Compile Include="AssortmentService\AssortmentRetailStock.cs" />
+    <Compile Include="AssortmentService\AssortmentShopInformation.cs" />
+    <Compile Include="AssortmentService\AssortmentStock.cs" />
+    <Compile Include="AssortmentService\AssortmentStockPriceProduct.cs" />
+    <Compile Include="AssortmentService\AssortmentThumbnail.cs" />
+    <Compile Include="AssortmentService\AssortmentSeoTexts.cs" />
+    <Compile Include="Concentrator.Database.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Concentrator.Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration\TNTElement.cs" />
+    <Compile Include="Converters\TiffConverter.cs" />
+    <Compile Include="CSV\CsvParser.cs" />
+    <Compile Include="CSV\CsvParserExtensions.cs" />
+    <Compile Include="DataAccess\Repository\ConnectorProductAttributeRepository.cs" />
+    <Compile Include="DataAccess\Repository\ConnectorProductAttributeSettingRepository.cs" />
+    <Compile Include="DataAccess\Repository\ConnectorProductAttributeSettingTemplateRepository.cs" />
+    <Compile Include="DataAccess\Repository\RepositoryBase.cs" />
+    <Compile Include="Database\Procedures\DeleteConnectorProductAttribute.cs" />
+    <Compile Include="Database\Procedures\DeleteConnectorProductAttributeSetting.cs" />
+    <Compile Include="Database\Procedures\InsertOrUpdateConnectorProductAttribute.cs" />
+    <Compile Include="Database\Procedures\InsertOrUpdateConnectorProductAttributeSetting.cs" />
+    <Compile Include="Database\Procedures\SelectConnectorProductAttribute.cs" />
+    <Compile Include="Database\Procedures\SelectConnectorProductAttributeSetting.cs" />
+    <Compile Include="Database\Procedures\SelectConnectorProductAttributeSettingTemplate.cs" />
+    <Compile Include="Database\Tables\ConnectorProductAttribute.cs" />
+    <Compile Include="Database\Tables\ConnectorProductAttributeSetting.cs" />
+    <Compile Include="Database\Tables\ConnectorProductAttributeSettingTemplate.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ConcentratorKernel.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ContextRequestScopeModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ContextThreadScopeModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\RequestScopeServiceUnitOfWorkModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ThreadScopeServiceUnitOfWorkModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ThreadScopeUnitOfWorkModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\UnsecuredRepositoryModule.cs" />
+    <Compile Include="Enumerations\EdiDocumentTypes.cs" />
+    <Compile Include="Extensions\DataReaderExtensions.cs" />
+    <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
+    <Compile Include="Extensions\StreamExtensions.cs" />
+    <Compile Include="Extensions\TraceSourceExtensions.cs" />
+    <Compile Include="Extensions\XDocumentExtensions.cs" />
+    <Compile Include="Extensions\XPathNavigatorExtensions.cs" />
+    <Compile Include="Logic\PriceDto.cs" />
+    <Compile Include="ConcentratorService\ConcentratorAuditLogProvider.cs" />
+    <Compile Include="ConcentratorService\ConcentratorPlugin.cs" />
+    <Compile Include="ConcentratorService\Configuration\Module.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConcentratorService\Configuration\ModuleConfiguration.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConcentratorService\Configuration\ModulesCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConcentratorService\Scheduler\Activity.cs" />
+    <Compile Include="ConcentratorService\Scheduler\ActivityNode.cs" />
+    <Compile Include="ConcentratorService\Scheduler\ActivityStatus.cs" />
+    <Compile Include="ConcentratorService\Scheduler\DefaultSchedulerDataProvider.cs" />
+    <Compile Include="ConcentratorService\Scheduler\ISchedulerDataProvider.cs" />
+    <Compile Include="ConcentratorService\Scheduler\JobData.cs" />
+    <Compile Include="ConcentratorService\Scheduler\JobDetailsData.cs" />
+    <Compile Include="ConcentratorService\Scheduler\JobGroupData.cs" />
+    <Compile Include="ConcentratorService\Scheduler\NamedObject.cs" />
+    <Compile Include="ConcentratorService\Scheduler\Provider\ISchedulerProvider.cs" />
+    <Compile Include="ConcentratorService\Scheduler\Provider\RemoteSchedulerProvider.cs" />
+    <Compile Include="ConcentratorService\Scheduler\Provider\SchedulerProviderException.cs" />
+    <Compile Include="ConcentratorService\Scheduler\Provider\StdSchedulerProvider.cs" />
+    <Compile Include="ConcentratorService\Scheduler\SchedulerData.cs" />
+    <Compile Include="ConcentratorService\Scheduler\SchedulerStatus.cs" />
+    <Compile Include="ConcentratorService\Scheduler\TriggerData.cs" />
+    <Compile Include="ConcentratorService\Scheduler\TriggerGroupData.cs" />
+    <Compile Include="ConcentratorService\ServiceLayer.cs" />
+    <Compile Include="ConcentratorService\UnitOfWorkPlugin.cs" />
+    <Compile Include="DataAccess\EntityFramework\ConcentratorDataContext.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFBaseRepository.cs" />
+    <Compile Include="DataAccess\EntityFramework\EFFunctionRepository.cs" />
+    <Compile Include="DataAccess\Repository\IFunctionRepository.cs" />
+    <Compile Include="DataAccess\Repository\IRepository.cs" />
+    <Compile Include="DataAccess\Repository\PagedResult.cs" />
+    <Compile Include="DataAccess\UnitOfWork\DefaultScope.cs" />
+    <Compile Include="DataAccess\UnitOfWork\DefaultUnitOfWork.cs" />
+    <Compile Include="DataAccess\UnitOfWork\IFunctionScope.cs" />
+    <Compile Include="DataAccess\UnitOfWork\IScope.cs" />
+    <Compile Include="DataAccess\UnitOfWork\IServiceUnitOfWork.cs" />
+    <Compile Include="DataAccess\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="DebuggerWriter.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\CommonRepositoryModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\IAmApplicationSpecificModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\InvariantModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ManagementServiceModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\PortalServiceModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\ServiceModule.cs" />
+    <Compile Include="DependencyInjection\NinjectModules\RequestScopeUnitOfWorkModule.cs" />
+    <Compile Include="Drawing\SpriteCoordinate.cs" />
+    <Compile Include="Drawing\SpriteMap.cs" />
+    <Compile Include="Drawing\SpriteMapBuilder.cs" />
+    <Compile Include="Drawing\SpriteMapModel.cs" />
+    <Compile Include="Drawing\Sprite.cs" />
+    <Compile Include="Dynamic.cs" />
+    <Compile Include="DependencyInjection\EDI\ChangeOrderRequest.cs" />
+    <Compile Include="DependencyInjection\EDI\DirectShipmentRequest.cs" />
+    <Compile Include="DependencyInjection\EDI\EdiMessage.cs" />
+    <Compile Include="DependencyInjection\EDI\InvoiceMessage.cs" />
+    <Compile Include="DependencyInjection\EDI\PurchaseAcknowledgement.cs" />
+    <Compile Include="DependencyInjection\EDI\PurchaseConfirmation.cs" />
+    <Compile Include="DependencyInjection\EDI\PurchaseRequest.cs" />
+    <Compile Include="EntityExtensions.cs" />
+    <Compile Include="Enumerations\BarcodeTypes.cs" />
+    <Compile Include="Enumerations\EnumHelper.cs" />
+    <Compile Include="Enumerations\PriceRuleType.cs" />
+    <Compile Include="Enumerations\OrderLineStatus.cs" />
+    <Compile Include="Enumerations\OrderResponseTypes.cs" />
+    <Compile Include="Enumerations\LanguageTypes.cs" />
+    <Compile Include="Enumerations\XtractTypes.cs" />
+    <Compile Include="Environments\EnvironmentConfigSection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Environments\Environments.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Excel\DatabaseStateColumnProvider.cs" />
+    <Compile Include="Excel\DefaultColumnDefinition.cs" />
+    <Compile Include="Excel\ExcelProvider.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Extensions\DecimalExpressions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\EnumExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ExceptionExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\Expressions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\ObjectExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\PredicateBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\StringExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extensions\SyncExtensions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Filter.cs" />
+    <Compile Include="Lucene\LuceneIndexer.cs" />
+    <Compile Include="Lucene\SearchIndexModel.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeOption.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeValueConnectorValueGroups.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeValueGroup.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeValueGroupName.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeValueLabel.cs" />
+    <Compile Include="Models\Base\BaseModel.cs" />
+    <Compile Include="Models\Complex\AttributeValueGroupingResult.cs" />
+    <Compile Include="Models\ConnectorProductAttribute.cs" />
+    <Compile Include="Models\ConnectorProductAttributeSetting.cs" />
+    <Compile Include="Models\ConnectorProductAttributeSettingTemplate.cs" />
+    <Compile Include="Models\Connectors\ConnectorRelationExport.cs" />
+    <Compile Include="Models\CalculatedPrice\CalculatedPriceModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Contents\ContentPrice.cs" />
+    <Compile Include="Models\Contents\ContentStock.cs" />
+    <Compile Include="Models\Contents\SearchContent.cs" />
+    <Compile Include="Models\Contents\SeoTexts.cs" />
+    <Compile Include="Ftp\FtpManager.cs" />
+    <Compile Include="Ftp\SimpleFtp.cs" />
+    <Compile Include="Models\Images\ImageUtility.cs" />
+    <Compile Include="Import\VendorImportData.cs" />
+    <Compile Include="Logic\PriceRounder.cs" />
+    <Compile Include="Logic\PriceRoundingFormulaParser.cs" />
+    <Compile Include="Models\Attributes\AttributeMatchStore.cs" />
+    <Compile Include="Models\Attributes\AttributeGroup.cs" />
+    <Compile Include="Models\Base\AuditObjectBase.cs" />
+    <Compile Include="Models\Base\IAuditObject.cs" />
+    <Compile Include="Models\Brands\Brand.cs" />
+    <Compile Include="Models\Brands\BrandVendor.cs" />
+    <Compile Include="Models\Brands\BrandMedia.cs" />
+    <Compile Include="Models\Complex\AdvancedPricing.cs" />
+    <Compile Include="Models\Complex\AttributeResult.cs" />
+    <Compile Include="Models\Complex\Attributes.cs" />
+    <Compile Include="Models\Complex\CustomItemNumberResult.cs" />
+    <Compile Include="Models\Complex\FetchProductMatchesResult.cs" />
+    <Compile Include="Models\Complex\ProductMatchResult.cs" />
+    <Compile Include="Models\Complex\ProductSearchResult.cs" />
+    <Compile Include="Models\Complex\VendorAssortmentResult.cs" />
+    <Compile Include="Models\Complex\VendorPriceResult.cs" />
+    <Compile Include="Models\Complex\VendorStockResult.cs" />
+    <Compile Include="Models\Configuration\Config.cs" />
+    <Compile Include="Models\Connectors\Connector.cs" />
+    <Compile Include="Models\Connectors\ConnectorLanguage.cs" />
+    <Compile Include="Models\Connectors\ConnectorPaymentProvider.cs" />
+    <Compile Include="Models\Connectors\ConnectorProductStatus.cs" />
+    <Compile Include="Models\Connectors\ConnectorPublication.cs" />
+    <Compile Include="Models\Connectors\ConnectorRelation.cs" />
+    <Compile Include="Models\Connectors\ConnectorRuleValue.cs" />
+    <Compile Include="Models\Connectors\ConnectorSchedule.cs" />
+    <Compile Include="Models\Connectors\ConnectorScheduleStatus.cs" />
+    <Compile Include="Models\Connectors\ConnectorSetting.cs" />
+    <Compile Include="Models\Connectors\ConnectorSystem.cs" />
+    <Compile Include="Models\Connectors\ConnectorSystemAttribute.cs" />
+    <Compile Include="Models\Connectors\ConnectorSystemType.cs" />
+    <Compile Include="Models\Connectors\ConnectorType.cs" />
+    <Compile Include="Models\Connectors\CrossLedgerclass.cs" />
+    <Compile Include="Models\Connectors\PaymentProvider.cs" />
+    <Compile Include="Models\Connectors\PreferredConnectorVendor.cs" />
+    <Compile Include="Models\Contents\Content.cs" />
+    <Compile Include="Models\Contents\ContentAttribute.cs" />
+    <Compile Include="Models\Contents\ContentLedger.cs" />
+    <Compile Include="Models\Contents\ContentPriceCalculation.cs" />
+    <Compile Include="Models\Contents\ContentProduct.cs" />
+    <Compile Include="Models\Contents\ContentProductGroup.cs" />
+    <Compile Include="Models\Contents\ContentProductGroupMapping.cs" />
+    <Compile Include="Models\Contents\ContentPublicationRule.cs" />
+    <Compile Include="Models\Contents\ContentVendorSetting.cs" />
+    <Compile Include="Models\Contents\ContentView.cs" />
+    <Compile Include="Models\Contents\MissingContent.cs" />
+    <Compile Include="Models\Dashboards\Portal.cs" />
+    <Compile Include="Models\Dashboards\Portlet.cs" />
+    <Compile Include="Models\EDI\Enumerations\EdiConnectionType.cs" />
+    <Compile Include="Models\EDI\Enumerations\EdiOrderStatus.cs" />
+    <Compile Include="Models\EDI\Enumerations\EdiValidationType.cs" />
+    <Compile Include="Models\EDI\Mapping\EdiFieldMapping.cs" />
+    <Compile Include="Models\EDI\Order\EdiCommunication.cs" />
+    <Compile Include="Models\EDI\Order\EdiOrder.cs" />
+    <Compile Include="Models\EDI\Order\EdiOrderLedger.cs" />
+    <Compile Include="Models\EDI\Order\EdiOrderLine.cs" />
+    <Compile Include="Models\EDI\Order\EdiOrderListener.cs" />
+    <Compile Include="Models\EDI\Order\EdiOrderType.cs" />
+    <Compile Include="Models\EDI\Post\EdiOrderPost.cs" />
+    <Compile Include="Models\EDI\Response\EdiOrderResponse.cs" />
+    <Compile Include="Models\EDI\Response\EdiOrderResponseLine.cs" />
+    <Compile Include="Models\EDI\Response\ReturnError.cs" />
+    <Compile Include="Models\EDI\Validation\EdiValidate.cs" />
+    <Compile Include="Models\EDI\Vendor\EdiVendor.cs" />
+    <Compile Include="Models\Faq\Faq.cs" />
+    <Compile Include="Models\Faq\FaqProduct.cs" />
+    <Compile Include="Models\Faq\FaqTranslation.cs" />
+    <Compile Include="Models\Forms\FormNotificationType.cs" />
+    <Compile Include="Models\Forms\PortalNotification.cs" />
+    <Compile Include="Models\Magento\MagentoPageLayout.cs" />
+    <Compile Include="Models\Magento\MagentoProductGroupSetting.cs" />
+    <Compile Include="Models\Management\ConnectorVendorManagementContent.cs" />
+    <Compile Include="Models\Management\EventTypes.cs" />
+    <Compile Include="Models\Management\ManagementLabel.cs" />
+    <Compile Include="Models\Media\BrandMediaView.cs" />
+    <Compile Include="Models\Media\ProductMediaTumbnail.cs" />
+    <Compile Include="Models\Media\ImageStore.cs" />
+    <Compile Include="Models\Media\ImageView.cs" />
+    <Compile Include="Models\Localization\Language.cs" />
+    <Compile Include="Models\Management\Event.cs" />
+    <Compile Include="Models\Management\EventType.cs" />
+    <Compile Include="Models\Management\ManagementGroup.cs" />
+    <Compile Include="Models\Management\ManagementModule.cs" />
+    <Compile Include="Models\Management\ManagementModuleItem.cs" />
+    <Compile Include="Models\Management\ManagementPage.cs" />
+    <Compile Include="Models\Media\MediaType.cs" />
+    <Compile Include="Models\Media\ThumbnailGenerator.cs" />
+    <Compile Include="Models\Orders\AdditionalOrderProduct.cs" />
+    <Compile Include="Models\Orders\Customer.cs" />
+    <Compile Include="Models\Orders\DatcolLink.cs" />
+    <Compile Include="Models\Orders\Order.cs" />
+    <Compile Include="Models\Orders\OrderItemFullfilmentInformation.cs" />
+    <Compile Include="Models\Orders\OrderLedger.cs" />
+    <Compile Include="Models\Orders\OrderLine.cs" />
+    <Compile Include="Models\Orders\OrderLineAppliedDiscountRule.cs" />
+    <Compile Include="Models\Orders\OrderResponse.cs" />
+    <Compile Include="Models\Orders\OrderResponseLine.cs" />
+    <Compile Include="Models\Orders\OrderResponse_backup.cs" />
+    <Compile Include="Models\Orders\OrderRule.cs" />
+    <Compile Include="Models\Orders\OrderTypes.cs" />
+    <Compile Include="Models\Orders\Outbound.cs" />
+    <Compile Include="Models\Orders\PaymentMethod.cs" />
+    <Compile Include="Models\Orders\PaymentMethodDescription.cs" />
+    <Compile Include="Models\Orders\ZipCode.cs" />
+    <Compile Include="Models\PetaPoco.cs" />
+    <Compile Include="Models\Plugin\Plugin.cs" />
+    <Compile Include="Models\Prices\CalculatedPriceView.cs" />
+    <Compile Include="Models\Prices\PriceCorrection.cs" />
+    <Compile Include="Models\Prices\PriceResult.cs" />
+    <Compile Include="Models\Prices\PriceTag.cs" />
+    <Compile Include="Models\ConnectorProductAttributeMapping.cs" />
+    <Compile Include="Models\Products\AssortmentContentView.cs" />
+    <Compile Include="Models\Products\ContentProductMatch.cs" />
+    <Compile Include="Models\Products\ExcludeProduct.cs" />
+    <Compile Include="Models\Products\ProductGroupMappingCustomLabel.cs" />
+    <Compile Include="Models\Products\ProductGroupMappingDescription.cs" />
+    <Compile Include="Models\Products\PriceSet.cs" />
+    <Compile Include="Models\Products\ProductDetailView.cs" />
+    <Compile Include="Models\Products\MatchStatuses.cs" />
+    <Compile Include="Models\Products\Product.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeDescription.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeGroupMetaData.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeGroupName.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeMatch.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeMetaData.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeName.cs" />
+    <Compile Include="Models\Attributes\ProductAttributeValue.cs" />
+    <Compile Include="Models\Products\ProductBarcode.cs" />
+    <Compile Include="Models\Products\ProductBarcodeView.cs" />
+    <Compile Include="Models\Products\ProductCatalogueModel.cs" />
+    <Compile Include="Models\Products\ProductCompare.cs" />
+    <Compile Include="Models\Products\ProductCompareSource.cs" />
+    <Compile Include="Models\Products\ProductCompetitor.cs" />
+    <Compile Include="Models\Products\ProductCompetitorLedger.cs" />
+    <Compile Include="Models\Products\ProductCompetitorMapping.cs" />
+    <Compile Include="Models\Products\ProductCompetitorPrice.cs" />
+    <Compile Include="Models\Products\ProductDescription.cs" />
+    <Compile Include="Models\Products\ProductGroup.cs" />
+    <Compile Include="Models\Products\ProductGroupConnectorVendor.cs" />
+    <Compile Include="Models\Products\ProductGroupContentVendor.cs" />
+    <Compile Include="Models\Products\ProductGroupLanguage.cs" />
+    <Compile Include="Models\Products\ProductGroupMapping.cs" />
+    <Compile Include="Models\Products\ProductGroupPublish.cs" />
+    <Compile Include="Models\Products\ProductGroupSelector.cs" />
+    <Compile Include="Models\Products\ProductGroupVendor.cs" />
+    <Compile Include="Models\Products\ProductGroupVendor_new.cs" />
+    <Compile Include="Models\Products\ProductGroupVendor_temp.cs" />
+    <Compile Include="Models\Products\ProductGroupView.cs" />
+    <Compile Include="Models\Products\ProductImage.cs" />
+    <Compile Include="Models\Products\ProductMatch.cs" />
+    <Compile Include="Models\Products\ProductMedia.cs" />
+    <Compile Include="Models\Products\ProductPriceSet.cs" />
+    <Compile Include="Models\Products\ProductResult.cs" />
+    <Compile Include="Models\Products\ProductReview.cs" />
+    <Compile Include="Models\Products\PushProduct.cs" />
+    <Compile Include="Models\Products\RelatedProduct.cs" />
+    <Compile Include="Models\Products\RelatedProductType.cs" />
+    <Compile Include="Models\Products\RelatedProductTypeEnum.cs" />
+    <Compile Include="Models\Products\RelatedProductTypes.cs" />
+    <Compile Include="Models\Products\ReviewSource.cs" />
+    <Compile Include="Models\Products\UnMappedProductView.cs" />
+    <Compile Include="Models\Results\IncompleteMappingInfo.cs" />
+    <Compile Include="Models\Results\ProductPriceResult.cs" />
+    <Compile Include="Models\Scan\ScanData.cs" />
+    <Compile Include="Models\Scan\ScanProvider.cs" />
+    <Compile Include="Models\Slurp\IntervalType.cs" />
+    <Compile Include="Models\Slurp\SlurpQueue.cs" />
+    <Compile Include="Models\Slurp\SlurpSchedule.cs" />
+    <Compile Include="Models\Templates\Statuses\AssortmentStatus.cs" />
+    <Compile Include="Models\Stocks\Stock.cs" />
+    <Compile Include="Models\Templates\ExportTemplate.cs" />
+    <Compile Include="Models\Templates\ExportTemplateColumn.cs" />
+    <Compile Include="Models\Users\FunctionalityResult.cs" />
+    <Compile Include="Models\Users\FunctionalityRole.cs" />
+    <Compile Include="Models\Users\Role.cs" />
+    <Compile Include="Models\Users\Roles.cs" />
+    <Compile Include="Models\Users\User.cs" />
+    <Compile Include="Models\Dashboards\UserPortal.cs" />
+    <Compile Include="Models\Dashboards\UserPortalPortlet.cs" />
+    <Compile Include="Models\Users\UserCredential.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\Users\UserDownload.cs" />
+    <Compile Include="Models\Users\UserRole.cs" />
+    <Compile Include="Models\Users\UserState.cs" />
+    <Compile Include="Models\Vendors\SapProductGroupNumber.cs" />
+    <Compile Include="Models\Vendors\Vendor.cs" />
+    <Compile Include="Models\Vendors\VendorAccruel.cs" />
+    <Compile Include="Models\Vendors\VendorAssortment.cs" />
+    <Compile Include="Models\Vendors\VendorFreeGood.cs" />
+    <Compile Include="Models\Vendors\VendorMapping.cs" />
+    <Compile Include="Models\Vendors\VendorPrice.cs" />
+    <Compile Include="Models\Vendors\VendorPriceCalculation.cs" />
+    <Compile Include="Models\Vendors\VendorPriceRule.cs" />
+    <Compile Include="Models\Vendors\VendorProductMatch.cs" />
+    <Compile Include="Models\Vendors\VendorProductStatus.cs" />
+    <Compile Include="Models\Vendors\VendorSetting.cs" />
+    <Compile Include="Models\Vendors\VendorStock.cs" />
+    <Compile Include="Models\Vendors\VendorStockType.cs" />
+    <Compile Include="Models\Vendors\VendorType.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintBinding.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintBindingField.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintComposite.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintDocument.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintLayout.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintPage.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintProject.cs" />
+    <Compile Include="Models\WebToPrint\WebToPrintQueue.cs" />
+    <Compile Include="Ordering\Dispatch\AlphaDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\AmacomDispatcher.cs" />
+    <Compile Include="Ordering\Dispatch\ArvatoDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\AtomBlockDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\BasDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\BrightPointDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\CentraalBoekhuisDispatcher.cs" />
+    <Compile Include="Ordering\Dispatch\CopacoDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\WMSDispatcher.cs" />
+    <Compile Include="Ordering\Dispatch\IDispatchable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\LenmarDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\TechDataDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Dispatch\VSNDispatcher.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Purchase\ATPurchase.cs" />
+    <Compile Include="Ordering\Purchase\PfaCommunication.cs" />
+    <Compile Include="Ordering\Purchase\SapphPurchase.cs" />
+    <Compile Include="Ordering\XmlClasses\CatalogFeed.cs" />
+    <Compile Include="Ordering\EDI\EDIUtility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Purchase\BasPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Purchase\IPurchase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\DeliveryPriceRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\DeliveryTimeRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\PreferredVendorRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\PriceRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\RuleBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\RulePipeline.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Rules\StockRule.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\Vendors\OrderLineVendor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlClasses\CopacoOrder.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlFormats\AlphaOrderExporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlFormats\BaseOrderExporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlFormats\BasOrderExporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlClasses\ArvatoOrder.cs">
+      <SubType>code</SubType>
+    </Compile>
+    <Compile Include="Ordering\XmlFormats\TechDataOrderExporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Service References\AtomblockWebService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BrightPointOrderInfo\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\BrightPointOrder\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Base\IService.cs" />
+    <Compile Include="Services\Base\Service.cs" />
+    <Compile Include="Services\BrandService.cs" />
+    <Compile Include="Services\ConnectorService.cs" />
+    <Compile Include="Services\ContentProductService.cs" />
+    <Compile Include="Services\ContentService.cs" />
+    <Compile Include="Services\ContentPriceService.cs" />
+    <Compile Include="Services\ContentVendorSettingService.cs" />
+    <Compile Include="Services\Contracts\IConnectorProductAttributeMappingService.cs" />
+    <Compile Include="Services\DTO\BrandDTO.cs" />
+    <Compile Include="Services\DTO\ProductAttributeDTO.cs" />
+    <Compile Include="Services\DTO\ProductDetailDto.cs" />
+    <Compile Include="Services\MediaTypeService.cs" />
+    <Compile Include="Services\ConnectorProductAttributeMappingService.cs" />
+    <Compile Include="Services\RelatedProductTypeService.cs" />
+    <Compile Include="Services\VendorStockTypeService.cs" />
+    <Compile Include="Services\ProductAttributeGroupNameService.cs" />
+    <Compile Include="Services\VendorAssortmentService.cs" />
+    <Compile Include="Services\OrderRuleService.cs" />
+    <Compile Include="Services\DTO\Base\DtoBase.cs" />
+    <Compile Include="Services\DTO\ImageResultDto.cs" />
+    <Compile Include="Services\DTO\ProductDto.cs" />
+    <Compile Include="Services\DTO\ProductGroupMappingDto.cs" />
+    <Compile Include="Services\DTO\ProductMediaDto.cs" />
+    <Compile Include="Services\MediaService.cs" />
+    <Compile Include="Services\OrderService.cs" />
+    <Compile Include="Services\PortalService.cs" />
+    <Compile Include="Services\ProductAttributeService.cs" />
+    <Compile Include="Services\ProductGroupLanguageService.cs" />
+    <Compile Include="Services\ProductService.cs" />
+    <Compile Include="Services\ProductGroupMappingService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IConnectorService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IContentPriceService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IContentService.cs" />
+    <Compile Include="Services\ManagementService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IContentVendorSettingService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IFilterService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IMediaService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IOrderService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IPortalService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IProductGroupMappingService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IProductService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IUserService.cs" />
+    <Compile Include="Services\ServiceInterfaces\IVendorService.cs" />
+    <Compile Include="Services\UserService.cs" />
+    <Compile Include="Services\UserWithRelationService.cs" />
+    <Compile Include="Services\VendorService.cs" />
+    <Compile Include="Sftp\SftpHelper.cs" />
+    <Compile Include="Utility\cNetworkDrive_0017.cs" />
+    <Compile Include="Utility\EmailDaemon.cs" />
+    <Compile Include="Utility\Evaler.cs" />
+    <Compile Include="Utility\MimeUtility.cs" />
+    <Compile Include="Utility\NetworkExportUtility.cs" />
+    <Compile Include="Utility\TypeConverterService.cs" />
+    <Compile Include="Utility\VendorStockTypes.cs" />
+    <Compile Include="Parse\IContentProvider.cs" />
+    <Compile Include="Parse\LazyCsvParser.cs" />
+    <Compile Include="Parse\LazyXMLScanCoUkParser.cs" />
+    <Compile Include="ProductAttribute\ImportTemplate.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryExtensionMethods.cs" />
+    <Compile Include="Service References\RED\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Sftp\WinSCPDownloader.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="Utility\AddressUtility.cs" />
+    <Compile Include="Utility\ArvatoSoapUtility.cs" />
+    <Compile Include="Utility\EvalHelper.cs" />
+    <Compile Include="Utility\ProductStatusConnectorMapper.cs" />
+    <Compile Include="Utility\ProductStatusVendorMapper.cs" />
+    <Compile Include="Utility\VendorUtility.cs" />
+    <Compile Include="Web\Client.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ConcentratorIdentity.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ConcentratorPrincipal.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\HttpContextFactory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\IConcentratorIdentity.cs" />
+    <Compile Include="Web\IConcentratorPrincipal.cs" />
+    <Compile Include="Web\Providers\ConcentratorMembershipProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\Providers\ConcentratorMembershipUser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\Providers\ConcentratorRoleProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ServiceModels\JdeCustomerData.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ServiceModels\JdeCustomerEmailAddress.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\ServiceModels\JdeCustomerTelephone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Web\UserIdentityModel.cs" />
+    <Compile Include="Web\WebModels\ImageRequestModel.cs" />
+    <Compile Include="Write\CsvWriter.cs" />
+    <Compile Include="Xml\Utility.cs" />
+    <Compile Include="ZipUtil\ZipProcessor.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Concentrator.Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Concentrator.Database.cs</LastGenOutput>
+      <ConnectionString>Data Source=.\SQL2012%3b Initial Catalog=CCAT%3b Integrated Security=True</ConnectionString>
+      <Schemas>dbo</Schemas>
+      <Objects>ConnectorProductAttribute</Objects>
+      <Namespace>Concentrator.Objects</Namespace>
+      <Class>ConcentratorDatabase</Class>
+      <IsPublic>True</IsPublic>
+      <LastOutputs>
+.\Database\Procedures\DeleteConnectorProductAttribute.cs
+.\Database\Procedures\DeleteConnectorProductAttributeSetting.cs
+.\Database\Procedures\InsertOrUpdateConnectorProductAttribute.cs
+.\Database\Procedures\InsertOrUpdateConnectorProductAttributeSetting.cs
+.\Database\Procedures\SelectConnectorProductAttribute.cs
+.\Database\Procedures\SelectConnectorProductAttributeSetting.cs
+.\Database\Procedures\SelectConnectorProductAttributeSettingTemplate.cs
+.\Database\Tables\ConnectorProductAttribute.cs
+.\Database\Tables\ConnectorProductAttributeSetting.cs
+.\Database\Tables\ConnectorProductAttributeSettingTemplate.cs
+.\Models\ConnectorProductAttribute.cs
+.\Models\ConnectorProductAttributeSetting.cs
+.\Models\ConnectorProductAttributeSettingTemplate.cs
+</LastOutputs>
+    </None>
+    <None Include="DependencyInjection\EDI\XSD\Acknowledgement.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\BaseTypes.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\EdiMessage.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\Invoice.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\OrderRequest.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\Shipment.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\WebBaseTypes.xsd" />
+    <None Include="DependencyInjection\EDI\XSD\WebOrderRequest.xsd" />
+    <None Include="Ordering\Dispatch\app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopGenres.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopLanguages.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopOrderReceipt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopProductUpdates.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopPublishers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\Concentrator.Objects.AtomblockWebService.ShopStockInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\AtomblockWebService\RetailService_1-0.wsdl" />
+    <None Include="Service References\BrightPointOrderInfo\Concentrator.Objects.BrightPointOrderInfo.Orderhead.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrderInfo\Concentrator.Objects.BrightPointOrderInfo.RmaHeader.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrderInfo\Concentrator.Objects.BrightPointOrderInfo.Shipment.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrderInfo\Concentrator.Objects.BrightPointOrderInfo.StatusPODHead.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrderInfo\default.wsdl" />
+    <None Include="Service References\BrightPointOrder\Concentrator.Objects.BrightPointOrder.Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrder\Concentrator.Objects.BrightPointOrder.Response2_0.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BrightPointOrder\wsorder.wsdl" />
+    <None Include="Service References\RED\retailer.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\AtomblockWebService\" />
+    <WCFMetadataStorage Include="Service References\BrightPointOrderInfo\" />
+    <WCFMetadataStorage Include="Service References\BrightPointOrder\" />
+    <WCFMetadataStorage Include="Service References\RED\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RED\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RED\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RED\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="VendorAssortmentImport\" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Concentrator.Contracts\Concentrator.Contracts.csproj">
+      <Project>{CCCC1CF5-6B42-4884-BEEF-3227C4E749B4}</Project>
+      <Name>Concentrator.Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Concentrator.Environments\Concentrator.Configuration.csproj">
+      <Project>{F1B7D4A3-2572-4443-A6C4-96F06E8CD211}</Project>
+      <Name>Concentrator.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Plugins\Concentrator.Plugins.PFA.Configuration\Concentrator.Plugins.PFA.Configuration.csproj">
+      <Project>{8202f161-1170-4e9c-9b82-2e43ca4b6963}</Project>
+      <Name>Concentrator.Plugins.PFA.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Vendor\Concentrator.Vendors.PFA\Concentrator.Vendors.PFA.csproj">
+      <Project>{E5ED421F-50B5-4DE2-B7EB-F1501B0D5823}</Project>
+      <Name>Concentrator.Vendors.PFA</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataAccess\EntityFramework\ExportToPoco.txt" />
+    <None Include="Service References\BrightPointOrder\wsorder.disco" />
+    <None Include="Service References\BrightPointOrder\configuration91.svcinfo" />
+    <None Include="Service References\BrightPointOrder\configuration.svcinfo" />
+    <None Include="Service References\BrightPointOrder\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\BrightPointOrderInfo\default.disco" />
+    <None Include="Service References\BrightPointOrderInfo\configuration91.svcinfo" />
+    <None Include="Service References\BrightPointOrderInfo\configuration.svcinfo" />
+    <None Include="Service References\BrightPointOrderInfo\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\AtomblockWebService\RetailService_1-0.disco" />
+    <None Include="Service References\AtomblockWebService\configuration91.svcinfo" />
+    <None Include="Service References\AtomblockWebService\configuration.svcinfo" />
+    <None Include="Service References\AtomblockWebService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="TODO.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DataAccess\EntityFramework\ConcentratorDataModel.edmx" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

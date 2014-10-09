@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ProductAttributes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="ProductAttribute">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element minOccurs="0" name="Brand">
+                <xs:complexType>
+                  <xs:attribute name="BrandID" type="xs:unsignedShort" use="optional" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element minOccurs="0" name="Attributes">
+                <xs:complexType>
+                  <xs:sequence minOccurs="0">
+                    <xs:element minOccurs="0" maxOccurs="unbounded" name="Attribute">
+                      <xs:complexType>
+                        <xs:sequence>
+                          <xs:element minOccurs="0" name="Name" type="xs:string" />
+                          <xs:element minOccurs="0" name="Value" type="xs:string" />
+                          <xs:element minOccurs="0" name="Sign" type="xs:string" />
+                        </xs:sequence>
+                        <xs:attribute name="AttributeID" type="xs:unsignedShort" use="optional" />
+                        <xs:attribute name="KeyFeature" type="xs:unsignedByte" use="optional" />
+                        <xs:attribute name="Index" type="xs:unsignedInt" use="optional" />
+                        <xs:attribute name="IsSearchable" type="xs:unsignedByte" use="optional" />
+                      </xs:complexType>
+                    </xs:element>
+                  </xs:sequence>
+                </xs:complexType>
+              </xs:element>
+            </xs:sequence>
+            <xs:attribute name="CustomProductID" type="xs:unsignedInt" use="optional" />
+            <xs:attribute name="ManufactureID" type="xs:string" use="optional" />
+            <xs:attribute name="ProductSubGroupID" type="xs:unsignedShort" use="optional" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

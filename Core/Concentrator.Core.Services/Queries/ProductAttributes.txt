@@ -1,0 +1,12 @@
+﻿SELECT DISTINCT 
+    pav.AttributeID as AttributeID
+  , pav.Value as Value
+  , pavg.ImagePath as ImageUrl
+  , pav.ProductID as ProductID
+  , pavcvg.ConnectorID as ConnectorID
+ 
+FROM ProductAttributeValue pav
+INNER JOIN ProductAttributeValueConnectorValueGroup pavcvg ON pav.AttributeID = pavcvg.AttributeID AND pav.Value = pavcvg.Value
+INNER JOIN ProductAttributeValueGroup pavg ON pavcvg.AttributeValueGroupID = pavg.AttributeValueGroupID AND pavcvg.ConnectorID = pavg.ConnectorID
+
+WHERE pavcvg.ConnectorID = {0}

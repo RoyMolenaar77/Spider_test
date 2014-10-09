@@ -1,0 +1,5 @@
+alter table productgroupmappingcustomlabel drop constraint FK_ProductGroupMappingCustomLabel_ProductGroupMapping
+
+alter table productgroupmappingcustomlabel add constraint FK_ProductGroupMappingCustomLabel_ProductGroupMapping foreign key (productgroupmappingid)
+
+references productgroupmapping(productgroupmappingid) on delete cascade

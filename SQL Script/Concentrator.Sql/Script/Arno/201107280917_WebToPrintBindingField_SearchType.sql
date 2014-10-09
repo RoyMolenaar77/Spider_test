@@ -1,0 +1,1 @@
+alter table dbo.WebToPrintBindingField add SearchType int not null

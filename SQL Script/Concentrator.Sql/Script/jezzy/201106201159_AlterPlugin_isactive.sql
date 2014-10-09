@@ -1,0 +1,1 @@
+alter table plugin add IsActive bit not null default 0

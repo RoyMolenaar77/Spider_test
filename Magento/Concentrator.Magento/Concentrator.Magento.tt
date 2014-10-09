@@ -1,0 +1,490 @@
+<#@ template debug="true" hostSpecific="true" language="C#" #>
+<#@ output extension=".cs" encoding="utf-8" #>
+<#@ include file="T4Toolbox.tt" #>
+<#@ assembly Name="System" #>
+<#@ assembly Name="System.Core" #>
+<#@ assembly Name="System.Data" #>
+<#@ assembly Name="System.Xml" #>
+<#@ assembly Name="Microsoft.SqlServer.ConnectionInfo" #>
+<#@ assembly Name="Microsoft.SqlServer.Management.Sdk.Sfc" #>
+<#@ assembly Name="Microsoft.SqlServer.Smo" #>
+<#@ assembly name="Microsoft.VisualStudio.TextTemplating.11.0" #>
+<#@ assembly name="EnvDTE" #>
+<#@ assembly name="$(SolutionDir)Tools\Concentrator.Tools.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.CodeDom" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Configuration" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Common" #>
+<#@ import namespace="Microsoft.SqlServer.Management.Smo" #>
+<#@ import namespace="Microsoft.VisualStudio.TextTemplating" #>
+<#@ import namespace="EnvDTE" #>
+<#@ parameter name="ConnectionString" type="System.String" #>
+<#@ parameter name="Schemas" type="System.String" #>
+<#@ parameter name="Class" type="System.String" #>
+<#@ parameter name="Namespace" type="System.String" #>
+<#@ parameter name="IsPublic" type="System.Boolean" #>
+<#
+  if (String.IsNullOrWhiteSpace(Session["ConnectionString"] as String))
+  {
+    return "// Connection String was not specified in the parameters...";
+  }
+  
+  if (!Session.ContainsKey("IsPublic"))
+  {
+    Session["IsPublic"] = false;
+  }
+
+  var modifier = Convert.ToBoolean(Session["IsPublic"])
+    ? "public "
+    : "internal ";
+  
+  var serviceProvider = Host as IServiceProvider;
+  var visualStudio = serviceProvider.GetService(typeof(DTE)) as DTE;
+
+  Session["Class"] = Class ?? Host.TemplateFile.Split(new[] { '.' }, StringSplitOptions.RemoveEmptyEntries).First();
+
+  var project = visualStudio.Solution.FindProjectItem(Host.TemplateFile).ContainingProject;
+
+  Session["Namespace"] = Namespace ?? project
+    .Properties
+    .Cast<EnvDTE.Property>()
+    .Single(property => property.Name == "DefaultNamespace")
+    .Value;
+
+  var textEditor = visualStudio.Properties["TextEditor", "CSharp"] as Properties;
+  var indent = !(Boolean)textEditor.Item("InsertTabs").Value
+    ? new String(' ', (Int16)textEditor.Item("IndentSize").Value)
+    : "\t";
+
+  Session["Indent"] = indent;
+
+  var connection = new SqlConnection(ConnectionString);
+  var serverConnection = new ServerConnection(connection);
+  var server = new Server(serverConnection);
+  var database = server.Databases.Cast<Database>().First(db => db.Name == connection.Database);
+
+  var storedProcedureLookup = database
+    .StoredProcedures
+    .Cast<StoredProcedure>()
+    .ToLookup(item => item.Schema);
+
+  var tableLookup = database
+    .Tables
+    .Cast<Table>()
+    .ToLookup(item => item.Schema);
+  
+  var viewLookup = database
+    .Views
+    .Cast<View>()
+    .ToLookup(item => item.Schema);
+  
+  var includedSchemas = Schemas
+    .Split(',')
+    .Select(schemaName => schemaName.Trim())
+    .ToArray();
+
+  GenerationEnvironment.Clear();
+  WriteLine("using System;");
+  WriteLine(String.Empty);
+  WriteLine("namespace {0}", Session["Namespace"]);
+
+  using (this.Scope(indent))
+  {
+    WriteLine(modifier + "static partial class {0}", Session["Class"]);
+    
+    using (this.Scope(indent))
+    {
+      foreach (var schemaName in database.Schemas
+        .Cast<Schema>()
+        .Select(schema => schema.Name)
+        .Where(schemaName => includedSchemas.Contains(schemaName))
+        .Where(schemaName =>
+        storedProcedureLookup[schemaName].Any() || 
+        tableLookup[schemaName].Any() || 
+        viewLookup[schemaName].Any()))
+      {
+        WriteLine(modifier + "static partial class {0}", schemaName);
+        
+        using (this.Scope(indent))
+        {
+          var classTemplate = default(ClassTemplate);
+
+          foreach (var storedProcedure in storedProcedureLookup[schemaName])
+          {
+            WriteLine(modifier + "const String {0} = \"{1}\";", storedProcedure.Name, storedProcedure);
+
+            classTemplate = new ProcedureTemplate(storedProcedure);
+            classTemplate.RenderToFile(String.Format("Database/Procedures/{0}.{1}.cs", storedProcedure.Schema, storedProcedure.Name));
+          }
+
+          if (storedProcedureLookup[schemaName].Any() && tableLookup[schemaName].Any())
+          {
+            WriteLine(String.Empty);
+          }
+
+          foreach (var table in tableLookup[schemaName])
+          {
+            if (!table.Name.StartsWith("__"))
+            {
+              WriteLine(modifier + "const String {0} = \"{1}\";", table.Name, table);
+              
+              classTemplate = new TableTemplate(table);
+              classTemplate.RenderToFile(String.Format("Database/Tables/{0}.{1}.cs", table.Schema, table.Name));
+              
+              classTemplate = new ModelTemplate(table);
+              classTemplate.RenderToFile(String.Format("Models/{0}/{1}.cs", table.Schema, table.Name));
+            }
+          }
+    
+          if (tableLookup[schemaName].Any() && viewLookup[schemaName].Any())
+          {
+            WriteLine(String.Empty);
+          }
+    
+          foreach (var view in viewLookup[schemaName])
+          {
+            WriteLine(modifier + "const String {0} = \"{1}\";", view.Name, view);
+            
+            classTemplate = new ViewTemplate(view);
+            classTemplate.RenderToFile(String.Format("Database/Views/{0}.{1}.cs", Class, view.Schema, view.Name));
+          }
+        }
+      }
+    }
+  }
+#>
+<#+
+  public abstract class ClassTemplate : Template
+  {
+    protected virtual String Class
+    {
+      get
+      {
+        return Session["Class"] as String;
+      }
+    }
+    
+    protected ICollection<String> Imports
+    {
+      get;
+      private set;
+    }
+
+    protected virtual String Indent
+    {
+      get
+      {
+        return Session["Indent"] as String;
+      }
+    }
+    
+    protected virtual String Modifier
+    {
+      get
+      {
+        return Convert.ToBoolean(Session["IsPublic"])
+          ? "public"
+          : "internal";
+      }
+    }
+
+    protected virtual String Namespace
+    {
+      get
+      {
+        return Session["Namespace"] as String;
+      }
+    }
+
+    protected ClassTemplate()
+    {
+      Imports = new List<String>()
+      {
+        "System"
+      };
+    }
+
+    protected Type GetType(SqlDataType dataType)
+    {
+      switch (dataType)
+      {
+        case SqlDataType.Bit:
+          return typeof(Boolean);
+
+        case SqlDataType.BigInt:
+          return typeof(Int64);
+
+        case SqlDataType.DateTime:
+        case SqlDataType.DateTime2:
+          return typeof(DateTime);
+
+        case SqlDataType.TinyInt:
+          return typeof(Byte);
+
+        case SqlDataType.Int:
+          return typeof(Int32);
+
+        case SqlDataType.SmallInt:
+          return typeof(Int16);
+
+        case SqlDataType.NVarChar:
+        case SqlDataType.NVarCharMax:
+        case SqlDataType.NText:
+        case SqlDataType.Text:
+        case SqlDataType.VarChar:
+        case SqlDataType.VarCharMax:
+          return typeof(String);
+
+        default:
+          WriteLine(String.Empty);
+          WriteLine("// WARNING: The SqlDataType '{0}' could not be mapped to a .NET type.", dataType);
+          return typeof(Object);
+      }
+    }
+
+    protected String GetTypeName(SqlDataType dataType, Boolean fullName = false)
+    {
+      var type = GetType(dataType);
+
+      return fullName ? type.FullName : type.Name;
+    }
+
+    protected virtual void GenerateClass()
+    {
+      WriteLine(Modifier + " partial class {0}", Class);
+        
+      using (this.Scope(Indent))
+      {
+        GenerateClassBody();
+      }
+    }
+
+    protected abstract void GenerateClassBody();
+
+    public override String TransformText()
+    {
+      foreach (var import in Imports)
+      {
+        WriteLine("using {0};", import);
+      }
+
+      WriteLine();
+      WriteLine("namespace {0}", Namespace);
+      
+      using (this.Scope(Indent))
+      {
+        GenerateClass();
+      }
+
+      return GenerationEnvironment.ToString();
+    }
+
+    public void WriteLine()
+    {
+      WriteLine(String.Empty);
+    }
+  }
+#>
+<#+
+  public class ProcedureTemplate : ClassTemplate
+  {
+    private StoredProcedure Procedure
+    {
+      get;
+      set;
+    }
+
+    public ProcedureTemplate(StoredProcedure storedProcedure)
+    {
+      Procedure = storedProcedure;
+    }
+
+    protected override void GenerateClassBody()
+    {
+      WriteLine(Modifier + " static partial class {0}", Procedure.Schema);
+        
+      using (this.Scope(Indent))
+      {
+        if (Procedure.Parameters.Count > 0)
+        {
+          WriteLine(Modifier + " partial class {0}Parameters", Procedure.Name);
+            
+          using (this.Scope(Indent))
+          {
+            var parameters = Procedure.Parameters.Cast<StoredProcedureParameter>().ToArray();
+
+            foreach (var parameter in parameters)
+            {
+              if (parameter != parameters.First())
+              {
+                WriteLine();
+              }
+
+              var parameterDataType = GetType(parameter.DataType.SqlDataType);
+              var parameterDataTypeName = parameterDataType.Name;
+
+              if (parameterDataType.IsValueType)
+              {
+                parameterDataTypeName += "?";
+              }
+
+              WriteLine(Modifier + " {0} {1}", parameterDataTypeName, parameter.Name.TrimStart('@'));
+                  
+              using (this.Scope(Indent))
+              {
+                WriteLine("get;");
+                WriteLine("set;");
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+#>
+<#+
+  public class TableTemplate : ClassTemplate
+  {
+    private Table Table
+    {
+      get;
+      set;
+    }
+
+    public TableTemplate(Table table)
+    {
+      Table = table;
+    }
+
+    protected override void GenerateClassBody()
+    {
+      WriteLine(Modifier + " static partial class {0}", Table.Schema);
+          
+      using (this.Scope(Indent))
+      {
+        WriteLine(Modifier + " partial class {0}Table", Table.Name);
+
+        using (this.Scope(Indent))
+        {
+          foreach (var column in Table.Columns.Cast<Column>())
+          {
+            WriteLine(Modifier + " const String {0} = \"{1}\";", column.Name, column);
+          }
+        }
+      }
+    }
+  }
+#>
+<#+
+  public class ViewTemplate : ClassTemplate
+  {
+    private View View
+    {
+      get;
+      set;
+    }
+
+    public ViewTemplate(View view)
+    {
+      View = view;
+    }
+    
+    protected override void GenerateClassBody()
+    {
+      WriteLine(Modifier + " static class {0}", View.Schema);
+          
+      using (this.Scope(Indent))
+      {        
+        WriteLine(Modifier + " static class {0}View", View.Name);
+            
+        using (this.Scope(Indent))
+        {
+          foreach (var column in View.Columns.Cast<Column>())
+          {
+            WriteLine(Modifier + " const String {0} = \"{1}\";", column.Name, column);
+          }
+        }
+      }
+    }
+  }
+#>
+<#+
+  public class ModelTemplate : ClassTemplate
+  {
+    protected override String Class
+    {
+      get
+      {
+        return Table.Name;
+      }
+    }
+
+    protected override String Namespace
+    {
+      get
+      {
+        return base.Namespace + ".Models";
+      }
+    }
+
+    private Table Table
+    {
+      get;
+      set;
+    }
+
+    public ModelTemplate(Table table)
+    {
+      Table = table;
+
+      Imports.Add("Dapper");
+    }
+
+    //protected override void GenerateClass()
+    //{
+    //  WriteLine("[Table(\"{0}\", Schema = \"{1}\")]", Table.Name, Table.Schema);
+    //
+    //  base.GenerateClass();
+    //}
+
+    protected override void GenerateClassBody()
+    {
+      var columns = Table.Columns.Cast<Column>().ToArray();
+
+      foreach (var column in columns)
+      {
+        if (column != columns.First())
+        {
+          WriteLine();
+        }
+
+        //if (column.InPrimaryKey)
+        //{
+        //  WriteLine("[Key]");
+        //}
+
+        var columnType = GetType(column.DataType.SqlDataType);
+        var columnTypeName = columnType.Name;
+
+        if (column.Identity && columnType.IsValueType)
+        {
+          columnTypeName += "?";
+        }
+
+        WriteLine(Modifier + " virtual {0} {1}", columnTypeName, column.Name);
+
+        using (this.Scope(Indent))
+        {
+          WriteLine("get;");
+          WriteLine("set;");
+        }
+      }
+    }
+  }
+#>

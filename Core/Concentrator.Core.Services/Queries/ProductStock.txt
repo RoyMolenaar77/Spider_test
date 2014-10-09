@@ -1,0 +1,11 @@
+﻿SELECT DISTINCT
+		 [QuantityOnHand] as InStock
+			,[PromisedDeliveryDate] as PromisedDeliveryDate
+			,[QuantityToReceive] as QuantityToReceive
+			,[StockStatus] as StockStatus
+			,vs.[ProductID] as ProductID
+		,c.ConnectorID as ConnectorID
+
+	FROM VendorStock vs
+	INNER JOIN Content c on vs.ProductID = c.ProductID
+	WHERE c.ConnectorID = {0}

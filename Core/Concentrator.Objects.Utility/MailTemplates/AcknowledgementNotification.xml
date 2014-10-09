@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Orderbestiging</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+<p>Beste ##Name##,</p>
+<p>Wij hebben de door u verzonden order succesvol verwerkt in ons ordersysteem.</p>
+<p>Hierbij ontvangt u van ons een orderbevestiging van de door u geplaatste order.</p>
+<p>Als uw betalingen correct zijn verwerkt wordt deze order binnen enkele minuten verzonden aan ons Warehouse. </p>
+
+##OrderContent##
+
+<p>Mocht u nog vragen hebben over deze order kunt u contact opnemen met uw account manager.</p>
+
+  
+		]]>
+    </body>
+</message>

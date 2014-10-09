@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://Concentrator.selectorservice.nl/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://Concentrator.selectorservice.nl/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://Concentrator.selectorservice.nl/">
+      <s:element name="GetSelectors">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetSelectorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetSelectorsResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindProduct">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="query" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindProductResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindProductResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindCompatibleProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectorID" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="vendorItemNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindCompatibleProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindCompatibleProductsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSelectorProducts">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="selectorID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="connectorID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllSelectorProductsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllSelectorProductsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExportSelectors">
+        <s:complexType />
+      </s:element>
+      <s:element name="ExportSelectorsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExportSelectorsResult">
+              <s:complexType mixed="true">
+                <s:sequence>
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetSelectorsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetSelectors" />
+  </wsdl:message>
+  <wsdl:message name="GetSelectorsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetSelectorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindProductSoapIn">
+    <wsdl:part name="parameters" element="tns:FindProduct" />
+  </wsdl:message>
+  <wsdl:message name="FindProductSoapOut">
+    <wsdl:part name="parameters" element="tns:FindProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindCompatibleProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:FindCompatibleProducts" />
+  </wsdl:message>
+  <wsdl:message name="FindCompatibleProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:FindCompatibleProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSelectorProductsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllSelectorProducts" />
+  </wsdl:message>
+  <wsdl:message name="GetAllSelectorProductsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllSelectorProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExportSelectorsSoapIn">
+    <wsdl:part name="parameters" element="tns:ExportSelectors" />
+  </wsdl:message>
+  <wsdl:message name="ExportSelectorsSoapOut">
+    <wsdl:part name="parameters" element="tns:ExportSelectorsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="SelectorServiceSoap">
+    <wsdl:operation name="GetSelectors">
+      <wsdl:input message="tns:GetSelectorsSoapIn" />
+      <wsdl:output message="tns:GetSelectorsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindProduct">
+      <wsdl:input message="tns:FindProductSoapIn" />
+      <wsdl:output message="tns:FindProductSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindCompatibleProducts">
+      <wsdl:input message="tns:FindCompatibleProductsSoapIn" />
+      <wsdl:output message="tns:FindCompatibleProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSelectorProducts">
+      <wsdl:input message="tns:GetAllSelectorProductsSoapIn" />
+      <wsdl:output message="tns:GetAllSelectorProductsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ExportSelectors">
+      <wsdl:input message="tns:ExportSelectorsSoapIn" />
+      <wsdl:output message="tns:ExportSelectorsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SelectorServiceSoap" type="tns:SelectorServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSelectors">
+      <soap:operation soapAction="http://Concentrator.selectorservice.nl/GetSelectors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindProduct">
+      <soap:operation soapAction="http://Concentrator.selectorservice.nl/FindProduct" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCompatibleProducts">
+      <soap:operation soapAction="http://Concentrator.selectorservice.nl/FindCompatibleProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSelectorProducts">
+      <soap:operation soapAction="http://Concentrator.selectorservice.nl/GetAllSelectorProducts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSelectors">
+      <soap:operation soapAction="http://Concentrator.selectorservice.nl/ExportSelectors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="SelectorServiceSoap12" type="tns:SelectorServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSelectors">
+      <soap12:operation soapAction="http://Concentrator.selectorservice.nl/GetSelectors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindProduct">
+      <soap12:operation soapAction="http://Concentrator.selectorservice.nl/FindProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindCompatibleProducts">
+      <soap12:operation soapAction="http://Concentrator.selectorservice.nl/FindCompatibleProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSelectorProducts">
+      <soap12:operation soapAction="http://Concentrator.selectorservice.nl/GetAllSelectorProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ExportSelectors">
+      <soap12:operation soapAction="http://Concentrator.selectorservice.nl/ExportSelectors" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SelectorService">
+    <wsdl:port name="SelectorServiceSoap" binding="tns:SelectorServiceSoap">
+      <soap:address location="http://localhost/Concentrator/SelectorService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="SelectorServiceSoap12" binding="tns:SelectorServiceSoap12">
+      <soap12:address location="http://localhost/Concentrator/SelectorService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

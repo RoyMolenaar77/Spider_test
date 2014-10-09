@@ -1,0 +1,2 @@
+SELECT * FROM `dhlshipment` WHERE `status`= 4 AND `concentrator_retrieved` = 0;
+

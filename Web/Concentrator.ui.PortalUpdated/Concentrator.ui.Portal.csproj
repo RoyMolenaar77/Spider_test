@@ -1,0 +1,645 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{785A2507-A808-4FCB-88C0-CC601CAB4F8F}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.ui.Portal</RootNamespace>
+    <AssemblyName>Concentrator.ui.Portal</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ajaxmin">
+      <HintPath>..\..\packages\combres.2.2.1.8\lib\net40\ajaxmin.dll</HintPath>
+    </Reference>
+    <Reference Include="Combres">
+      <HintPath>..\..\packages\combres.2.2.1.8\lib\net40\Combres.dll</HintPath>
+    </Reference>
+    <Reference Include="Combres.Mvc">
+      <HintPath>..\..\packages\combres.mvc.2.2.1.8\lib\net40\Combres.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator.NinjectAdapter">
+      <HintPath>..\..\Shared\Ninject\CommonServiceLocator.NinjectAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="dotless.Core">
+      <HintPath>..\..\packages\dotless.1.1.0\lib\dotless.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="EcmaScript.NET.modified">
+      <HintPath>..\..\packages\YUICompressor.NET.1.5.0.0\lib\NET35\EcmaScript.NET.modified.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\packages\elmah.corelibrary.1.2\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.4.1.10715.0\lib\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Fasterflect">
+      <HintPath>..\..\packages\fasterflect.2.0.1\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core">
+      <HintPath>..\..\packages\Glimpse.0.83\lib\net40\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\..\Shared\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\..\Shared\Lucene.Net.DLL</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Mvc.Mailer">
+      <HintPath>..\..\packages\MvcMailer.1.1\lib\40\Mvc.Mailer.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\..\Shared\Ninject\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\..\Shared\Ninject\Ninject.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.4.1\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+    <Reference Include="Yahoo.Yui.Compressor">
+      <HintPath>..\..\packages\YUICompressor.NET.1.5.0.0\lib\NET35\Yahoo.Yui.Compressor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\Combres.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\MailerController.cs" />
+    <Compile Include="Controllers\PortalController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="HtlmCustomExtension.cs" />
+    <Compile Include="Indexer.cs" />
+    <Compile Include="Mailers\IUserMailer.cs" />
+    <Compile Include="Mailers\UserMailer.cs" />
+    <Compile Include="Models\AttributeValueCountModel.cs" />
+    <Compile Include="Models\BreadModel.cs" />
+    <Compile Include="Models\FilterModel.cs" />
+    <Compile Include="Models\HtmlList.cs" />
+    <Compile Include="Models\MailModel.cs" />
+    <Compile Include="Resources\Account\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Account\Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Account\Resource.nl.Designer.cs">
+      <DependentUpon>Resource.nl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Download\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Download\Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\Download\Resource.nl.Designer.cs">
+      <DependentUpon>Resource.nl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LayoutPage\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LayoutPage\Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\LayoutPage\Resource.nl.Designer.cs">
+      <DependentUpon>Resource.nl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\ShowBasket\Resource.Designer.cs">
+      <DependentUpon>Resource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\ShowBasket\Resource.fr.Designer.cs">
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Resources\ShowBasket\Resource.nl.Designer.cs">
+      <DependentUpon>Resource.nl.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Models\MediaModel.cs" />
+    <Compile Include="Resources\Product\Resource.fr.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.fr.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Product\Resource.nl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.nl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Product\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BrandController.cs" />
+    <Compile Include="Controllers\DownloadController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\LocalizedController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\SpriteController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Models\CatalogueModel.cs" />
+    <Compile Include="Models\FilterAttributeModel.cs" />
+    <Compile Include="Models\LocalizedDisplay.cs" />
+    <Compile Include="Models\ProductGroupNavigationModel.cs" />
+    <Compile Include="Models\ProductInfoDetail.cs" />
+    <Compile Include="Models\ProductInfoModel.cs" />
+    <Compile Include="Models\SpriteRequestModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\arrow_down_grey_dark.png" />
+    <Content Include="Content\images\arrow_right_grey_dark.png" />
+    <Content Include="Content\images\arrow_right_grey_light.png" />
+    <Content Include="Content\images\button-hover-right.png" />
+    <Content Include="Content\images\button-hover.png" />
+    <Content Include="Content\images\button-large-hover.png" />
+    <Content Include="Content\images\button-large-right-hover.png" />
+    <Content Include="Content\images\button-large-right.png" />
+    <Content Include="Content\images\button-large.png" />
+    <Content Include="Content\images\button-right.png" />
+    <Content Include="Content\images\button.png" />
+    <Content Include="Content\images\close-box-red.png" />
+    <Content Include="Content\images\delete.png" />
+    <Content Include="Content\images\flag_england.png" />
+    <Content Include="Content\images\flag_france.png" />
+    <Content Include="Content\images\flag_germany.png" />
+    <Content Include="Content\images\flag_netherlands.png" />
+    <Content Include="Content\images\form-elements.png" />
+    <Content Include="Content\images\Icons\32x32\check.png" />
+    <Content Include="Content\images\Icons\32x32\error.png" />
+    <Content Include="Content\images\Icons\32x32\information.png" />
+    <Content Include="Content\images\Icons\32x32\warning.png" />
+    <Content Include="Content\images\Icons\Audio.png" />
+    <Content Include="Content\images\Icons\books.png" />
+    <Content Include="Content\images\Icons\box.png" />
+    <Content Include="Content\images\Icons\box_closed.png" />
+    <Content Include="Content\images\Icons\box_out.png" />
+    <Content Include="Content\images\Icons\box_view.png" />
+    <Content Include="Content\images\Icons\cabinet.png" />
+    <Content Include="Content\images\Icons\calander.png" />
+    <Content Include="Content\images\Icons\certificate.png" />
+    <Content Include="Content\images\Icons\check.png" />
+    <Content Include="Content\images\Icons\console.png" />
+    <Content Include="Content\images\Icons\cubes.png" />
+    <Content Include="Content\images\Icons\cube_blue.png" />
+    <Content Include="Content\images\Icons\cube_molecule.png" />
+    <Content Include="Content\images\Icons\cube_molecule_new.png" />
+    <Content Include="Content\images\Icons\cube_molecule_preferences.png" />
+    <Content Include="Content\images\Icons\cube_yellow.png" />
+    <Content Include="Content\images\Icons\dashboard.gif" />
+    <Content Include="Content\images\Icons\delete.png" />
+    <Content Include="Content\images\Icons\document.png" />
+    <Content Include="Content\images\Icons\dot-chart.png" />
+    <Content Include="Content\images\Icons\download.png" />
+    <Content Include="Content\images\Icons\dude4.png" />
+    <Content Include="Content\images\Icons\error.png" />
+    <Content Include="Content\images\Icons\export_to_excel.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\doc.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\docx.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\pdf.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\ppt.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\pptx.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\swf.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\txt.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\unknown.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\unknown_1.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\unknown_2.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\www.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\xls.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\xlsx.png" />
+    <Content Include="Content\images\Icons\FileTypeIcons\youtube.png" />
+    <Content Include="Content\images\Icons\folder_gear.png" />
+    <Content Include="Content\images\Icons\gear_view.png" />
+    <Content Include="Content\images\Icons\image_add.png" />
+    <Content Include="Content\images\Icons\information.png" />
+    <Content Include="Content\images\Icons\lightbulb.png" />
+    <Content Include="Content\images\Icons\lightbulb_on.png" />
+    <Content Include="Content\images\Icons\link.png" />
+    <Content Include="Content\images\Icons\magic-wand.png" />
+    <Content Include="Content\images\Icons\more.png" />
+    <Content Include="Content\images\Icons\node.png" />
+    <Content Include="Content\images\Icons\nut_and_bolt.png" />
+    <Content Include="Content\images\Icons\outbox_out.png" />
+    <Content Include="Content\images\Icons\package.png" />
+    <Content Include="Content\images\Icons\package_view.png" />
+    <Content Include="Content\images\Icons\pdf.png" />
+    <Content Include="Content\images\Icons\plug.png" />
+    <Content Include="Content\images\Icons\reset.png" />
+    <Content Include="Content\images\Icons\SearchButton.png" />
+    <Content Include="Content\images\Icons\shoppingbasket_full.png" />
+    <Content Include="Content\images\Icons\shoppingcart_full.png" />
+    <Content Include="Content\images\Icons\stopwatch.png" />
+    <Content Include="Content\images\Icons\stopwatch_run.png" />
+    <Content Include="Content\images\Icons\stopwatch_stop.png" />
+    <Content Include="Content\images\Icons\transform.png" />
+    <Content Include="Content\images\Icons\usb.png" />
+    <Content Include="Content\images\Icons\user1_message.png" />
+    <Content Include="Content\images\Icons\users1.png" />
+    <Content Include="Content\images\Icons\users_family.png" />
+    <Content Include="Content\images\Icons\Video.png" />
+    <Content Include="Content\images\Icons\view.png" />
+    <Content Include="Content\images\Icons\warning.png" />
+    <Content Include="Content\images\Icons\window.png" />
+    <Content Include="Content\images\Icons\window_gear.png" />
+    <Content Include="Content\images\Icons\wrench.png" />
+    <Content Include="Content\images\Icons\xls.png" />
+    <Content Include="Content\images\input.png" />
+    <Content Include="Content\images\arrow-down.png" />
+    <Content Include="Content\images\arrow-right.png" />
+    <Content Include="Content\images\link-button.png" />
+    <Content Include="Content\images\loader.gif" />
+    <Content Include="Content\images\logo_big.png" />
+    <Content Include="Content\images\logo_small.png" />
+    <Content Include="Content\images\misc.png" />
+    <Content Include="Content\images\shopping-cart.png" />
+    <Content Include="Content\PIE.htc" />
+    <Content Include="Content\Portal.css" />
+    <Content Include="Content\themes\base\DiractTreeView.css" />
+    <Content Include="Content\themes\base\images\arrows.gif" />
+    <Content Include="Content\themes\base\images\bg.jpg" />
+    <Content Include="Content\themes\base\images\cubes_yellow.png" />
+    <Content Include="Content\themes\base\images\cube_yellow.png" />
+    <Content Include="Content\themes\base\images\d.png" />
+    <Content Include="Content\themes\base\images\dot_for_ie.gif" />
+    <Content Include="Content\themes\base\images\drop-add.gif" />
+    <Content Include="Content\themes\base\images\drop-between.gif" />
+    <Content Include="Content\themes\base\images\drop-no.gif" />
+    <Content Include="Content\themes\base\images\drop-over.gif" />
+    <Content Include="Content\themes\base\images\drop-under.gif" />
+    <Content Include="Content\themes\base\images\drop-yes.gif" />
+    <Content Include="Content\themes\base\images\elbow-end-minus-nl.gif" />
+    <Content Include="Content\themes\base\images\elbow-end-minus.gif" />
+    <Content Include="Content\themes\base\images\elbow-end-plus-nl.gif" />
+    <Content Include="Content\themes\base\images\elbow-end-plus.gif" />
+    <Content Include="Content\themes\base\images\elbow-end.gif" />
+    <Content Include="Content\themes\base\images\elbow-line.gif" />
+    <Content Include="Content\themes\base\images\elbow-minus-nl.gif" />
+    <Content Include="Content\themes\base\images\elbow-minus.gif" />
+    <Content Include="Content\themes\base\images\elbow-plus-nl.gif" />
+    <Content Include="Content\themes\base\images\elbow-plus.gif" />
+    <Content Include="Content\themes\base\images\elbow.gif" />
+    <Content Include="Content\themes\base\images\folder-open.gif" />
+    <Content Include="Content\themes\base\images\folder.gif" />
+    <Content Include="Content\themes\base\images\leaf.gif" />
+    <Content Include="Content\themes\base\images\loading.gif" />
+    <Content Include="Content\themes\base\images\s.gif" />
+    <Content Include="Content\themes\base\images\throbber.gif" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.treeview.css" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Content\themes\base\Tree_Style.css" />
+    <Content Include="Content\themes\Basgroup\images\arrow-down.png" />
+    <Content Include="Content\themes\Basgroup\images\body.png" />
+    <Content Include="Content\themes\Basgroup\images\logo_big.png" />
+    <Content Include="Content\themes\Basgroup\images\logo_small.png" />
+    <Content Include="Content\themes\Basgroup\images\shopping-cart.png" />
+    <Content Include="Content\themes\Basgroup\Basgroup.css" />
+    <Content Include="Content\themes\CoolCat\images\logo_big.png" />
+    <Content Include="Content\themes\CoolCat\images\logo_small.png" />
+    <Content Include="Content\themes\CoolCat\CoolCat.css" />
+    <Content Include="Content\themes\Jumbo\images\arrow-down.png" />
+    <Content Include="Content\themes\Jumbo\images\body.png" />
+    <Content Include="Content\themes\Jumbo\images\logo_big.png" />
+    <Content Include="Content\themes\Jumbo\images\logo_small.png" />
+    <Content Include="Content\themes\Jumbo\images\shopping-cart.png" />
+    <Content Include="Content\themes\Jumbo\Jumbo.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Resource.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\Controls\Sprite.js" />
+    <Content Include="Scripts\Controls\SpriteForDetailPage.js" />
+    <Content Include="Scripts\Default\jquery-1.5.1-vsdoc.js" />
+    <Content Include="Scripts\Default\jquery-1.5.1.js" />
+    <Content Include="Scripts\Default\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\Default\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\Default\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\Default\labs_json.js" />
+    <Content Include="Scripts\jQueryPlugins\jquery.cookie.js" />
+    <Content Include="Scripts\jQueryPlugins\jquery.treeview.async.js" />
+    <Content Include="Scripts\jQueryPlugins\jquery.treeview.edit.js" />
+    <Content Include="Scripts\jQueryPlugins\jquery.treeview.js" />
+    <Content Include="Scripts\jQueryPlugins\jquery.treeview.sortable.js" />
+    <Content Include="Scripts\Default\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Default\jquery.validate.js" />
+    <Content Include="Scripts\Default\jquery.validate.min.js" />
+    <Content Include="Scripts\Default\modernizr-1.7.js" />
+    <Content Include="Scripts\Default\modernizr-1.7.min.js" />
+    <Content Include="Scripts\Portal\AutocompleteProducts.js" />
+    <Content Include="Scripts\Portal\jquery.tablesorter.js" />
+    <Content Include="Scripts\Portal\jquery.tablesorter.pager.js" />
+    <Content Include="Scripts\Portal\Portal.js" />
+    <Content Include="Scripts\Portal\ProductsView.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Scripts\Default\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\Default\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\Default\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\Default\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Default\MicrosoftAjax.js" />
+    <Content Include="Scripts\Default\MicrosoftAjax.debug.js" />
+    <Content Include="Scripts\Default\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\Default\MicrosoftMvcAjax.debug.js" />
+    <Content Include="Scripts\Default\MicrosoftMvcValidation.js" />
+    <Content Include="Scripts\Default\MicrosoftMvcValidation.debug.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LogOnPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="App_GlobalResources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Concentrator.Objects\Concentrator.Objects.csproj">
+      <Project>{D80A561D-8D9B-464F-BA1C-430E00CA658A}</Project>
+      <Name>Concentrator.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Web.Shared\Concentrator.Web.Shared.csproj">
+      <Project>{5588532F-3488-4FCE-A82C-B3D5218F33E9}</Project>
+      <Name>Concentrator.Web.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_HeaderIncludes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="combres.readme" />
+    <Content Include="Views\Catalogue\Index.cshtml" />
+    <Content Include="Views\Catalogue\FilterAttributeValues.cshtml" />
+    <Content Include="Views\Catalogue\Filter.cshtml" />
+    <Content Include="Views\Brand\Index.cshtml" />
+    <Content Include="Views\Brand\Details.cshtml" />
+    <Content Include="Views\Download\ShowBasket.cshtml" />
+    <Content Include="Views\Download\DownloadOptions.cshtml" />
+    <Content Include="Views\Zip\Index.cshtml" />
+    <Content Include="Views\Zip\About.cshtml" />
+    <Content Include="Views\Shared\_CountBasketItems.cshtml" />
+    <Content Include="Views\Home\_ExtraLinks.cshtml" />
+    <Content Include="Views\Account\MyAccount.cshtml" />
+    <Content Include="Views\Account\ChangeUserSucces.cshtml" />
+    <Content Include="Views\Contact\Index.cshtml" />
+    <Content Include="Views\Contact\SendMail.cshtml" />
+    <Content Include="Views\Shared\ComingSoon.cshtml" />
+    <Content Include="Views\Home\DefaultPortal.cshtml" />
+    <Content Include="Views\Shared\BreadCrumb.cshtml" />
+    <Content Include="Views\Services\Contact.cshtml" />
+    <Content Include="Views\Services\LoggedIn.cshtml" />
+    <Content Include="Views\Services\LoggedOut.cshtml" />
+    <Content Include="Views\Mailer\Error.cshtml" />
+    <Content Include="Views\Mailer\FinishPasswordReset.cshtml" />
+    <Content Include="Views\Mailer\RegisterAccount.cshtml" />
+    <Content Include="Views\Mailer\RegistrationComplete.cshtml" />
+    <Content Include="Views\Mailer\StartPasswordReset.cshtml" />
+    <Content Include="Views\UserMailer\GoodBye.cshtml" />
+    <Content Include="Views\UserMailer\MailPassword.cshtml" />
+    <Content Include="Views\UserMailer\MailRegistration.cshtml" />
+    <Content Include="Views\UserMailer\Welcome.cshtml" />
+    <Content Include="Views\UserMailer\_Layout.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\ProductDetails.cshtml" />
+    <Content Include="Views\Product\_ProductTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Account\Resource.de.resx" />
+    <EmbeddedResource Include="Resources\Account\Resource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Account\Resource.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Account\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Download\Resource.de.resx" />
+    <EmbeddedResource Include="Resources\Download\Resource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Download\Resource.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Download\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LayoutPage\Resource.de.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LayoutPage\Resource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LayoutPage\Resource.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.nl.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\LayoutPage\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Product\Resource.de.resx" />
+    <EmbeddedResource Include="Resources\Product\Resource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Product\Resource.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Product\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ShowBasket\Resource.de.resx" />
+    <EmbeddedResource Include="Resources\ShowBasket\Resource.fr.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.fr.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ShowBasket\Resource.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\ShowBasket\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>60576</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Concentrator.ui.Portal</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PreBuildEvent>copy "$(ProjectDir)..\..\Config\*.generic.config" $(ProjectDir) /Y</PreBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+</Project>

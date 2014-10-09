@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Image">
+  <DataContextMoniker Name="/ImageDataContext" />
+  <nestedChildShapes>
+    <classShape Id="1310930f-2863-4b0f-a5e8-fcb976c7eec9" absoluteBounds="8.5, 1.375, 2, 2.7324039713541666">
+      <DataClassMoniker Name="/ImageDataContext/ImageDB" />
+      <nestedChildShapes>
+        <elementListCompartment Id="caa74107-b55f-4cb8-93de-3a8bb9b21cc8" absoluteBounds="8.515, 1.835, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="ca26673b-e3fb-400c-a86d-c6464b5023dd" absoluteBounds="0.5, 0.5, 2, 5.2323225911458326">
+      <DataClassMoniker Name="/ImageDataContext/AuctionLot" />
+      <nestedChildShapes>
+        <elementListCompartment Id="18cecf70-276c-483c-96d7-baab39ee6ca0" absoluteBounds="0.51500000000000012, 0.96, 1.9700000000000002, 4.672322591145833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a35c7310-53bc-4c34-9793-1d716b1fdb7a" absoluteBounds="3, 0.5, 2, 2.3478011067708335">
+      <DataClassMoniker Name="/ImageDataContext/Brand" />
+      <nestedChildShapes>
+        <elementListCompartment Id="3c29fa69-cb27-4332-8229-21ea5571ab57" absoluteBounds="3.0149999999999997, 0.96, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5c319d59-4ec9-4263-87e4-8649d3e98a5a" absoluteBounds="5.25, 1.875, 2, 5.0400211588541657">
+      <DataClassMoniker Name="/ImageDataContext/Product" />
+      <nestedChildShapes>
+        <elementListCompartment Id="a4f1539e-0d60-4110-bd4f-875d56f32be5" absoluteBounds="5.265, 2.335, 1.9700000000000002, 4.4800211588541661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.25 : 4.32131184895833); (2.5 : 4.32131184895833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ImageDataContext/Product/Product_AuctionLot" />
+      <nodes>
+        <classShapeMoniker Id="5c319d59-4ec9-4263-87e4-8649d3e98a5a" />
+        <classShapeMoniker Id="ca26673b-e3fb-400c-a86d-c6464b5023dd" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5 : 2.36140055338542); (5.25 : 2.36140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/ImageDataContext/Brand/Brand_Product" />
+      <nodes>
+        <classShapeMoniker Id="a35c7310-53bc-4c34-9793-1d716b1fdb7a" />
+        <classShapeMoniker Id="5c319d59-4ec9-4263-87e4-8649d3e98a5a" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

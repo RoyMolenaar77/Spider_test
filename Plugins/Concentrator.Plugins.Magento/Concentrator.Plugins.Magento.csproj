@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E30F3856-BCFA-4B51-B6E2-F696441D5EC7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Plugins.Magento</RootNamespace>
+    <AssemblyName>Concentrator.Plugins.Magento</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Test\Plugin\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;CACHE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\Plugins\</OutputPath>
+    <DefineConstants>
+    </DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <RegisterForComInterop>true</RegisterForComInterop>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuditLog4Net">
+      <HintPath>lib\AuditLog4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Concentrator\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers">
+      <HintPath>..\Concentrator\packages\FileHelpers.2.0.0.0\lib\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelStorage">
+      <HintPath>..\Concentrator\packages\FileHelpers.2.0.0.0\lib\FileHelpers.ExcelStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\Concentrator\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\Concentrator\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Concentrator\packages\Quartz.1.0.3\lib\3.5\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox">
+      <HintPath>lib\SecureBlackbox.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTP">
+      <HintPath>lib\SecureBlackbox.SFTP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTPCommon">
+      <HintPath>lib\SecureBlackbox.SFTPCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHClient">
+      <HintPath>lib\SecureBlackbox.SSHClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHCommon">
+      <HintPath>lib\SecureBlackbox.SSHCommon.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=3.9.55.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Concentrator\packages\ServiceStack.Text.3.9.55\lib\net35\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Security">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ServiceModel">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Services">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AttributeResult.cs" />
+    <Compile Include="Exporters\StockExporter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Helpers\IndexerHelper.cs" />
+    <Compile Include="Helpers\MySqlIndexerHelper.cs" />
+    <Compile Include="Helpers\PriceSetHelper.cs" />
+    <Compile Include="Helpers\SftpHelper.cs" />
+    <Compile Include="ImageSynchronization.cs" />
+    <Compile Include="MagentoStockExport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Models\basstore.cs" />
+    <Compile Include="Models\catalog_product_link.cs" />
+    <Compile Include="Models\ChildRelatedProductModel.cs" />
+    <Compile Include="Models\MagentoVersion.cs" />
+    <Compile Include="Models\PRODUCT_STATUS.cs" />
+    <Compile Include="Models\RelatedProductWithIndex.cs" />
+    <Compile Include="Models\salesrule.cs" />
+    <Compile Include="Models\salesrule_product_attribute.cs" />
+    <Compile Include="OrderSynchronization.cs" />
+    <Compile Include="DbContext.cs" />
+    <Compile Include="Exporters\BaseExporter.cs" />
+    <Compile Include="Exporters\CustomerExporter.cs" />
+    <Compile Include="Exporters\MagentoExporter.cs" />
+    <Compile Include="Exporters\ImageExporter.cs" />
+    <Compile Include="Helpers\AccruelsHelper.cs" />
+    <Compile Include="Helpers\AssortmentHelper.cs" />
+    <Compile Include="Helpers\OrderHelper.cs" />
+    <Compile Include="Helpers\CustomerHelper.cs" />
+    <Compile Include="Helpers\PHPSerializer.cs" />
+    <Compile Include="MagentoBasePlugin.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MagentoExportReloaded.cs" />
+    <Compile Include="Exporters\OrderExporter.cs" />
+    <Compile Include="Models\basstock.cs" />
+    <Compile Include="Models\cataloginventory_stock_item.cs" />
+    <Compile Include="Models\catalog_category_entity.cs" />
+    <Compile Include="Models\catalog_category_product.cs" />
+    <Compile Include="Models\catalog_category_product_index.cs" />
+    <Compile Include="Models\catalog_product_entity.cs" />
+    <Compile Include="Models\catalog_product_entity_media_gallery.cs" />
+    <Compile Include="Models\catalog_product_entity_media_gallery_value.cs" />
+    <Compile Include="Models\catalog_product_relation.cs" />
+    <Compile Include="Models\catalog_product_super_attribute.cs" />
+    <Compile Include="Models\catalog_product_super_attribute_label.cs" />
+    <Compile Include="Models\catalog_product_website.cs" />
+    <Compile Include="Models\sales_flat_order_item.cs" />
+    <Compile Include="Models\sales_flat_order_grid.cs" />
+    <Compile Include="Models\customer_address_entity.cs" />
+    <Compile Include="Models\customer_entity.cs" />
+    <Compile Include="Models\eav_attribute_label.cs" />
+    <Compile Include="Models\eav_attribute_option_value.cs" />
+    <Compile Include="Models\path_info.cs" />
+    <Compile Include="Models\eav_attribute.cs" />
+    <Compile Include="Models\eav_attribute_group.cs" />
+    <Compile Include="Models\eav_attribute_set.cs" />
+    <Compile Include="Models\eav_entity_attribute.cs" />
+    <Compile Include="Helpers\MagentoMySqlHelper.cs" />
+    <Compile Include="Models\sales_flat_order.cs" />
+    <Compile Include="Models\weee_tax.cs" />
+    <Compile Include="OrderState.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResponseListener.cs" />
+    <Compile Include="Slugger.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Concentrator.Objects\Concentrator.Objects.csproj">
+      <Project>{D80A561D-8D9B-464F-BA1C-430E00CA658A}</Project>
+      <Name>Concentrator.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.Monitoring\Concentrator.Plugins.Monitoring.csproj">
+      <Project>{cde2a0a3-a22b-4885-a467-0fb5ec92689b}</Project>
+      <Name>Concentrator.Plugins.Monitoring</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\Concentrator.Services\Concentrator.Web.ServiceClient.csproj">
+      <Project>{7AA08EA8-AC9C-47B1-8AFD-A40DE084AC18}</Project>
+      <Name>Concentrator.Web.ServiceClient</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\Concentrator.Web.Services\Concentrator.Web.Services.csproj">
+      <Project>{E2D906D4-8AAB-47E3-82B1-579EA7E5EB49}</Project>
+      <Name>Concentrator.Web.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\magento_basEntities.datasource" />
+    <None Include="Properties\DataSources\magento_demoEntities.datasource" />
+    <None Include="Properties\DataSources\System.Xml.XmlElement.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\DataSources\System.Xml.XmlNode.datasource" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Customers\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

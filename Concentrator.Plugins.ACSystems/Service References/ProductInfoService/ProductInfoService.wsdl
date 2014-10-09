@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/Imports">
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd0" namespace="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd2" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemReferenceCollection/2008/10" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd3" namespace="http://www.ac-systems.com/Support/Serialization/ItemReference/2008/11" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd5" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Brand/2008/12" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd6" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/DeviceInfo/2008/06" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd7" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/BrandTypeEnum/2008/11" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd8" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd9" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfoCollection/2008/06" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd10" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfo/2008/06" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd11" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfoCollection/2009/02" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd12" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ExtendedCachedItemInfo/2009/02" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd13" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/Image/2009/02" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd16" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd14" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStockCollection/2010/05" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd15" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoStock/2011/05" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd17" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfo/2008/06" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd18" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/PriceRequest/2008/12" />
+      <xsd:import schemaLocation="http://test.client.services.ac-systems.com/v1/ProductInfoService.svc?xsd=xsd19" namespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/ItemInfoBasicCollection/2008/12" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByDescription_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesByDescription" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByDescription_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesByDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByDescription_ArgumentInvalidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q1:ArgumentInvalidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByDescription_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q2:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByDescription_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q3:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByBrandCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesByBrandCode" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByBrandCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesByBrandCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByBrandCode_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q4:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByBrandCode_ArgumentInvalidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q5:ArgumentInvalidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesByBrandCode_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q6:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetBrands_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrands" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetBrands_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBrandsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetBrands_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q7:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetBrands_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q8:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindDeviceInfosCompatibleWithItemReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeviceInfosCompatibleWithItemReference" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindDeviceInfosCompatibleWithItemReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindDeviceInfosCompatibleWithItemReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindDeviceInfosCompatibleWithItemReference_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q9:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindDeviceInfosCompatibleWithItemReference_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q10:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindDeviceInfosCompatibleWithItemReference_ItemNotFoundExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q11:ItemNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceList" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceList_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q12:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceList_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q13:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrand_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceListForBrand" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrand_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceListForBrandResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrand_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q14:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrand_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q15:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrandAndType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceListForBrandAndType" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrandAndType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceListForBrandAndTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrandAndType_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q16:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceListForBrandAndType_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q17:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceBrandList" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceBrandListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandList_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q18:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandList_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q19:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandListByType_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceBrandListByType" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandListByType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullDeviceBrandListByTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandListByType_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q20:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullDeviceBrandListByType_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q21="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q21:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithDeviceID_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesCompatibleWithDeviceID" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithDeviceID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesCompatibleWithDeviceIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithDeviceID_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q22="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q22:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithDeviceID_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q23="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q23:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithItemReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesCompatibleWithItemReference" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithItemReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FindItemReferencesCompatibleWithItemReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithItemReference_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q24="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q24:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithItemReference_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q25="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q25:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_FindItemReferencesCompatibleWithItemReference_ItemNotFoundExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q26="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q26:ItemNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullProductList" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullProductListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductList_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q27="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q27:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductList_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q28="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q28:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductListExtended_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullProductListExtended" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductListExtended_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullProductListExtendedResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductListExtended_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q29="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q29:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullProductListExtended_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q30="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q30:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullItemReferencesList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullItemReferencesList" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullItemReferencesList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullItemReferencesListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullItemReferencesList_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q31="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q31:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullItemReferencesList_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q32="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q32:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullStockList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullStockList" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullStockList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFullStockListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullStockList_UnauthorizedAccessExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q33="http://schemas.datacontract.org/2004/07/System" name="detail" element="q33:UnauthorizedAccessException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullStockList_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q34="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q34:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetFullStockList_ApplicationExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q35="http://schemas.datacontract.org/2004/07/System" name="detail" element="q35:ApplicationException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemInfoByReference" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemInfoByReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_ItemNotFoundExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q36="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q36:ItemNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q37="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q37:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q38="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q38:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetItemInfoByReference_ArgumentInvalidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q39="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q39:ArgumentInvalidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceByItemReferenceAndAmount" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceByItemReferenceAndAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_ItemNotFoundExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q40="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q40:ItemNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_ArgumentInvalidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q41="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q41:ArgumentInvalidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q42="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q42:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceByItemReferenceAndAmount_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q43="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q43:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockByItemReference_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStockByItemReference" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockByItemReference_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStockByItemReferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockByItemReference_ItemNotFoundExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q44="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q44:ItemNotFoundException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockByItemReference_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q45="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q45:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockByItemReference_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q46="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q46:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceForPriceRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceForPriceRequests" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceForPriceRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceForPriceRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceForPriceRequests_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q47="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q47:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceForPriceRequests_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q48="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q48:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockForItemReferences_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStockForItemReferences" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockForItemReferences_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStockForItemReferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockForItemReferences_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q49="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q49:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetStockForItemReferences_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q50="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q50:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceAndStockForPriceRequests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAndStockForPriceRequests" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceAndStockForPriceRequests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPriceAndStockForPriceRequestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceAndStockForPriceRequests_SessionKeyNotValidExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q51="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q51:SessionKeyNotValidException" />
+  </wsdl:message>
+  <wsdl:message name="IProductInfoService_GetPriceAndStockForPriceRequests_NotAuthorizedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q52="http://schemas.datacontract.org/2004/07/AnCWCFWebService.Exceptions" name="detail" element="q52:NotAuthorizedException" />
+  </wsdl:message>
+  <wsdl:portType name="IProductInfoService">
+    <wsdl:operation name="FindItemReferencesByDescription">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescription" message="tns:IProductInfoService_FindItemReferencesByDescription_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescriptionResponse" message="tns:IProductInfoService_FindItemReferencesByDescription_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescriptionArgumentInvalidExceptionFault" name="ArgumentInvalidExceptionFault" message="tns:IProductInfoService_FindItemReferencesByDescription_ArgumentInvalidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescriptionNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_FindItemReferencesByDescription_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByDescriptionSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_FindItemReferencesByDescription_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesByBrandCode">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCode" message="tns:IProductInfoService_FindItemReferencesByBrandCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCodeResponse" message="tns:IProductInfoService_FindItemReferencesByBrandCode_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCodeSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_FindItemReferencesByBrandCode_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCodeArgumentInvalidExceptionFault" name="ArgumentInvalidExceptionFault" message="tns:IProductInfoService_FindItemReferencesByBrandCode_ArgumentInvalidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesByBrandCodeNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_FindItemReferencesByBrandCode_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBrands">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetBrands" message="tns:IProductInfoService_GetBrands_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetBrandsResponse" message="tns:IProductInfoService_GetBrands_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetBrandsSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetBrands_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetBrandsNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetBrands_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindDeviceInfosCompatibleWithItemReference">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReference" message="tns:IProductInfoService_FindDeviceInfosCompatibleWithItemReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReferenceResponse" message="tns:IProductInfoService_FindDeviceInfosCompatibleWithItemReference_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReferenceNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_FindDeviceInfosCompatibleWithItemReference_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReferenceSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_FindDeviceInfosCompatibleWithItemReference_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindDeviceInfosCompatibleWithItemReferenceItemNotFoundExceptionFault" name="ItemNotFoundExceptionFault" message="tns:IProductInfoService_FindDeviceInfosCompatibleWithItemReference_ItemNotFoundExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceList">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceList" message="tns:IProductInfoService_GetFullDeviceList_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListResponse" message="tns:IProductInfoService_GetFullDeviceList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullDeviceList_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullDeviceList_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceListForBrand">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrand" message="tns:IProductInfoService_GetFullDeviceListForBrand_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandResponse" message="tns:IProductInfoService_GetFullDeviceListForBrand_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullDeviceListForBrand_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullDeviceListForBrand_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceListForBrandAndType">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandAndType" message="tns:IProductInfoService_GetFullDeviceListForBrandAndType_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandAndTypeResponse" message="tns:IProductInfoService_GetFullDeviceListForBrandAndType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandAndTypeNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullDeviceListForBrandAndType_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceListForBrandAndTypeSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullDeviceListForBrandAndType_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceBrandList">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandList" message="tns:IProductInfoService_GetFullDeviceBrandList_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListResponse" message="tns:IProductInfoService_GetFullDeviceBrandList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullDeviceBrandList_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullDeviceBrandList_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullDeviceBrandListByType">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListByType" message="tns:IProductInfoService_GetFullDeviceBrandListByType_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListByTypeResponse" message="tns:IProductInfoService_GetFullDeviceBrandListByType_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListByTypeSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullDeviceBrandListByType_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullDeviceBrandListByTypeNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullDeviceBrandListByType_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesCompatibleWithDeviceID">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithDeviceID" message="tns:IProductInfoService_FindItemReferencesCompatibleWithDeviceID_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithDeviceIDResponse" message="tns:IProductInfoService_FindItemReferencesCompatibleWithDeviceID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithDeviceIDNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_FindItemReferencesCompatibleWithDeviceID_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithDeviceIDSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_FindItemReferencesCompatibleWithDeviceID_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FindItemReferencesCompatibleWithItemReference">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReference" message="tns:IProductInfoService_FindItemReferencesCompatibleWithItemReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReferenceResponse" message="tns:IProductInfoService_FindItemReferencesCompatibleWithItemReference_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReferenceSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_FindItemReferencesCompatibleWithItemReference_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReferenceNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_FindItemReferencesCompatibleWithItemReference_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/FindItemReferencesCompatibleWithItemReferenceItemNotFoundExceptionFault" name="ItemNotFoundExceptionFault" message="tns:IProductInfoService_FindItemReferencesCompatibleWithItemReference_ItemNotFoundExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullProductList">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductList" message="tns:IProductInfoService_GetFullProductList_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListResponse" message="tns:IProductInfoService_GetFullProductList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullProductList_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullProductList_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullProductListExtended">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListExtended" message="tns:IProductInfoService_GetFullProductListExtended_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListExtendedResponse" message="tns:IProductInfoService_GetFullProductListExtended_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListExtendedNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullProductListExtended_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullProductListExtendedSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullProductListExtended_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullItemReferencesList">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullItemReferencesList" message="tns:IProductInfoService_GetFullItemReferencesList_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullItemReferencesListResponse" message="tns:IProductInfoService_GetFullItemReferencesList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullItemReferencesListNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetFullItemReferencesList_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullItemReferencesListSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullItemReferencesList_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFullStockList">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockList" message="tns:IProductInfoService_GetFullStockList_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockListResponse" message="tns:IProductInfoService_GetFullStockList_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockListUnauthorizedAccessExceptionFault" name="UnauthorizedAccessExceptionFault" message="tns:IProductInfoService_GetFullStockList_UnauthorizedAccessExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockListSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetFullStockList_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetFullStockListApplicationExceptionFault" name="ApplicationExceptionFault" message="tns:IProductInfoService_GetFullStockList_ApplicationExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemInfoByReference">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReference" message="tns:IProductInfoService_GetItemInfoByReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReferenceResponse" message="tns:IProductInfoService_GetItemInfoByReference_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReferenceItemNotFoundExceptionFault" name="ItemNotFoundExceptionFault" message="tns:IProductInfoService_GetItemInfoByReference_ItemNotFoundExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReferenceNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetItemInfoByReference_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReferenceSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetItemInfoByReference_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetItemInfoByReferenceArgumentInvalidExceptionFault" name="ArgumentInvalidExceptionFault" message="tns:IProductInfoService_GetItemInfoByReference_ArgumentInvalidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceByItemReferenceAndAmount">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmount" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmountResponse" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmountItemNotFoundExceptionFault" name="ItemNotFoundExceptionFault" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_ItemNotFoundExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmountArgumentInvalidExceptionFault" name="ArgumentInvalidExceptionFault" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_ArgumentInvalidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmountNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceByItemReferenceAndAmountSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetPriceByItemReferenceAndAmount_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockByItemReference">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReference" message="tns:IProductInfoService_GetStockByItemReference_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReferenceResponse" message="tns:IProductInfoService_GetStockByItemReference_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReferenceItemNotFoundExceptionFault" name="ItemNotFoundExceptionFault" message="tns:IProductInfoService_GetStockByItemReference_ItemNotFoundExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReferenceNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetStockByItemReference_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockByItemReferenceSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetStockByItemReference_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceForPriceRequests">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceForPriceRequests" message="tns:IProductInfoService_GetPriceForPriceRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceForPriceRequestsResponse" message="tns:IProductInfoService_GetPriceForPriceRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceForPriceRequestsSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetPriceForPriceRequests_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceForPriceRequestsNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetPriceForPriceRequests_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStockForItemReferences">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockForItemReferences" message="tns:IProductInfoService_GetStockForItemReferences_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockForItemReferencesResponse" message="tns:IProductInfoService_GetStockForItemReferences_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockForItemReferencesNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetStockForItemReferences_NotAuthorizedExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetStockForItemReferencesSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetStockForItemReferences_SessionKeyNotValidExceptionFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPriceAndStockForPriceRequests">
+      <wsdl:input wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceAndStockForPriceRequests" message="tns:IProductInfoService_GetPriceAndStockForPriceRequests_InputMessage" />
+      <wsdl:output wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceAndStockForPriceRequestsResponse" message="tns:IProductInfoService_GetPriceAndStockForPriceRequests_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceAndStockForPriceRequestsSessionKeyNotValidExceptionFault" name="SessionKeyNotValidExceptionFault" message="tns:IProductInfoService_GetPriceAndStockForPriceRequests_SessionKeyNotValidExceptionFault_FaultMessage" />
+      <wsdl:fault wsaw:Action="http://services.client.ac-systems.com/contracts/IProductInfoService/2011/05/IProductInfoService/GetPriceAndStockForPriceRequestsNotAuthorizedExceptionFault" name="NotAuthorizedExceptionFault" message="tns:IProductInfoService_GetPriceAndStockForPriceRequests_NotAuthorizedExceptionFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>

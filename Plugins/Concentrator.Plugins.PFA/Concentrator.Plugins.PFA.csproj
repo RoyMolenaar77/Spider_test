@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AD8CF475-F450-4773-A371-ADD8592F00BC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Plugins.PFA</RootNamespace>
+    <AssemblyName>Concentrator.Plugins.PFA</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\Concentrator\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\Test\Plugin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Release\Plugins\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AuditLog4Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\Shared\AuditLog4Net.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=2.0.0.232, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\AutoMapper.2.0.0\lib\net40-client\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging, Version=1.2.0.0, Culture=neutral, PublicKeyToken=af08829b84f0328e">
+      <HintPath>..\..\packages\Common.Logging.1.2.0\lib\1.0\Common.Logging.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Shared\ExcelReader\Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers">
+      <HintPath>..\..\packages\FileHelpers.2.0.0.0\lib\FileHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="FileHelpers.ExcelStorage">
+      <HintPath>..\..\packages\FileHelpers.2.0.0.0\lib\FileHelpers.ExcelStorage.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Shared\ExcelReader\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.Excel">
+      <HintPath>..\..\packages\FileHelpers.2.0.0.0\lib\Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.Office">
+      <HintPath>..\..\packages\FileHelpers.2.0.0.0\lib\Interop.Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Shared\log4net.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Quartz, Version=1.0.3.3, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Quartz.1.0.3\lib\3.5\Quartz.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SecureBlackbox">
+      <HintPath>..\..\Shared\SecureBlackbox.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTP">
+      <HintPath>..\..\Shared\SecureBlackbox.SFTP.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SFTPCommon">
+      <HintPath>..\..\Shared\SecureBlackbox.SFTPCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHClient">
+      <HintPath>..\..\Shared\SecureBlackbox.SSHClient.dll</HintPath>
+    </Reference>
+    <Reference Include="SecureBlackbox.SSHCommon">
+      <HintPath>..\..\Shared\SecureBlackbox.SSHCommon.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATMediaImport.cs" />
+    <Compile Include="ATMediaThumbnailImport.cs" />
+    <Compile Include="ATPFAImport.cs" />
+    <Compile Include="AttributeVendorMetaData.cs" />
+    <Compile Include="BaseCCATImport.cs" />
+    <Compile Include="ConcentratorRepos\BaseRepo.cs" />
+    <Compile Include="ConcentratorRepos\GetTheLookRepository.cs" />
+    <Compile Include="ConcentratorRepos\IGetTheLookRepository.cs" />
+    <Compile Include="ConcentratorRepos\Models\LookGroup.cs" />
+    <Compile Include="CoolcatCompleteTheLookConstructor.cs" />
+    <Compile Include="CoolcatMediaImport.cs" />
+    <Compile Include="Export\WehkampReturnOrdersExportPFA.cs" />
+    <Compile Include="Helpers\PFAConnectionHelper.cs" />
+    <Compile Include="Imports\Stock\PFAStockImportAT.cs" />
+    <Compile Include="Imports\Stock\PFAStockImportCC.cs" />
+    <Compile Include="Imports\Stock\StockImportBase.cs" />
+    <Compile Include="Imports\WehkampReturnOrders\WehkampReturnOrders.cs" />
+    <Compile Include="Models\PFAMessage.cs" />
+    <Compile Include="Models\ProductLooseSpecificationModel.cs" />
+    <Compile Include="Models\ReturnOrderDatcolModel.cs" />
+    <Compile Include="Models\TaxOverrideResult.cs" />
+    <Compile Include="Models\VendorStockCollectionModel.cs" />
+    <Compile Include="Models\VendorStockModel.cs" />
+    <Compile Include="ReceivedNotificationImporter.cs" />
+    <Compile Include="GetTheLookProcessor.cs" />
+    <Compile Include="Helpers\CCAttributeHelper.cs" />
+    <Compile Include="Helpers\TNTOrderHelper.cs" />
+    <Compile Include="Models\CCStockType.cs" />
+    <Compile Include="Repos\AtPFARepository.cs" />
+    <Compile Include="Repos\CoolcatPFARepository.cs" />
+    <Compile Include="Repos\IPriceRepository.cs" />
+    <Compile Include="Repos\PFARepository.cs" />
+    <Compile Include="Models\ReturnOrderModel.cs" />
+    <Compile Include="Repos\ReturnOrderRepository.cs" />
+    <Compile Include="Repos\StoreOrderRepository.cs" />
+    <Compile Include="StockMutationImporter.cs" />
+    <Compile Include="ReturnNotificationImporter.cs" />
+    <Compile Include="Helpers\AssortmentHelper.cs" />
+    <Compile Include="Helpers\ATDatcolHelper.cs" />
+    <Compile Include="Helpers\ATMediaHelper.cs" />
+    <Compile Include="Helpers\DatcolHelper.cs" />
+    <Compile Include="Helpers\StoreOrderHelper.cs" />
+    <Compile Include="ImageExportPFA.cs" />
+    <Compile Include="Models\AT\ProductColorResult.cs" />
+    <Compile Include="Models\AT\ProductInfoResult.cs" />
+    <Compile Include="Models\AT\SkuResult.cs" />
+    <Compile Include="Models\PriceResult.cs" />
+    <Compile Include="Models\CC\ProductInfoResult.cs" />
+    <Compile Include="Models\ShopWeekModel.cs" />
+    <Compile Include="Models\SizeCodeResult.cs" />
+    <Compile Include="Models\CC\SkuResult.cs" />
+    <Compile Include="Models\SkuSpecification.cs" />
+    <Compile Include="Models\StockResult.cs" />
+    <Compile Include="Models\StoreOrderLineModel.cs" />
+    <Compile Include="Models\StoreOrderModel.cs" />
+    <Compile Include="ProductDescriptionImport.cs" />
+    <Compile Include="SalesOrderExportAT.cs" />
+    <Compile Include="ShopSalesOrderExportPFA.cs" />
+    <Compile Include="GetTheLookRelated.cs" />
+    <Compile Include="MediaUtility.cs" />
+    <Compile Include="PFAImport.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProcessProducts.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SalesOrderExportPFA.cs" />
+    <Compile Include="StockMutationImport.cs" />
+    <Compile Include="StockReset.cs" />
+    <Compile Include="StoreOrderImport.cs" />
+    <Compile Include="TNTDispatcher.cs" />
+    <Compile Include="TNTImporter.cs" />
+    <Compile Include="ShipmentNotificationImporter.cs" />
+    <Compile Include="Transfer\Helper\Files.cs" />
+    <Compile Include="Transfer\Model\Mutation\MutBase.cs" />
+    <Compile Include="Transfer\Model\Mutation\MutDetail.cs" />
+    <Compile Include="Transfer\Model\Mutation\MutHeader.cs" />
+    <Compile Include="Transfer\Model\Mutation\MutMessage.cs" />
+    <Compile Include="Transfer\Model\Mutation\MutTotal.cs" />
+    <Compile Include="Transfer\Model\ReceivedTransfer\ReceivedTransferMutation.cs" />
+    <Compile Include="Transfer\ReceivedTransferProcessor.cs" />
+    <Compile Include="Transfer\WehkampTransferOrders.cs" />
+    <Compile Include="VpnCheck.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Concentrator.Objects.Vendor\Concentrator.Objects.Vendors.csproj">
+      <Project>{00366071-3D28-4B9D-B768-535CACB939BF}</Project>
+      <Name>Concentrator.Objects.Vendors</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Concentrator.Objects\Concentrator.Objects.csproj">
+      <Project>{D80A561D-8D9B-464F-BA1C-430E00CA658A}</Project>
+      <Name>Concentrator.Objects</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Vendor\Concentrator.Vendors.PFA\Concentrator.Vendors.PFA.csproj">
+      <Project>{E5ED421F-50B5-4DE2-B7EB-F1501B0D5823}</Project>
+      <Name>Concentrator.Vendors.PFA</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\Concentrator.Services\Concentrator.Web.ServiceClient.csproj">
+      <Project>{7AA08EA8-AC9C-47B1-8AFD-A40DE084AC18}</Project>
+      <Name>Concentrator.Web.ServiceClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\Concentrator.Web.CustomerSpecific\Concentrator.Web.CustomerSpecific.csproj">
+      <Project>{B678D5BF-3AC6-4FC9-B377-CE3BEA1E3779}</Project>
+      <Name>Concentrator.Web.CustomerSpecific</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Web\Concentrator.Web.Shared\Concentrator.Web.Shared.csproj">
+      <Project>{5588532F-3488-4FCE-A82C-B3D5218F33E9}</Project>
+      <Name>Concentrator.Web.Shared</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.Axapta\Concentrator.Plugins.Axapta.csproj">
+      <Project>{772ee9ed-489b-441c-a43b-5d89aa713317}</Project>
+      <Name>Concentrator.Plugins.Axapta</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.Monitoring\Concentrator.Plugins.Monitoring.csproj">
+      <Project>{cde2a0a3-a22b-4885-a467-0fb5ec92689b}</Project>
+      <Name>Concentrator.Plugins.Monitoring</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.PFA.Configuration\Concentrator.Plugins.PFA.Configuration.csproj">
+      <Project>{8202f161-1170-4e9c-9b82-2e43ca4b6963}</Project>
+      <Name>Concentrator.Plugins.PFA.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.PFA.Objects\Concentrator.Plugins.PFA.Objects.csproj">
+      <Project>{8276f265-0f9d-4934-9250-02d915e0921d}</Project>
+      <Name>Concentrator.Plugins.PFA.Objects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Concentrator.Plugins.PfaCommunicator.Objects\Concentrator.Plugins.PfaCommunicator.Objects.csproj">
+      <Project>{18adbe75-2cba-4695-856f-e64059954c4d}</Project>
+      <Name>Concentrator.Plugins.PfaCommunicator.Objects</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Schemas\pickticket.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Schemas\shipment_notifications.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Schemas\return_notifications.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Schemas\stock_mutations.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Imports\Assortment\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

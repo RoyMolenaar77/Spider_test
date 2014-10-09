@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://secure.brightpoint.eu/ws/external/orders" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="https://secure.brightpoint.eu/ws/external/orders" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="https://secure.brightpoint.eu/ws/external/orders">
+      <s:element name="getStatusPOD_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="instance" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="shipmentParcelID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getStatusPOD_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getStatusPOD_v1_0Result" type="tns:ArrayOfStatusPODHead" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfStatusPODHead">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatusPODHead" nillable="true" type="tns:StatusPODHead" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatusPODHead">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="StatusPODLines" type="tns:ArrayOfStatusPODLine" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentParcelID" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfStatusPODLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="StatusPODLine" nillable="true" type="tns:StatusPODLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="StatusPODLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentParcelID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="AuthHeaderUser" type="tns:AuthHeaderUser" />
+      <s:complexType name="AuthHeaderUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sCustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sInstance" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPassword" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="putShipmentPOD_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="site" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="instance" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="traceNTrace" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="contractNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shippingDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="carrierContact" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventStateCarrierCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventReasonCarrierCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="eventDate" type="s:dateTime" />
+            <s:element minOccurs="0" maxOccurs="1" name="eventZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="deliveryName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="putShipmentPOD_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="putShipmentPOD_v1_0Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOrderHistory_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="modifiedDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getOrderHistory_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getOrderHistory_v1_0Result" type="tns:ArrayOfOrderhead" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrderhead">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Orderhead" nillable="true" type="tns:Orderhead" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Orderhead">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchaseOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnteredDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="WantedDeliveryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BrightpointDirect" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipViaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PayTermCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverCustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceiverInvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BackOrderOption" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EANPayerBillLocationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EANBillLocationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModifiedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssociationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Company" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ZipCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipAddressNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BillAddressNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippingEANLocationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackTraces" type="tns:ArrayOfTrackTrace" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderheadAttributes" type="tns:ArrayOfOrderheadAttributes" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderLines" type="tns:ArrayOfOrderLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTrackTrace">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TrackTrace" nillable="true" type="tns:TrackTrace" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TrackTrace">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Weight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TrackTraceNum" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CourierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderheadAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderheadAttributes" nillable="true" type="tns:OrderheadAttributes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderheadAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeLineNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderLine" nillable="true" type="tns:OrderLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UnitPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SenderUnitPrice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="BoughtQty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippedQty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssignedQty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EnteredDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShippedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderLineText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StockOwner" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RowVersion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PurchasePartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EANCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="serials" type="tns:Serial" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderlineAttributes" type="tns:ArrayOfOrderlineAttributes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Serial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="serial" type="tns:ArrayOfSerialProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSerialProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SerialProperty" nillable="true" type="tns:SerialProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SerialProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SerialID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Value" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Type" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderlineAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderlineAttributes" nillable="true" type="tns:OrderlineAttributes" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderlineAttributes">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeLineNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AttributeValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getRMA_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fromDate" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getRMA_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getRMA_v1_0Result" type="tns:ArrayOfRmaHeader" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRmaHeader">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RmaHeader" nillable="true" type="tns:RmaHeader" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RmaHeader">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="RmaID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NoteText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DebitNoteNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerNoToCredit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RmaLines" type="tns:ArrayOfRmaLine" />
+          <s:element minOccurs="1" maxOccurs="1" name="Requested" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowVersion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRmaLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RmaLine" nillable="true" type="tns:RmaLine" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RmaLine">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="OrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReleaseNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RMALineNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyToReturn" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="QtyReceived" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitBasePrice" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnedDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CreditInvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerSalesPartNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReturnReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ConditionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RmaSerials" type="tns:ArrayOfRmaSerial" />
+          <s:element minOccurs="1" maxOccurs="1" name="RowVersion" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfRmaSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RmaSerial" nillable="true" type="tns:RmaSerial" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="RmaSerial">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SerialType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SerialValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getShipment_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="dtFromDate" type="s:dateTime" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getShipment_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getShipment_v1_0Result" type="tns:ArrayOfShipment" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfShipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Shipment" nillable="true" type="tns:Shipment" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Shipment">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sStatus" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDeliveryTerm" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dTotalWeight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dTotalvolumetricWeight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iTotalItems" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iTotalLUs" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNotes" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCreatedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dtEdiDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentParcels" type="tns:ArrayOfShipmentParcel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShipmentParcel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentParcel" nillable="true" type="tns:ShipmentParcel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShipmentParcel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentParcelID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPickListNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sInvoiceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sShipViaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderIDAtCourier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderNoAtCourier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverHouseNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverContact" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderCompany" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderHouseNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierFax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierTourNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierGateNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCourierShipmentNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dWeight" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNoOfParcels" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sParcelNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sParcelID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sNextNoUsed" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sBarCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCheckDigit" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sTransportCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sServiceType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sServiceLevel" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDeliveryInstruction" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDatePickup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="bCOD" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="dCODAmount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCODCurrency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCODAccount" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sInsuranceValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iParentShipmentParcelID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="iSequenceNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCreatedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUpdatedDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="shipmentParcelProperties" type="tns:ArrayOfShipmentParcelProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfShipmentParcelProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ShipmentParcelProperty" nillable="true" type="tns:ShipmentParcelProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ShipmentParcelProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentParcelPropertyID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sShipmentParcelID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sProperty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sPropertyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCreatedDate" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="putCustomer_v1_0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerReference" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipAddress1" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipAddress2" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipZipCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipCity" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipCountryCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ShipFax" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerEmail" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerGroupNo" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LiabilityType" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CurrencyCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LanguageCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerStatus" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CustomerDistrict" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="putCustomer_v1_0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="putCustomer_v1_0Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="getStatusPOD_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:getStatusPOD_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="getStatusPOD_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:getStatusPOD_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="getStatusPOD_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="putShipmentPOD_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:putShipmentPOD_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="putShipmentPOD_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:putShipmentPOD_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="putShipmentPOD_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getOrderHistory_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:getOrderHistory_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="getOrderHistory_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:getOrderHistory_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="getOrderHistory_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getRMA_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:getRMA_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="getRMA_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:getRMA_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="getRMA_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="getShipment_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:getShipment_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="getShipment_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:getShipment_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="getShipment_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:message name="putCustomer_v1_0SoapIn">
+    <wsdl:part name="parameters" element="tns:putCustomer_v1_0" />
+  </wsdl:message>
+  <wsdl:message name="putCustomer_v1_0SoapOut">
+    <wsdl:part name="parameters" element="tns:putCustomer_v1_0Response" />
+  </wsdl:message>
+  <wsdl:message name="putCustomer_v1_0AuthHeaderUser">
+    <wsdl:part name="AuthHeaderUser" element="tns:AuthHeaderUser" />
+  </wsdl:message>
+  <wsdl:portType name="OrderSoap">
+    <wsdl:operation name="getStatusPOD_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns POD data</wsdl:documentation>
+      <wsdl:input message="tns:getStatusPOD_v1_0SoapIn" />
+      <wsdl:output message="tns:getStatusPOD_v1_0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="putShipmentPOD_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Import POD data</wsdl:documentation>
+      <wsdl:input message="tns:putShipmentPOD_v1_0SoapIn" />
+      <wsdl:output message="tns:putShipmentPOD_v1_0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getOrderHistory_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns order history</wsdl:documentation>
+      <wsdl:input message="tns:getOrderHistory_v1_0SoapIn" />
+      <wsdl:output message="tns:getOrderHistory_v1_0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getRMA_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns all rma data changed since the from date you send in</wsdl:documentation>
+      <wsdl:input message="tns:getRMA_v1_0SoapIn" />
+      <wsdl:output message="tns:getRMA_v1_0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getShipment_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns shipment info</wsdl:documentation>
+      <wsdl:input message="tns:getShipment_v1_0SoapIn" />
+      <wsdl:output message="tns:getShipment_v1_0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="putCustomer_v1_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Import Customer data</wsdl:documentation>
+      <wsdl:input message="tns:putCustomer_v1_0SoapIn" />
+      <wsdl:output message="tns:putCustomer_v1_0SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="OrderSoap" type="tns:OrderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStatusPOD_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getStatusPOD_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getStatusPOD_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putShipmentPOD_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/putShipmentPOD_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:putShipmentPOD_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderHistory_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getOrderHistory_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getOrderHistory_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRMA_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getRMA_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getRMA_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShipment_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getShipment_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:getShipment_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putCustomer_v1_0">
+      <soap:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/putCustomer_v1_0" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:putCustomer_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="OrderSoap12" type="tns:OrderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStatusPOD_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getStatusPOD_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getStatusPOD_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putShipmentPOD_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/putShipmentPOD_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:putShipmentPOD_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getOrderHistory_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getOrderHistory_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getOrderHistory_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getRMA_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getRMA_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getRMA_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getShipment_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/getShipment_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:getShipment_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="putCustomer_v1_0">
+      <soap12:operation soapAction="https://secure.brightpoint.eu/ws/external/orders/putCustomer_v1_0" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:putCustomer_v1_0AuthHeaderUser" part="AuthHeaderUser" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Order">
+    <wsdl:port name="OrderSoap" binding="tns:OrderSoap">
+      <soap:address location="https://secure.brightpoint.eu/ws/external/orders/default.asmx" />
+    </wsdl:port>
+    <wsdl:port name="OrderSoap12" binding="tns:OrderSoap12">
+      <soap12:address location="https://secure.brightpoint.eu/ws/external/orders/default.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

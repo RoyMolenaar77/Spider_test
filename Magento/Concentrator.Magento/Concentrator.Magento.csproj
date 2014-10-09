@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A2E5E48-79F9-455B-9C5F-EDDAE23FD1B3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Concentrator.Magento</RootNamespace>
+    <AssemblyName>Concentrator.Magento</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.12.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Dapper.1.13\lib\net45\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Concentrator.Magento.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Concentrator.Magento.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Procedures\Magento.DeleteCatalogProductAttribute.cs" />
+    <Compile Include="Database\Procedures\Magento.DeleteCatalogProductAttributeMetaData.cs" />
+    <Compile Include="Database\Procedures\Magento.InsertCatalogProductAttribute.cs" />
+    <Compile Include="Database\Procedures\Magento.InsertCatalogProductAttributeMetaData.cs" />
+    <Compile Include="Database\Procedures\Magento.SelectCatalogProductAttribute.cs" />
+    <Compile Include="Database\Procedures\Magento.SelectCatalogProductAttributeMetaData.cs" />
+    <Compile Include="Database\Procedures\Magento.SelectProductAttributeCode.cs" />
+    <Compile Include="Database\Procedures\Magento.UpdateCatalogProductAttribute.cs" />
+    <Compile Include="Database\Procedures\Magento.UpdateCatalogProductAttributeMetaData.cs" />
+    <Compile Include="Database\Tables\Magento.CatalogProductAttribute.cs" />
+    <Compile Include="Database\Tables\Magento.CatalogProductAttributeMetaData.cs" />
+    <Compile Include="Database\Tables\Magento.CatalogProductAttributeSet.cs" />
+    <Compile Include="Database\Tables\Magento.CatalogProductAttributeSetMapping.cs" />
+    <Compile Include="Models\Magento\ConnectorProductAttribute.cs" />
+    <Compile Include="Models\Magento\ConnectorProductAttributeMetaData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Concentrator.Magento.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Concentrator.Magento.cs</LastGenOutput>
+      <Namespace>Concentrator.Magento</Namespace>
+      <Class>ConcentratorDatabase</Class>
+      <IsPublic>True</IsPublic>
+      <ConnectionString>Data Source=.\SQL2012%3b Initial Catalog=CCAT%3b Integrated Security=True</ConnectionString>
+      <Schemas>Magento</Schemas>
+      <LastOutputs>
+.\Database\Procedures\Magento.DeleteCatalogProductAttribute.cs
+.\Database\Procedures\Magento.DeleteCatalogProductAttributeMetaData.cs
+.\Database\Procedures\Magento.InsertCatalogProductAttribute.cs
+.\Database\Procedures\Magento.InsertCatalogProductAttributeMetaData.cs
+.\Database\Procedures\Magento.SelectCatalogProductAttribute.cs
+.\Database\Procedures\Magento.SelectCatalogProductAttributeMetaData.cs
+.\Database\Procedures\Magento.SelectProductAttributeCode.cs
+.\Database\Procedures\Magento.UpdateCatalogProductAttribute.cs
+.\Database\Procedures\Magento.UpdateCatalogProductAttributeMetaData.cs
+.\Database\Tables\Magento.CatalogProductAttribute.cs
+.\Database\Tables\Magento.CatalogProductAttributeMetaData.cs
+.\Database\Tables\Magento.CatalogProductAttributeSet.cs
+.\Database\Tables\Magento.CatalogProductAttributeSetMapping.cs
+.\Models\Magento\CatalogProductAttribute.cs
+.\Models\Magento\CatalogProductAttributeMetaData.cs
+.\Models\Magento\CatalogProductAttributeSet.cs
+.\Models\Magento\CatalogProductAttributeSetMapping.cs
+</LastOutputs>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Components\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

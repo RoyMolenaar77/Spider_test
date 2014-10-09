@@ -1,0 +1,54 @@
+﻿/* INSERT MISSING ProductDescriptions QUERY */
+WITH ProductsRSO AS 
+(
+	SELECT P.ProductID
+	, P.VendorItemNumber
+	, PD.ProductID AS PDProductID
+	, PD.ShortContentDescription
+	, PD.LongContentDescription
+	, PD.ShortSummaryDescription
+	, PD.LongSummaryDescription
+	, PD.ProductName
+	FROM [dbo].Product P
+	LEFT JOIN [dbo].[ProductDescription] PD on P.ProductID = PD.ProductID and PD.VendorID = {1}
+	WHERE P.IsConfigurable = 1
+),
+ProductsIntersport AS 
+(
+	SELECT P.ProductID
+		, P.VendorItemNumber
+		, PD.ShortContentDescription
+		, PD.LongContentDescription
+		, PD.ShortSummaryDescription
+		, PD.LongSummaryDescription
+		, PD.ProductName
+	FROM {0}.[dbo].[Product] P
+	INNER JOIN {0}.[dbo].[ProductDescription] PD on P.ProductID = PD.ProductID
+	WHERE P.IsConfigurable = 1
+)
+
+INSERT INTO ProductDescription (
+	   [ProductID]
+      ,[LanguageID]
+      ,[VendorID]
+      ,[ShortContentDescription]
+      ,[LongContentDescription]
+      ,[ShortSummaryDescription]
+      ,[LongSummaryDescription]
+      ,[PDFUrl]
+      ,[PDFSize]
+      ,[Url]
+      ,[WarrantyInfo]
+      ,[ModelName]
+      ,[ProductName]
+      ,[Quality]
+      ,[CreatedBy]
+      ,[CreationTime]
+      ,[LastModificationTime]
+      ,[LastModifiedBy])
+
+	  SELECT PR.ProductID, {2}, {1}, PIS.ShortContentDescription, PIS.LongContentDescription, PIS.ShortSummaryDescription,
+	         PIS.LongSummaryDescription, NULL, NULL, NULL, NULL, NULL, PIS.ProductName, NULL, 1, GETDATE(), NULL, NULL
+	  FROM ProductsIntersport PIS
+	  LEFT JOIN ProductsRSO PR ON PIS.VendorItemNumber = PR.VendorItemNumber
+	  WHERE PR.ProductID IS NOT NULL AND PR.PDProductID IS NULL

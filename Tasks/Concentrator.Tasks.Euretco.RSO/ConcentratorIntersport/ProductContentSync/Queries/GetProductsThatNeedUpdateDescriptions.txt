@@ -1,0 +1,57 @@
+﻿;WITH ProductsRSO AS 
+(
+	SELECT P.ProductID
+	, PD.ProductID AS PDProductID
+	, P.VendorItemNumber
+	, PD.ShortContentDescription
+	, PD.LongContentDescription
+	, PD.ShortSummaryDescription
+	, PD.LongSummaryDescription
+	, PD.ProductName
+	FROM [dbo].Product P
+	LEFT JOIN [dbo].[ProductDescription] PD on P.ProductID = PD.ProductID and PD.VendorID = {1} AND PD.LanguageID = {2}
+	WHERE P.IsConfigurable = 1
+),
+
+ProductsIntersport AS 
+(
+	SELECT P.ProductID
+		, P.VendorItemNumber
+		, PD.ShortContentDescription
+		, PD.LongContentDescription
+		, PD.ShortSummaryDescription
+		, PD.LongSummaryDescription
+		, PD.ProductName
+	FROM {0}.[dbo].[Product] P
+	INNER JOIN {0}.[dbo].[ProductDescription] PD on P.ProductID = PD.ProductID
+	WHERE P.IsConfigurable = 1
+)
+
+
+SELECT PIS.ProductID
+, PIS.VendorItemNumber
+, PIS.ShortContentDescription
+, PIS.LongContentDescription
+, PIS.ShortSummaryDescription
+, PIS.LongSummaryDescription
+, PIS.ProductName
+, PR.ProductID AS RSOProductID
+, PR.ShortContentDescription AS RSOShortContentDescription
+, PR.LongContentDescription AS RSOLongContentDescription
+, PR.ShortSummaryDescription AS RSOShortSummaryDescription
+, PR.LongSummaryDescription AS RSOLongSummaryDescription
+, PR.ProductName AS RSOProductName
+
+FROM ProductsIntersport PIS
+LEFT JOIN ProductsRSO PR ON PIS.VendorItemNumber = PR.VendorItemNumber
+
+WHERE PR.ProductID IS NOT NULL 
+  AND PR.PDProductID IS NOT NULL
+  AND
+  (
+  	   ( PR.LongContentDescription	IS NULL OR PR.LongContentDescription	= ''	AND PIS.LongContentDescription	IS NOT NULL )
+  	OR ( PR.ShortContentDescription IS NULL OR PR.ShortContentDescription	= ''	AND PIS.ShortContentDescription IS NOT NULL )
+  	OR ( PR.ShortSummaryDescription IS NULL OR PR.ShortSummaryDescription	= ''	AND PIS.ShortSummaryDescription IS NOT NULL )
+  	OR ( PR.LongSummaryDescription	IS NULL OR PR.LongSummaryDescription	= ''	AND PIS.LongSummaryDescription	IS NOT NULL )
+  	OR ( PR.ProductName				      IS NULL OR PR.ProductName				      = ''	AND PIS.ProductName				      IS NOT NULL )
+  )

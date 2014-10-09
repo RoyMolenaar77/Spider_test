@@ -1,0 +1,100 @@
+﻿@{
+  Layout = null;
+}
+@using Concentrator.ui.Management.Models.Anychart
+@model Concentrator.ui.Management.Models.Anychart.AnychartComponentModel
+<?xml version="1.0" encoding="UTF-8" ?>
+<anychart>
+  <settings>
+    <animation enabled="True" />
+  </settings>
+    <charts>
+    <chart plot_type="CategorizedHorizontal">
+      <data_plot_settings default_series_type="Bar">
+        <bar_series group_padding="0.3">
+          <label_settings enabled="true">
+            <background enabled="false" />
+            <position anchor="Center" valign="Center" halign="Center" />
+            <font color="White" bold="true">
+              <effects>
+                <drop_shadow enabled="true" distance="1" angle="45" blur_x="1.5" blur_y="1.5" strength="2" opacity="0.5" />
+              </effects>
+            </font>
+            <format>{%Value}{numDecimals:0}</format>
+          </label_settings>
+          <tooltip_settings enabled="True">
+            <background>
+              <border color="DarkColor(%Color)" />
+            </background>
+            <format>
+Name: {%SeriesName}
+@*Value: {%YValue}{numDecimals:2}*@
+@*Ratio: {%YPercentOfCategory}{numDecimals:1}%*@
+</format>
+          </tooltip_settings>
+        </bar_series>
+      </data_plot_settings>
+      <chart_settings>
+        <title enabled="true">
+          <text></text>
+        </title>
+        <axes>
+          <y_axis position="Opposite">
+            <scale mode="Stacked" />
+          </y_axis>
+        </axes>
+      </chart_settings>
+      <data>
+    @foreach (var p in Model.Series)
+    {
+       <series name="@p.Name"@if (!string.IsNullOrEmpty(p.Palette))
+                             {
+                                  @MvcHtmlString.Create("palette='" + @p.Palette + "'")
+                             }>
+       @foreach (PieChartPoint c in p)
+       {
+         //var value = c.Value.ToString();
+
+         decimal dev = 0;
+         double dov = 0;
+         string value = "";
+
+         if (decimal.TryParse(c.Value.ToString(), out dev))
+         {
+           value = dev.ToString().Replace(',', '.');
+         }
+         else if (double.TryParse(c.Value.ToString(), out dov))
+         {
+           value = dov.ToString().Replace(',', '.');
+         }
+         else
+         {
+           value = c.Value.ToString();
+         }
+
+                  <point y="@c.Value"  @if (!string.IsNullOrEmpty(c.Color))
+                                       {
+                                  @MvcHtmlString.Create("color='" + @c.Color + "'")
+                                      
+                                       }>
+                    <name>@c.Name</name>
+                  @if (c.Action != null)
+                  {
+                      <actions>
+                        <action type="@c.Action.Type" function="@c.Action.Name">
+                          @foreach (var a in c.Action.ArgumentValues)
+                          {
+                              <arg>@a</arg>
+                          } 
+                        </action>
+                      </actions>
+                  }
+                </point>    
+         
+       }
+          </series>
+    }
+      </data>
+    </chart>
+  </charts>
+</anychart>

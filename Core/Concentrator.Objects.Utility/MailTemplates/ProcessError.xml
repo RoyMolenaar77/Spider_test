@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<message>
+    <subject>Order verwerken mislukt</subject>
+    <body isHtmlBody="true">
+        <![CDATA[
+<p>Beste klant,</p>
+<p>De door u verzonden order(s) is of zijn door ons ontvangen. </p>
+<p>Wij kunnen de order(s) niet verwerken omdat uw klantgegevens niet zijn ingesteld voor het verwerken van EDI orders. </p>
+<p>Neem contact op met uw account manager om de gegevens aan te laten passen.</p>
+<p>Zodra dit is gedaan kunt u opnieuw uw order(s) versturen.</p>
+
+
+  
+		]]>
+    </body>
+</message>

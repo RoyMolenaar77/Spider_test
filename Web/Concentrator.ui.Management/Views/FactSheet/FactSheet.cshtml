@@ -1,0 +1,93 @@
+﻿@model Concentrator.ui.Management.Models.FactSheetModel
+@{
+  Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF FactSheet</title>
+  <script type="text/javascript" src="@Url.Content("~/Scripts/jQuery/jquery-1.5.1.min.js")"></script>
+  <link rel="Stylesheet" type="text/css" href="@Url.Content("~/Content/css/FactSheet.css")" />
+</head>
+<body style="background-color: White">
+
+
+  <div class="page">
+        
+    <div id="clientlogo">
+
+      <img src="@Url.Content(@Model.logoPath)" alt ="No Logo Found" />
+
+    </div>
+    
+    <div id="productbox">
+
+        @if (Model.ImageModels.Where(x => x.Sequence == 0).Count() > 0)
+        {
+          <img src="@Url.Content(@Model.ImageModels.Where(x => x.Sequence == 0).FirstOrDefault().ImagePath.Replace("\\", "/") + "&width=200&height=200")" class="product-pic" alt=""/>
+        }
+        else
+        {
+          if (Model.ImageModels.Count() > 0)
+          {
+            <img src="@Url.Content(@Model.ImageModels.FirstOrDefault().ImagePath.Replace("\\", "/") + "&width=200&height=200")" class="product-pic" alt="" /> 
+          }
+          else
+          {
+            <img src="@Url.Content("~/Content/images/Pdf/Logo.gif")" class="product-pic" height="200px" width="200px" alt="" /> 
+          }
+        }
+
+    </div>
+    <h1>
+@*    @{if (Model.BrandName == null){
+        Model.BrandName = "No BrandName";
+    }}*@
+    @Model.BrandName - @Model.ProductName</h1>
+    <h2> @(Model.DescriptionModels.FirstOrDefault() != null ? Model.DescriptionModels.FirstOrDefault().LongDescription : string.Empty)
+
+      <div id="remaining-pics" style="margin-top: 45px;">
+
+      @foreach (var image in Model.ImageModels.Where(x => x.Sequence > 0).Take(6))
+      {
+        <img src="@Url.Content(@image.ImagePath.Replace("\\", "/") + "&width=50&height=50")" alt="" />
+      }
+
+      </div>
+    </h2>
+
+    <div id="productinfo">
+    @{int max = 30;
+      int count = Model.AttributeModels.OrderBy(c => c.GroupName).Count();
+      int amount = 15;
+    }
+
+    @if (count < max)
+    {
+      amount = count / 2;
+    }
+    
+    @Html.Partial("AttributeGroup", Model.AttributeModels.OrderBy(c => c.GroupName).Take(amount).ToList())
+    @Html.Partial("AttributeGroup", Model.AttributeModels.OrderBy(c => c.GroupName).Skip(amount).Take(amount * 2).ToList())
+    </div>
+    
+    <div id="footer">
+      <div id="barcode">
+      @Model.BarCode 
+        <div id="barcode-plain">
+         @Model.BarCode 
+        </div>
+      </div>
+      <div id="price">
+      @Html.Raw(Html.RenderPrice(decimal.Round(Model.Price.HasValue ? Model.Price.Value : 0, 2)))
+      </div>
+    </div>
+
+
+  </div>
+
+</body>
+</html>
+
+
+

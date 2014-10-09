@@ -1,0 +1,13 @@
+﻿@{
+  Layout = null;
+}
+<div class="portlet-content-container">
+  <span>There are 
+    <a href="#" onclick="Concentrator.ViewInstance.open('refund-queue-item',{valid: false})">@ViewBag.CountInvalidRefunds refunds </a>that do not contain valid customer data.    
+  </span>
+</div>          
+<div class="portlet-content-container">
+  <span>There are 
+    <a href="#" onclick="Concentrator.ViewInstance.open('refund-queue-item',{valid: true})">@ViewBag.CountValidRefunds refunds </a>that are valid but need to be processed.
+  </span>
+</div>

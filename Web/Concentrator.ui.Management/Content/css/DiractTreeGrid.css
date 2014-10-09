@@ -1,0 +1,37 @@
+﻿
+.x-tree-arrow-collapsed
+{
+  height: 16px;
+  width: 16px;
+  background-image: url(../images/default/tree/arrows.gif);
+}
+
+
+.x-tree-arrow-expanded
+{
+  height: 16px;
+  width: 16px;
+  background-position: 48px 0px;
+  background-image: url(../images/default/tree/arrows.gif);  
+}
+
+.x-tree-folder-collapsed
+{
+  height: 16px;
+  width: 16px;
+  background-image: url(../images/default/tree/folder.gif);
+}
+
+.x-tree-folder-expanded
+{
+  height: 16px;
+  width: 16px;
+  background-image: url(../images/default/tree/folder-open.gif);
+}
+
+.x-tree-folder-loading
+{
+  background-image: url(../images/default/tree/loading.gif);
+  height: 16px;
+  width: 16px;
+}

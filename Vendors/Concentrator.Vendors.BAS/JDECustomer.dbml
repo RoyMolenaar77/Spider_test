@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Laorta" Class="JDECustomerDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=192.168.94.186;Initial Catalog=Laorta;Persist Security Info=True;User ID=BASNL_Xtract" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="LaortaConnectionString" Provider="System.Data.SqlClient" />
+  <Function Name="dbo.PortalGetWebCustomers" Method="PortalGetWebCustomers" IsComposable="true">
+    <Parameter Name="BusinessUnit" Parameter="businessUnit" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="object" />
+  </Function>
+  <Function Name="dbo.PortalFetchContactPersons" Method="PortalFetchContactPersons">
+    <ElementType Name="PortalFetchContactPersonsResult">
+      <Column Name="EAAN8" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EAIDLN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EARCK7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="EAETP" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="EAEMAL" Type="System.String" DbType="VarChar(256)" CanBeNull="true" />
+      <Column Name="WWAN8" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WWIDLN" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="WWDSS5" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WWMLNM" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWATTL" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWREM1" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWSLNM" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWALPH" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWDC" Type="System.String" DbType="Char(40)" CanBeNull="true" />
+      <Column Name="WWGNNM" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="WWMDNM" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="WWSRNM" Type="System.String" DbType="Char(25)" CanBeNull="true" />
+      <Column Name="WWTYC" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="WPRCK7" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="WPPHTP" Type="System.String" DbType="Char(4)" CanBeNull="true" />
+      <Column Name="WPAR1" Type="System.String" DbType="Char(6)" CanBeNull="true" />
+      <Column Name="WPPH1" Type="System.String" DbType="Char(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

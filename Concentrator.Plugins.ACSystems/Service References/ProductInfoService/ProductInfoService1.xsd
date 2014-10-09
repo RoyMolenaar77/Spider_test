@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfo/2008/06" elementFormDefault="qualified" targetNamespace="http://www.ac-systems.com/AnCWCFWebService/DataContracts/CachedItemInfo/2008/06" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfCachedItemInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CachedItemInfo" nillable="true" type="tns:CachedItemInfo" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCachedItemInfo" nillable="true" type="tns:ArrayOfCachedItemInfo" />
+  <xs:complexType name="CachedItemInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category1" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category2" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category3" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Category4" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Currency" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="InStock" type="xs:int" />
+      <xs:element minOccurs="0" name="Price1Piece" type="xs:double" />
+      <xs:element minOccurs="0" name="PriceEndUser" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CachedItemInfo" nillable="true" type="tns:CachedItemInfo" />
+</xs:schema>

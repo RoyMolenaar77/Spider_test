@@ -1,0 +1,35 @@
+﻿@{
+  Layout = null;
+}
+@model List<Concentrator.ui.Management.Models.AttributeModel>
+
+
+@if(Model.Count > 0){
+
+<table id="table" style="float: left; margin-right: 8px">
+  @foreach (var attribute in Model.OrderBy(c => c.AttributeIndex).GroupBy(l => l.GroupName))
+  { 
+    <tr>
+      <td colspan="2" style="font-weight: bold; font-size: 12px; text-decoration: underline;
+        padding: 12px 5px 5px 0px; line-height: 10px;">@attribute.Key
+      </td>
+    </tr>
+    foreach (var attr in attribute)
+    {    
+    <tr>
+      <td>
+        <span class="attribute_name">
+          @attr.AttributeName
+        </span>
+      </td>
+      <td>
+        <span class="attribute_value">
+          @attr.AttributeValue
+        </span>
+      </td>
+    </tr>  
+    }
+
+  }
+</table>
+}

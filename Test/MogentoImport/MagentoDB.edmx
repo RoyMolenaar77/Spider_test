@@ -1,0 +1,2286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MagentoWebEntitiesContainer.Store" Alias="Self" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.1" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="MagentoWebEntitiesContainerStoreContainer">
+          <EntitySet Name="cataloginventory_stock_item" EntityType="MagentoWebEntitiesContainer.Store.cataloginventory_stock_item" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_category_entity" EntityType="MagentoWebEntitiesContainer.Store.catalog_category_entity" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_category_entity_int" EntityType="MagentoWebEntitiesContainer.Store.catalog_category_entity_int" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_category_entity_varchar" EntityType="MagentoWebEntitiesContainer.Store.catalog_category_entity_varchar" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_category_product" EntityType="MagentoWebEntitiesContainer.Store.catalog_category_product" store:Type="Tables" store:Schema="magento_demo" store:Name="catalog_category_product">
+            <DefiningQuery>SELECT
+      `catalog_category_product`.`category_id`, 
+      `catalog_category_product`.`position`, 
+      `catalog_category_product`.`product_id`
+      FROM `catalog_category_product` AS `catalog_category_product`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="catalog_category_product_index" EntityType="MagentoWebEntitiesContainer.Store.catalog_category_product_index" store:Type="Tables" store:Schema="magento_demo" store:Name="catalog_category_product_index">
+            <DefiningQuery>SELECT
+      `catalog_category_product_index`.`category_id`, 
+      `catalog_category_product_index`.`is_parent`, 
+      `catalog_category_product_index`.`position`, 
+      `catalog_category_product_index`.`product_id`, 
+      `catalog_category_product_index`.`store_id`, 
+      `catalog_category_product_index`.`visibility`
+      FROM `catalog_category_product_index` AS `catalog_category_product_index`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="catalog_eav_attribute" EntityType="MagentoWebEntitiesContainer.Store.catalog_eav_attribute" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_decimal" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_decimal" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_gallery" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_gallery" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_int" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_int" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_media_gallery" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_media_gallery_value" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery_value" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_entity_varchar" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_entity_varchar" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="catalog_product_website" EntityType="MagentoWebEntitiesContainer.Store.catalog_product_website" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_attribute" EntityType="MagentoWebEntitiesContainer.Store.eav_attribute" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_attribute_group" EntityType="MagentoWebEntitiesContainer.Store.eav_attribute_group" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_attribute_option" EntityType="MagentoWebEntitiesContainer.Store.eav_attribute_option" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_attribute_option_value" EntityType="MagentoWebEntitiesContainer.Store.eav_attribute_option_value" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_attribute_set" EntityType="MagentoWebEntitiesContainer.Store.eav_attribute_set" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_entity" EntityType="MagentoWebEntitiesContainer.Store.eav_entity" store:Type="Tables" Schema="magento_demo" />
+          <EntitySet Name="eav_entity_attribute" EntityType="MagentoWebEntitiesContainer.Store.eav_entity_attribute" store:Type="Tables" Schema="magento_demo" />
+          <AssociationSet Name="CATALOG_CATEGORY_PRODUCT_CATEGORY" Association="MagentoWebEntitiesContainer.Store.CATALOG_CATEGORY_PRODUCT_CATEGORY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_product" EntitySet="catalog_category_product" />
+          </AssociationSet>
+          <AssociationSet Name="CATALOG_CATEGORY_PRODUCT_PRODUCT" Association="MagentoWebEntitiesContainer.Store.CATALOG_CATEGORY_PRODUCT_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_category_product" EntitySet="catalog_category_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTRIBUTE_OPTION_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_ATTRIBUTE_OPTION_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="eav_attribute_option" EntitySet="eav_attribute_option" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTRIBUTE_OPTION_VALUE_OPTION" Association="MagentoWebEntitiesContainer.Store.FK_ATTRIBUTE_OPTION_VALUE_OPTION">
+            <End Role="eav_attribute_option" EntitySet="eav_attribute_option" />
+            <End Role="eav_attribute_option_value" EntitySet="eav_attribute_option_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" Association="MagentoWebEntitiesContainer.Store.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="cataloginventory_stock_item" EntitySet="cataloginventory_stock_item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_category_entity_int" EntitySet="catalog_category_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_entity_int" EntitySet="catalog_category_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_category_entity_varchar" EntitySet="catalog_category_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_entity_varchar" EntitySet="catalog_category_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_product_index" EntitySet="catalog_category_product_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_category_product_index" EntitySet="catalog_category_product_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_EAV_ATTRIBUTE_ID" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_EAV_ATTRIBUTE_ID">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_eav_attribute" EntitySet="catalog_eav_attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID">
+            <End Role="eav_attribute_set" EntitySet="eav_attribute_set" />
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_decimal" EntitySet="catalog_product_entity_decimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_decimal" EntitySet="catalog_product_entity_decimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_gallery" EntitySet="catalog_product_entity_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_gallery" EntitySet="catalog_product_entity_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_int" EntitySet="catalog_product_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_int" EntitySet="catalog_product_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_varchar" EntitySet="catalog_product_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_varchar" EntitySet="catalog_product_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY">
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+            <End Role="catalog_product_entity_media_gallery_value" EntitySet="catalog_product_entity_media_gallery_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" Association="MagentoWebEntitiesContainer.Store.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_website" EntitySet="catalog_product_website" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eav_attribute_group" Association="MagentoWebEntitiesContainer.Store.FK_eav_attribute_group">
+            <End Role="eav_attribute_set" EntitySet="eav_attribute_set" />
+            <End Role="eav_attribute_group" EntitySet="eav_attribute_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" Association="MagentoWebEntitiesContainer.Store.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="eav_entity_attribute" EntitySet="eav_entity_attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EAV_ENTITY_ATTRIBUTE_GROUP" Association="MagentoWebEntitiesContainer.Store.FK_EAV_ENTITY_ATTRIBUTE_GROUP">
+            <End Role="eav_attribute_group" EntitySet="eav_attribute_group" />
+            <End Role="eav_entity_attribute" EntitySet="eav_entity_attribute" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="cataloginventory_stock_item">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="backorders" Type="utinyint" Nullable="false" />
+          <Property Name="is_in_stock" Type="bool" Nullable="false" />
+          <Property Name="is_qty_decimal" Type="bool" Nullable="false" />
+          <Property Name="item_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="low_stock_date" Type="datetime" />
+          <Property Name="manage_stock" Type="bool" Nullable="false" />
+          <Property Name="max_sale_qty" Type="decimal" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="min_qty" Type="decimal" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="min_sale_qty" Type="decimal" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="notify_stock_qty" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="product_id" Type="uint" Nullable="false" />
+          <Property Name="qty" Type="decimal" Nullable="false" Precision="12" Scale="4" />
+          <Property Name="stock_id" Type="usmallint" Nullable="false" />
+          <Property Name="stock_status_changed_automatically" Type="bool" Nullable="false" />
+          <Property Name="use_config_backorders" Type="bool" Nullable="false" />
+          <Property Name="use_config_manage_stock" Type="bool" Nullable="false" />
+          <Property Name="use_config_max_sale_qty" Type="bool" Nullable="false" />
+          <Property Name="use_config_min_qty" Type="bool" Nullable="false" />
+          <Property Name="use_config_min_sale_qty" Type="bool" Nullable="false" />
+          <Property Name="use_config_notify_stock_qty" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" />
+          <Property Name="children_count" Type="int" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="level" Type="int" Nullable="false" />
+          <Property Name="parent_id" Type="uint" Nullable="false" />
+          <Property Name="path" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity_int">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity_varchar">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'magento_demo.catalog_category_product' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="catalog_category_product">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="category_id" Type="uint" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="uint" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+      warning 6002: The table/view 'magento_demo.catalog_category_product_index' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.
+      -->
+        <EntityType Name="catalog_category_product_index">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="is_parent" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="product_id" />
+            <PropertyRef Name="store_id" />
+            <PropertyRef Name="visibility" />
+          </Key>
+          <Property Name="category_id" Type="uint" Nullable="false" />
+          <Property Name="is_parent" Type="bool" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="product_id" Type="uint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="visibility" Type="utinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_eav_attribute">
+          <Key>
+            <PropertyRef Name="attribute_id" />
+          </Key>
+          <Property Name="apply_to" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="frontend_input_renderer" Type="varchar" MaxLength="255" />
+          <Property Name="is_comparable" Type="bool" Nullable="false" />
+          <Property Name="is_configurable" Type="bool" Nullable="false" />
+          <Property Name="is_filterable" Type="bool" Nullable="false" />
+          <Property Name="is_filterable_in_search" Type="bool" Nullable="false" />
+          <Property Name="is_global" Type="bool" Nullable="false" />
+          <Property Name="is_html_allowed_on_front" Type="bool" Nullable="false" />
+          <Property Name="is_searchable" Type="bool" Nullable="false" />
+          <Property Name="is_used_for_price_rules" Type="bool" Nullable="false" />
+          <Property Name="is_visible" Type="bool" Nullable="false" />
+          <Property Name="is_visible_in_advanced_search" Type="bool" Nullable="false" />
+          <Property Name="is_visible_on_front" Type="bool" Nullable="false" />
+          <Property Name="is_wysiwyg_enabled" Type="bool" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="used_for_sort_by" Type="bool" Nullable="false" />
+          <Property Name="used_in_product_listing" Type="bool" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="has_options" Type="smallint" Nullable="false" />
+          <Property Name="required_options" Type="bool" Nullable="false" />
+          <Property Name="sku" Type="varchar" MaxLength="64" />
+          <Property Name="type_id" Type="varchar" Nullable="false" MaxLength="32" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_decimal">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="12" Scale="4" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_gallery">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="position" Type="int" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_int">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="umediumint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="int" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_media_gallery">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="value" Type="varchar" MaxLength="255" />
+          <Property Name="value_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_media_gallery_value">
+          <Key>
+            <PropertyRef Name="store_id" />
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="disabled" Type="bool" Nullable="false" />
+          <Property Name="label" Type="varchar" MaxLength="255" />
+          <Property Name="position" Type="uint" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value_id" Type="uint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_varchar">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" />
+          <Property Name="entity_type_id" Type="umediumint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="value_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="catalog_product_website">
+          <Key>
+            <PropertyRef Name="product_id" />
+            <PropertyRef Name="website_id" />
+          </Key>
+          <Property Name="product_id" Type="uint" Nullable="false" />
+          <Property Name="website_id" Type="usmallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_attribute">
+          <Key>
+            <PropertyRef Name="attribute_id" />
+          </Key>
+          <Property Name="attribute_code" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="attribute_model" Type="varchar" MaxLength="255" />
+          <Property Name="backend_model" Type="varchar" MaxLength="255" />
+          <Property Name="backend_table" Type="varchar" MaxLength="255" />
+          <Property Name="backend_type" Type="enum" Nullable="false" />
+          <Property Name="default_value" Type="text" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="frontend_class" Type="varchar" MaxLength="255" />
+          <Property Name="frontend_input" Type="varchar" MaxLength="50" />
+          <Property Name="frontend_label" Type="varchar" MaxLength="255" />
+          <Property Name="frontend_model" Type="varchar" MaxLength="255" />
+          <Property Name="is_required" Type="bool" Nullable="false" />
+          <Property Name="is_unique" Type="bool" Nullable="false" />
+          <Property Name="is_user_defined" Type="bool" Nullable="false" />
+          <Property Name="note" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="source_model" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="eav_attribute_group">
+          <Key>
+            <PropertyRef Name="attribute_group_id" />
+          </Key>
+          <Property Name="attribute_group_id" Type="usmallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="attribute_group_name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" />
+          <Property Name="default_id" Type="usmallint" />
+          <Property Name="sort_order" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_attribute_option">
+          <Key>
+            <PropertyRef Name="option_id" />
+          </Key>
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="option_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="sort_order" Type="usmallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_attribute_option_value">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="option_id" Type="uint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="value" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="value_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="eav_attribute_set">
+          <Key>
+            <PropertyRef Name="attribute_set_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="attribute_set_name" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="sort_order" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="entity_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="increment_id" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="is_active" Type="bool" Nullable="false" />
+          <Property Name="parent_id" Type="uint" Nullable="false" />
+          <Property Name="store_id" Type="usmallint" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_entity_attribute">
+          <Key>
+            <PropertyRef Name="entity_attribute_id" />
+          </Key>
+          <Property Name="attribute_group_id" Type="usmallint" Nullable="false" />
+          <Property Name="attribute_id" Type="usmallint" Nullable="false" />
+          <Property Name="attribute_set_id" Type="usmallint" Nullable="false" />
+          <Property Name="entity_attribute_id" Type="uint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="entity_type_id" Type="usmallint" Nullable="false" />
+          <Property Name="sort_order" Type="smallint" Nullable="false" />
+        </EntityType>
+        <Association Name="CATALOG_CATEGORY_PRODUCT_CATEGORY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product" Type="MagentoWebEntitiesContainer.Store.catalog_category_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CATALOG_CATEGORY_PRODUCT_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product" Type="MagentoWebEntitiesContainer.Store.catalog_category_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTRIBUTE_OPTION_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_option" Type="MagentoWebEntitiesContainer.Store.eav_attribute_option" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="eav_attribute_option">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ATTRIBUTE_OPTION_VALUE_OPTION">
+          <End Role="eav_attribute_option" Type="MagentoWebEntitiesContainer.Store.eav_attribute_option" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_option_value" Type="MagentoWebEntitiesContainer.Store.eav_attribute_option_value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute_option">
+              <PropertyRef Name="option_id" />
+            </Principal>
+            <Dependent Role="eav_attribute_option_value">
+              <PropertyRef Name="option_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cataloginventory_stock_item" Type="MagentoWebEntitiesContainer.Store.cataloginventory_stock_item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="cataloginventory_stock_item">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_int" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity_int" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_category_entity_int">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_int" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity_int" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_entity_int">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_varchar" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity_varchar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_category_entity_varchar">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_varchar" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity_varchar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_entity_varchar">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.Store.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product_index" Type="MagentoWebEntitiesContainer.Store.catalog_category_product_index" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product_index">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product_index" Type="MagentoWebEntitiesContainer.Store.catalog_category_product_index" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product_index">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_EAV_ATTRIBUTE_ID">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_eav_attribute" Type="MagentoWebEntitiesContainer.Store.catalog_eav_attribute" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID">
+          <End Role="eav_attribute_set" Type="MagentoWebEntitiesContainer.Store.eav_attribute_set" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute_set">
+              <PropertyRef Name="attribute_set_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity">
+              <PropertyRef Name="attribute_set_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_decimal" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_decimal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_decimal">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_decimal" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_decimal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_decimal">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_gallery" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_gallery">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_gallery" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_gallery">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_int" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_int" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_int">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_int" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_int" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_int">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_varchar" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_varchar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_varchar">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_varchar" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_varchar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_varchar">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_media_gallery">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_media_gallery">
+              <PropertyRef Name="entity_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY">
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery_value" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity_media_gallery_value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity_media_gallery">
+              <PropertyRef Name="value_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_media_gallery_value">
+              <PropertyRef Name="value_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_WEBSITE_PRODUCT_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.Store.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_website" Type="MagentoWebEntitiesContainer.Store.catalog_product_website" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_website">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_eav_attribute_group">
+          <End Role="eav_attribute_set" Type="MagentoWebEntitiesContainer.Store.eav_attribute_set" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_group" Type="MagentoWebEntitiesContainer.Store.eav_attribute_group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute_set">
+              <PropertyRef Name="attribute_set_id" />
+            </Principal>
+            <Dependent Role="eav_attribute_group">
+              <PropertyRef Name="attribute_set_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.Store.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_entity_attribute" Type="MagentoWebEntitiesContainer.Store.eav_entity_attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="eav_entity_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EAV_ENTITY_ATTRIBUTE_GROUP">
+          <End Role="eav_attribute_group" Type="MagentoWebEntitiesContainer.Store.eav_attribute_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_entity_attribute" Type="MagentoWebEntitiesContainer.Store.eav_entity_attribute" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute_group">
+              <PropertyRef Name="attribute_group_id" />
+            </Principal>
+            <Dependent Role="eav_entity_attribute">
+              <PropertyRef Name="attribute_group_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MagentoWebEntitiesContainer" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="MagentoWebEntities">
+          <EntitySet Name="cataloginventory_stock_item" EntityType="MagentoWebEntitiesContainer.cataloginventory_stock_item" />
+          <EntitySet Name="catalog_category_entity" EntityType="MagentoWebEntitiesContainer.catalog_category_entity" />
+          <EntitySet Name="catalog_category_entity_int" EntityType="MagentoWebEntitiesContainer.catalog_category_entity_int" />
+          <EntitySet Name="catalog_category_entity_varchar" EntityType="MagentoWebEntitiesContainer.catalog_category_entity_varchar" />
+          <EntitySet Name="catalog_category_product" EntityType="MagentoWebEntitiesContainer.catalog_category_product" />
+          <EntitySet Name="catalog_category_product_index" EntityType="MagentoWebEntitiesContainer.catalog_category_product_index" />
+          <EntitySet Name="catalog_eav_attribute" EntityType="MagentoWebEntitiesContainer.catalog_eav_attribute" />
+          <EntitySet Name="catalog_product_entity" EntityType="MagentoWebEntitiesContainer.catalog_product_entity" />
+          <EntitySet Name="catalog_product_entity_decimal" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_decimal" />
+          <EntitySet Name="catalog_product_entity_gallery" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_gallery" />
+          <EntitySet Name="catalog_product_entity_int" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_int" />
+          <EntitySet Name="catalog_product_entity_media_gallery" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery" />
+          <EntitySet Name="catalog_product_entity_media_gallery_value" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery_value" />
+          <EntitySet Name="catalog_product_entity_varchar" EntityType="MagentoWebEntitiesContainer.catalog_product_entity_varchar" />
+          <EntitySet Name="catalog_product_website" EntityType="MagentoWebEntitiesContainer.catalog_product_website" />
+          <EntitySet Name="eav_attribute" EntityType="MagentoWebEntitiesContainer.eav_attribute" />
+          <EntitySet Name="eav_attribute_group" EntityType="MagentoWebEntitiesContainer.eav_attribute_group" />
+          <EntitySet Name="eav_attribute_option" EntityType="MagentoWebEntitiesContainer.eav_attribute_option" />
+          <EntitySet Name="eav_attribute_option_value" EntityType="MagentoWebEntitiesContainer.eav_attribute_option_value" />
+          <EntitySet Name="eav_attribute_set" EntityType="MagentoWebEntitiesContainer.eav_attribute_set" />
+          <EntitySet Name="eav_entity" EntityType="MagentoWebEntitiesContainer.eav_entity" />
+          <EntitySet Name="eav_entity_attribute" EntityType="MagentoWebEntitiesContainer.eav_entity_attribute" />
+          <AssociationSet Name="FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" Association="MagentoWebEntitiesContainer.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="cataloginventory_stock_item" EntitySet="cataloginventory_stock_item" />
+          </AssociationSet>
+          <AssociationSet Name="CATALOG_CATEGORY_PRODUCT_CATEGORY" Association="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_CATEGORY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_product" EntitySet="catalog_category_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_entity_int" EntitySet="catalog_category_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_entity_varchar" EntitySet="catalog_category_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY">
+            <End Role="catalog_category_entity" EntitySet="catalog_category_entity" />
+            <End Role="catalog_category_product_index" EntitySet="catalog_category_product_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_category_entity_int" EntitySet="catalog_category_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_category_entity_varchar" EntitySet="catalog_category_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="CATALOG_CATEGORY_PRODUCT_PRODUCT" Association="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_category_product" EntitySet="catalog_category_product" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_category_product_index" EntitySet="catalog_category_product_index" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_EAV_ATTRIBUTE_ID" Association="MagentoWebEntitiesContainer.FK_CATALOG_EAV_ATTRIBUTE_ID">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_eav_attribute" EntitySet="catalog_eav_attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID">
+            <End Role="eav_attribute_set" EntitySet="eav_attribute_set" />
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_decimal" EntitySet="catalog_product_entity_decimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_gallery" EntitySet="catalog_product_entity_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_int" EntitySet="catalog_product_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_varchar" EntitySet="catalog_product_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" Association="MagentoWebEntitiesContainer.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT">
+            <End Role="catalog_product_entity" EntitySet="catalog_product_entity" />
+            <End Role="catalog_product_website" EntitySet="catalog_product_website" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_decimal" EntitySet="catalog_product_entity_decimal" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_gallery" EntitySet="catalog_product_entity_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_int" EntitySet="catalog_product_entity_int" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY">
+            <End Role="catalog_product_entity_media_gallery" EntitySet="catalog_product_entity_media_gallery" />
+            <End Role="catalog_product_entity_media_gallery_value" EntitySet="catalog_product_entity_media_gallery_value" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="catalog_product_entity_varchar" EntitySet="catalog_product_entity_varchar" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTRIBUTE_OPTION_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="eav_attribute_option" EntitySet="eav_attribute_option" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" Association="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE">
+            <End Role="eav_attribute" EntitySet="eav_attribute" />
+            <End Role="eav_entity_attribute" EntitySet="eav_entity_attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_eav_attribute_group" Association="MagentoWebEntitiesContainer.FK_eav_attribute_group">
+            <End Role="eav_attribute_set" EntitySet="eav_attribute_set" />
+            <End Role="eav_attribute_group" EntitySet="eav_attribute_group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EAV_ENTITY_ATTRIBUTE_GROUP" Association="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_GROUP">
+            <End Role="eav_attribute_group" EntitySet="eav_attribute_group" />
+            <End Role="eav_entity_attribute" EntitySet="eav_entity_attribute" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ATTRIBUTE_OPTION_VALUE_OPTION" Association="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_VALUE_OPTION">
+            <End Role="eav_attribute_option" EntitySet="eav_attribute_option" />
+            <End Role="eav_attribute_option_value" EntitySet="eav_attribute_option_value" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="cataloginventory_stock_item">
+          <Key>
+            <PropertyRef Name="item_id" />
+          </Key>
+          <Property Name="backorders" Type="Byte" Nullable="false" />
+          <Property Name="is_in_stock" Type="Boolean" Nullable="false" />
+          <Property Name="is_qty_decimal" Type="Boolean" Nullable="false" />
+          <Property Name="item_id" Type="Int64" Nullable="false" />
+          <Property Name="low_stock_date" Type="DateTime" />
+          <Property Name="manage_stock" Type="Boolean" Nullable="false" />
+          <Property Name="max_sale_qty" Type="Decimal" Nullable="false" />
+          <Property Name="min_qty" Type="Decimal" Nullable="false" />
+          <Property Name="min_sale_qty" Type="Decimal" Nullable="false" />
+          <Property Name="notify_stock_qty" Type="Decimal" />
+          <Property Name="qty" Type="Decimal" Nullable="false" />
+          <Property Name="stock_id" Type="Int32" Nullable="false" />
+          <Property Name="stock_status_changed_automatically" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_backorders" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_manage_stock" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_max_sale_qty" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_min_qty" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_min_sale_qty" Type="Boolean" Nullable="false" />
+          <Property Name="use_config_notify_stock_qty" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" FromRole="cataloginventory_stock_item" ToRole="catalog_product_entity" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="Int32" Nullable="false" />
+          <Property Name="children_count" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="entity_id" Type="Int64" Nullable="false" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="level" Type="Int32" Nullable="false" />
+          <Property Name="parent_id" Type="Int64" Nullable="false" />
+          <Property Name="path" Type="String" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="catalog_category_product" Relationship="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_CATEGORY" FromRole="catalog_category_entity" ToRole="catalog_category_product" />
+          <NavigationProperty Name="catalog_category_entity_int" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" FromRole="catalog_category_entity" ToRole="catalog_category_entity_int" />
+          <NavigationProperty Name="catalog_category_entity_varchar" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" FromRole="catalog_category_entity" ToRole="catalog_category_entity_varchar" />
+          <NavigationProperty Name="catalog_category_product_index" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" FromRole="catalog_category_entity" ToRole="catalog_category_product_index" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity_int">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_category_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" FromRole="catalog_category_entity_int" ToRole="catalog_category_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" FromRole="catalog_category_entity_int" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_category_entity_varchar">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_category_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" FromRole="catalog_category_entity_varchar" ToRole="catalog_category_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" FromRole="catalog_category_entity_varchar" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_category_product">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="product_id" />
+          </Key>
+          <Property Name="category_id" Type="Int64" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="catalog_category_entity" Relationship="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_CATEGORY" FromRole="catalog_category_product" ToRole="catalog_category_entity" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_PRODUCT" FromRole="catalog_category_product" ToRole="catalog_product_entity" />
+        </EntityType>
+        <EntityType Name="catalog_category_product_index">
+          <Key>
+            <PropertyRef Name="category_id" />
+            <PropertyRef Name="is_parent" />
+            <PropertyRef Name="position" />
+            <PropertyRef Name="product_id" />
+            <PropertyRef Name="store_id" />
+            <PropertyRef Name="visibility" />
+          </Key>
+          <Property Name="category_id" Type="Int64" Nullable="false" />
+          <Property Name="is_parent" Type="Boolean" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="product_id" Type="Int64" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="visibility" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="catalog_category_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" FromRole="catalog_category_product_index" ToRole="catalog_category_entity" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" FromRole="catalog_category_product_index" ToRole="catalog_product_entity" />
+        </EntityType>
+        <EntityType Name="catalog_eav_attribute">
+          <Key>
+            <PropertyRef Name="attribute_id" />
+          </Key>
+          <Property Name="apply_to" Type="String" Nullable="false" />
+          <Property Name="attribute_id" Type="Int32" Nullable="false" />
+          <Property Name="frontend_input_renderer" Type="String" />
+          <Property Name="is_comparable" Type="Boolean" Nullable="false" />
+          <Property Name="is_configurable" Type="Boolean" Nullable="false" />
+          <Property Name="is_filterable" Type="Boolean" Nullable="false" />
+          <Property Name="is_filterable_in_search" Type="Boolean" Nullable="false" />
+          <Property Name="is_global" Type="Boolean" Nullable="false" />
+          <Property Name="is_html_allowed_on_front" Type="Boolean" Nullable="false" />
+          <Property Name="is_searchable" Type="Boolean" Nullable="false" />
+          <Property Name="is_used_for_price_rules" Type="Boolean" Nullable="false" />
+          <Property Name="is_visible" Type="Boolean" Nullable="false" />
+          <Property Name="is_visible_in_advanced_search" Type="Boolean" Nullable="false" />
+          <Property Name="is_visible_on_front" Type="Boolean" Nullable="false" />
+          <Property Name="is_wysiwyg_enabled" Type="Boolean" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="used_for_sort_by" Type="Boolean" Nullable="false" />
+          <Property Name="used_in_product_listing" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_EAV_ATTRIBUTE_ID" FromRole="catalog_eav_attribute" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="entity_id" Type="Int64" Nullable="false" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="has_options" Type="Int16" Nullable="false" />
+          <Property Name="required_options" Type="Boolean" Nullable="false" />
+          <Property Name="sku" Type="String" />
+          <Property Name="type_id" Type="String" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="cataloginventory_stock_item" Relationship="MagentoWebEntitiesContainer.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" FromRole="catalog_product_entity" ToRole="cataloginventory_stock_item" />
+          <NavigationProperty Name="catalog_category_product" Relationship="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_PRODUCT" FromRole="catalog_product_entity" ToRole="catalog_category_product" />
+          <NavigationProperty Name="catalog_category_product_index" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_category_product_index" />
+          <NavigationProperty Name="eav_attribute_set" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" FromRole="catalog_product_entity" ToRole="eav_attribute_set" />
+          <NavigationProperty Name="catalog_product_entity_decimal" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_product_entity_decimal" />
+          <NavigationProperty Name="catalog_product_entity_gallery" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_product_entity_gallery" />
+          <NavigationProperty Name="catalog_product_entity_int" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_product_entity_int" />
+          <NavigationProperty Name="catalog_product_entity_varchar" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_product_entity_varchar" />
+          <NavigationProperty Name="catalog_product_entity_media_gallery" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" FromRole="catalog_product_entity" ToRole="catalog_product_entity_media_gallery" />
+          <NavigationProperty Name="catalog_product_website" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" FromRole="catalog_product_entity" ToRole="catalog_product_website" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_decimal">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Decimal" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" FromRole="catalog_product_entity_decimal" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" FromRole="catalog_product_entity_decimal" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_gallery">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="position" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" FromRole="catalog_product_entity_gallery" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" FromRole="catalog_product_entity_gallery" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_int">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Int32" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" FromRole="catalog_product_entity_int" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" FromRole="catalog_product_entity_int" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_media_gallery">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="value" Type="String" />
+          <Property Name="value_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" FromRole="catalog_product_entity_media_gallery" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" FromRole="catalog_product_entity_media_gallery" ToRole="eav_attribute" />
+          <NavigationProperty Name="catalog_product_entity_media_gallery_value" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" FromRole="catalog_product_entity_media_gallery" ToRole="catalog_product_entity_media_gallery_value" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_media_gallery_value">
+          <Key>
+            <PropertyRef Name="store_id" />
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="disabled" Type="Boolean" Nullable="false" />
+          <Property Name="label" Type="String" />
+          <Property Name="position" Type="Int64" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity_media_gallery" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" FromRole="catalog_product_entity_media_gallery_value" ToRole="catalog_product_entity_media_gallery" />
+        </EntityType>
+        <EntityType Name="catalog_product_entity_varchar">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" />
+          <Property Name="value_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" FromRole="catalog_product_entity_varchar" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" FromRole="catalog_product_entity_varchar" ToRole="eav_attribute" />
+        </EntityType>
+        <EntityType Name="catalog_product_website">
+          <Key>
+            <PropertyRef Name="product_id" />
+            <PropertyRef Name="website_id" />
+          </Key>
+          <Property Name="product_id" Type="Int64" Nullable="false" />
+          <Property Name="website_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" FromRole="catalog_product_website" ToRole="catalog_product_entity" />
+        </EntityType>
+        <EntityType Name="eav_attribute">
+          <Key>
+            <PropertyRef Name="attribute_id" />
+          </Key>
+          <Property Name="attribute_code" Type="String" Nullable="false" />
+          <Property Name="attribute_id" Type="Int32" Nullable="false" />
+          <Property Name="attribute_model" Type="String" />
+          <Property Name="backend_model" Type="String" />
+          <Property Name="backend_table" Type="String" />
+          <Property Name="backend_type" Type="String" Nullable="false" />
+          <Property Name="default_value" Type="String" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="frontend_class" Type="String" />
+          <Property Name="frontend_input" Type="String" />
+          <Property Name="frontend_label" Type="String" />
+          <Property Name="frontend_model" Type="String" />
+          <Property Name="is_required" Type="Boolean" Nullable="false" />
+          <Property Name="is_unique" Type="Boolean" Nullable="false" />
+          <Property Name="is_user_defined" Type="Boolean" Nullable="false" />
+          <Property Name="note" Type="String" Nullable="false" />
+          <Property Name="source_model" Type="String" />
+          <NavigationProperty Name="catalog_category_entity_int" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_category_entity_int" />
+          <NavigationProperty Name="catalog_category_entity_varchar" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_category_entity_varchar" />
+          <NavigationProperty Name="catalog_eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_EAV_ATTRIBUTE_ID" FromRole="eav_attribute" ToRole="catalog_eav_attribute" />
+          <NavigationProperty Name="catalog_product_entity_decimal" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_product_entity_decimal" />
+          <NavigationProperty Name="catalog_product_entity_gallery" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_product_entity_gallery" />
+          <NavigationProperty Name="catalog_product_entity_int" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_product_entity_int" />
+          <NavigationProperty Name="catalog_product_entity_media_gallery" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_product_entity_media_gallery" />
+          <NavigationProperty Name="catalog_product_entity_varchar" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" FromRole="eav_attribute" ToRole="catalog_product_entity_varchar" />
+          <NavigationProperty Name="eav_attribute_option" Relationship="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_ATTRIBUTE" FromRole="eav_attribute" ToRole="eav_attribute_option" />
+          <NavigationProperty Name="eav_entity_attribute" Relationship="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" FromRole="eav_attribute" ToRole="eav_entity_attribute" />
+        </EntityType>
+        <EntityType Name="eav_attribute_group">
+          <Key>
+            <PropertyRef Name="attribute_group_id" />
+          </Key>
+          <Property Name="attribute_group_id" Type="Int32" Nullable="false" />
+          <Property Name="attribute_group_name" Type="String" Nullable="false" />
+          <Property Name="default_id" Type="Int32" />
+          <Property Name="sort_order" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="eav_attribute_set" Relationship="MagentoWebEntitiesContainer.FK_eav_attribute_group" FromRole="eav_attribute_group" ToRole="eav_attribute_set" />
+          <NavigationProperty Name="eav_entity_attribute" Relationship="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_GROUP" FromRole="eav_attribute_group" ToRole="eav_entity_attribute" />
+        </EntityType>
+        <EntityType Name="eav_attribute_option">
+          <Key>
+            <PropertyRef Name="option_id" />
+          </Key>
+          <Property Name="option_id" Type="Int64" Nullable="false" />
+          <Property Name="sort_order" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_ATTRIBUTE" FromRole="eav_attribute_option" ToRole="eav_attribute" />
+          <NavigationProperty Name="eav_attribute_option_value" Relationship="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_VALUE_OPTION" FromRole="eav_attribute_option" ToRole="eav_attribute_option_value" />
+        </EntityType>
+        <EntityType Name="eav_attribute_option_value">
+          <Key>
+            <PropertyRef Name="value_id" />
+          </Key>
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="String" Nullable="false" />
+          <Property Name="value_id" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="eav_attribute_option" Relationship="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_VALUE_OPTION" FromRole="eav_attribute_option_value" ToRole="eav_attribute_option" />
+        </EntityType>
+        <EntityType Name="eav_attribute_set">
+          <Key>
+            <PropertyRef Name="attribute_set_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="Int32" Nullable="false" />
+          <Property Name="attribute_set_name" Type="String" Nullable="false" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="sort_order" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="catalog_product_entity" Relationship="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" FromRole="eav_attribute_set" ToRole="catalog_product_entity" />
+          <NavigationProperty Name="eav_attribute_group" Relationship="MagentoWebEntitiesContainer.FK_eav_attribute_group" FromRole="eav_attribute_set" ToRole="eav_attribute_group" />
+        </EntityType>
+        <EntityType Name="eav_entity">
+          <Key>
+            <PropertyRef Name="entity_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="Int32" Nullable="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" />
+          <Property Name="entity_id" Type="Int64" Nullable="false" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="increment_id" Type="String" Nullable="false" />
+          <Property Name="is_active" Type="Boolean" Nullable="false" />
+          <Property Name="parent_id" Type="Int64" Nullable="false" />
+          <Property Name="store_id" Type="Int32" Nullable="false" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eav_entity_attribute">
+          <Key>
+            <PropertyRef Name="entity_attribute_id" />
+          </Key>
+          <Property Name="attribute_set_id" Type="Int32" Nullable="false" />
+          <Property Name="entity_attribute_id" Type="Int64" Nullable="false" />
+          <Property Name="entity_type_id" Type="Int32" Nullable="false" />
+          <Property Name="sort_order" Type="Int16" Nullable="false" />
+          <NavigationProperty Name="eav_attribute" Relationship="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" FromRole="eav_entity_attribute" ToRole="eav_attribute" />
+          <NavigationProperty Name="eav_attribute_group" Relationship="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_GROUP" FromRole="eav_entity_attribute" ToRole="eav_attribute_group" />
+        </EntityType>
+        <Association Name="FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="cataloginventory_stock_item" Type="MagentoWebEntitiesContainer.cataloginventory_stock_item" Multiplicity="*" />
+        </Association>
+        <Association Name="CATALOG_CATEGORY_PRODUCT_CATEGORY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product" Type="MagentoWebEntitiesContainer.catalog_category_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_int" Type="MagentoWebEntitiesContainer.catalog_category_entity_int" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_varchar" Type="MagentoWebEntitiesContainer.catalog_category_entity_varchar" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY">
+          <End Role="catalog_category_entity" Type="MagentoWebEntitiesContainer.catalog_category_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product_index" Type="MagentoWebEntitiesContainer.catalog_category_product_index" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_category_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product_index">
+              <PropertyRef Name="category_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_int" Type="MagentoWebEntitiesContainer.catalog_category_entity_int" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_entity_varchar" Type="MagentoWebEntitiesContainer.catalog_category_entity_varchar" Multiplicity="*" />
+        </Association>
+        <Association Name="CATALOG_CATEGORY_PRODUCT_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product" Type="MagentoWebEntitiesContainer.catalog_category_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_category_product_index" Type="MagentoWebEntitiesContainer.catalog_category_product_index" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_category_product_index">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_EAV_ATTRIBUTE_ID">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_eav_attribute" Type="MagentoWebEntitiesContainer.catalog_eav_attribute" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Principal>
+            <Dependent Role="catalog_eav_attribute">
+              <PropertyRef Name="attribute_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID">
+          <End Role="eav_attribute_set" Type="MagentoWebEntitiesContainer.eav_attribute_set" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_decimal" Type="MagentoWebEntitiesContainer.catalog_product_entity_decimal" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_gallery" Type="MagentoWebEntitiesContainer.catalog_product_entity_gallery" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_int" Type="MagentoWebEntitiesContainer.catalog_product_entity_int" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_varchar" Type="MagentoWebEntitiesContainer.catalog_product_entity_varchar" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_WEBSITE_PRODUCT_PRODUCT">
+          <End Role="catalog_product_entity" Type="MagentoWebEntitiesContainer.catalog_product_entity" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_website" Type="MagentoWebEntitiesContainer.catalog_product_website" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity">
+              <PropertyRef Name="entity_id" />
+            </Principal>
+            <Dependent Role="catalog_product_website">
+              <PropertyRef Name="product_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_decimal" Type="MagentoWebEntitiesContainer.catalog_product_entity_decimal" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_gallery" Type="MagentoWebEntitiesContainer.catalog_product_entity_gallery" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_int" Type="MagentoWebEntitiesContainer.catalog_product_entity_int" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY">
+          <End Role="catalog_product_entity_media_gallery" Type="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_media_gallery_value" Type="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery_value" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog_product_entity_media_gallery">
+              <PropertyRef Name="value_id" />
+            </Principal>
+            <Dependent Role="catalog_product_entity_media_gallery_value">
+              <PropertyRef Name="value_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="catalog_product_entity_varchar" Type="MagentoWebEntitiesContainer.catalog_product_entity_varchar" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_ATTRIBUTE_OPTION_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_option" Type="MagentoWebEntitiesContainer.eav_attribute_option" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE">
+          <End Role="eav_attribute" Type="MagentoWebEntitiesContainer.eav_attribute" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_entity_attribute" Type="MagentoWebEntitiesContainer.eav_entity_attribute" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_eav_attribute_group">
+          <End Role="eav_attribute_set" Type="MagentoWebEntitiesContainer.eav_attribute_set" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_group" Type="MagentoWebEntitiesContainer.eav_attribute_group" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_EAV_ENTITY_ATTRIBUTE_GROUP">
+          <End Role="eav_attribute_group" Type="MagentoWebEntitiesContainer.eav_attribute_group" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_entity_attribute" Type="MagentoWebEntitiesContainer.eav_entity_attribute" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_ATTRIBUTE_OPTION_VALUE_OPTION">
+          <End Role="eav_attribute_option" Type="MagentoWebEntitiesContainer.eav_attribute_option" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="eav_attribute_option_value" Type="MagentoWebEntitiesContainer.eav_attribute_option_value" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="MagentoWebEntitiesContainerStoreContainer" CdmEntityContainer="MagentoWebEntities">
+          <EntitySetMapping Name="cataloginventory_stock_item">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.cataloginventory_stock_item)">
+              <MappingFragment StoreEntitySet="cataloginventory_stock_item">
+                <ScalarProperty Name="backorders" ColumnName="backorders" />
+                <ScalarProperty Name="is_in_stock" ColumnName="is_in_stock" />
+                <ScalarProperty Name="is_qty_decimal" ColumnName="is_qty_decimal" />
+                <ScalarProperty Name="item_id" ColumnName="item_id" />
+                <ScalarProperty Name="low_stock_date" ColumnName="low_stock_date" />
+                <ScalarProperty Name="manage_stock" ColumnName="manage_stock" />
+                <ScalarProperty Name="max_sale_qty" ColumnName="max_sale_qty" />
+                <ScalarProperty Name="min_qty" ColumnName="min_qty" />
+                <ScalarProperty Name="min_sale_qty" ColumnName="min_sale_qty" />
+                <ScalarProperty Name="notify_stock_qty" ColumnName="notify_stock_qty" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="stock_id" ColumnName="stock_id" />
+                <ScalarProperty Name="stock_status_changed_automatically" ColumnName="stock_status_changed_automatically" />
+                <ScalarProperty Name="use_config_backorders" ColumnName="use_config_backorders" />
+                <ScalarProperty Name="use_config_manage_stock" ColumnName="use_config_manage_stock" />
+                <ScalarProperty Name="use_config_max_sale_qty" ColumnName="use_config_max_sale_qty" />
+                <ScalarProperty Name="use_config_min_qty" ColumnName="use_config_min_qty" />
+                <ScalarProperty Name="use_config_min_sale_qty" ColumnName="use_config_min_sale_qty" />
+                <ScalarProperty Name="use_config_notify_stock_qty" ColumnName="use_config_notify_stock_qty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_category_entity">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_category_entity)">
+              <MappingFragment StoreEntitySet="catalog_category_entity">
+                <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+                <ScalarProperty Name="children_count" ColumnName="children_count" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="path" ColumnName="path" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_category_entity_int">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_category_entity_int)">
+              <MappingFragment StoreEntitySet="catalog_category_entity_int">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_category_entity_varchar">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_category_entity_varchar)">
+              <MappingFragment StoreEntitySet="catalog_category_entity_varchar">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_category_product">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_category_product)">
+              <MappingFragment StoreEntitySet="catalog_category_product">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_category_product_index">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_category_product_index)">
+              <MappingFragment StoreEntitySet="catalog_category_product_index">
+                <ScalarProperty Name="category_id" ColumnName="category_id" />
+                <ScalarProperty Name="is_parent" ColumnName="is_parent" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="visibility" ColumnName="visibility" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_eav_attribute">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_eav_attribute)">
+              <MappingFragment StoreEntitySet="catalog_eav_attribute">
+                <ScalarProperty Name="apply_to" ColumnName="apply_to" />
+                <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+                <ScalarProperty Name="frontend_input_renderer" ColumnName="frontend_input_renderer" />
+                <ScalarProperty Name="is_comparable" ColumnName="is_comparable" />
+                <ScalarProperty Name="is_configurable" ColumnName="is_configurable" />
+                <ScalarProperty Name="is_filterable" ColumnName="is_filterable" />
+                <ScalarProperty Name="is_filterable_in_search" ColumnName="is_filterable_in_search" />
+                <ScalarProperty Name="is_global" ColumnName="is_global" />
+                <ScalarProperty Name="is_html_allowed_on_front" ColumnName="is_html_allowed_on_front" />
+                <ScalarProperty Name="is_searchable" ColumnName="is_searchable" />
+                <ScalarProperty Name="is_used_for_price_rules" ColumnName="is_used_for_price_rules" />
+                <ScalarProperty Name="is_visible" ColumnName="is_visible" />
+                <ScalarProperty Name="is_visible_in_advanced_search" ColumnName="is_visible_in_advanced_search" />
+                <ScalarProperty Name="is_visible_on_front" ColumnName="is_visible_on_front" />
+                <ScalarProperty Name="is_wysiwyg_enabled" ColumnName="is_wysiwyg_enabled" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="used_for_sort_by" ColumnName="used_for_sort_by" />
+                <ScalarProperty Name="used_in_product_listing" ColumnName="used_in_product_listing" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity)">
+              <MappingFragment StoreEntitySet="catalog_product_entity">
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="has_options" ColumnName="has_options" />
+                <ScalarProperty Name="required_options" ColumnName="required_options" />
+                <ScalarProperty Name="sku" ColumnName="sku" />
+                <ScalarProperty Name="type_id" ColumnName="type_id" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_decimal">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_decimal)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_decimal">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_gallery">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_gallery)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_gallery">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_int">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_int)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_int">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_media_gallery">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_media_gallery)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_media_gallery">
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_media_gallery_value">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_media_gallery_value)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_media_gallery_value">
+                <ScalarProperty Name="disabled" ColumnName="disabled" />
+                <ScalarProperty Name="label" ColumnName="label" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_entity_varchar">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_entity_varchar)">
+              <MappingFragment StoreEntitySet="catalog_product_entity_varchar">
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="catalog_product_website">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.catalog_product_website)">
+              <MappingFragment StoreEntitySet="catalog_product_website">
+                <ScalarProperty Name="product_id" ColumnName="product_id" />
+                <ScalarProperty Name="website_id" ColumnName="website_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_attribute">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_attribute)">
+              <MappingFragment StoreEntitySet="eav_attribute">
+                <ScalarProperty Name="attribute_code" ColumnName="attribute_code" />
+                <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+                <ScalarProperty Name="attribute_model" ColumnName="attribute_model" />
+                <ScalarProperty Name="backend_model" ColumnName="backend_model" />
+                <ScalarProperty Name="backend_table" ColumnName="backend_table" />
+                <ScalarProperty Name="backend_type" ColumnName="backend_type" />
+                <ScalarProperty Name="default_value" ColumnName="default_value" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="frontend_class" ColumnName="frontend_class" />
+                <ScalarProperty Name="frontend_input" ColumnName="frontend_input" />
+                <ScalarProperty Name="frontend_label" ColumnName="frontend_label" />
+                <ScalarProperty Name="frontend_model" ColumnName="frontend_model" />
+                <ScalarProperty Name="is_required" ColumnName="is_required" />
+                <ScalarProperty Name="is_unique" ColumnName="is_unique" />
+                <ScalarProperty Name="is_user_defined" ColumnName="is_user_defined" />
+                <ScalarProperty Name="note" ColumnName="note" />
+                <ScalarProperty Name="source_model" ColumnName="source_model" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_attribute_group">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_attribute_group)">
+              <MappingFragment StoreEntitySet="eav_attribute_group">
+                <ScalarProperty Name="attribute_group_id" ColumnName="attribute_group_id" />
+                <ScalarProperty Name="attribute_group_name" ColumnName="attribute_group_name" />
+                <ScalarProperty Name="default_id" ColumnName="default_id" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_attribute_option">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_attribute_option)">
+              <MappingFragment StoreEntitySet="eav_attribute_option">
+                <ScalarProperty Name="option_id" ColumnName="option_id" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_attribute_option_value">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_attribute_option_value)">
+              <MappingFragment StoreEntitySet="eav_attribute_option_value">
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="value_id" ColumnName="value_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_attribute_set">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_attribute_set)">
+              <MappingFragment StoreEntitySet="eav_attribute_set">
+                <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+                <ScalarProperty Name="attribute_set_name" ColumnName="attribute_set_name" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_entity">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_entity)">
+              <MappingFragment StoreEntitySet="eav_entity">
+                <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="increment_id" ColumnName="increment_id" />
+                <ScalarProperty Name="is_active" ColumnName="is_active" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="store_id" ColumnName="store_id" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eav_entity_attribute">
+            <EntityTypeMapping TypeName="IsTypeOf(MagentoWebEntitiesContainer.eav_entity_attribute)">
+              <MappingFragment StoreEntitySet="eav_entity_attribute">
+                <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+                <ScalarProperty Name="entity_attribute_id" ColumnName="entity_attribute_id" />
+                <ScalarProperty Name="entity_type_id" ColumnName="entity_type_id" />
+                <ScalarProperty Name="sort_order" ColumnName="sort_order" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" TypeName="MagentoWebEntitiesContainer.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" StoreEntitySet="cataloginventory_stock_item">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="product_id" />
+            </EndProperty>
+            <EndProperty Name="cataloginventory_stock_item">
+              <ScalarProperty Name="item_id" ColumnName="item_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CATALOG_CATEGORY_PRODUCT_CATEGORY" TypeName="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_CATEGORY" StoreEntitySet="catalog_category_product">
+            <EndProperty Name="catalog_category_entity">
+              <ScalarProperty Name="entity_id" ColumnName="category_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_product">
+              <ScalarProperty Name="category_id" ColumnName="category_id" />
+              <ScalarProperty Name="position" ColumnName="position" />
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" StoreEntitySet="catalog_category_entity_int">
+            <EndProperty Name="catalog_category_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_entity_int">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" StoreEntitySet="catalog_category_entity_varchar">
+            <EndProperty Name="catalog_category_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_entity_varchar">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" StoreEntitySet="catalog_category_product_index">
+            <EndProperty Name="catalog_category_entity">
+              <ScalarProperty Name="entity_id" ColumnName="category_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_product_index">
+              <ScalarProperty Name="category_id" ColumnName="category_id" />
+              <ScalarProperty Name="is_parent" ColumnName="is_parent" />
+              <ScalarProperty Name="position" ColumnName="position" />
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+              <ScalarProperty Name="store_id" ColumnName="store_id" />
+              <ScalarProperty Name="visibility" ColumnName="visibility" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" StoreEntitySet="catalog_category_entity_int">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_entity_int">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" StoreEntitySet="catalog_category_entity_varchar">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_entity_varchar">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="CATALOG_CATEGORY_PRODUCT_PRODUCT" TypeName="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_PRODUCT" StoreEntitySet="catalog_category_product">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="product_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_product">
+              <ScalarProperty Name="category_id" ColumnName="category_id" />
+              <ScalarProperty Name="position" ColumnName="position" />
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" StoreEntitySet="catalog_category_product_index">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="product_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_category_product_index">
+              <ScalarProperty Name="category_id" ColumnName="category_id" />
+              <ScalarProperty Name="is_parent" ColumnName="is_parent" />
+              <ScalarProperty Name="position" ColumnName="position" />
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+              <ScalarProperty Name="store_id" ColumnName="store_id" />
+              <ScalarProperty Name="visibility" ColumnName="visibility" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_EAV_ATTRIBUTE_ID" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_EAV_ATTRIBUTE_ID" StoreEntitySet="catalog_eav_attribute">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" StoreEntitySet="catalog_product_entity">
+            <EndProperty Name="eav_attribute_set">
+              <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" StoreEntitySet="catalog_product_entity_decimal">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_decimal">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" StoreEntitySet="catalog_product_entity_gallery">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_gallery">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" StoreEntitySet="catalog_product_entity_int">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_int">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" StoreEntitySet="catalog_product_entity_varchar">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_varchar">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" StoreEntitySet="catalog_product_entity_media_gallery">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="entity_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_media_gallery">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" StoreEntitySet="catalog_product_website">
+            <EndProperty Name="catalog_product_entity">
+              <ScalarProperty Name="entity_id" ColumnName="product_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_website">
+              <ScalarProperty Name="product_id" ColumnName="product_id" />
+              <ScalarProperty Name="website_id" ColumnName="website_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" StoreEntitySet="catalog_product_entity_decimal">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_decimal">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" StoreEntitySet="catalog_product_entity_gallery">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_gallery">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" StoreEntitySet="catalog_product_entity_int">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_int">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" StoreEntitySet="catalog_product_entity_media_gallery">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_media_gallery">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" StoreEntitySet="catalog_product_entity_media_gallery_value">
+            <EndProperty Name="catalog_product_entity_media_gallery">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_media_gallery_value">
+              <ScalarProperty Name="store_id" ColumnName="store_id" />
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" StoreEntitySet="catalog_product_entity_varchar">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="catalog_product_entity_varchar">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ATTRIBUTE_OPTION_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_ATTRIBUTE" StoreEntitySet="eav_attribute_option">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="eav_attribute_option">
+              <ScalarProperty Name="option_id" ColumnName="option_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" TypeName="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" StoreEntitySet="eav_entity_attribute">
+            <EndProperty Name="eav_attribute">
+              <ScalarProperty Name="attribute_id" ColumnName="attribute_id" />
+            </EndProperty>
+            <EndProperty Name="eav_entity_attribute">
+              <ScalarProperty Name="entity_attribute_id" ColumnName="entity_attribute_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_eav_attribute_group" TypeName="MagentoWebEntitiesContainer.FK_eav_attribute_group" StoreEntitySet="eav_attribute_group">
+            <EndProperty Name="eav_attribute_set">
+              <ScalarProperty Name="attribute_set_id" ColumnName="attribute_set_id" />
+            </EndProperty>
+            <EndProperty Name="eav_attribute_group">
+              <ScalarProperty Name="attribute_group_id" ColumnName="attribute_group_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_EAV_ENTITY_ATTRIBUTE_GROUP" TypeName="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_GROUP" StoreEntitySet="eav_entity_attribute">
+            <EndProperty Name="eav_attribute_group">
+              <ScalarProperty Name="attribute_group_id" ColumnName="attribute_group_id" />
+            </EndProperty>
+            <EndProperty Name="eav_entity_attribute">
+              <ScalarProperty Name="entity_attribute_id" ColumnName="entity_attribute_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_ATTRIBUTE_OPTION_VALUE_OPTION" TypeName="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_VALUE_OPTION" StoreEntitySet="eav_attribute_option_value">
+            <EndProperty Name="eav_attribute_option">
+              <ScalarProperty Name="option_id" ColumnName="option_id" />
+            </EndProperty>
+            <EndProperty Name="eav_attribute_option_value">
+              <ScalarProperty Name="value_id" ColumnName="value_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="MagentoDB">
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.cataloginventory_stock_item" Width="1.5" PointX="3" PointY="0.75" Height="4.2218636067708317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_category_entity" Width="1.5" PointX="3.75" PointY="26.125" Height="3.2357796223958317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_category_entity_int" Width="2.375" PointX="3" PointY="18.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_category_entity_varchar" Width="3.625" PointX="6" PointY="16.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_category_product" Width="3.625" PointX="6.875" PointY="18.25" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_category_product_index" Width="1.5" PointX="9" PointY="21" Height="2.2496956380208317" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_eav_attribute" Width="1.5" PointX="3" PointY="37.5" Height="4.0575162760416674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity" Width="2" PointX="0.5" PointY="8.875" Height="3.8931689453124996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_decimal" Width="1.5" PointX="6" PointY="19.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_gallery" Width="1.5" PointX="3" PointY="21.75" Height="2.0853483072916674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_int" Width="2.375" PointX="3" PointY="10.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery" Width="1.5" PointX="3" PointY="15.875" Height="1.7566536458333335" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_media_gallery_value" Width="1.5" PointX="5.25" PointY="22.75" Height="1.9210009765625031" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_entity_varchar" Width="1.5" PointX="6" PointY="10.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.catalog_product_website" Width="2.25" PointX="3" PointY="8.625" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_attribute" Width="1.5" PointX="0.75" PointY="14.125" Height="5.372294921874996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_attribute_group" Width="2.75" PointX="5.75" PointY="7.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_attribute_option" Width="1.5" PointX="3" PointY="13.625" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_attribute_option_value" Width="1.5" PointX="5.25" PointY="13.625" Height="1.5923063151041674" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_attribute_set" Width="2.375" PointX="1.5" PointY="5.75" Height="1.9210009765624996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_entity" Width="1.5" PointX="5.75" PointY="1.375" Height="2.4140429687499996" IsExpanded="true" />
+        <EntityTypeShape EntityType="MagentoWebEntitiesContainer.eav_entity_attribute" Width="1.5" PointX="8" PointY="13.75" Height="1.9210009765624996" IsExpanded="true" />
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOGINVENTORY_STOCK_ITEM_PRODUCT" ManuallyRouted="false">
+          <ConnectorPoint PointX="0.96875" PointY="8.875" />
+          <ConnectorPoint PointX="0.96875" PointY="2.8609318033854159" />
+          <ConnectorPoint PointX="3" PointY="2.8609318033854159" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_CATEGORY" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="26.902692405598959" />
+          <ConnectorPoint PointX="8.25" PointY="26.902692405598959" />
+          <ConnectorPoint PointX="8.25" PointY="20.006653645833332" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.03125" PointY="26.125" />
+          <ConnectorPoint PointX="5.03125" PointY="20.671000976562503" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.359373" PointY="26.125" />
+          <ConnectorPoint PointX="4.359373" PointY="24.085348307291667" />
+          <ConnectorPoint PointX="4.75" PointY="24.085348307291667" />
+          <ConnectorPoint PointX="4.75" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="5.447916666666667" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="5.614583333333333" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="5.625" PointY="20.921000976562503" />
+          <ConnectorPoint PointX="5.625" PointY="17.3122078433431" />
+          <ConnectorPoint PointX="6" PointY="17.3122078433431" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_CATEGORY_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="5.25" PointY="27.742889811197916" />
+          <ConnectorPoint PointX="9.75" PointY="27.742889811197916" />
+          <ConnectorPoint PointX="9.75" PointY="23.249695638020832" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_EMTITY_INT_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="19.123647460937498" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="19.123647460937498" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="19.123647460937498" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="19.123647460937498" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="19.123647460937498" />
+          <ConnectorPoint PointX="3" PointY="19.123647460937498" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_ENTITY_VARCHAR_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="5.447916666666667" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="5.708333333333333" PointY="17.936919686686196" />
+          <ConnectorPoint PointX="6" PointY="17.936919686686196" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.CATALOG_CATEGORY_PRODUCT_PRODUCT" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="10.4014794921875" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="10.4014794921875" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="10.4014794921875" />
+          <ConnectorPoint PointX="10.09375" PointY="10.4014794921875" />
+          <ConnectorPoint PointX="10.09375" PointY="18.25" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_CATEGORY_PRODUCT_INDEX_PRODUCT_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.046875" PointY="12.7681689453125" />
+          <ConnectorPoint PointX="1.046875" PointY="13.625" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="13.625" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="13.625" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="13.625" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="13.625" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="13.625" />
+          <ConnectorPoint PointX="2.7395833333333335" PointY="13.625" />
+          <ConnectorPoint PointX="2.75" PointY="13.625" />
+          <ConnectorPoint PointX="2.75" PointY="21.5" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="21.5" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="21.5" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="21.5" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="21.5" />
+          <ConnectorPoint PointX="5.447916666666667" PointY="21.5" />
+          <ConnectorPoint PointX="5.614583333333333" PointY="21.5" />
+          <ConnectorPoint PointX="5.75" PointY="21.5" />
+          <ConnectorPoint PointX="5.75" PointY="22.241749488281251" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="22.241749488281251" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="22.241749488281251" />
+          <ConnectorPoint PointX="9" PointY="22.241749488281251" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_EAV_ATTRIBUTE_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="19.497294921874996" />
+          <ConnectorPoint PointX="1.5" PointY="39.528758138020834" />
+          <ConnectorPoint PointX="3" PointY="39.528758138020834" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_ATTRIBUTE_SET_ID" ManuallyRouted="false">
+          <ConnectorPoint PointX="2" PointY="7.6710009765625" />
+          <ConnectorPoint PointX="2" PointY="8.875" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_PRODUCT_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.40625" PointY="12.7681689453125" />
+          <ConnectorPoint PointX="2.40625" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="5.447916666666667" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="5.614583333333333" PointY="21.210500488281252" />
+          <ConnectorPoint PointX="6" PointY="21.210500488281252" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="0.59375" PointY="12.7681689453125" />
+          <ConnectorPoint PointX="0.59375" PointY="23.068968942057293" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="23.068968942057293" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="23.068968942057293" />
+          <ConnectorPoint PointX="3" PointY="23.068968942057293" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_PRODUCT_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="12.04879651171875" />
+          <ConnectorPoint PointX="3" PointY="12.04879651171875" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_PRODUCT_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.953125" PointY="12.7681689453125" />
+          <ConnectorPoint PointX="1.953125" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="6.75" PointY="13.1431689453125" />
+          <ConnectorPoint PointX="6.75" PointY="12.6710009765625" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ENTITY" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.5" PointY="12.7681689453125" />
+          <ConnectorPoint PointX="1.5" PointY="13.875" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="13.875" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="13.875" />
+          <ConnectorPoint PointX="2.5" PointY="13.875" />
+          <ConnectorPoint PointX="2.5" PointY="16.753326822916666" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="16.753326822916666" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="16.753326822916666" />
+          <ConnectorPoint PointX="3" PointY="16.753326822916666" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_WEBSITE_PRODUCT_PRODUCT" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.5" PointY="9.4639794921875" />
+          <ConnectorPoint PointX="3" PointY="9.4639794921875" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_DECIMAL_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.9062525" PointY="19.497294921874996" />
+          <ConnectorPoint PointX="1.9062525" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="2.4895833333333335" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="4.666666666666667" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="4.833333333333333" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="4.947916666666667" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="5.114583333333333" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="5.447916666666667" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="5.614583333333333" PointY="21.034498232421878" />
+          <ConnectorPoint PointX="6" PointY="21.034498232421878" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_GALLERY_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="1.0937475" PointY="19.497294921874996" />
+          <ConnectorPoint PointX="1.0937475" PointY="22.240084576822916" />
+          <ConnectorPoint PointX="1.4166666666666667" PointY="22.240084576822916" />
+          <ConnectorPoint PointX="1.5833333333333333" PointY="22.240084576822916" />
+          <ConnectorPoint PointX="3" PointY="22.240084576822916" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_INT_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.750829955729166" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="14.750829955729165" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="14.750829955729166" />
+          <ConnectorPoint PointX="2.65625" PointY="14.750829955729166" />
+          <ConnectorPoint PointX="2.65625" PointY="13.2335009765625" />
+          <ConnectorPoint PointX="4.1875" PointY="13.2335009765625" />
+          <ConnectorPoint PointX="4.1875" PointY="12.6710009765625" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="16.251663411458331" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="16.251663411458331" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="16.251663411458331" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="16.251663411458331" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="16.251663411458331" />
+          <ConnectorPoint PointX="3" PointY="16.251663411458331" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_MEDIA_GALLERY_VALUE_GALLERY" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="16.28125" />
+          <ConnectorPoint PointX="5.53125" PointY="16.28125" />
+          <ConnectorPoint PointX="5.53125" PointY="22.75" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_CATALOG_PRODUCT_ENTITY_VARCHAR_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="15.439163911458333" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="15.439163911458332" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="15.439163911458333" />
+          <ConnectorPoint PointX="2.625" PointY="15.439163911458333" />
+          <ConnectorPoint PointX="2.625" PointY="13.0460009765625" />
+          <ConnectorPoint PointX="4.104166666666667" PointY="13.0460009765625" />
+          <ConnectorPoint PointX="4.270833333333333" PointY="13.0460009765625" />
+          <ConnectorPoint PointX="6.343748" PointY="13.0460009765625" />
+          <ConnectorPoint PointX="6.343748" PointY="12.6710009765625" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="14.375414977864583" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="14.375414977864581" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="14.375414977864583" />
+          <ConnectorPoint PointX="3" PointY="14.375414977864583" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_ATTRIBUTE" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="15.617582444010417" />
+          <ConnectorPoint PointX="2.3229166666666665" PointY="15.617582444010415" />
+          <ConnectorPoint PointX="2.5833333333333335" PointY="15.617582444010417" />
+          <ConnectorPoint PointX="2.6666666666666665" PointY="15.617582444010417" />
+          <ConnectorPoint PointX="2.8333333333333335" PointY="15.617582444010417" />
+          <ConnectorPoint PointX="8" PointY="15.617582444010417" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_eav_attribute_group" ManuallyRouted="false">
+          <ConnectorPoint PointX="3.875" PointY="6.71050048828125" />
+          <ConnectorPoint PointX="7.125" PointY="6.71050048828125" />
+          <ConnectorPoint PointX="7.125" PointY="7.75" /></AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_EAV_ENTITY_ATTRIBUTE_GROUP" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="9.6710009765625" />
+          <ConnectorPoint PointX="8.25" PointY="13.75" />
+          </AssociationConnector>
+        <AssociationConnector Association="MagentoWebEntitiesContainer.FK_ATTRIBUTE_OPTION_VALUE_OPTION" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="14.421153157552084" />
+          <ConnectorPoint PointX="5.25" PointY="14.421153157552084" />
+          </AssociationConnector></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

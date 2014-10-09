@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://webservices.brightpoint.se/wsOrder/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://webservices.brightpoint.se/wsOrder/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://webservices.brightpoint.se/wsOrder/">
+      <s:element name="GetErrorDescription">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="iErrorCode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetErrorDescriptionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetErrorDescriptionResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_V1.1">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oOrders" type="tns:Order1_1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Order1_1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="oOrderH" type="tns:OrderHeader1_1" />
+          <s:element minOccurs="0" maxOccurs="1" name="oOrderR" type="tns:ArrayOfOrderRows1_1" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderHeader1_1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sMessageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sMessageDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sMessageTime" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDecimalDelimeter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderOrderNumberAtBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderHeaderNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderDocumentText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sConfirmationEmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderConfirmationEmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sDeliveryEmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderCustomerNumberAtBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderEAN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sWantedDeliveryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sAllowBackOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCurrencyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sShipViaCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sLabelNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUse3PReceiver" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverOrderNumberAtSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverCustomerNumberAtSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverPayTermAtSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverInvoiceNumberAtSender" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryAddress1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryAddress2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryPostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryCity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryCounty" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryCountry" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverTelephone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverTelefax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderOrderConfirmation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderDeliveryNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderInvoice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverOrderConfirmation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverDeliveryNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sReceiverInvoice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oOrderAttributes" type="tns:ArrayOfAttribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAttribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Attribute" nillable="true" type="tns:Attribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Attribute">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderAttributeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderAttributeValue" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfOrderRows1_1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="OrderRows1_1" nillable="true" type="tns:OrderRows1_1" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderRows1_1">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="iOrderLineNumber" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sEANArticleNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sWantedDeliveryDate" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sBPArticleNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sBPArticleDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="iBPArticleType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="sBPArticlePrice" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="iNumberOfArticle" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="dReceiverPriceAtSender" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="dReceiverDiscountAtSender" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderDetailNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOrderDetailDocumentText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sOwnerShip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sActivityID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sProjectID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sUnitPriceAtSupplier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sCatalogDescription" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sConditionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="oOrderRowAttributes" type="tns:ArrayOfAttribute" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Order_V1.1Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_V1.1Result" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Response">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="bError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="aField" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="aErrorCode" type="tns:ArrayOfInt" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SecurityToken" type="tns:SecurityToken" />
+      <s:complexType name="SecurityToken">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="customerNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="OrderDeliver_V1.0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oOrderDeliver" type="tns:Order_Deliver1_0" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Order_Deliver1_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="oOrder" type="tns:OrderDeliverHeader1_0" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderDeliverHeader1_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderOrderNumberAtBP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OrderDeliver_V1.0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderDeliver_V1.0Result" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="OrderCancel_V1.0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oOrderCancel" type="tns:Order_Cancel1_0" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Order_Cancel1_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="oOrder" type="tns:OrderCancelHeader1_0" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="OrderCancelHeader1_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sSite" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderOrderNumberAtBP" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="OrderCancel_V1.0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="OrderCancel_V1.0Result" type="tns:Response" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Order_V2.0">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oOrderArray" type="tns:ArrayOfOrder1_1" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfOrder1_1">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Order1_1" nillable="true" type="tns:Order1_1" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Order_V2.0Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Order_V2.0Result" type="tns:ArrayOfResponse2_0" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfResponse2_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Response2_0" nillable="true" type="tns:Response2_0" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Response2_0">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderCustomerNumberAtBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderReference" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="sSenderOrderNumberAtBP" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Response" type="tns:Response" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetErrorDescriptionSoapIn">
+    <wsdl:part name="parameters" element="tns:GetErrorDescription" />
+  </wsdl:message>
+  <wsdl:message name="GetErrorDescriptionSoapOut">
+    <wsdl:part name="parameters" element="tns:GetErrorDescriptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="Order_V1.1SoapIn">
+    <wsdl:part name="parameters" element="tns:Order_V1.1" />
+  </wsdl:message>
+  <wsdl:message name="Order_V1.1SoapOut">
+    <wsdl:part name="parameters" element="tns:Order_V1.1Response" />
+  </wsdl:message>
+  <wsdl:message name="Order_V1.1SecurityToken">
+    <wsdl:part name="SecurityToken" element="tns:SecurityToken" />
+  </wsdl:message>
+  <wsdl:message name="OrderDeliver_V1.0SoapIn">
+    <wsdl:part name="parameters" element="tns:OrderDeliver_V1.0" />
+  </wsdl:message>
+  <wsdl:message name="OrderDeliver_V1.0SoapOut">
+    <wsdl:part name="parameters" element="tns:OrderDeliver_V1.0Response" />
+  </wsdl:message>
+  <wsdl:message name="OrderDeliver_V1.0SecurityToken">
+    <wsdl:part name="SecurityToken" element="tns:SecurityToken" />
+  </wsdl:message>
+  <wsdl:message name="OrderCancel_V1.0SoapIn">
+    <wsdl:part name="parameters" element="tns:OrderCancel_V1.0" />
+  </wsdl:message>
+  <wsdl:message name="OrderCancel_V1.0SoapOut">
+    <wsdl:part name="parameters" element="tns:OrderCancel_V1.0Response" />
+  </wsdl:message>
+  <wsdl:message name="OrderCancel_V1.0SecurityToken">
+    <wsdl:part name="SecurityToken" element="tns:SecurityToken" />
+  </wsdl:message>
+  <wsdl:message name="Order_V2.0SoapIn">
+    <wsdl:part name="parameters" element="tns:Order_V2.0" />
+  </wsdl:message>
+  <wsdl:message name="Order_V2.0SoapOut">
+    <wsdl:part name="parameters" element="tns:Order_V2.0Response" />
+  </wsdl:message>
+  <wsdl:message name="Order_V2.0SecurityToken">
+    <wsdl:part name="SecurityToken" element="tns:SecurityToken" />
+  </wsdl:message>
+  <wsdl:portType name="clsWsOrderSoap">
+    <wsdl:operation name="GetErrorDescription">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Return the error description of an error.</wsdl:documentation>
+      <wsdl:input message="tns:GetErrorDescriptionSoapIn" />
+      <wsdl:output message="tns:GetErrorDescriptionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Order V1.1  Input the order object and the function will return a Response object that will contain information if the insertion was okey.</wsdl:documentation>
+      <wsdl:input name="Order_V1.1" message="tns:Order_V1.1SoapIn" />
+      <wsdl:output name="Order_V1.1" message="tns:Order_V1.1SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderDeliver">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OrderDeliver V1.0  Input the order deliver object and the function will return a Response object that will contain information if the insertion was okey.</wsdl:documentation>
+      <wsdl:input name="OrderDeliver_V1.0" message="tns:OrderDeliver_V1.0SoapIn" />
+      <wsdl:output name="OrderDeliver_V1.0" message="tns:OrderDeliver_V1.0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderCancel">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">OrderCancel V1.0  Input the order cancel object and the function will return a Response object that will contain information if the insertion was okey.</wsdl:documentation>
+      <wsdl:input name="OrderCancel_V1.0" message="tns:OrderCancel_V1.0SoapIn" />
+      <wsdl:output name="OrderCancel_V1.0" message="tns:OrderCancel_V1.0SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI_v2_0">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Order V2.0  Input multiple order objects and the function will return a Response object that will contain information if the insertion was okay.</wsdl:documentation>
+      <wsdl:input name="Order_V2.0" message="tns:Order_V2.0SoapIn" />
+      <wsdl:output name="Order_V2.0" message="tns:Order_V2.0SoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="clsWsOrderSoap" type="tns:clsWsOrderSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorDescription">
+      <soap:operation soapAction="http://webservices.brightpoint.se/wsOrder/GetErrorDescription" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI">
+      <soap:operation soapAction="http://webservices.brightpoint.se/wsOrder/Order_V1.1" style="document" />
+      <wsdl:input name="Order_V1.1">
+        <soap:body use="literal" />
+        <soap:header message="tns:Order_V1.1SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Order_V1.1">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderDeliver">
+      <soap:operation soapAction="http://webservices.brightpoint.se/wsOrder/OrderDeliver_V1.0" style="document" />
+      <wsdl:input name="OrderDeliver_V1.0">
+        <soap:body use="literal" />
+        <soap:header message="tns:OrderDeliver_V1.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OrderDeliver_V1.0">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderCancel">
+      <soap:operation soapAction="http://webservices.brightpoint.se/wsOrder/OrderCancel_V1.0" style="document" />
+      <wsdl:input name="OrderCancel_V1.0">
+        <soap:body use="literal" />
+        <soap:header message="tns:OrderCancel_V1.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OrderCancel_V1.0">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI_v2_0">
+      <soap:operation soapAction="http://webservices.brightpoint.se/wsOrder/Order_V2.0" style="document" />
+      <wsdl:input name="Order_V2.0">
+        <soap:body use="literal" />
+        <soap:header message="tns:Order_V2.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Order_V2.0">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="clsWsOrderSoap12" type="tns:clsWsOrderSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetErrorDescription">
+      <soap12:operation soapAction="http://webservices.brightpoint.se/wsOrder/GetErrorDescription" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI">
+      <soap12:operation soapAction="http://webservices.brightpoint.se/wsOrder/Order_V1.1" style="document" />
+      <wsdl:input name="Order_V1.1">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Order_V1.1SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Order_V1.1">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderDeliver">
+      <soap12:operation soapAction="http://webservices.brightpoint.se/wsOrder/OrderDeliver_V1.0" style="document" />
+      <wsdl:input name="OrderDeliver_V1.0">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:OrderDeliver_V1.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OrderDeliver_V1.0">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendOrderCancel">
+      <soap12:operation soapAction="http://webservices.brightpoint.se/wsOrder/OrderCancel_V1.0" style="document" />
+      <wsdl:input name="OrderCancel_V1.0">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:OrderCancel_V1.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="OrderCancel_V1.0">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendBPeDI_v2_0">
+      <soap12:operation soapAction="http://webservices.brightpoint.se/wsOrder/Order_V2.0" style="document" />
+      <wsdl:input name="Order_V2.0">
+        <soap12:body use="literal" />
+        <soap12:header message="tns:Order_V2.0SecurityToken" part="SecurityToken" use="literal" />
+      </wsdl:input>
+      <wsdl:output name="Order_V2.0">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="clsWsOrder">
+    <wsdl:port name="clsWsOrderSoap" binding="tns:clsWsOrderSoap">
+      <soap:address location="https://secure.brightpoint.eu/ws/external/order/1.2.2/wsOrder.asmx" />
+    </wsdl:port>
+    <wsdl:port name="clsWsOrderSoap12" binding="tns:clsWsOrderSoap12">
+      <soap12:address location="https://secure.brightpoint.eu/ws/external/order/1.2.2/wsOrder.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1 @@
+﻿  update [VendorTranslation] set DestinationVendorValue = dbo.InitCap(DestinationVendorValue) where TranslationType = 3

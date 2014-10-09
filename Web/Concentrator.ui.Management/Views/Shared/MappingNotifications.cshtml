@@ -1,0 +1,60 @@
+﻿@model Concentrator.ui.Management.Models.MappingNotificationViewModel
+<div style="margin: 10px">
+  <div>
+    <p style="margin-bottom: 10px">
+      The following need(s) to be mapped:
+    </p>
+  </div>
+  <ul>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('product-matching', [{key : 'isMatched', value: false, isGridFilter : true}])">
+      Products to be matched :
+      @Model.ProductMatches
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('vendor-product-group-mapping', {initialUnmapped: true})">
+      Unmapped product groups :
+      @Model.UnmatchedProductGroupsCount
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('vendor-product-status-item', {initialUnmapped: true})">
+      Unmapped vendor statuses :
+      @Model.UnmatchedVendorStatuses
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('connector-product-status-item', {initialUnmapped: true})">
+      Unmapped connector statuses :
+      @Model.UnmatchedConnectorStatuses
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('vendor-brands-item', {initialUnmapped: true})">
+      Unmapped brands :
+      @Model.UnmatchedBrands
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {hasImage: false})">
+      Active products without image :
+      @Model.ProductsNoImages
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {initialUnmapped: true})">
+      Active products with small images :
+      @Model.ProductsSmallImages
+    </a></li>
+    <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {initialUnmapped: true})">
+      Products without attributes/specifications :
+      @Model.MissingSpecifications
+    </a></li>
+
+        <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {VendorOverlay: true})">
+      Overlay products :
+      @Model.OverlayProducts
+    </a></li>
+        <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {VendorBase: true})">
+      Base products :
+      @Model.BaseProducts
+    </a></li>
+              <li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {PreferredContent: true})">
+      Products without preferred content :
+      @Model.MissingPreferredContent
+    </a></li>
+    
+    @*<li style="margin-bottom: 5px"><a href="#" onclick="Concentrator.ViewInstance.open('content-item', {initialUnmapped: true})">
+     New products:
+    
+    </a></li>*@
+  </ul>
+</div>
